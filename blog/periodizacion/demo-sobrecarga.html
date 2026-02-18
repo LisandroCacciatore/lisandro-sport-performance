@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cómo construyo una alerta de sobrecarga sin algoritmos complejos | Lisandro Cacciatore</title>
+    <meta name="description" content="Anatomía de una alerta real. Cruzando GPS con wellness para un semáforo de decisión simple que el staff puede usar en dos minutos.">
+    <link rel="canonical" href="https://lisandrocacciatore.com/blog/periodizacion/demo-sobrecarga.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <script src="../../theme.js"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        h1, h2, h3, .font-heading { font-family: 'Montserrat', sans-serif; }
+        pre { background-color: #0F172A !important; border-radius: 0.5rem; padding: 1.25rem; overflow-x: auto; }
+        code { font-family: 'Fira Code', monospace; font-size: 0.85rem; color: #86efac; }
+    </style>
+</head>
+<body class="bg-white text-body antialiased">
+
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-200">
+        <div class="max-w-4xl mx-auto px-6 h-16 flex justify-between items-center">
+            <a href="../../index.html" class="font-heading font-bold text-dark">Lisandro Cacciatore <span class="text-primary">.</span></a>
+            <a href="../../blog.html" class="text-sm font-medium text-slate-500 hover:text-primary transition-colors">← Blog</a>
+        </div>
+    </nav>
+
+    <main class="py-16 px-6">
+        <article class="max-w-3xl mx-auto">
+
+            <header class="mb-12 text-center">
+                <div class="flex justify-center mb-6">
+                    <nav class="flex text-xs text-slate-400 font-medium gap-2 items-center">
+                        <a href="../../blog.html" class="hover:text-primary">Blog</a>
+                        <span>/</span>
+                        <span class="text-slate-600">Periodización</span>
+                    </nav>
+                </div>
+                <span class="inline-block py-1 px-3 rounded text-xs font-mono font-bold uppercase tracking-wider bg-blue-50 text-blue-700 mb-6">Periodización · Demo Técnica</span>
+                <h1 class="text-3xl md:text-5xl font-extrabold text-dark mb-6 leading-tight">
+                    Cómo construyo una alerta de sobrecarga sin algoritmos complejos
+                </h1>
+                <p class="text-xl text-slate-600 leading-relaxed">
+                    No necesitás inteligencia artificial para detectar riesgo de lesión. Necesitás cruzar dos fuentes de datos con la lógica correcta. Acá está la anatomía completa de cómo lo hago.
+                </p>
+                <div class="mt-6 text-xs font-mono text-slate-400">Lisandro Cacciatore · Periodización</div>
+            </header>
+
+            <div class="prose prose-lg prose-slate max-w-none prose-headings:font-bold prose-headings:text-dark prose-a:text-primary prose-blockquote:border-primary">
+
+                <h2>La pregunta que tiene que responder el sistema</h2>
+                <p>
+                    "¿A quién saco del reducido de mañana?" Esa es la pregunta real del PF antes del entrenamiento. No le sirve saber que el promedio del equipo está "dentro del rango". Necesita nombres concretos con contexto claro, en menos de dos minutos.
+                </p>
+                <p>
+                    Si el dashboard no puede responder esa pregunta directamente, es un dashboard decorativo. Puede ser visualmente sofisticado, tener gráficos interactivos y 40 métricas por jugador — y aun así no servir para lo que importa.
+                </p>
+
+                <h2>La lógica detrás de la alerta</h2>
+                <p>
+                    Para responder esa pregunta, cruzo dos fuentes que en la mayoría de los clubes viven en silos separados: los datos GPS (objetivo) y el wellness reportado por el jugador (subjetivo). El cruce entre ambos define el estado de disponibilidad.
+                </p>
+                <p>
+                    La lógica en pseudocódigo es esta:
+                </p>
+
+            </div>
+
+            <div class="my-8 rounded-lg overflow-hidden border border-slate-800">
+                <div class="bg-slate-800 px-4 py-2 flex items-center justify-between">
+                    <span class="text-xs font-mono text-slate-400">logica_alerta.py</span>
+                    <span class="text-xs font-mono text-green-400">// lógica de la alerta</span>
+                </div>
+                <pre><code>def calcular_estado(jugador):
+    acwr = jugador['carga_aguda_7d'] / jugador['carga_cronica_28d']
+    dolor_muscular = jugador['wellness_dolor']  # escala 1-10
+
+    if acwr > 1.3 and dolor_muscular > 7:
+        return "RIESGO_ALTO"      # 🔴 Reducir carga
+    elif acwr > 1.3 or dolor_muscular > 7:
+        return "MONITOREAR"       # 🟡 Atención
+    else:
+        return "DISPONIBLE"       # 🟢 Sin restricción
+</code></pre>
+            </div>
+
+            <div class="prose prose-lg prose-slate max-w-none prose-headings:font-bold prose-headings:text-dark prose-a:text-primary">
+
+                <h2>Por qué el cruce importa tanto como los datos individuales</h2>
+                <p>
+                    Si el GPS indica que el jugador corrió mucho pero reporta que se siente bien, no es una alerta roja. Es una señal amarilla que justifica seguimiento. Solo frenamos cuando ambas señales coinciden.
+                </p>
+                <p>
+                    El motivo es simple: si confiara solo en el GPS, estaría parando a jugadores bien adaptados que toleran cargas altas sin consecuencias. Si confiara solo en el wellness, estaría ignorando la fatiga acumulada de jugadores que minimizan síntomas — algo habitual en contextos competitivos donde el jugador no quiere ser percibido como "lesionable".
+                </p>
+                <p>
+                    El cruce de ambas fuentes filtra ambos errores. No es perfecto, pero es más robusto que cualquiera de las dos variables por separado.
+                </p>
+
+                <h2>El resultado en el dashboard</h2>
+                <p>
+                    El reporte no muestra números. Muestra un semáforo por jugador con tres estados posibles:
+                </p>
+
+            </div>
+
+            <!-- SEMÁFORO VISUAL -->
+            <div class="my-10 grid grid-cols-3 gap-4">
+                <div class="bg-green-50 border border-green-200 rounded-xl p-5 text-center">
+                    <div class="text-3xl mb-2">🟢</div>
+                    <div class="font-bold text-green-800 text-sm mb-1">Disponible</div>
+                    <div class="text-xs text-green-600 leading-relaxed">GPS y wellness dentro de rango. Sin restricción.</div>
+                </div>
+                <div class="bg-amber-50 border border-amber-200 rounded-xl p-5 text-center">
+                    <div class="text-3xl mb-2">🟡</div>
+                    <div class="font-bold text-amber-800 text-sm mb-1">Monitorear</div>
+                    <div class="text-xs text-amber-600 leading-relaxed">Una señal de alerta. Seguimiento activo antes de la sesión.</div>
+                </div>
+                <div class="bg-red-50 border border-red-200 rounded-xl p-5 text-center">
+                    <div class="text-3xl mb-2">🔴</div>
+                    <div class="font-bold text-red-800 text-sm mb-1">Reducir carga</div>
+                    <div class="text-xs text-red-600 leading-relaxed">Ambas señales activas. Ajuste antes del entrenamiento.</div>
+                </div>
+            </div>
+
+            <div class="prose prose-lg prose-slate max-w-none prose-headings:font-bold prose-headings:text-dark prose-a:text-primary">
+
+                <h2>La transferencia al staff es parte del trabajo</h2>
+                <p>
+                    Implementar este sistema no es solo instalar código. Es enseñarle al staff a confiar en el semáforo y entender sus límites. En las consultorías, dedico una sesión específica a calibrar los umbrales junto al PF principal, basado en el historial de lesiones del plantel y las características del microciclo habitual del club.
+                </p>
+                <p>
+                    Las preguntas que siempre aparecen en esa sesión:
+                </p>
+                <ul>
+                    <li>"¿Por qué 1.3 y no 1.5?" — Porque ese club tiene mayor incidencia de lesiones musculares que la referencia bibliográfica estándar.</li>
+                    <li>"¿Y si el jugador miente en el wellness?" — Por eso cruzo con GPS. Ninguna de las dos fuentes es suficiente sola.</li>
+                    <li>"¿Qué pasa con los veteranos?" — Los umbrales se ajustan individualmente cuando el historial lo justifica.</li>
+                </ul>
+
+                <h2>Una aclaración necesaria</h2>
+                <p>
+                    Este sistema no predice lesiones. Identifica jugadores en zona de riesgo estadístico basado en la evidencia disponible. La decisión final siempre es del PF y del médico. El semáforo es una señal de atención, no un diagnóstico.
+                </p>
+                <p>
+                    Tampoco funciona igual en todas las semanas. En períodos de doble competencia o viajes con recuperación reducida, los umbrales necesitan ajuste manual. El sistema no reemplaza el criterio humano. Lo complementa cuando el criterio humano no tiene tiempo de revisar todo.
+                </p>
+
+            </div>
+
+            <div class="mt-16 bg-slate-50 p-8 rounded-xl text-center border border-slate-200">
+                <h3 class="text-xl font-bold text-dark mb-2">¿Tu dashboard responde la pregunta del PF antes del entrenamiento?</h3>
+                <p class="text-slate-500 mb-6 text-sm leading-relaxed max-w-lg mx-auto">
+                    Diseño reportes que responden preguntas concretas del staff en menos de dos minutos. La auditoría inicial es el primer paso.
+                </p>
+                <a href="../../contacto.html" class="inline-block bg-primary text-white font-bold py-3 px-8 rounded hover:bg-blue-700 transition-colors">
+                    Solicitar Auditoría →
+                </a>
+            </div>
+
+        </article>
+    </main>
+
+    <footer class="bg-dark text-white py-10 text-center mt-16 border-t border-slate-800">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-center gap-8 text-sm text-slate-500 mb-4">
+                <a href="../../index.html" class="hover:text-white transition-colors">Inicio</a>
+                <a href="../../blog.html" class="hover:text-white transition-colors">Blog</a>
+                <a href="../../contacto.html" class="hover:text-white transition-colors">Contacto</a>
+            </div>
+            <p class="text-sm text-slate-600">© 2026 Lisandro Cacciatore · Rosario, Argentina</p>
+        </div>
+    </footer>
+</body>
+</html>

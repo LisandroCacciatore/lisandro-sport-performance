@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Lisandro Cacciatore | Datos Deportivos y Sistemas de Decisión</title>
+    <meta name="description" content="Artículos sobre QA de datos GPS, automatización, periodización y sistemas de decisión aplicados al rendimiento deportivo.">
+    <link rel="canonical" href="https://lisandrocacciatore.com/blog.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="theme.js"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        h1, h2, h3, .font-heading { font-family: 'Montserrat', sans-serif; }
+    </style>
+</head>
+<body class="bg-white text-body antialiased">
+
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex justify-between items-center">
+            <a href="index.html" class="font-heading font-extrabold text-xl text-dark">
+                Lisandro Cacciatore <span class="text-primary">.</span>
+            </a>
+            <div class="hidden md:flex items-center gap-8">
+                <a href="index.html#metodo" class="text-sm font-medium text-body hover:text-primary transition-colors">Método</a>
+                <a href="index.html#servicios" class="text-sm font-medium text-body hover:text-primary transition-colors">Servicios</a>
+                <a href="blog.html" class="text-sm font-medium text-primary font-semibold">Blog</a>
+                <a href="contacto.html" class="bg-primary hover:bg-blue-700 text-white text-sm font-semibold px-5 py-2.5 rounded shadow-sm hover:shadow transition-all">
+                    Solicitar Auditoría
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+
+        <!-- HERO -->
+        <section class="bg-slate-50 py-20 border-b border-slate-200">
+            <div class="max-w-4xl mx-auto px-6">
+                <span class="inline-block py-1 px-3 rounded text-xs font-mono font-bold uppercase tracking-wider bg-dark text-white mb-6">
+                    Blog
+                </span>
+                <h1 class="text-4xl md:text-5xl font-extrabold text-dark mb-5 tracking-tight">
+                    Datos que sirven para decidir.
+                </h1>
+                <p class="text-lg text-slate-500 max-w-2xl leading-relaxed">
+                    Artículos sobre validación de datos, sistemas de decisión, automatización y criterio aplicado al rendimiento deportivo. Sin marketing. Solo lo que funciona en la práctica.
+                </p>
+            </div>
+        </section>
+
+        <!-- RECURSO DESTACADO -->
+        <section class="py-12 border-b border-slate-100 bg-white">
+            <div class="max-w-4xl mx-auto px-6">
+                <p class="text-xs font-mono font-bold uppercase tracking-wider text-slate-400 mb-5">Recurso Operativo</p>
+                <div class="bg-dark text-white rounded-xl p-8 flex flex-col md:flex-row gap-6 items-start md:items-center justify-between">
+                    <div>
+                        <span class="text-xs font-mono font-bold uppercase tracking-wider text-primary mb-2 block">Descarga Gratuita</span>
+                        <h2 class="text-xl md:text-2xl font-bold mb-2">Checklist de QA Diario para Datos Deportivos</h2>
+                        <p class="text-slate-400 text-sm leading-relaxed max-w-xl">
+                            10 validaciones críticas, scripts Python listos para usar y tres casos reales de errores encontrados en equipos de Primera División.
+                        </p>
+                    </div>
+                    <a href="recursos/session-qa-checklist.html" class="flex-shrink-0 bg-primary hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded transition-all whitespace-nowrap">
+                        Descargar →
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SILO: PERIODIZACIÓN -->
+        <section class="py-16 border-b border-slate-100">
+            <div class="max-w-4xl mx-auto px-6">
+                <div class="flex items-center gap-4 mb-8">
+                    <span class="inline-block py-1 px-3 rounded text-xs font-mono font-bold uppercase tracking-wider bg-red-50 text-red-700">Periodización</span>
+                    <div class="h-px flex-1 bg-slate-100"></div>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6">
+
+                    <article class="group">
+                        <a href="blog/periodizacion/demo-sobrecarga.html" class="block p-6 border border-slate-200 rounded-xl hover:border-primary hover:shadow-md transition-all">
+                            <span class="text-xs font-mono text-slate-400 mb-3 block">Demo Técnica</span>
+                            <h2 class="text-lg font-bold text-dark mb-2 group-hover:text-primary transition-colors leading-snug">
+                                Cómo construyo una alerta de sobrecarga sin algoritmos complejos
+                            </h2>
+                            <p class="text-slate-500 text-sm leading-relaxed mb-4">
+                                Anatomía de una alerta real: cruzando GPS con wellness para producir un semáforo de decisión que el staff puede usar en dos minutos.
+                            </p>
+                            <span class="text-xs font-mono text-primary">Leer →</span>
+                        </a>
+                    </article>
+
+                    <article class="group">
+                        <a href="blog/periodizacion/total-semanal-error.html" class="block p-6 border border-slate-200 rounded-xl hover:border-primary hover:shadow-md transition-all">
+                            <span class="text-xs font-mono text-slate-400 mb-3 block">Problema → Decisión</span>
+                            <h2 class="text-lg font-bold text-dark mb-2 group-hover:text-primary transition-colors leading-snug">
+                                El error de mirar solo el total semanal
+                            </h2>
+                            <p class="text-slate-500 text-sm leading-relaxed mb-4">
+                                El cuerpo no entiende de sumas, entiende de picos. Por qué el volumen acumulado oculta el riesgo real y qué métrica deberías estar mirando.
+                            </p>
+                            <span class="text-xs font-mono text-primary">Leer →</span>
+                        </a>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SILO: AUTOMATIZACIÓN -->
+        <section class="py-16 border-b border-slate-100">
+            <div class="max-w-4xl mx-auto px-6">
+                <div class="flex items-center gap-4 mb-8">
+                    <span class="inline-block py-1 px-3 rounded text-xs font-mono font-bold uppercase tracking-wider bg-slate-100 text-slate-600">Automatización</span>
+                    <div class="h-px flex-1 bg-slate-100"></div>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6">
+
+                    <article class="group">
+                        <a href="blog/automatizacion/validar-csv.html" class="block p-6 border border-slate-200 rounded-xl hover:border-primary hover:shadow-md transition-all h-full">
+                            <span class="text-xs font-mono text-slate-400 mb-3 block">QA · Sistemas</span>
+                            <h2 class="text-base font-bold text-dark mb-2 group-hover:text-primary transition-colors leading-snug">
+                                Qué validar antes de confiar en un CSV deportivo
+                            </h2>
+                            <p class="text-slate-500 text-sm leading-relaxed mb-4">
+                                Tres validaciones automáticas que detectan GPS fantasmas, nombres duplicados y outliers físicos antes de que lleguen al dashboard.
+                            </p>
+                            <span class="text-xs font-mono text-primary">Leer →</span>
+                        </a>
+                    </article>
+
+                    <article class="group">
+                        <a href="blog/automatizacion/excel-vs-python.html" class="block p-6 border border-slate-200 rounded-xl hover:border-primary hover:shadow-md transition-all h-full">
+                            <span class="text-xs font-mono text-slate-400 mb-3 block">Proceso</span>
+                            <h2 class="text-base font-bold text-dark mb-2 group-hover:text-primary transition-colors leading-snug">
+                                Cuándo Excel ya no alcanza: el techo de la planilla
+                            </h2>
+                            <p class="text-slate-500 text-sm leading-relaxed mb-4">
+                                Si tu reporte tarda más en cargarse que en leerse, es un problema de arquitectura, no de hardware. Cuándo y cómo migrar.
+                            </p>
+                            <span class="text-xs font-mono text-primary">Leer →</span>
+                        </a>
+                    </article>
+
+                    <article class="group">
+                        <div class="p-6 border border-slate-200 rounded-xl h-full flex flex-col">
+                            <span class="text-xs font-mono text-slate-400 mb-3 block">Producto · En desarrollo</span>
+                            <h2 class="text-base font-bold text-dark mb-2 leading-snug">
+                                Por qué construí IronLog
+                            </h2>
+                            <p class="text-slate-500 text-sm leading-relaxed mb-5 flex-1">
+                                El mismo problema que veo en clubes de fútbol existe en fuerza: datos capturados sin proceso. Cómo surgió IronLog y para quién es.
+                            </p>
+                            <div class="flex gap-3 flex-wrap">
+                                <a href="blog/automatizacion/construyendo-ironlog.html" class="text-xs font-mono text-primary hover:underline">Leer artículo →</a>
+                                <span class="text-slate-200">|</span>
+                                <a href="ironlog/demo.html" class="text-xs font-mono font-bold text-white bg-primary px-3 py-1 rounded hover:bg-blue-700 transition-colors">🏋️ Probar Demo</a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SILO: DECISIONES ESTRATÉGICAS -->
+        <section class="py-16 border-b border-slate-100">
+            <div class="max-w-4xl mx-auto px-6">
+                <div class="flex items-center gap-4 mb-8">
+                    <span class="inline-block py-1 px-3 rounded text-xs font-mono font-bold uppercase tracking-wider bg-purple-50 text-purple-700">Decisiones Estratégicas</span>
+                    <div class="h-px flex-1 bg-slate-100"></div>
+                </div>
+
+                <article class="group max-w-2xl">
+                    <a href="blog/decisiones-estrategicas/dato-vs-intuicion.html" class="block p-6 border border-slate-200 rounded-xl hover:border-primary hover:shadow-md transition-all">
+                        <span class="text-xs font-mono text-slate-400 mb-3 block">Estrategia</span>
+                        <h2 class="text-lg font-bold text-dark mb-2 group-hover:text-primary transition-colors leading-snug">
+                            El mito del dato objetivo: por qué la intuición del DT sigue importando
+                        </h2>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-4">
+                            Un GPS te dice cuánto corrió. No te dice si corrió bien. El rol del contexto en la analítica deportiva y cómo diseñar sistemas que respetan esa jerarquía.
+                        </p>
+                        <span class="text-xs font-mono text-primary">Leer →</span>
+                    </a>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- SILO: GESTIÓN DEPORTIVA -->
+        <section class="py-16 border-b border-slate-100">
+            <div class="max-w-4xl mx-auto px-6">
+                <div class="flex items-center gap-4 mb-8">
+                    <span class="inline-block py-1 px-3 rounded text-xs font-mono font-bold uppercase tracking-wider bg-orange-50 text-orange-700">Gestión Deportiva</span>
+                    <div class="h-px flex-1 bg-slate-100"></div>
+                </div>
+
+                <article class="group max-w-2xl">
+                    <a href="blog/gestiondeportiva/jerarquia-tecnologia.html" class="block p-6 border border-slate-200 rounded-xl hover:border-primary hover:shadow-md transition-all">
+                        <span class="text-xs font-mono text-slate-400 mb-3 block">Para Directores Deportivos</span>
+                        <h2 class="text-lg font-bold text-dark mb-2 group-hover:text-primary transition-colors leading-snug">
+                            Antes de comprar GPS: la jerarquía de inversión que la mayoría ignora
+                        </h2>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-4">
+                            Comprar tecnología sin procesos es tirar plata. La hoja de ruta para directores deportivos que quieren invertir bien, en el orden correcto.
+                        </p>
+                        <span class="text-xs font-mono text-primary">Leer →</span>
+                    </a>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="py-16 bg-slate-50 border-t border-slate-200">
+            <div class="max-w-2xl mx-auto px-6 text-center">
+                <h2 class="text-2xl font-bold text-dark mb-3">Contenido directo al punto.</h2>
+                <p class="text-slate-500 mb-6 leading-relaxed">
+                    Cuando publico algo nuevo, lo aviso. Sin spam. Solo cuando hay algo concreto que aporta al trabajo.
+                </p>
+                <a href="recursos/session-qa-checklist.html" class="inline-block bg-primary hover:bg-blue-700 text-white font-semibold px-8 py-3 rounded shadow transition-all hover:-translate-y-0.5">
+                    Empezar con el Checklist gratuito →
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-dark text-white py-12 text-center border-t border-slate-800">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-center gap-8 text-sm text-slate-500 mb-4">
+                <a href="index.html" class="hover:text-white transition-colors">Inicio</a>
+                <a href="sobre-mi.html" class="hover:text-white transition-colors">Sobre Mí</a>
+                <a href="contacto.html" class="hover:text-white transition-colors">Contacto</a>
+                <a href="privacidad.html" class="hover:text-white transition-colors">Privacidad</a>
+            </div>
+            <p class="text-sm text-slate-600">© 2026 Lisandro Cacciatore · Rosario, Argentina</p>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herramientas y Artefactos de Datos | IronLog</title>
+    <meta name="description" content="Herramientas operativas de bajo costo para entrenadores. Sin cajas negras. Diseñadas para exponer el criterio técnico y mejorar la calidad del dato.">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../theme.js"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-heading { font-family: 'Montserrat', sans-serif; }
+        code, .font-mono { font-family: 'Fira Code', monospace; }
+        
+        /* Estética de "Blueprint" técnico */
+        .tech-grid {
+            background-image: linear-gradient(rgba(15, 23, 42, 0.05) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(15, 23, 42, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .tool-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .tool-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
+            border-color: #3B82F6;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <!-- Nav (Consistente con el ecosistema) -->
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex justify-between items-center">
+            <div class="flex items-center gap-4">
+                <a href="index.html" class="text-xs font-mono text-slate-500 hover:text-primary transition-colors">← Volver al inicio</a>
+                <span class="text-slate-200 hidden md:block">|</span>
+                <span class="font-heading font-extrabold text-lg text-slate-900">IronLog <span class="text-slate-400 font-normal">/ Tools</span></span>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="demo.html" class="text-xs font-medium text-slate-500 hover:text-primary hidden md:block">
+                    Simuladores (Free)
+                </a>
+                <a href="../contacto.html" class="bg-slate-900 text-white px-4 py-2 rounded-lg font-bold text-xs hover:bg-slate-800 transition">
+                    Consultoría
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header: Filosofía -->
+    <header class="bg-white border-b border-slate-200 relative overflow-hidden">
+        <div class="tech-grid absolute inset-0 pointer-events-none opacity-50"></div>
+        <div class="max-w-5xl mx-auto px-6 py-20 relative z-10">
+            <span class="inline-block font-mono text-xs font-bold uppercase tracking-widest text-blue-600 mb-4 bg-blue-50 px-3 py-1 rounded border border-blue-100">
+                Arquitectura de Datos Aplicada
+            </span>
+            <h1 class="text-4xl md:text-5xl font-black text-slate-900 mb-6 tracking-tight leading-tight">
+                Herramientas para no romper nada.
+            </h1>
+            <p class="text-lg text-slate-600 max-w-2xl leading-relaxed">
+                Esto no es un marketplace de templates mágicos. Son artefactos operativos diseñados para resolver problemas específicos de captura, calidad y visualización de datos.
+                <br><br>
+                <strong class="text-slate-900">Filosofía de diseño:</strong> Sin cajas negras. Cada herramienta expone sus límites para que aprendas el criterio detrás del cálculo.
+            </p>
+        </div>
+    </header>
+
+    <!-- Grid de Herramientas -->
+    <main class="max-w-6xl mx-auto px-6 py-16">
+        
+        <!-- TOOL 1: CHECKLIST (Fase Entrada) -->
+        <div class="tool-card bg-white rounded-xl border border-slate-200 p-8 mb-8 flex flex-col md:flex-row gap-8 items-start">
+            <div class="flex-shrink-0">
+                <div class="w-16 h-16 bg-green-50 rounded-lg flex items-center justify-center text-3xl border border-green-100">
+                    ✅
+                </div>
+            </div>
+            <div class="flex-grow">
+                <div class="flex items-center justify-between mb-2">
+                    <h3 class="text-xl font-bold text-slate-900">Data Readiness Checklist</h3>
+                    <span class="text-xs font-mono bg-slate-100 text-slate-600 px-2 py-1 rounded">PDF / Notion</span>
+                </div>
+                <p class="text-sm text-slate-600 mb-6 leading-relaxed">
+                    Antes de abrir Excel o PowerBI, necesitás saber si tus datos sirven. Esta lista de verificación audita la salud de tu infraestructura actual (captura, almacenamiento y nomenclatura).
+                </p>
+
+                <!-- El "Límite Conceptual" (Diferencial Estratégico) -->
+                <div class="bg-amber-50 border-l-4 border-amber-400 p-4 mb-6">
+                    <h4 class="text-xs font-bold text-amber-800 uppercase tracking-wide mb-1 flex items-center gap-2">
+                        ⚠️ Límite Conceptual
+                    </h4>
+                    <p class="text-xs text-amber-900/80">
+                        Esta herramienta diagnostica, no cura. Te dirá exactamente dónde está roto tu flujo de datos, pero no arregla la cultura organizacional que provocó el error.
+                    </p>
+                </div>
+
+                <div class="flex flex-col sm:flex-row items-center justify-between border-t border-slate-100 pt-6 gap-4">
+                    <ul class="text-xs text-slate-500 space-y-1">
+                        <li class="flex items-center gap-2">✓ 40 Puntos de control de calidad</li>
+                        <li class="flex items-center gap-2">✓ Matriz de decisión Go/No-Go</li>
+                    </ul>
+                    <div class="flex items-center gap-4 w-full sm:w-auto">
+                        <span class="font-mono font-bold text-lg text-slate-900">$3 USD</span>
+                        <!-- LINK DE PAGO AQUÍ -->
+                        <a href="#" class="bg-white border-2 border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white px-6 py-2 rounded-lg font-bold text-sm transition-all w-full sm:w-auto text-center">
+                            Obtener Checklist
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TOOL 2: SESSION LOGGING (Fase Operativa) -->
+        <div class="tool-card bg-white rounded-xl border border-slate-200 p-8 mb-8 flex flex-col md:flex-row gap-8 items-start">
+            <div class="flex-shrink-0">
+                <div class="w-16 h-16 bg-blue-50 rounded-lg flex items-center justify-center text-3xl border border-blue-100">
+                    📋
+                </div>
+            </div>
+            <div class="flex-grow">
+                <div class="flex items-center justify-between mb-2">
+                    <h3 class="text-xl font-bold text-slate-900">Session Logging Protocol</h3>
+                    <span class="text-xs font-mono bg-slate-100 text-slate-600 px-2 py-1 rounded">Google Sheets</span>
+                </div>
+                <p class="text-sm text-slate-600 mb-6 leading-relaxed">
+                    Un entorno estandarizado para registrar cargas de entrenamiento. Resuelve el problema del "formato libre" que hace imposible el análisis histórico. Estructura tabular estricta con validación de datos integrada.
+                </p>
+
+                <!-- El "Límite Conceptual" -->
+                <div class="bg-amber-50 border-l-4 border-amber-400 p-4 mb-6">
+                    <h4 class="text-xs font-bold text-amber-800 uppercase tracking-wide mb-1 flex items-center gap-2">
+                        ⚠️ Límite Conceptual
+                    </h4>
+                    <p class="text-xs text-amber-900/80">
+                        La consistencia del registro depende de un protocolo humano, no de la planilla. Si los entrenadores no entienden la importancia de la celda "RPE", la planilla no puede corregirlo.
+                    </p>
+                </div>
+
+                <div class="flex flex-col sm:flex-row items-center justify-between border-t border-slate-100 pt-6 gap-4">
+                    <ul class="text-xs text-slate-500 space-y-1">
+                        <li class="flex items-center gap-2">✓ Validaciones de entrada (Dropdowns)</li>
+                        <li class="flex items-center gap-2">✓ Estructura lista para base de datos</li>
+                    </ul>
+                    <div class="flex items-center gap-4 w-full sm:w-auto">
+                        <span class="font-mono font-bold text-lg text-slate-900">$7 USD</span>
+                        <!-- LINK DE PAGO AQUÍ -->
+                        <a href="#" class="bg-white border-2 border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white px-6 py-2 rounded-lg font-bold text-sm transition-all w-full sm:w-auto text-center">
+                            Obtener Template
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TOOL 3: QA DASHBOARD (Fase Analítica) -->
+        <div class="tool-card bg-white rounded-xl border border-slate-200 p-8 mb-8 flex flex-col md:flex-row gap-8 items-start opacity-75">
+            <div class="flex-shrink-0">
+                <div class="w-16 h-16 bg-purple-50 rounded-lg flex items-center justify-center text-3xl border border-purple-100">
+                    📊
+                </div>
+            </div>
+            <div class="flex-grow">
+                <div class="flex items-center justify-between mb-2">
+                    <div class="flex items-center gap-3">
+                        <h3 class="text-xl font-bold text-slate-900">Training Load QA Dashboard</h3>
+                        <span class="bg-slate-100 text-slate-500 text-[10px] font-bold uppercase px-2 py-0.5 rounded">Próximamente</span>
+                    </div>
+                    <span class="text-xs font-mono bg-slate-100 text-slate-600 px-2 py-1 rounded">Looker Studio</span>
+                </div>
+                <p class="text-sm text-slate-600 mb-6 leading-relaxed">
+                    Dashboard enfocado exclusivamente en **Quality Assurance**. No muestra rendimiento, muestra si faltan datos, si hay duplicados o valores fuera de rango. Es el paso previo obligatorio a cualquier reporte de performance.
+                </p>
+
+                <!-- El "Límite Conceptual" -->
+                <div class="bg-amber-50 border-l-4 border-amber-400 p-4 mb-6">
+                    <h4 class="text-xs font-bold text-amber-800 uppercase tracking-wide mb-1 flex items-center gap-2">
+                        ⚠️ Límite Conceptual
+                    </h4>
+                    <p class="text-xs text-amber-900/80">
+                        "Garbage In, Garbage Out". Este dashboard visualiza errores, no los previene. Requiere que tengas implementado el <strong>Session Logging Protocol</strong> (Tool #2) previamente.
+                    </p>
+                </div>
+
+                <div class="flex flex-col sm:flex-row items-center justify-between border-t border-slate-100 pt-6 gap-4">
+                    <ul class="text-xs text-slate-500 space-y-1">
+                        <li class="flex items-center gap-2">✓ Conector directo a Google Sheets</li>
+                        <li class="flex items-center gap-2">✓ Visualización de % de Completitud</li>
+                    </ul>
+                    <div class="flex items-center gap-4 w-full sm:w-auto">
+                        <span class="font-mono font-bold text-lg text-slate-400">-- USD</span>
+                        <button disabled class="bg-slate-100 text-slate-400 cursor-not-allowed px-6 py-2 rounded-lg font-bold text-sm w-full sm:w-auto">
+                            En Desarrollo
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- La Oferta de Valor Educativa (El Bridge al High Ticket) -->
+    <section class="bg-slate-900 text-white py-16">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <span class="font-mono text-xs text-blue-400 uppercase tracking-widest mb-4 block">Más allá de las herramientas</span>
+            <h2 class="text-3xl font-heading font-black mb-6">¿Tus herramientas te quedan chicas?</h2>
+            <p class="text-slate-400 mb-8 leading-relaxed max-w-2xl mx-auto">
+                Las planillas y dashboards tienen un techo. Cuando llegas a ese límite, el problema deja de ser técnico y pasa a ser de diseño de sistemas. Ahí es donde entra la formación profunda.
+            </p>
+            <div class="inline-block p-6 border border-slate-700 rounded-xl bg-slate-800/50 backdrop-blur text-left">
+                <h4 class="font-bold text-white mb-2">Próximamente: Arquitectura de Datos Deportivos</h4>
+                <p class="text-sm text-slate-400 mb-4">
+                    Un curso técnico sobre cómo pensar, diseñar y validar sistemas de datos. Sin promesas de "hazte rico". Solo ingeniería de datos aplicada al deporte.
+                </p>
+                <a href="../index.html#newsletter" class="text-xs font-bold text-blue-400 hover:text-white transition-colors">
+                    Unirse a la lista de espera para el curso →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white py-10 border-t border-slate-200">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="text-sm text-slate-500">
+                <span class="font-bold text-slate-900">IronLog Data Tools</span> · Parte del ecosistema de Lisandro Cacciatore.
+            </div>
+            <div class="flex gap-6 text-xs font-bold text-slate-500">
+                <a href="#" class="hover:text-primary">Términos de uso</a>
+                <a href="#" class="hover:text-primary">Política de privacidad</a> <!-- Importante para venta de tools -->
+                <a href="../contacto.html" class="hover:text-primary">Soporte</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El error de mirar solo el total semanal | Lisandro Cacciatore</title>
+    <meta name="description" content="El cuerpo no entiende de sumas, entiende de picos. Por qué el volumen acumulado oculta el riesgo real y cómo cambiar la métrica que mirás.">
+    <link rel="canonical" href="https://lisandrocacciatore.com/blog/periodizacion/total-semanal-error.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <script src="../../theme.js"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        h1, h2, h3, .font-heading { font-family: 'Montserrat', sans-serif; }
+    </style>
+</head>
+<body class="bg-white text-body antialiased">
+
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-200">
+        <div class="max-w-4xl mx-auto px-6 h-16 flex justify-between items-center">
+            <a href="../../index.html" class="font-heading font-bold text-dark">Lisandro Cacciatore <span class="text-primary">.</span></a>
+            <a href="../../blog.html" class="text-sm font-medium text-slate-500 hover:text-primary transition-colors">← Blog</a>
+        </div>
+    </nav>
+
+    <main class="py-16 px-6">
+        <article class="max-w-3xl mx-auto">
+            
+            <header class="mb-12 text-center">
+                <div class="flex justify-center mb-6">
+                    <nav class="flex text-xs text-slate-400 font-medium gap-2 items-center">
+                        <a href="../../blog.html" class="hover:text-primary">Blog</a>
+                        <span>/</span>
+                        <span class="text-slate-600">Periodización</span>
+                    </nav>
+                </div>
+                <span class="inline-block py-1 px-3 rounded text-xs font-mono font-bold uppercase tracking-wider bg-red-50 text-red-700 mb-6">Periodización</span>
+                <h1 class="text-3xl md:text-5xl font-extrabold text-dark mb-6 leading-tight">
+                    El error de mirar solo el total semanal
+                </h1>
+                <p class="text-xl text-slate-600 leading-relaxed">
+                    El cuerpo técnico se queda tranquilo porque el volumen del microciclo coincide con lo planificado. El problema es que el cuerpo no entiende de sumas. Entiende de picos.
+                </p>
+                <div class="mt-6 text-xs font-mono text-slate-400">Lisandro Cacciatore · Periodización</div>
+            </header>
+
+            <div class="prose prose-lg prose-slate max-w-none prose-headings:font-bold prose-headings:text-dark prose-a:text-primary prose-blockquote:border-primary prose-blockquote:bg-slate-50 prose-blockquote:not-italic">
+
+                <h2>El reporte semanal que da confianza falsa</h2>
+                <p>
+                    Es viernes. Abrís el reporte. Dice: "Equipo promedio: 28.3 km". El PF asiente: "Perfecto, planificamos 28-30". Todos tranquilos.
+                </p>
+                <p>
+                    Pero mirá la distribución de carga de uno de los jugadores durante esa semana:
+                </p>
+
+                <div class="not-prose my-8 overflow-x-auto">
+                    <table class="w-full text-sm border-collapse">
+                        <thead>
+                            <tr class="bg-slate-100">
+                                <th class="text-left px-4 py-3 font-semibold text-dark border-b border-slate-200">Día</th>
+                                <th class="text-right px-4 py-3 font-semibold text-dark border-b border-slate-200">Distancia</th>
+                                <th class="text-left px-4 py-3 font-semibold text-dark border-b border-slate-200">Contexto</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100">
+                            <tr><td class="px-4 py-3 text-slate-600">Lunes</td><td class="px-4 py-3 text-right font-mono text-slate-600">3 km</td><td class="px-4 py-3 text-slate-500 text-xs">Recuperación post-partido</td></tr>
+                            <tr><td class="px-4 py-3 text-slate-600">Martes</td><td class="px-4 py-3 text-right font-mono text-slate-600">2 km</td><td class="px-4 py-3 text-slate-500 text-xs">Trabajo técnico</td></tr>
+                            <tr class="bg-red-50"><td class="px-4 py-3 font-semibold text-dark">Miércoles</td><td class="px-4 py-3 text-right font-mono font-bold text-red-700">23 km</td><td class="px-4 py-3 text-red-600 text-xs font-medium">Doble turno + reducido intenso</td></tr>
+                            <tr><td class="px-4 py-3 text-slate-600">Jueves</td><td class="px-4 py-3 text-right font-mono text-slate-600">0 km</td><td class="px-4 py-3 text-slate-500 text-xs">Descarga</td></tr>
+                            <tr><td class="px-4 py-3 text-slate-600">Viernes</td><td class="px-4 py-3 text-right font-mono text-slate-600">0 km</td><td class="px-4 py-3 text-slate-500 text-xs">Charla técnica</td></tr>
+                            <tr class="bg-slate-50 border-t-2 border-slate-300"><td class="px-4 py-3 font-bold text-dark">Total</td><td class="px-4 py-3 text-right font-mono font-bold text-green-700">28 km ✔</td><td class="px-4 py-3 text-slate-400 text-xs">Dentro de lo planificado</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p>
+                    El total es "correcto". Pero el miércoles hubo una carga de casi diez veces el promedio diario del resto de la semana. Eso es riesgo de lesión, aunque el volumen acumulado esté dentro del rango planificado.
+                </p>
+
+                <blockquote>
+                    "El riesgo no viene del volumen total. Viene del cambio brusco. Y el cambio brusco desaparece cuando mirás solo la suma."
+                </blockquote>
+
+                <h2>Por qué importa la distribución, no solo la suma</h2>
+                <p>
+                    La evidencia en ciencias del deporte es consistente en este punto: el riesgo de lesión muscular se asocia con cambios agudos en la carga relativa al historial crónico del jugador, no con el volumen absoluto. Un jugador que corre 30km en cinco días de 6km está en un escenario completamente diferente al que corre 30km en dos días de 15km, aunque el número de la semana sea idéntico.
+                </p>
+                <p>
+                    El reporte de totales del viernes no captura esa diferencia. Y si esa es la única información que revisa el PF, está tomando decisiones con el contexto incorrecto.
+                </p>
+
+                <h2>Qué cambiar en el proceso de reporte</h2>
+                <p>
+                    No es un cambio de herramienta. Es un cambio en la pregunta que le hacés al sistema. En lugar de "¿cuánto corrió el equipo esta semana?", la pregunta relevante es "¿cuánto varió la carga de cada jugador respecto a su propio promedio histórico?".
+                </p>
+                <p>
+                    Los tres ajustes que implemento en los reportes de los clubes con los que trabajo:
+                </p>
+                <ol>
+                    <li><strong>Eliminar el reporte de totales semanales como indicador de control.</strong> Puede quedar como dato descriptivo, pero no como señal de estado del equipo.</li>
+                    <li><strong>Calcular el ACWR diario por jugador.</strong> El cociente entre la carga de los últimos 7 días y el promedio de los últimos 28 días es el indicador que captura la variación relativa. Cuando supera 1.3, es señal de atención.</li>
+                    <li><strong>Alertar solo cuando la variación es significativa.</strong> Variaciones menores al 15% son normales dentro de un microciclo. Un pico del 60% en un día respecto al promedio diario merece revisión antes del entrenamiento siguiente.</li>
+                </ol>
+
+                <h3>Ejemplo aplicado</h3>
+                <p>
+                    Un jugador con promedio diario de 5km en las últimas cuatro semanas corre 9km el miércoles. Su ACWR para esa semana es 1.8 (zona de riesgo alto cuando supera 1.5). El sistema genera una alerta automática. El PF la revisa antes del jueves y decide ajustar la intensidad del reducido o monitorear el wellness de ese jugador con mayor atención.
+                </p>
+                <p>
+                    La decisión sigue siendo del PF. El sistema solo garantiza que esa información llegue antes de que sea tarde.
+                </p>
+
+                <h3>Una limitación importante</h3>
+                <p>
+                    Esta lógica funciona bien en semanas tipo. En semanas de doble competencia, viajes internacionales o partidos con poco tiempo de recuperación entre sí, el ACWR puede generar falsos positivos porque no captura el contexto operativo. Ahí el criterio del PF prevalece sobre la señal automatizada. El sistema es una alerta, no un dictamen.
+                </p>
+
+            </div>
+
+            <div class="mt-16 bg-slate-50 p-8 rounded-xl text-center border border-slate-200">
+                <h3 class="text-xl font-bold text-dark mb-2">¿Tus reportes muestran distribución o solo totales?</h3>
+                <p class="text-slate-500 mb-6 text-sm leading-relaxed max-w-lg mx-auto">
+                    La auditoría inicial revisa qué preguntas puede responder tu sistema actual y cuáles quedan sin respuesta estructural.
+                </p>
+                <a href="../../contacto.html" class="inline-block bg-primary text-white font-bold py-3 px-8 rounded hover:bg-blue-700 transition-colors">
+                    Solicitar Auditoría →
+                </a>
+            </div>
+
+        </article>
+    </main>
+
+    <footer class="bg-dark text-white py-10 text-center mt-16 border-t border-slate-800">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-center gap-8 text-sm text-slate-500 mb-4">
+                <a href="../../index.html" class="hover:text-white transition-colors">Inicio</a>
+                <a href="../../blog.html" class="hover:text-white transition-colors">Blog</a>
+                <a href="../../contacto.html" class="hover:text-white transition-colors">Contacto</a>
+            </div>
+            <p class="text-sm text-slate-600">© 2026 Lisandro Cacciatore · Rosario, Argentina</p>
+        </div>
+    </footer>
+</body>
+</html>

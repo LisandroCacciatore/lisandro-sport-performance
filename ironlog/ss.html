@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starting Strength - IronLog Interactive</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../theme.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        .week-card { transition: all 0.3s ease; cursor: pointer; }
+        .week-card:hover { transform: translateY(-4px); }
+        .week-active { box-shadow: 0 0 0 3px #1D4ED8; transform: scale(1.02); outline: none; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex justify-between items-center">
+            <div class="flex items-center gap-4">
+                <a href="demo.html" class="text-xs font-mono text-slate-500 hover:text-primary transition-colors">← Librería de Sistemas</a>
+                <span class="text-slate-200 hidden md:block">|</span>
+                <span class="font-heading font-extrabold text-lg text-slate-900 hidden md:block">IronLog · Starting Strength</span>
+            </div>
+            <a href="../contacto.html" class="bg-dark text-white px-4 py-2 rounded-lg font-bold text-xs hover:bg-slate-800 transition hidden md:block">
+                Consultar con Lisandro
+            </a>
+        </div>
+    </nav>
+
+    <div class="max-w-5xl mx-auto px-6 py-12 pb-24">
+
+        <header class="mb-12">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="text-4xl">🚂</span>
+                <h1 class="text-3xl md:text-5xl font-black text-slate-900 tracking-tight">Starting Strength</h1>
+            </div>
+            <div class="bg-white p-6 md:p-8 rounded-2xl border border-slate-200 shadow-sm">
+                <h2 class="text-lg font-bold text-slate-900 mb-3">La Lógica: Progresión Lineal</h2>
+                <div class="text-slate-600 space-y-4 leading-relaxed">
+                    <p>
+                        A diferencia de otros sistemas, aquí no ondulamos intensidad. El objetivo es <strong>añadir peso a la barra en cada sesión</strong> (Linear Progression).
+                        Elige tu tipo de semana para ver la alternancia de sesiones A y B.
+                    </p>
+                </div>
+            </div>
+        </header>
+
+        <!-- SELECTOR DE SEMANA (ALTERNANCIA A/B) -->
+        <section class="mb-10">
+            <div class="flex items-center gap-2 mb-6">
+                <span class="bg-primary text-white text-xs font-bold px-2 py-1 rounded">PASO 1</span>
+                <h3 class="font-bold text-slate-900">Selecciona el Esquema Semanal</h3>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="weekSelector">
+                <!-- Semana Tipo 1 -->
+                <div onclick="selectWeek('ABA')" id="card-week-ABA" class="week-card bg-white p-6 rounded-xl border border-slate-200 shadow-sm relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-blue-50 rounded-bl-full -mr-8 -mt-8 z-0"></div>
+                    <div class="relative z-10">
+                        <div class="font-bold text-slate-900 mb-2 border-b border-slate-100 pb-2 flex justify-between">Semana 1 (A-B-A)</div>
+                        <div class="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded inline-block mb-3">Enfoque Sentadilla/Press</div>
+                        <ul class="text-sm text-slate-600 space-y-1">
+                            <li>Lunes: <strong>Sesión A</strong></li>
+                            <li>Miércoles: <strong>Sesión B</strong></li>
+                            <li>Viernes: <strong>Sesión A</strong></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Semana Tipo 2 -->
+                <div onclick="selectWeek('BAB')" id="card-week-BAB" class="week-card bg-white p-6 rounded-xl border border-slate-200 shadow-sm relative overflow-hidden group">
+                    <div class="absolute top-0 right-0 w-24 h-24 bg-orange-50 rounded-bl-full -mr-8 -mt-8 z-0"></div>
+                    <div class="relative z-10">
+                        <div class="font-bold text-slate-900 mb-2 border-b border-slate-100 pb-2 flex justify-between">Semana 2 (B-A-B)</div>
+                        <div class="text-xs font-bold text-orange-600 bg-orange-50 px-2 py-1 rounded inline-block mb-3">Enfoque Banca/P.Muerto</div>
+                        <ul class="text-sm text-slate-600 space-y-1">
+                            <li>Lunes: <strong>Sesión B</strong></li>
+                            <li>Miércoles: <strong>Sesión A</strong></li>
+                            <li>Viernes: <strong>Sesión B</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONFIGURACIÓN DE CARGAS -->
+        <section id="configSection" class="mb-12">
+            <div class="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden p-6 md:p-8">
+                <div class="flex items-center gap-2 mb-6 border-b border-slate-100 pb-4">
+                    <span class="bg-primary text-white text-xs font-bold px-2 py-1 rounded">PASO 2</span>
+                    <h3 class="font-bold text-slate-900">Configura tus 5RM Actuales</h3>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-6">
+                    <div>
+                        <label class="block text-[10px] font-bold text-slate-500 uppercase mb-2">Squat (5RM)</label>
+                        <input type="number" id="manualSquat" value="100" class="w-full p-3 border border-slate-200 bg-slate-50 rounded-lg font-bold focus:border-primary outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold text-slate-500 uppercase mb-2">Bench (5RM)</label>
+                        <input type="number" id="manualBench" value="80" class="w-full p-3 border border-slate-200 bg-slate-50 rounded-lg font-bold focus:border-primary outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold text-slate-500 uppercase mb-2">Deadlift (5RM)</label>
+                        <input type="number" id="manualDeadlift" value="120" class="w-full p-3 border border-slate-200 bg-slate-50 rounded-lg font-bold focus:border-primary outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold text-slate-500 uppercase mb-2">Press (5RM)</label>
+                        <input type="number" id="manualPress" value="50" class="w-full p-3 border border-slate-200 bg-slate-50 rounded-lg font-bold focus:border-primary outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold text-slate-500 uppercase mb-2">P. Clean (3RM)</label>
+                        <input type="number" id="manualClean" value="60" class="w-full p-3 border border-slate-200 bg-slate-50 rounded-lg font-bold focus:border-primary outline-none">
+                    </div>
+                </div>
+                
+                <button onclick="generateSSDashboard()" class="w-full mt-6 bg-slate-900 hover:bg-primary text-white font-bold py-4 rounded-lg shadow-lg text-lg transition-all hover:-translate-y-0.5">
+                    Generar Microciclo →
+                </button>
+            </div>
+        </section>
+
+        <!-- DASHBOARD RESULTADOS -->
+        <section id="dashboard" class="hidden transition-all duration-500">
+            <div id="pdfPrintableArea" class="bg-white p-8 rounded-2xl border border-slate-200 shadow-xl mb-8">
+                
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 border-b border-slate-200 pb-6 gap-4">
+                    <div>
+                        <h2 class="text-2xl font-black text-slate-900">Hoja de Ruta: Starting Strength</h2>
+                        <div class="flex items-center gap-3 mt-1">
+                            <span class="px-2 py-0.5 rounded text-xs font-bold uppercase bg-slate-100 text-slate-600" id="reportWeekBadge">Semana ABA</span>
+                            <p class="text-sm text-slate-500">Fase: Novicio Avanzado</p>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Incremento Diario</div>
+                        <div class="text-sm font-mono text-slate-700 font-bold">+2.5kg (Tren Inferior) | +1.25kg (Tren Superior)</div>
+                    </div>
+                </div>
+
+                <div class="grid lg:grid-cols-3 gap-8 mb-8">
+                    <!-- Rutina -->
+                    <div class="lg:col-span-1">
+                        <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Sesiones de la Semana</h3>
+                        <div id="exercisesList" class="space-y-4"></div>
+                    </div>
+
+                    <!-- Perfil Fisiológico -->
+                    <div class="lg:col-span-1 flex flex-col">
+                        <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2 text-center">Perfil de Estrés</h3>
+                        <div class="flex-grow bg-slate-50 rounded-xl p-2 border border-slate-100 flex items-center justify-center">
+                            <div class="h-56 w-full"><canvas id="radarChart"></canvas></div>
+                        </div>
+                        <p class="text-[10px] text-slate-400 text-center mt-2">Dominancia de Fuerza y Estrés Neurológico</p>
+                    </div>
+
+                    <!-- Gráfico Lineal (Proyección) -->
+                    <div class="lg:col-span-1 flex flex-col">
+                         <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2 text-center">Proyección Lineal (1 Mes)</h3>
+                         <div class="flex-grow bg-slate-50 rounded-xl p-2 border border-slate-100 flex items-center justify-center">
+                             <div class="h-56 w-full"><canvas id="linearChart"></canvas></div>
+                         </div>
+                    </div>
+                </div>
+
+                <!-- Combo Chart (Volumen vs Intensidad Diaria) -->
+                <div class="mt-8 pt-8 border-t border-slate-100">
+                    <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Estructura de la Sesión (Carga vs Fatiga)</h3>
+                    <div class="h-64 w-full"><canvas id="comboChart"></canvas></div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button onclick="openPdfModal()" class="bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl hover:-translate-y-1 transition-transform flex items-center justify-center gap-2 mx-auto">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                    Descargar Planificación PDF
+                </button>
+            </div>
+        </section>
+    </div>
+
+    <!-- MODAL PDF -->
+    <div id="pdfModal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-slate-900/80 p-4 backdrop-blur-sm">
+        <div class="bg-white w-full max-w-md rounded-2xl shadow-2xl overflow-hidden relative">
+            <button onclick="closePdfModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <div class="p-8 text-center">
+                <h3 class="text-2xl font-black text-slate-900 mb-2">Plan Listo</h3>
+                <p class="text-sm text-slate-600 mb-6">Tu hoja de ruta para la progresión lineal está lista.</p>
+                <button id="downloadBtn" onclick="downloadPdfAction()" class="w-full bg-primary hover:bg-blue-700 text-white font-bold py-3.5 rounded-lg transition-all">
+                    Descargar Ahora
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentScheme = 'ABA';
+        let radarChart = null;
+        let linearChart = null;
+        let comboChart = null;
+
+        // --- INICIALIZACIÓN ---
+        document.addEventListener('DOMContentLoaded', () => {
+            selectWeek('ABA'); 
+            // Listeners para auto-update
+            ['manualSquat', 'manualBench', 'manualDeadlift', 'manualPress', 'manualClean'].forEach(id => {
+                document.getElementById(id).addEventListener('input', () => {
+                    if(!document.getElementById('dashboard').classList.contains('hidden')) generateSSDashboard();
+                });
+            });
+        });
+
+        function selectWeek(scheme) {
+            currentScheme = scheme;
+            document.querySelectorAll('.week-card').forEach(el => {
+                el.classList.remove('week-active');
+                el.classList.add('opacity-60');
+            });
+            document.getElementById(`card-week-${scheme}`).classList.add('week-active');
+            document.getElementById(`card-week-${scheme}`).classList.remove('opacity-60');
+            
+            if(!document.getElementById('dashboard').classList.contains('hidden')) generateSSDashboard();
+        }
+
+        function generateSSDashboard() {
+            // Inputs
+            const sq = parseFloat(document.getElementById('manualSquat').value) || 0;
+            const bp = parseFloat(document.getElementById('manualBench').value) || 0;
+            const dl = parseFloat(document.getElementById('manualDeadlift').value) || 0;
+            const press = parseFloat(document.getElementById('manualPress').value) || 0;
+            const pc = parseFloat(document.getElementById('manualClean').value) || 0;
+
+            document.getElementById('reportWeekBadge').innerText = `Semana ${currentScheme}`;
+            document.getElementById('reportWeekBadge').className = `px-2 py-0.5 rounded text-xs font-bold uppercase ${currentScheme === 'ABA' ? 'bg-blue-100 text-blue-700' : 'bg-orange-100 text-orange-700'}`;
+
+            // --- LÓGICA DE SESIONES A/B ---
+            // A: SQ, Press, DL
+            // B: SQ, BP, PC
+            const sessionA = [
+                { name: 'Sentadilla', w: sq, sets: '3x5' },
+                { name: 'Press Militar', w: press, sets: '3x5' },
+                { name: 'Peso Muerto', w: dl, sets: '1x5' }
+            ];
+            const sessionB = [
+                { name: 'Sentadilla', w: sq, sets: '3x5' }, // Incremento simulado visualmente en gráfico
+                { name: 'Press Banca', w: bp, sets: '3x5' },
+                { name: 'Power Clean', w: pc, sets: '5x3' }
+            ];
+
+            let sessions = [];
+            if (currentScheme === 'ABA') {
+                sessions = [
+                    { day: 'Lunes (A)', lifts: sessionA },
+                    { day: 'Miércoles (B)', lifts: sessionB },
+                    { day: 'Viernes (A)', lifts: sessionA }
+                ];
+            } else {
+                sessions = [
+                    { day: 'Lunes (B)', lifts: sessionB },
+                    { day: 'Miércoles (A)', lifts: sessionA },
+                    { day: 'Viernes (B)', lifts: sessionB }
+                ];
+            }
+
+            // Renderizar Lista
+            let listHTML = '';
+            sessions.forEach(sess => {
+                listHTML += `<div class="bg-slate-50 p-3 rounded-lg border border-slate-100 mb-3">
+                    <div class="text-xs font-bold text-slate-500 uppercase mb-2 border-b border-slate-200 pb-1">${sess.day}</div>
+                    <div class="space-y-1">`;
+                sess.lifts.forEach(lift => {
+                    listHTML += `<div class="flex justify-between text-sm">
+                        <span class="text-slate-800">${lift.name}</span>
+                        <span class="font-bold text-slate-900">${lift.w}kg <span class="text-slate-400 font-normal text-[10px]">${lift.sets}</span></span>
+                    </div>`;
+                });
+                listHTML += `</div></div>`;
+            });
+            document.getElementById('exercisesList').innerHTML = listHTML;
+            document.getElementById('dashboard').classList.remove('hidden');
+
+            renderCharts(sq, bp, dl);
+        }
+
+        function renderCharts(sq, bp, dl) {
+            Chart.defaults.font.family = "'Inter', sans-serif";
+
+            // 1. RADAR (Fijo para SS: Mucha fuerza, poco volumen)
+            if (radarChart) radarChart.destroy();
+            radarChart = new Chart(document.getElementById('radarChart'), {
+                type: 'radar',
+                data: {
+                    labels: ['Fuerza', 'Hipertrofia', 'Potencia', 'Técnica', 'SNC Stress'],
+                    datasets: [{
+                        label: 'Starting Strength Profile',
+                        data: [9, 4, 7, 8, 8],
+                        backgroundColor: 'rgba(59, 130, 246, 0.2)',
+                        borderColor: '#3B82F6',
+                        pointBackgroundColor: '#3B82F6'
+                    }]
+                },
+                options: { responsive: true, maintainAspectRatio: false, scales: { r: { ticks: { display: false }, min: 0, max: 10 } }, plugins: { legend: { display: false } } }
+            });
+
+            // 2. LINEAR PROGRESSION (Proyección)
+            const weeks = ['Inicio', 'Sem 2', 'Sem 3', 'Sem 4'];
+            const sqProg = [sq, sq+7.5, sq+15, sq+22.5]; // +2.5kg x 3 sesiones/sem approx
+            const dlProg = [dl, dl+5, dl+10, dl+15]; // Menos frecuencia
+
+            if (linearChart) linearChart.destroy();
+            linearChart = new Chart(document.getElementById('linearChart'), {
+                type: 'line',
+                data: {
+                    labels: weeks,
+                    datasets: [
+                        { label: 'Squat', data: sqProg, borderColor: '#EF4444', tension: 0.1 },
+                        { label: 'Deadlift', data: dlProg, borderColor: '#10B981', tension: 0.1 }
+                    ]
+                },
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { boxWidth: 10 } } }, scales: { y: { display: false } } }
+            });
+
+            // 3. COMBO CHART (Sesiones)
+            // Volumen en SS es constante (baja variabilidad), Intensidad es alta constante.
+            const sessionLabels = sessions => currentScheme === 'ABA' ? ['A', 'B', 'A'] : ['B', 'A', 'B'];
+            
+            if (comboChart) comboChart.destroy();
+            comboChart = new Chart(document.getElementById('comboChart'), {
+                type: 'bar',
+                data: {
+                    labels: ['Lunes', 'Miércoles', 'Viernes'],
+                    datasets: [
+                        {
+                            label: 'Volumen (Sets Totales)',
+                            data: [15, 15, 15], // 3 ejercicios x 3-5 sets calentamiento inc
+                            backgroundColor: '#CBD5E1',
+                            order: 2
+                        },
+                        {
+                            label: 'Intensidad (% 5RM)',
+                            data: [100, 100, 102], // Siempre al 100% del 5RM del día
+                            type: 'line',
+                            borderColor: '#0F172A',
+                            borderWidth: 2,
+                            order: 1
+                        }
+                    ]
+                },
+                options: { responsive: true, maintainAspectRatio: false, scales: { y: { display: false } }, plugins: { legend: { position: 'bottom' } } }
+            });
+        }
+
+        // PDF Logic
+        function openPdfModal() { document.getElementById('pdfModal').classList.remove('hidden'); }
+        function closePdfModal() { document.getElementById('pdfModal').classList.add('hidden'); }
+        function openLeadModal() { document.getElementById('leadModal').classList.remove('hidden'); }
+        function closeLeadModal() { document.getElementById('leadModal').classList.add('hidden'); }
+        document.getElementById('leadModal').addEventListener('click', e => { if (e.target === document.getElementById('leadModal')) closeLeadModal(); });
+        function downloadPdfAction() {
+            const element = document.getElementById('pdfPrintableArea');
+            html2pdf().set({ margin: 5, filename: `IronLog_SS_${currentScheme}.pdf`, image: { type: 'jpeg', quality: 0.98 }, html2canvas: { scale: 2 }, jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' } }).from(element).save();
+            closePdfModal();
+        }
+    </script>
+    <!-- Lead Modal -->
+    <div id="leadModal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-slate-900/80 p-4 backdrop-blur-sm">
+        <div class="bg-white w-full max-w-md rounded-2xl shadow-2xl overflow-hidden relative">
+            <button onclick="closeLeadModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <div class="p-8">
+                <div class="text-center mb-6">
+                    <div class="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">🚂</div>
+                    <h3 class="text-xl font-black text-slate-900 mb-2">¿Cuándo deberías avanzar al siguiente sistema?</h3>
+                    <p class="text-sm text-slate-600">Dejá tu contacto y Lisandro te dice cuándo la progresión lineal llega a su límite y qué sigue.</p>
+                </div>
+                <form action="https://formspree.io/f/mnjbvkey" method="POST" class="space-y-4">
+                    <input type="email" name="email" required placeholder="tu@email.com" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-primary outline-none transition-all text-sm">
+                    <input type="text" name="context" placeholder="Ej: Squateo 90kg, llevo 4 meses con SS" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-primary outline-none transition-all text-sm">
+                    <input type="hidden" name="source" value="ss_simulator">
+                    <button type="submit" class="w-full bg-primary hover:bg-blue-700 text-white font-bold py-3 rounded-lg transition-all">Enviar →</button>
+                </form>
+                <p class="text-xs text-slate-400 text-center mt-4">Sin spam. Respuesta en menos de 48hs.</p>
+            </div>
+            <div class="bg-slate-50 px-8 py-3 border-t border-slate-100 text-center">
+                <a href="demo.html" class="text-xs text-slate-500 hover:text-primary">← Volver a la librería de sistemas</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-10 border-t border-slate-800 mt-8">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between gap-6 mb-6">
+                <div class="flex items-center gap-3">
+                    <span class="text-xl">🏋️</span>
+                    <div>
+                        <span class="font-bold text-white text-sm">IronLog Interactive</span>
+                        <p class="text-xs text-slate-500">Simuladores de sistemas de fuerza</p>
+                    </div>
+                </div>
+                <div class="flex gap-8 text-sm text-slate-400">
+                    <a href="demo.html" class="hover:text-white transition-colors">← Librería de Sistemas</a>
+                    <a href="wendler.html" class="hover:text-white transition-colors">Wendler 5/3/1</a>
+                    <a href="cube.html" class="hover:text-white transition-colors">Cube Method</a>
+                    <a href="../contacto.html" class="hover:text-white transition-colors">Consultoría</a>
+                    <a href="../index.html" class="hover:text-white transition-colors">Lisandro Cacciatore</a>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-4 text-xs text-slate-600 text-center">
+                © 2026 IronLog · Construido por Lisandro Cacciatore · Rosario, Argentina
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

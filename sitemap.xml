@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Páginas principales -->
+  <url>
+    <loc>https://lisandrocacciatore.com/</loc>
+    <lastmod>2026-02-17</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://lisandrocacciatore.com/blog.html</loc>
+    <lastmod>2026-02-17</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://lisandrocacciatore.com/sobre-mi.html</loc>
+    <lastmod>2026-02-17</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lisandrocacciatore.com/contacto.html</loc>
+    <lastmod>2026-02-17</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://lisandrocacciatore.com/privacidad.html</loc>
+    <lastmod>2026-02-17</lastmod>
+    <priority>0.3</priority>
+  </url>
+
+  <!-- IronLog -->
+  <url>
+    <loc>https://lisandrocacciatore.com/ironlog/</loc>
+    <lastmod>2026-02-17</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://lisandrocacciatore.com/ironlog/demo.html</loc>
+    <lastmod>2026-02-17</lastmod>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog: Automatización -->
+  <url>
+    <loc>https://lisandrocacciatore.com/blog/automatizacion/construyendo-ironlog.html</loc>
+    <lastmod>2026-02-17</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lisandrocacciatore.com/blog/automatizacion/excel-vs-python.html</loc>
+    <lastmod>2026-02-17</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lisandrocacciatore.com/blog/automatizacion/validar-csv.html</loc>
+    <lastmod>2026-02-17</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Blog: Decisiones estratégicas -->
+  <url>
+    <loc>https://lisandrocacciatore.com/blog/decisiones-estrategicas/dato-vs-intuicion.html</loc>
+    <lastmod>2026-02-17</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Blog: Gestión deportiva -->
+  <url>
+    <loc>https://lisandrocacciatore.com/blog/gestiondeportiva/jerarquia-tecnologia.html</loc>
+    <lastmod>2026-02-17</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Blog: Periodización -->
+  <url>
+    <loc>https://lisandrocacciatore.com/blog/periodizacion/demo-sobrecarga.html</loc>
+    <lastmod>2026-02-17</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://lisandrocacciatore.com/blog/periodizacion/total-semanal-error.html</loc>
+    <lastmod>2026-02-17</lastmod>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Recursos -->
+  <url>
+    <loc>https://lisandrocacciatore.com/recursos/session-qa-checklist.html</loc>
+    <lastmod>2026-02-17</lastmod>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>
