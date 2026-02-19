@@ -14,6 +14,7 @@
         body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
         h1, h2, h3, .font-heading { font-family: 'IBM Plex Sans', sans-serif; }
     </style>
+    <meta property="og:type" content="article">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -178,28 +179,28 @@
                     <details class="group border border-slate-200 rounded-lg">
                         <summary class="flex justify-between items-center p-5 cursor-pointer font-semibold text-dark">
                             ¿Por qué el total semanal GPS no mide riesgo de lesión?
-                            <span class="text-primary text-xl group-open:rotate-45 transition-transform">+</span>
+                            <span class="text-primary text-xl group-open:rotate-45 transition-transform" aria-hidden="true">+</span>
                         </summary>
                         <p class="px-5 pb-5 text-slate-600 text-sm leading-relaxed">Porque agrega distancias sin considerar su distribución. Un jugador que corre 30km en cinco días de 6km está en un escenario completamente diferente al que corre 30km en dos días de 15km. El riesgo de lesión muscular se asocia con cambios agudos en la carga relativa al historial crónico, no con el volumen absoluto.</p>
                     </details>
                     <details class="group border border-slate-200 rounded-lg">
                         <summary class="flex justify-between items-center p-5 cursor-pointer font-semibold text-dark">
                             ¿Qué métrica reemplaza al total semanal para medir riesgo?
-                            <span class="text-primary text-xl group-open:rotate-45 transition-transform">+</span>
+                            <span class="text-primary text-xl group-open:rotate-45 transition-transform" aria-hidden="true">+</span>
                         </summary>
                         <p class="px-5 pb-5 text-slate-600 text-sm leading-relaxed">El ACWR diario por jugador: carga de los últimos 7 días dividido promedio de los últimos 28. Cuando supera 1.3 es señal de atención. Cuando supera 1.5 es zona de riesgo alto. Captura la variación relativa al historial individual, que es lo que el total semanal oculta.</p>
                     </details>
                     <details class="group border border-slate-200 rounded-lg">
                         <summary class="flex justify-between items-center p-5 cursor-pointer font-semibold text-dark">
                             ¿Cómo implementar alertas de distribución de carga?
-                            <span class="text-primary text-xl group-open:rotate-45 transition-transform">+</span>
+                            <span class="text-primary text-xl group-open:rotate-45 transition-transform" aria-hidden="true">+</span>
                         </summary>
                         <p class="px-5 pb-5 text-slate-600 text-sm leading-relaxed">Tres pasos: (1) eliminar el total semanal como indicador de control, (2) calcular ACWR diario por jugador, (3) alertar cuando la variación supera el 15% respecto al promedio diario histórico. Un pico del 60% en un día merece revisión antes del entrenamiento siguiente.</p>
                     </details>
                     <details class="group border border-slate-200 rounded-lg">
                         <summary class="flex justify-between items-center p-5 cursor-pointer font-semibold text-dark">
                             ¿Cuándo el ACWR genera falsos positivos?
-                            <span class="text-primary text-xl group-open:rotate-45 transition-transform">+</span>
+                            <span class="text-primary text-xl group-open:rotate-45 transition-transform" aria-hidden="true">+</span>
                         </summary>
                         <p class="px-5 pb-5 text-slate-600 text-sm leading-relaxed">En semanas de doble competencia, viajes internacionales o partidos con poco tiempo de recuperación entre sí. En esos contextos el ACWR puede generar alertas porque no captura el contexto operativo. Ahí el criterio del PF prevalece sobre la señal automatizada.</p>
                     </details>

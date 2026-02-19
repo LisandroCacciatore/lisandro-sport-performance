@@ -60,7 +60,7 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="weekSelector">
-                <div onclick="selectWeek('ABA')" id="card-week-ABA" class="week-card bg-surface p-6 rounded border border-border shadow-structural relative overflow-hidden group">
+                <div role="button" tabindex="0" onkeydown="if(event.key===\'Enter\' || event.key===\' \' ){selectWeek('ABA')}" onclick="selectWeek('ABA')" id="card-week-ABA" class="week-card bg-surface p-6 rounded border border-border shadow-structural relative overflow-hidden group">
                     <div class="absolute top-0 right-0 w-24 h-24 bg-primary-bg rounded-bl-full -mr-8 -mt-8 z-0"></div>
                     <div class="relative z-10">
                         <div class="font-heading font-bold text-ink mb-2 border-b border-border pb-2 flex justify-between">Semana 1 (A-B-A)</div>
@@ -73,7 +73,7 @@
                     </div>
                 </div>
 
-                <div onclick="selectWeek('BAB')" id="card-week-BAB" class="week-card bg-surface p-6 rounded border border-border shadow-structural relative overflow-hidden group">
+                <div role="button" tabindex="0" onkeydown="if(event.key===\'Enter\' || event.key===\' \' ){selectWeek('BAB')}" onclick="selectWeek('BAB')" id="card-week-BAB" class="week-card bg-surface p-6 rounded border border-border shadow-structural relative overflow-hidden group">
                     <div class="absolute top-0 right-0 w-24 h-24 bg-warning-bg rounded-bl-full -mr-8 -mt-8 z-0"></div>
                     <div class="relative z-10">
                         <div class="font-heading font-bold text-ink mb-2 border-b border-border pb-2 flex justify-between">Semana 2 (B-A-B)</div>
@@ -201,6 +201,8 @@
 
         // --- INICIALIZACIÓN ---
         document.addEventListener('DOMContentLoaded', () => {
+            const leadModal = document.getElementById('leadModal');
+            leadModal?.addEventListener('click', e => { if (e.target === leadModal) closeLeadModal(); });
             selectWeek('ABA'); 
             // Listeners para auto-update
             ['manualSquat', 'manualBench', 'manualDeadlift', 'manualPress', 'manualClean'].forEach(id => {
@@ -357,7 +359,7 @@
         function closePdfModal() { document.getElementById('pdfModal').classList.add('hidden'); }
         function openLeadModal() { document.getElementById('leadModal').classList.remove('hidden'); }
         function closeLeadModal() { document.getElementById('leadModal').classList.add('hidden'); }
-        document.getElementById('leadModal').addEventListener('click', e => { if (e.target === document.getElementById('leadModal')) closeLeadModal(); });
+        
         function downloadPdfAction() {
             const element = document.getElementById('pdfPrintableArea');
             html2pdf().set({ margin: 5, filename: `IronLog_SS_${currentScheme}.pdf`, image: { type: 'jpeg', quality: 0.98 }, html2canvas: { scale: 2 }, jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' } }).from(element).save();

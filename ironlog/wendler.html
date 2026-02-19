@@ -104,7 +104,7 @@
             
             <div class="grid grid-cols-1 md:grid-cols-4 gap-4" id="weekSelector">
                 
-                <div onclick="selectWeek(1)" id="card-week-1" class="week-card bg-surface p-5 rounded border border-border shadow-structural relative overflow-hidden group">
+                <div role="button" tabindex="0" onkeydown="if(event.key===\'Enter\' || event.key===\' \' ){selectWeek(1)}" onclick="selectWeek(1)" id="card-week-1" class="week-card bg-surface p-5 rounded border border-border shadow-structural relative overflow-hidden group">
                     <div class="relative z-10">
                         <div class="font-heading font-bold text-ink mb-2 border-b border-border pb-2 flex justify-between">Semana 1</div>
                         <div class="text-[10px] font-mono font-bold text-primary bg-primary-bg px-2 py-1 rounded inline-block mb-3 border border-blue-100 uppercase tracking-wide">Volumen (3x5+)</div>
@@ -114,7 +114,7 @@
                     </div>
                 </div>
 
-                <div onclick="selectWeek(2)" id="card-week-2" class="week-card bg-surface p-5 rounded border border-border shadow-structural relative overflow-hidden group">
+                <div role="button" tabindex="0" onkeydown="if(event.key===\'Enter\' || event.key===\' \' ){selectWeek(2)}" onclick="selectWeek(2)" id="card-week-2" class="week-card bg-surface p-5 rounded border border-border shadow-structural relative overflow-hidden group">
                     <div class="relative z-10">
                         <div class="font-heading font-bold text-ink mb-2 border-b border-border pb-2 flex justify-between">Semana 2</div>
                         <div class="text-[10px] font-mono font-bold text-warning bg-warning-bg px-2 py-1 rounded inline-block mb-3 border border-amber-200 uppercase tracking-wide">Híbrido (3x3+)</div>
@@ -124,7 +124,7 @@
                     </div>
                 </div>
 
-                <div onclick="selectWeek(3)" id="card-week-3" class="week-card bg-surface p-5 rounded border border-border shadow-structural relative overflow-hidden group">
+                <div role="button" tabindex="0" onkeydown="if(event.key===\'Enter\' || event.key===\' \' ){selectWeek(3)}" onclick="selectWeek(3)" id="card-week-3" class="week-card bg-surface p-5 rounded border border-border shadow-structural relative overflow-hidden group">
                     <div class="relative z-10">
                         <div class="font-heading font-bold text-ink mb-2 border-b border-border pb-2 flex justify-between">Semana 3</div>
                         <div class="text-[10px] font-mono font-bold text-error bg-error-bg px-2 py-1 rounded inline-block mb-3 border border-red-200 uppercase tracking-wide">Pico (5/3/1+)</div>
@@ -134,7 +134,7 @@
                     </div>
                 </div>
 
-                <div onclick="selectWeek(4)" id="card-week-4" class="week-card bg-surface p-5 rounded border border-border shadow-structural relative overflow-hidden group">
+                <div role="button" tabindex="0" onkeydown="if(event.key===\'Enter\' || event.key===\' \' ){selectWeek(4)}" onclick="selectWeek(4)" id="card-week-4" class="week-card bg-surface p-5 rounded border border-border shadow-structural relative overflow-hidden group">
                     <div class="relative z-10">
                         <div class="font-heading font-bold text-ink mb-2 border-b border-border pb-2 flex justify-between">Semana 4</div>
                         <div class="text-[10px] font-mono font-bold text-success bg-success-bg px-2 py-1 rounded inline-block mb-3 border border-green-200 uppercase tracking-wide">Descarga</div>
@@ -294,6 +294,8 @@
 
         // --- INICIALIZACIÓN ---
         document.addEventListener('DOMContentLoaded', () => {
+            const leadModal = document.getElementById('leadModal');
+            leadModal?.addEventListener('click', e => { if (e.target === leadModal) closeLeadModal(); });
             selectWeek(1); // Arrancamos en semana 1
             
             // Listeners para inputs de RM para actualizar en tiempo real
@@ -565,7 +567,7 @@
         function closePdfModal() { document.getElementById('pdfModal').classList.add('hidden'); }
         function openLeadModal() { document.getElementById('leadModal').classList.remove('hidden'); }
         function closeLeadModal() { document.getElementById('leadModal').classList.add('hidden'); }
-        document.getElementById('leadModal').addEventListener('click', e => { if (e.target === document.getElementById('leadModal')) closeLeadModal(); });
+        
         
         function downloadPdfAction() {
             const btn = document.getElementById('downloadBtn');

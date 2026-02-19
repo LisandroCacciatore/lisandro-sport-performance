@@ -16,6 +16,7 @@
         pre { background-color: #0F172A !important; border-radius: 0.5rem; padding: 1.25rem; overflow-x: auto; }
         code { font-family: 'Fira Code', monospace; font-size: 0.85rem; color: #93c5fd; }
     </style>
+    <meta property="og:type" content="article">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -137,7 +138,7 @@
                 <div class="bg-slate-800 px-4 py-2 flex items-center gap-2">
                     <span class="text-xs font-mono text-slate-400">pipeline_basico.py</span>
                 </div>
-                <pre><code>import pandas as pd
+                <pre role="region" aria-label="Ejemplo de código"><code>import pandas as pd
 import glob
 
 # 1. Leer todos los CSVs de la sesión sin abrir Excel
@@ -188,28 +189,28 @@ df_clean.to_csv('base_validada.csv', index=False)
                     <details class="group border border-slate-200 rounded-lg">
                         <summary class="flex justify-between items-center p-5 cursor-pointer font-semibold text-dark">
                             ¿Cuándo Excel ya no alcanza para gestionar datos deportivos?
-                            <span class="text-primary text-xl group-open:rotate-45 transition-transform">+</span>
+                            <span class="text-primary text-xl group-open:rotate-45 transition-transform" aria-hidden="true">+</span>
                         </summary>
                         <p class="px-5 pb-5 text-slate-600 text-sm leading-relaxed">El límite aparece cuando el archivo tarda más de 30 segundos en calcular, cuando las fórmulas necesitan más de una línea para un cruce simple, cuando hay más de una versión circulando por WhatsApp, o cuando agregar un jugador nuevo requiere ajuste manual. Cualquiera de estas señales indica que la estructura de datos y la de decisión quedaron desconectadas.</p>
                     </details>
                     <details class="group border border-slate-200 rounded-lg">
                         <summary class="flex justify-between items-center p-5 cursor-pointer font-semibold text-dark">
                             ¿Cuánto sabe de programación necesita un analista deportivo para usar Python?
-                            <span class="text-primary text-xl group-open:rotate-45 transition-transform">+</span>
+                            <span class="text-primary text-xl group-open:rotate-45 transition-transform" aria-hidden="true">+</span>
                         </summary>
                         <p class="px-5 pb-5 text-slate-600 text-sm leading-relaxed">La migración no requiere que el analista se vuelva programador. Requiere que tenga claro qué quiere hacer con los datos. La sintaxis de Python se aprende o se delega. Lo que no se puede delegar es definir qué pregunta tiene que responder el sistema.</p>
                     </details>
                     <details class="group border border-slate-200 rounded-lg">
                         <summary class="flex justify-between items-center p-5 cursor-pointer font-semibold text-dark">
                             ¿Qué ventajas tiene Python sobre Excel para datos GPS?
-                            <span class="text-primary text-xl group-open:rotate-45 transition-transform">+</span>
+                            <span class="text-primary text-xl group-open:rotate-45 transition-transform" aria-hidden="true">+</span>
                         </summary>
                         <p class="px-5 pb-5 text-slate-600 text-sm leading-relaxed">Tres ventajas estructurales: trazabilidad (el error se ubica en qué línea del proceso, no en qué pestaña), velocidad (una temporada entera en segundos), y escalabilidad (cinco jugadores nuevos no requieren ajuste). La más importante: el analista deja de ser guardián manual del archivo y pasa a interpretar resultados.</p>
                     </details>
                     <details class="group border border-slate-200 rounded-lg">
                         <summary class="flex justify-between items-center p-5 cursor-pointer font-semibold text-dark">
                             ¿Por qué un club sin preguntas claras no se beneficia de Python?
-                            <span class="text-primary text-xl group-open:rotate-45 transition-transform">+</span>
+                            <span class="text-primary text-xl group-open:rotate-45 transition-transform" aria-hidden="true">+</span>
                         </summary>
                         <p class="px-5 pb-5 text-slate-600 text-sm leading-relaxed">Porque Python automatiza un proceso, no lo diseña. Si el proceso no tiene lógica clara, la automatización solo hace más rápido algo que no sirve. La migración más eficiente empieza por definir las preguntas del cuerpo técnico, no por elegir tecnología.</p>
                     </details>
