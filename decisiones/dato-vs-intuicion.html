@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dato vs intuición del DT: cómo diseñar un sistema que respeta los dos | Lisandro Cacciatore</title>
+    <meta name="description" content="Un GPS mide desplazamiento, no decisión táctica. Cómo diseñar sistemas de datos para clubes de fútbol que sirven al criterio del cuerpo técnico en lugar de reemplazarlo.">
+    <link rel="canonical" href="https://lisandrocacciatore.com/decisiones/dato-vs-intuicion.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,600;0,700;0,800;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <script src="../../theme.js"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        h1, h2, h3, .font-heading { font-family: 'IBM Plex Sans', sans-serif; }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Dato vs intuición del DT: cómo diseñar un sistema que respeta los dos",
+      "description": "Cómo diseñar sistemas de datos deportivos que sirven al criterio del cuerpo técnico en lugar de reemplazarlo.",
+      "author": { "@type": "Person", "name": "Lisandro Cacciatore", "url": "https://lisandrocacciatore.com" },
+      "datePublished": "2026-01-10",
+      "dateModified": "2026-02-01",
+      "mainEntityOfPage": "https://lisandrocacciatore.com/decisiones/dato-vs-intuicion.html"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿El dato GPS reemplaza la intuición del director técnico?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. El dato GPS mide desplazamiento y aceleración, no decisión táctica, estado anímico ni contexto personal. La intuición del DT capta lo cualitativo que el dato no puede registrar. Un sistema bien diseñado no reemplaza ese criterio: lo complementa con información sobre carga acumulada, asimetrías y picos de velocidad que el ojo no ve. La decisión final siempre es del cuerpo técnico."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo debe presentarse la información GPS al director técnico para que la use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La información GPS debe presentarse como respuesta a las preguntas que el DT ya se hace, no como un listado de métricas. En lugar de '25 variables por jugador', el reporte debe responder '¿a quién saco del reducido de mañana?' o '¿quién tiene restricción hoy?'. Un analista que le lleva datos al DT sin ese contexto pierde credibilidad, aunque los números sean correctos."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué es la jerarquía de decisión en datos deportivos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "En un sistema de datos deportivo bien diseñado, el ojo clínico del staff técnico detecta lo cualitativo (ánimo, dinámica táctica, timing), el dato duro detecta lo invisible (carga mecánica acumulada, picos de velocidad, asimetrías), y la decisión ocurre cuando el dato confirma la intuición o cuando el dato alerta sobre algo que el ojo no detectó. El dato nunca reemplaza el criterio: lo informa."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Por qué los analistas de datos deportivos pierden credibilidad ante el cuerpo técnico?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Generalmente por interpretar métricas sin contexto táctico. Un volante central con baja distancia total puede haber hecho el partido más inteligente de la temporada. Si el analista lleva ese número como un problema de rendimiento, el DT concluye que el sistema no entiende el juego. La credibilidad se construye cuando el dato ilumina algo que el DT no podía ver, no cuando contradice lo que ya sabe."
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body class="bg-white text-body antialiased">
+
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-200">
+        <div class="max-w-4xl mx-auto px-6 h-16 flex justify-between items-center">
+            <a href="../../index.html" class="font-heading font-bold text-dark">Lisandro Cacciatore <span class="text-primary">.</span></a>
+            <a href="../../blog.html" class="text-sm font-medium text-slate-500 hover:text-primary transition-colors">← Blog</a>
+        </div>
+    </nav>
+
+    <main class="py-16 px-6">
+        <article class="max-w-3xl mx-auto">
+
+            <header class="mb-12 text-center">
+                <div class="flex justify-center mb-6">
+                    <nav class="flex text-xs text-slate-400 font-medium gap-2 items-center">
+                        <a href="../../blog.html" class="hover:text-primary">Blog</a>
+                        <span>/</span>
+                        <span class="text-slate-600">Decisiones</span>
+                    </nav>
+                </div>
+                <span class="inline-block py-1 px-3 rounded text-xs font-mono font-bold uppercase tracking-wider bg-primary-bg text-primary mb-6">Decisiones Estratégicas</span>
+                <h1 class="text-3xl md:text-5xl font-extrabold text-dark mb-6 leading-tight">
+                    Dato vs intuición del DT: cómo diseñar un sistema que respeta los dos
+                </h1>
+                <p class="text-xl text-slate-600 leading-relaxed">
+                    Un GPS mide desplazamiento, no decisión táctica. El dato es una dimensión de la realidad, no la imagen completa. Un sistema de datos deportivo bien diseñado no compite con el criterio del cuerpo técnico — lo complementa con información que el ojo no puede ver.
+                </p>
+                <div class="mt-6 text-xs font-mono text-slate-400">Lisandro Cacciatore · Enero 2026</div>
+            </header>
+
+            <div class="prose prose-lg prose-slate max-w-none prose-headings:font-extrabold prose-headings:text-dark prose-a:text-primary prose-blockquote:border-primary prose-blockquote:text-slate-500">
+
+                <h2>El dato sin contexto es ruido</h2>
+                <p>
+                    Veo muchos analistas frustrados porque el Director Técnico "no les hace caso" aunque los números digan que el jugador X está fatigado. El problema generalmente no es el DT. El problema es creer que el dato GPS es la verdad absoluta.
+                </p>
+                <p>
+                    Un GPS mide desplazamiento y aceleración. No mide decisión táctica, no mide estado anímico, no mide si el jugador hizo reposo el miércoles porque tenía un problema personal. El dato es una dimensión. No es la imagen completa.
+                </p>
+
+                <h3>Caso práctico: el "falso vago"</h3>
+                <p>
+                    Un volante central aparece en el reporte de GPS con <strong>Distancia Total: 8.5km</strong>. Bajo para su media. El sistema lo marca en rojo por "bajo volumen". El analista va donde el DT con el dato.
+                </p>
+                <p>
+                    Pero el DT está encantado con el jugador. ¿Por qué? Porque se posicionó tan bien que no necesitó correr para recuperar. Porque sus aceleraciones fueron en los momentos exactos de presión. Porque hizo el partido más inteligente de la temporada con menos esfuerzo físico visible.
+                </p>
+                <p>
+                    Si el analista va con ese número y lo presenta como un problema, pierde credibilidad para siempre. Y lo peor es que el dato era correcto. El error fue de interpretación.
+                </p>
+
+                <h2>La jerarquía de la decisión</h2>
+                <p>En las consultorías establezco este orden claro, que no es una jerarquía de importancia sino de función:</p>
+                <ol>
+                    <li><strong>Ojo clínico (staff técnico):</strong> detecta lo cualitativo — ánimo, dinámica táctica, timing, liderazgo.</li>
+                    <li><strong>Dato duro (GPS, métricas):</strong> detecta lo invisible — carga mecánica acumulada, picos de velocidad, asimetrías que el ojo no ve.</li>
+                    <li><strong>Decisión (síntesis):</strong> ocurre cuando el dato confirma la intuición, o cuando el dato alerta sobre algo que el ojo no detectó. Nunca cuando el dato reemplaza al criterio.</li>
+                </ol>
+
+                <h3>El rol del ingeniero de datos</h3>
+                <p>
+                    No estoy ahí para decirle al entrenador a quién poner. Estoy ahí para asegurarme de que, si decide arriesgar a un jugador, sepa exactamente cuánto está arriesgando y con qué información está operando.
+                </p>
+                <blockquote>
+                    "El dato no decide. El dato ilumina el costo de la decisión."
+                </blockquote>
+                <p>
+                    Esa distinción es la diferencia entre un analista que el cuerpo técnico consulta y uno que el cuerpo técnico tolera.
+                </p>
+
+                <h2>Lo que esto implica para el diseño del sistema</h2>
+                <p>
+                    Si el dato debe servir para iluminar decisiones y no para reemplazarlas, entonces el sistema de información tiene que estar diseñado con esa lógica. Eso significa:
+                </p>
+                <ul>
+                    <li>Los reportes no presentan todas las métricas. Presentan las preguntas que el DT se hace.</li>
+                    <li>Las alertas no se disparan por umbrales genéricos. Se disparan por desviaciones relevantes para ese jugador, en ese contexto.</li>
+                    <li>El analista no es el portador de verdades. Es quien garantiza que la información es confiable cuando el DT la necesita.</li>
+                </ul>
+                <p>
+                    Profesionalizar el sistema de datos no es darle más poder al número. Es hacer que el número sea útil para quien toma la decisión.
+                </p>
+
+            </div>
+
+            <div class="my-12 border-l-4 border-primary bg-primary-bg p-6 rounded-r-lg">
+                <p class="text-sm font-semibold text-dark mb-1">¿Tu sistema está diseñado para el cuerpo técnico o para el analista?</p>
+                <p class="text-sm text-slate-600 mb-3">La diferencia entre un dashboard que el staff consulta y uno que ignoran está en cómo se traduce el dato a la pregunta que importa.</p>
+                <a href="../../contacto.html" class="text-sm font-bold text-primary hover:underline">Ver cómo funciona la auditoría →</a>
+            </div>
+
+            <div class="mt-16 border-t border-slate-200 pt-12">
+                <h2 class="text-2xl font-bold text-dark mb-8 font-heading">Preguntas frecuentes</h2>
+                <div class="space-y-6">
+                    <details class="group border border-slate-200 rounded-lg">
+                        <summary class="flex justify-between items-center p-5 cursor-pointer font-semibold text-dark">
+                            ¿El dato GPS reemplaza la intuición del director técnico?
+                            <span class="text-primary text-xl group-open:rotate-45 transition-transform">+</span>
+                        </summary>
+                        <p class="px-5 pb-5 text-slate-600 text-sm leading-relaxed">No. El GPS mide desplazamiento y aceleración, no decisión táctica, estado anímico ni contexto personal. La intuición del DT capta lo cualitativo que el dato no puede registrar. Un sistema bien diseñado no reemplaza ese criterio: lo complementa con información sobre carga acumulada y picos de velocidad que el ojo no ve.</p>
+                    </details>
+                    <details class="group border border-slate-200 rounded-lg">
+                        <summary class="flex justify-between items-center p-5 cursor-pointer font-semibold text-dark">
+                            ¿Cómo debe presentarse la información GPS al director técnico?
+                            <span class="text-primary text-xl group-open:rotate-45 transition-transform">+</span>
+                        </summary>
+                        <p class="px-5 pb-5 text-slate-600 text-sm leading-relaxed">Como respuesta a las preguntas que el DT ya se hace, no como un listado de métricas. En lugar de "25 variables por jugador", el reporte debe responder "¿a quién saco del reducido de mañana?". Un analista que lleva datos sin ese contexto pierde credibilidad aunque los números sean correctos.</p>
+                    </details>
+                    <details class="group border border-slate-200 rounded-lg">
+                        <summary class="flex justify-between items-center p-5 cursor-pointer font-semibold text-dark">
+                            ¿Qué es la jerarquía de decisión en datos deportivos?
+                            <span class="text-primary text-xl group-open:rotate-45 transition-transform">+</span>
+                        </summary>
+                        <p class="px-5 pb-5 text-slate-600 text-sm leading-relaxed">El ojo clínico del staff detecta lo cualitativo (ánimo, dinámica táctica). El dato duro detecta lo invisible (carga mecánica, asimetrías). La decisión ocurre cuando el dato confirma la intuición o cuando alerta sobre algo que el ojo no detectó. El dato nunca reemplaza el criterio: lo informa.</p>
+                    </details>
+                    <details class="group border border-slate-200 rounded-lg">
+                        <summary class="flex justify-between items-center p-5 cursor-pointer font-semibold text-dark">
+                            ¿Por qué los analistas pierden credibilidad ante el cuerpo técnico?
+                            <span class="text-primary text-xl group-open:rotate-45 transition-transform">+</span>
+                        </summary>
+                        <p class="px-5 pb-5 text-slate-600 text-sm leading-relaxed">Por interpretar métricas sin contexto táctico. Un volante con baja distancia total puede haber hecho el partido más inteligente de la temporada. Si el analista lleva ese número como problema de rendimiento, el DT concluye que el sistema no entiende el juego. La credibilidad se construye cuando el dato ilumina algo que el DT no podía ver.</p>
+                    </details>
+                </div>
+            </div>
+
+            <div class="mt-12 bg-dark text-white p-8 rounded-lg text-center">
+                <p class="text-xs font-mono text-slate-400 uppercase tracking-wider mb-3">Auditoría Técnica</p>
+                <h3 class="text-xl font-bold text-white mb-3">¿Tu sistema de información está diseñado para el cuerpo técnico?</h3>
+                <p class="text-slate-400 mb-6 text-sm leading-relaxed max-w-lg mx-auto">
+                    Diseño reportes y pipelines que responden las preguntas del staff, no que acumulan métricas en una pantalla.
+                </p>
+                <a href="../../contacto.html" class="inline-block bg-primary hover:bg-primary-600 text-white font-bold py-3 px-8 rounded transition-colors">
+                    Solicitar Auditoría →
+                </a>
+            </div>
+
+        </article>
+    </main>
+
+    <footer class="bg-dark text-white py-10 text-center border-t border-slate-800 mt-16">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-center gap-8 text-sm text-slate-500 mb-4">
+                <a href="../../index.html" class="hover:text-white transition-colors">Inicio</a>
+                <a href="../../blog.html" class="hover:text-white transition-colors">Blog</a>
+                <a href="../../contacto.html" class="hover:text-white transition-colors">Contacto</a>
+            </div>
+            <p class="text-sm text-slate-600">© 2026 Lisandro Cacciatore · Rosario, Argentina</p>
+        </div>
+    </footer>
+</body>
+</html>

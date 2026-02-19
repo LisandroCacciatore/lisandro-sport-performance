@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuándo migrar de Excel a Python en datos deportivos: señales concretas | Lisandro Cacciatore</title>
+    <meta name="description" content="Excel tiene un techo en datos deportivos. Estas son las cuatro señales que indican que el proceso ya no escala y cómo migrar a Python sin volverse programador.">
+    <link rel="canonical" href="https://lisandrocacciatore.com/sistemas-de-datos/excel-vs-python.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,600;0,700;0,800;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <script src="../../theme.js"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        h1, h2, h3, .font-heading { font-family: 'IBM Plex Sans', sans-serif; }
+        pre { background-color: #0F172A !important; border-radius: 0.5rem; padding: 1.25rem; overflow-x: auto; }
+        code { font-family: 'Fira Code', monospace; font-size: 0.85rem; color: #93c5fd; }
+    </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "Cuándo migrar de Excel a Python en datos deportivos: señales concretas",
+      "description": "Cuándo y cómo migrar de Excel a pipelines de Python en procesos de datos deportivos.",
+      "author": { "@type": "Person", "name": "Lisandro Cacciatore", "url": "https://lisandrocacciatore.com" },
+      "datePublished": "2026-01-20",
+      "dateModified": "2026-02-01",
+      "mainEntityOfPage": "https://lisandrocacciatore.com/sistemas-de-datos/excel-vs-python.html"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Cuándo Excel ya no alcanza para gestionar datos deportivos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Excel llega a su límite cuando el archivo tarda más de 30 segundos en calcular, cuando las fórmulas necesitan más de una línea para hacer un cruce simple, cuando hay más de una versión circulando por WhatsApp, o cuando agregar un jugador nuevo requiere ajuste manual de rangos y fórmulas. Cualquiera de estas señales indica que la estructura de datos y la estructura de decisión quedaron desconectadas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto sabe de programación necesita un analista deportivo para usar Python?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La migración no requiere que el analista se vuelva programador. Requiere que tenga claro qué quiere hacer con los datos. La sintaxis de Python se aprende o se delega a un consultor técnico. Lo que no se puede delegar es definir qué pregunta tiene que responder el sistema. Un club que no sabe qué preguntas le hace al dato va a tener el mismo problema con mejor código."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Qué ventajas tiene Python sobre Excel para datos GPS deportivos?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Python aporta tres ventajas estructurales: trazabilidad (si hay un error, se ubica en qué línea del proceso ocurrió, no en qué pestaña de qué versión del archivo), velocidad (procesar una temporada entera lleva segundos), y escalabilidad (si entran cinco jugadores nuevos, el script no lo nota). La más importante: el analista deja de ser guardián manual del archivo y pasa a interpretar resultados."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Por qué un club que no define sus preguntas no se beneficia de Python?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Porque Python automatiza un proceso, no lo diseña. Si el proceso no tiene lógica clara —qué métricas importan, cuándo una alerta es relevante, qué decisión habilita cada dato— la automatización solo hace más rápido algo que no sirve. La migración más eficiente empieza por definir las preguntas del cuerpo técnico, no por elegir tecnología."
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body class="bg-white text-body antialiased">
+
+    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-200">
+        <div class="max-w-4xl mx-auto px-6 h-16 flex justify-between items-center">
+            <a href="../../index.html" class="font-heading font-bold text-dark">Lisandro Cacciatore <span class="text-primary">.</span></a>
+            <a href="../../blog.html" class="text-sm font-medium text-slate-500 hover:text-primary transition-colors">← Blog</a>
+        </div>
+    </nav>
+
+    <main class="py-16 px-6">
+        <article class="max-w-3xl mx-auto">
+
+            <header class="mb-12 text-center">
+                <div class="flex justify-center mb-6">
+                    <nav class="flex text-xs text-slate-400 font-medium gap-2 items-center">
+                        <a href="../../blog.html" class="hover:text-primary">Blog</a>
+                        <span>/</span>
+                        <span class="text-slate-600">Sistemas de Datos</span>
+                    </nav>
+                </div>
+                <span class="inline-block py-1 px-3 rounded text-xs font-mono font-bold uppercase tracking-wider bg-primary-bg text-primary mb-6">Sistemas de Datos</span>
+                <h1 class="text-3xl md:text-5xl font-extrabold text-dark mb-6 leading-tight">
+                    Cuándo migrar de Excel a Python en datos deportivos: señales concretas
+                </h1>
+                <p class="text-xl text-slate-600 leading-relaxed">
+                    El techo de Excel en datos deportivos no es un problema de hardware. Es un problema de arquitectura. La migración a Python se justifica cuando aparecen cuatro señales específicas — y la pregunta clave antes de migrar no es "¿sabemos programar?" sino "¿tenemos claro qué queremos hacer con los datos?"
+                </p>
+                <div class="mt-6 text-xs font-mono text-slate-400">Lisandro Cacciatore · Sistemas de Datos</div>
+            </header>
+
+            <div class="prose prose-lg prose-slate max-w-none prose-headings:font-bold prose-headings:text-dark prose-a:text-primary prose-blockquote:border-primary">
+
+                <h2>El problema no es Excel. Es el uso que le damos.</h2>
+                <p>
+                    Excel es una herramienta de cálculo. No es una base de datos, no es un pipeline y no fue diseñado para gestionar series temporales de equipos deportivos con tres fuentes de datos simultáneas. Cuando lo usamos para eso, el resultado siempre es el mismo: el archivo crece, se rompe, y alguien termina reconstruyendo columnas a las 11PM del viernes.
+                </p>
+                <p>
+                    He visto archivos llamados <code>MASTER_V3_FINAL_OK.xlsm</code> que pesan 85MB, tienen 14 pestañas con referencias cruzadas y colapsan si alguien cambia una celda sin avisar. No es un problema de quién los armó. Es un problema de escala.
+                </p>
+
+                <h3>Las cuatro señales de que el proceso ya no escala</h3>
+                <p>
+                    Hay señales concretas de que llegaste al techo:
+                </p>
+                <ul>
+                    <li>El archivo tarda más de 30 segundos en abrir o calcular.</li>
+                    <li>Necesitás comparar carga de hoy contra el promedio de los últimos tres martes de microciclo largo, y eso exige una fórmula de tres líneas que nadie más entiende.</li>
+                    <li>Agregaron dos jugadores y alguien tuvo que "ajustar" las fórmulas manualmente.</li>
+                    <li>Hay más de una versión del archivo circulando por WhatsApp.</li>
+                </ul>
+                <p>
+                    Cuando aparece alguna de estas señales, el problema no es que falta una macro más. Es que la estructura de datos y la estructura de decisión quedaron desconectadas.
+                </p>
+
+                <h2>La migración no es aprender a programar</h2>
+                <p>
+                    La solución no es reemplazar Excel con software complejo ni contratar un equipo de ingeniería. Es usar Python como un proceso de automatización simple: leer, limpiar, validar y exportar. Sin intervención manual.
+                </p>
+                <p>
+                    Este script de cinco líneas hace lo que cuatro horas de copy-paste intentan hacer:
+                </p>
+
+            </div>
+
+            <div class="my-8 rounded-lg overflow-hidden border border-slate-800">
+                <div class="bg-slate-800 px-4 py-2 flex items-center gap-2">
+                    <span class="text-xs font-mono text-slate-400">pipeline_basico.py</span>
+                </div>
+                <pre><code>import pandas as pd
+import glob
+
+# 1. Leer todos los CSVs de la sesión sin abrir Excel
+archivos = glob.glob('data/gps/*.csv')
+df = pd.concat((pd.read_csv(f) for f in archivos))
+
+# 2. Filtrar ruido (GPS prendido pero sin sesión real)
+df_clean = df[df['Duration_Min'] > 20]
+
+# 3. Exportar base limpia lista para Power BI o Sheets
+df_clean.to_csv('base_validada.csv', index=False)
+</code></pre>
+            </div>
+
+            <div class="prose prose-lg prose-slate max-w-none prose-headings:font-bold prose-headings:text-dark prose-a:text-primary">
+
+                <p>
+                    Lo que cambia no es la tecnología. Es que el proceso ya no depende de que alguien lo ejecute correctamente a mano. Si la lógica está bien definida en el script, se aplica igual todos los días, para todos los jugadores, sin importar quién está en la oficina.
+                </p>
+
+                <h3>Qué gana el club con esto</h3>
+                <p>
+                    Trazabilidad: si hay un error, se ubica en qué línea del proceso ocurrió, no en qué pestaña de qué versión del archivo. Velocidad: procesar una temporada entera lleva segundos. Escalabilidad: si entran cinco jugadores nuevos, el script no lo nota.
+                </p>
+                <p>
+                    Y lo más importante: el analista deja de ser el guardián manual del archivo y pasa a ser quien interpreta los resultados. Eso es lo que le agrega valor al proceso de decisión.
+                </p>
+
+                <h2>La pregunta que importa antes de migrar</h2>
+                <p>
+                    No es "¿sabemos programar?" sino "¿tenemos claro qué queremos hacer con los datos?". La sintaxis de Python se aprende o se delega. Lo que no se puede delegar es definir qué pregunta tiene que responder el sistema.
+                </p>
+                <p>
+                    Un club que no sabe qué preguntas le hace al dato no va a resolverlo con Python. Va a tener el mismo problema, con mejor código.
+                </p>
+
+            </div>
+
+            <div class="my-12 border-l-4 border-primary bg-primary-bg p-6 rounded-r-lg">
+                <p class="text-sm font-semibold text-dark mb-1">Antes de automatizar, conviene saber qué vale la pena automatizar.</p>
+                <p class="text-sm text-slate-600 mb-3">La auditoría inicial mapea dónde está el cuello de botella real y qué proceso tiene sentido automatizar primero.</p>
+                <a href="../../contacto.html" class="text-sm font-bold text-primary hover:underline">Ver cómo funciona la auditoría →</a>
+            </div>
+
+            <div class="mt-16 border-t border-slate-200 pt-12">
+                <h2 class="text-2xl font-bold text-dark mb-8 font-heading">Preguntas frecuentes</h2>
+                <div class="space-y-6">
+                    <details class="group border border-slate-200 rounded-lg">
+                        <summary class="flex justify-between items-center p-5 cursor-pointer font-semibold text-dark">
+                            ¿Cuándo Excel ya no alcanza para gestionar datos deportivos?
+                            <span class="text-primary text-xl group-open:rotate-45 transition-transform">+</span>
+                        </summary>
+                        <p class="px-5 pb-5 text-slate-600 text-sm leading-relaxed">El límite aparece cuando el archivo tarda más de 30 segundos en calcular, cuando las fórmulas necesitan más de una línea para un cruce simple, cuando hay más de una versión circulando por WhatsApp, o cuando agregar un jugador nuevo requiere ajuste manual. Cualquiera de estas señales indica que la estructura de datos y la de decisión quedaron desconectadas.</p>
+                    </details>
+                    <details class="group border border-slate-200 rounded-lg">
+                        <summary class="flex justify-between items-center p-5 cursor-pointer font-semibold text-dark">
+                            ¿Cuánto sabe de programación necesita un analista deportivo para usar Python?
+                            <span class="text-primary text-xl group-open:rotate-45 transition-transform">+</span>
+                        </summary>
+                        <p class="px-5 pb-5 text-slate-600 text-sm leading-relaxed">La migración no requiere que el analista se vuelva programador. Requiere que tenga claro qué quiere hacer con los datos. La sintaxis de Python se aprende o se delega. Lo que no se puede delegar es definir qué pregunta tiene que responder el sistema.</p>
+                    </details>
+                    <details class="group border border-slate-200 rounded-lg">
+                        <summary class="flex justify-between items-center p-5 cursor-pointer font-semibold text-dark">
+                            ¿Qué ventajas tiene Python sobre Excel para datos GPS?
+                            <span class="text-primary text-xl group-open:rotate-45 transition-transform">+</span>
+                        </summary>
+                        <p class="px-5 pb-5 text-slate-600 text-sm leading-relaxed">Tres ventajas estructurales: trazabilidad (el error se ubica en qué línea del proceso, no en qué pestaña), velocidad (una temporada entera en segundos), y escalabilidad (cinco jugadores nuevos no requieren ajuste). La más importante: el analista deja de ser guardián manual del archivo y pasa a interpretar resultados.</p>
+                    </details>
+                    <details class="group border border-slate-200 rounded-lg">
+                        <summary class="flex justify-between items-center p-5 cursor-pointer font-semibold text-dark">
+                            ¿Por qué un club sin preguntas claras no se beneficia de Python?
+                            <span class="text-primary text-xl group-open:rotate-45 transition-transform">+</span>
+                        </summary>
+                        <p class="px-5 pb-5 text-slate-600 text-sm leading-relaxed">Porque Python automatiza un proceso, no lo diseña. Si el proceso no tiene lógica clara, la automatización solo hace más rápido algo que no sirve. La migración más eficiente empieza por definir las preguntas del cuerpo técnico, no por elegir tecnología.</p>
+                    </details>
+                </div>
+            </div>
+
+            <div class="mt-12 bg-dark text-white p-8 rounded-lg text-center">
+                <p class="text-xs font-mono text-slate-400 uppercase tracking-wider mb-3">Auditoría Técnica</p>
+                <h3 class="text-xl font-bold text-white mb-3">¿Tu equipo sigue procesando datos a mano?</h3>
+                <p class="text-slate-400 mb-6 text-sm leading-relaxed max-w-lg mx-auto">
+                    La auditoría identifica qué vale la pena automatizar, en qué orden, y qué proceso libera más tiempo al analista desde el primer día.
+                </p>
+                <a href="../../contacto.html" class="inline-block bg-primary hover:bg-primary-600 text-white font-bold py-3 px-8 rounded transition-colors">
+                    Solicitar Auditoría →
+                </a>
+            </div>
+
+        </article>
+    </main>
+
+    <footer class="bg-dark text-white py-10 text-center mt-16 border-t border-slate-800">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-center gap-8 text-sm text-slate-500 mb-4">
+                <a href="../../index.html" class="hover:text-white transition-colors">Inicio</a>
+                <a href="../../blog.html" class="hover:text-white transition-colors">Blog</a>
+                <a href="../../contacto.html" class="hover:text-white transition-colors">Contacto</a>
+            </div>
+            <p class="text-sm text-slate-600">© 2026 Lisandro Cacciatore · Rosario, Argentina</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Cube Method - IronLog Interactive</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=IBM+Plex+Sans:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="../theme.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
@@ -12,21 +12,26 @@
     <style>
         .week-card { transition: all 0.3s ease; cursor: pointer; }
         .week-card:hover { transform: translateY(-4px); }
-        .week-active { box-shadow: 0 0 0 3px #1D4ED8; transform: scale(1.02); outline: none; }
+        .week-active { box-shadow: 0 0 0 3px #1E3A8A; transform: scale(1.02); outline: none; }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800">
+<body class="bg-canvas text-body font-sans antialiased">
 
-    <nav class="sticky top-0 z-40 bg-white/95 backdrop-blur-sm border-b border-slate-200">
+    <nav class="sticky top-0 z-50 bg-canvas/95 backdrop-blur-sm border-b border-border">
         <div class="max-w-7xl mx-auto px-6 h-16 flex justify-between items-center">
-            <div class="flex items-center gap-4">
-                <a href="demo.html" class="text-xs font-mono text-slate-500 hover:text-primary transition-colors">← Librería de Sistemas</a>
-                <span class="text-slate-200 hidden md:block">|</span>
-                <span class="font-heading font-extrabold text-lg text-slate-900 hidden md:block">IronLog · Cube Method</span>
+            <a href="../index.html" class="text-xs font-mono text-muted hover:text-ink transition-colors hidden md:block">← Lisandro Cacciatore</a>
+            <span class="text-border hidden md:block">|</span>
+            <div class="flex items-center gap-2">
+                <span class="text-xl">🧮</span>
+                <a href="demo.html" class="font-heading font-extrabold text-lg text-ink">IronLog <span class="font-sans font-normal text-muted text-sm">/ Simuladores</span></a>
             </div>
-            <a href="../contacto.html" class="bg-dark text-white px-4 py-2 rounded-lg font-bold text-xs hover:bg-slate-800 transition hidden md:block">
-                Consultar con Lisandro
-            </a>
+            
+            <div class="flex items-center gap-6">
+                <a href="tools.html" class="text-sm font-sans text-muted hover:text-ink transition-colors hidden md:block">Herramientas</a>
+                <a href="index.html#early-access" class="bg-primary hover:bg-primary-600 text-white px-4 py-2 rounded font-medium text-sm transition-colors">
+                    Lista de espera
+                </a>
+            </div>
         </div>
     </nav>
 
@@ -35,11 +40,11 @@
         <header class="mb-12">
             <div class="flex items-center gap-3 mb-4">
                 <span class="text-4xl">🧊</span>
-                <h1 class="text-3xl md:text-5xl font-black text-slate-900 tracking-tight">The Cube Method</h1>
+                <h1 class="font-heading text-3xl md:text-5xl font-bold text-ink tracking-tight">The Cube Method</h1>
             </div>
-            <div class="bg-white p-6 md:p-8 rounded-2xl border border-slate-200 shadow-sm">
-                <h2 class="text-lg font-bold text-slate-900 mb-3">La Lógica: Rotación Ondulatoria</h2>
-                <div class="text-slate-600 space-y-4 leading-relaxed">
+            <div class="bg-surface p-6 md:p-8 rounded border border-border shadow-structural">
+                <h2 class="font-heading text-lg font-bold text-ink mb-3">La Lógica: Rotación Ondulatoria</h2>
+                <div class="text-body text-sm space-y-4 leading-relaxed">
                     <p>
                         En el Cubo, nunca entrenas todo pesado a la vez. Rotamos tres cualidades: <strong>Pesado (Max Effort)</strong>, <strong>Explosivo (Dynamic)</strong> y <strong>Repeticiones (Hypertrophy)</strong>.
                         Selecciona la semana para ver cómo rotan los levantamientos.
@@ -48,50 +53,46 @@
             </div>
         </header>
 
-        <!-- SELECTOR DE SEMANA (ROTACIÓN) -->
         <section class="mb-10">
             <div class="flex items-center gap-2 mb-6">
-                <span class="bg-primary text-white text-xs font-bold px-2 py-1 rounded">PASO 1</span>
-                <h3 class="font-bold text-slate-900">Selecciona la Semana de la Ola</h3>
+                <span class="bg-ink text-surface text-xs font-mono font-bold px-2 py-1 rounded">PASO 1</span>
+                <h3 class="font-heading font-bold text-ink">Selecciona la Semana de la Ola</h3>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="weekSelector">
                 
-                <!-- Semana 1 -->
-                <div onclick="selectWeek(1)" id="card-week-1" class="week-card bg-white p-5 rounded-xl border border-slate-200 shadow-sm relative overflow-hidden group">
+                <div onclick="selectWeek(1)" id="card-week-1" class="week-card bg-surface p-5 rounded border border-border shadow-structural relative overflow-hidden group">
                     <div class="relative z-10">
-                        <div class="font-bold text-slate-900 mb-2 border-b border-slate-100 pb-2 flex justify-between">Semana 1</div>
-                        <div class="text-xs font-bold text-red-600 bg-red-50 px-2 py-1 rounded inline-block mb-3">Foco: Sentadilla Pesada</div>
-                        <ul class="text-xs text-slate-500 space-y-1">
-                            <li>SQ: <span class="text-slate-800 font-bold">Pesado</span></li>
-                            <li>BP: <span class="text-slate-800">Explosivo</span></li>
-                            <li>DL: <span class="text-slate-800">Repeticiones</span></li>
+                        <div class="font-heading font-bold text-ink mb-2 border-b border-border pb-2 flex justify-between">Semana 1</div>
+                        <div class="text-[10px] font-mono font-bold text-error bg-error-bg px-2 py-1 rounded inline-block mb-3 border border-red-200 uppercase tracking-wide">Foco: Sentadilla Pesada</div>
+                        <ul class="text-xs text-muted space-y-1 font-mono">
+                            <li>SQ: <span class="text-ink font-bold">Pesado</span></li>
+                            <li>BP: <span class="text-muted">Explosivo</span></li>
+                            <li>DL: <span class="text-muted">Repeticiones</span></li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Semana 2 -->
-                <div onclick="selectWeek(2)" id="card-week-2" class="week-card bg-white p-5 rounded-xl border border-slate-200 shadow-sm relative overflow-hidden group">
+                <div onclick="selectWeek(2)" id="card-week-2" class="week-card bg-surface p-5 rounded border border-border shadow-structural relative overflow-hidden group">
                     <div class="relative z-10">
-                        <div class="font-bold text-slate-900 mb-2 border-b border-slate-100 pb-2 flex justify-between">Semana 2</div>
-                        <div class="text-xs font-bold text-orange-600 bg-orange-50 px-2 py-1 rounded inline-block mb-3">Foco: P.Muerto Pesado</div>
-                        <ul class="text-xs text-slate-500 space-y-1">
-                            <li>SQ: <span class="text-slate-800">Explosivo</span></li>
-                            <li>BP: <span class="text-slate-800">Repeticiones</span></li>
-                            <li>DL: <span class="text-slate-800 font-bold">Pesado</span></li>
+                        <div class="font-heading font-bold text-ink mb-2 border-b border-border pb-2 flex justify-between">Semana 2</div>
+                        <div class="text-[10px] font-mono font-bold text-warning bg-warning-bg px-2 py-1 rounded inline-block mb-3 border border-amber-200 uppercase tracking-wide">Foco: P.Muerto Pesado</div>
+                        <ul class="text-xs text-muted space-y-1 font-mono">
+                            <li>SQ: <span class="text-muted">Explosivo</span></li>
+                            <li>BP: <span class="text-muted">Repeticiones</span></li>
+                            <li>DL: <span class="text-ink font-bold">Pesado</span></li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Semana 3 -->
-                <div onclick="selectWeek(3)" id="card-week-3" class="week-card bg-white p-5 rounded-xl border border-slate-200 shadow-sm relative overflow-hidden group">
+                <div onclick="selectWeek(3)" id="card-week-3" class="week-card bg-surface p-5 rounded border border-border shadow-structural relative overflow-hidden group">
                     <div class="relative z-10">
-                        <div class="font-bold text-slate-900 mb-2 border-b border-slate-100 pb-2 flex justify-between">Semana 3</div>
-                        <div class="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded inline-block mb-3">Foco: Banca Pesada</div>
-                        <ul class="text-xs text-slate-500 space-y-1">
-                            <li>SQ: <span class="text-slate-800">Repeticiones</span></li>
-                            <li>BP: <span class="text-slate-800 font-bold">Pesado</span></li>
-                            <li>DL: <span class="text-slate-800">Explosivo</span></li>
+                        <div class="font-heading font-bold text-ink mb-2 border-b border-border pb-2 flex justify-between">Semana 3</div>
+                        <div class="text-[10px] font-mono font-bold text-primary bg-primary-bg px-2 py-1 rounded inline-block mb-3 border border-blue-100 uppercase tracking-wide">Foco: Banca Pesada</div>
+                        <ul class="text-xs text-muted space-y-1 font-mono">
+                            <li>SQ: <span class="text-muted">Repeticiones</span></li>
+                            <li>BP: <span class="text-ink font-bold">Pesado</span></li>
+                            <li>DL: <span class="text-muted">Explosivo</span></li>
                         </ul>
                     </div>
                 </div>
@@ -99,108 +100,164 @@
             </div>
         </section>
 
-        <!-- CONFIGURACIÓN DE CARGAS -->
         <section id="configSection" class="mb-12">
-            <div class="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden p-6 md:p-8">
-                <div class="flex items-center gap-2 mb-6 border-b border-slate-100 pb-4">
-                    <span class="bg-primary text-white text-xs font-bold px-2 py-1 rounded">PASO 2</span>
-                    <h3 class="font-bold text-slate-900">Configura tus 1RM Reales</h3>
+            <div class="bg-surface rounded shadow-structural border border-border overflow-hidden p-6 md:p-8">
+                <div class="flex items-center gap-2 mb-6 border-b border-border pb-4">
+                    <span class="bg-ink text-surface text-xs font-mono font-bold px-2 py-1 rounded">PASO 2</span>
+                    <h3 class="font-heading font-bold text-ink">Configura tus 1RM Reales</h3>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div>
-                        <label class="block text-[10px] font-bold text-slate-500 uppercase mb-2">Squat (1RM)</label>
-                        <input type="number" id="manualSquat" value="140" class="w-full p-3 border border-slate-200 bg-slate-50 rounded-lg font-bold focus:border-primary outline-none">
+                        <label class="block text-[10px] font-mono font-bold text-muted uppercase mb-2">Squat (1RM)</label>
+                        <input type="number" id="manualSquat" value="140" class="w-full p-3 border border-border bg-canvas rounded font-mono font-bold focus:border-primary outline-none text-ink">
                     </div>
                     <div>
-                        <label class="block text-[10px] font-bold text-slate-500 uppercase mb-2">Bench (1RM)</label>
-                        <input type="number" id="manualBench" value="105" class="w-full p-3 border border-slate-200 bg-slate-50 rounded-lg font-bold focus:border-primary outline-none">
+                        <label class="block text-[10px] font-mono font-bold text-muted uppercase mb-2">Bench (1RM)</label>
+                        <input type="number" id="manualBench" value="105" class="w-full p-3 border border-border bg-canvas rounded font-mono font-bold focus:border-primary outline-none text-ink">
                     </div>
                     <div>
-                        <label class="block text-[10px] font-bold text-slate-500 uppercase mb-2">Deadlift (1RM)</label>
-                        <input type="number" id="manualDeadlift" value="185" class="w-full p-3 border border-slate-200 bg-slate-50 rounded-lg font-bold focus:border-primary outline-none">
+                        <label class="block text-[10px] font-mono font-bold text-muted uppercase mb-2">Deadlift (1RM)</label>
+                        <input type="number" id="manualDeadlift" value="185" class="w-full p-3 border border-border bg-canvas rounded font-mono font-bold focus:border-primary outline-none text-ink">
                     </div>
                 </div>
                 
-                <button onclick="generateCubeDashboard()" class="w-full mt-6 bg-slate-900 hover:bg-primary text-white font-bold py-4 rounded-lg shadow-lg text-lg transition-all hover:-translate-y-0.5">
+                <button onclick="generateCubeDashboard()" class="w-full mt-6 bg-primary hover:bg-primary-600 text-white font-medium py-3 rounded transition-colors">
                     Generar Ola del Cubo →
                 </button>
             </div>
         </section>
 
-        <!-- DASHBOARD RESULTADOS -->
         <section id="dashboard" class="hidden transition-all duration-500">
-            <div id="pdfPrintableArea" class="bg-white p-8 rounded-2xl border border-slate-200 shadow-xl mb-8">
+            <div id="pdfPrintableArea" class="bg-surface p-8 rounded border border-border shadow-structural mb-8">
                 
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 border-b border-slate-200 pb-6 gap-4">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 border-b border-border pb-6 gap-4">
                     <div>
-                        <h2 class="text-2xl font-black text-slate-900">Hoja de Ruta: The Cube Method</h2>
+                        <h2 class="font-heading text-2xl font-bold text-ink">Hoja de Ruta: The Cube Method</h2>
                         <div class="flex items-center gap-3 mt-1">
-                            <span class="px-2 py-0.5 rounded text-xs font-bold uppercase bg-slate-100 text-slate-600" id="reportWeekBadge">Semana 1</span>
-                            <p class="text-sm text-slate-500">Autor: Brandon Lilly</p>
+                            <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase bg-canvas border border-border text-ink" id="reportWeekBadge">Semana 1</span>
+                            <p class="text-xs text-muted font-mono">Autor: Brandon Lilly</p>
                         </div>
                     </div>
                     <div class="text-right">
-                        <div class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Training Max (95%)</div>
-                        <div class="text-sm font-mono text-slate-700 font-bold" id="tmDisplay">Calculando...</div>
+                        <div class="text-[10px] font-mono font-bold text-muted uppercase tracking-widest mb-1">Training Max (95%)</div>
+                        <div class="text-sm font-mono text-ink font-bold" id="tmDisplay">Calculando...</div>
                     </div>
                 </div>
 
                 <div class="grid lg:grid-cols-3 gap-8 mb-8">
-                    <!-- Rutina -->
                     <div class="lg:col-span-1">
-                        <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Rotación Semanal</h3>
-                        <div id="exercisesList" class="space-y-4"></div>
+                        <h3 class="text-[10px] font-mono font-bold text-muted uppercase tracking-widest mb-4">Rotación Semanal</h3>
+                        <div id="exercisesList" class="space-y-3"></div>
                     </div>
 
-                    <!-- Perfil Fisiológico (Cambia según semana) -->
                     <div class="lg:col-span-1 flex flex-col">
-                        <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2 text-center">Enfoque Fisiológico Actual</h3>
-                        <div class="flex-grow bg-slate-50 rounded-xl p-2 border border-slate-100 flex items-center justify-center">
+                        <h3 class="text-[10px] font-mono font-bold text-muted uppercase tracking-widest mb-2 text-center">Enfoque Fisiológico</h3>
+                        <div class="flex-grow bg-canvas rounded p-2 border border-border flex items-center justify-center">
                             <div class="h-56 w-full"><canvas id="radarChart"></canvas></div>
                         </div>
                     </div>
 
-                    <!-- Gráfico Lineal (Ondulación Intensidad) -->
                     <div class="lg:col-span-1 flex flex-col">
-                         <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2 text-center">Intensidad Relativa</h3>
-                         <div class="flex-grow bg-slate-50 rounded-xl p-2 border border-slate-100 flex items-center justify-center">
+                         <h3 class="text-[10px] font-mono font-bold text-muted uppercase tracking-widest mb-2 text-center">Intensidad Relativa</h3>
+                         <div class="flex-grow bg-canvas rounded p-2 border border-border flex items-center justify-center">
                              <div class="h-56 w-full"><canvas id="intensityChart"></canvas></div>
                          </div>
                     </div>
                 </div>
 
-                <!-- Combo Chart (Detalle Lifts) -->
-                <div class="mt-8 pt-8 border-t border-slate-100">
-                    <h3 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">Distribución de Carga por Ejercicio</h3>
+                <div class="mt-8 pt-8 border-t border-border">
+                    <h3 class="text-[10px] font-mono font-bold text-muted uppercase tracking-widest mb-4">Distribución de Carga por Ejercicio</h3>
                     <div class="h-64 w-full"><canvas id="comboChart"></canvas></div>
                 </div>
             </div>
 
             <div class="text-center">
-                <button onclick="openPdfModal()" class="bg-primary text-white px-8 py-4 rounded-xl font-bold text-lg shadow-xl hover:-translate-y-1 transition-transform flex items-center justify-center gap-2 mx-auto">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                <button onclick="openPdfModal()" class="bg-primary text-white px-8 py-3 rounded font-medium shadow-structural hover:bg-primary-600 transition-colors flex items-center justify-center gap-2 mx-auto">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
                     Descargar Planificación PDF
                 </button>
             </div>
         </section>
     </div>
 
-    <!-- MODAL PDF -->
-    <div id="pdfModal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-slate-900/80 p-4 backdrop-blur-sm">
-        <div class="bg-white w-full max-w-md rounded-2xl shadow-2xl overflow-hidden relative">
-            <button onclick="closePdfModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600">
+    <div id="pdfModal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-dark/80 p-4 backdrop-blur-sm">
+        <div class="bg-surface w-full max-w-md rounded shadow-structural border border-border overflow-hidden relative">
+            <button onclick="closePdfModal()" class="absolute top-4 right-4 text-muted hover:text-ink">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
             <div class="p-8 text-center">
-                <h3 class="text-2xl font-black text-slate-900 mb-2">Cubo Resuelto</h3>
-                <p class="text-sm text-slate-600 mb-6">Tu microciclo ondulado está listo para descargar.</p>
-                <button id="downloadBtn" onclick="downloadPdfAction()" class="w-full bg-primary hover:bg-blue-700 text-white font-bold py-3.5 rounded-lg transition-all">
+                <h3 class="font-heading text-xl font-bold text-ink mb-2">Cubo Resuelto</h3>
+                <p class="text-sm text-body mb-6">Tu microciclo ondulado está listo para descargar.</p>
+                <button id="downloadBtn" onclick="downloadPdfAction()" class="w-full bg-primary hover:bg-primary-600 text-white font-medium py-3 rounded transition-colors">
                     Descargar Ahora
                 </button>
             </div>
         </div>
     </div>
+
+    <div id="leadModal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-dark/80 p-4 backdrop-blur-sm">
+        <div class="bg-surface w-full max-w-md rounded shadow-structural border border-border overflow-hidden relative">
+            <button onclick="closeLeadModal()" class="absolute top-4 right-4 text-muted hover:text-ink">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <div class="p-8">
+                <div class="text-center mb-6">
+                    <div class="w-12 h-12 bg-canvas border border-border rounded flex items-center justify-center mx-auto mb-4 text-2xl">🧊</div>
+                    <h3 class="font-heading text-lg font-bold text-ink mb-2">¿Querés que Lisandro revise tu programación?</h3>
+                    <p class="text-xs text-body">El simulador calcula la ola. Un experto entiende si el Cube Method es lo correcto para tu fase actual.</p>
+                </div>
+                <form action="https://formspree.io/f/mnjbvkey" method="POST" class="space-y-4">
+                    <input type="email" name="email" required placeholder="tu@email.com" class="w-full px-4 py-3 rounded bg-canvas border border-border focus:border-primary outline-none transition-all text-sm font-sans">
+                    <input type="text" name="context" placeholder="Ej: Cube Semana 2, preparación meet" class="w-full px-4 py-3 rounded bg-canvas border border-border focus:border-primary outline-none transition-all text-sm font-sans">
+                    <input type="hidden" name="source" value="cube_simulator">
+                    <button type="submit" class="w-full bg-primary hover:bg-primary-600 text-white font-medium py-3 rounded transition-colors text-sm">Enviar →</button>
+                </form>
+                <p class="text-[10px] font-mono text-muted text-center mt-4 uppercase">Sin spam. Respuesta en menos de 48hs.</p>
+            </div>
+            <div class="bg-canvas px-8 py-3 border-t border-border text-center">
+                <a href="demo.html" class="text-xs text-muted font-mono hover:text-ink">_Volver a la librería</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark pt-16 pb-8 border-t-4 border-primary">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div class="md:col-span-2">
+                    <span class="font-heading font-semibold text-lg text-surface block mb-4">Lisandro Cacciatore <span class="text-primary font-mono font-bold">_</span></span>
+                    <p class="text-muted text-sm leading-relaxed max-w-sm">
+                        Diseño de sistemas de decisión aplicados al rendimiento deportivo. Arquitectura de datos para staffs técnicos que operan bajo presión.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="font-heading text-surface text-xs font-bold mb-4 uppercase tracking-widest">Ecosistema</h3>
+                    <ul class="space-y-3">
+                        <li><a href="../blog.html" class="text-sm font-sans text-muted hover:text-surface transition-colors">Blog Técnico</a></li>
+                        <li><a href="index.html" class="text-sm font-sans text-muted hover:text-surface transition-colors">IronLog (Piloto)</a></li>
+                        <li><a href="tools.html" class="text-sm font-sans text-muted hover:text-surface transition-colors">Data Tools</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-heading text-surface text-xs font-bold mb-4 uppercase tracking-widest">Operaciones</h3>
+                    <ul class="space-y-3">
+                        <li><a href="../contacto.html" class="text-sm font-sans text-muted hover:text-surface transition-colors">Solicitar Auditoría</a></li>
+                        <li><span class="text-sm font-sans text-subtle block">Rosario, Argentina</span></li>
+                        <li><span class="text-sm font-sans text-subtle block">Remoto LATAM / España</span></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="text-xs font-mono text-subtle">
+                    © 2026 Lisandro Cacciatore. Todos los derechos reservados.
+                </div>
+                <div class="flex gap-6 text-xs font-sans text-subtle">
+                    <a href="../privacidad.html" class="hover:text-muted transition-colors">Privacidad</a>
+                    <a href="../sobre-mi.html" class="hover:text-muted transition-colors">Sobre mí</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <script>
         let currentWeek = 1;
@@ -235,37 +292,30 @@
             const bp = parseFloat(document.getElementById('manualBench').value) || 0;
             const dl = parseFloat(document.getElementById('manualDeadlift').value) || 0;
             
-            // TM = 95% of 1RM usually in Cube
             const tmSq = Math.round(sq * 0.95);
             const tmBp = Math.round(bp * 0.95);
             const tmDl = Math.round(dl * 0.95);
             
             document.getElementById('tmDisplay').innerText = `TMs: SQ ${tmSq} | BP ${tmBp} | DL ${tmDl}`;
             
-            // Textos
             const weekNames = ["Squat Heavy", "Deadlift Heavy", "Bench Heavy"];
             document.getElementById('reportWeekBadge').innerText = `Semana ${currentWeek}: ${weekNames[currentWeek-1] || ''}`;
-            document.getElementById('reportWeekBadge').className = `px-2 py-0.5 rounded text-xs font-bold uppercase ${getWeekColor(currentWeek)}`;
 
-            // --- LÓGICA DE ROTACIÓN CUBE ---
-            // 1=Heavy, 2=Explosive, 3=Reps. Rotates differently for each lift.
-            
             const getType = (lift, week) => {
-                // Returns type config based on week logic
                 if (lift === 'SQ') {
-                    if (week === 1) return { type: 'Pesado', sets: 5, reps: 2, p: 0.80, c: 'red' };
-                    if (week === 2) return { type: 'Explosivo', sets: 8, reps: 3, p: 0.60, c: 'blue' };
-                    if (week === 3) return { type: 'Repeticiones', sets: 1, reps: '8+', p: 0.70, c: 'orange' };
+                    if (week === 1) return { type: 'Pesado', sets: 5, reps: 2, p: 0.80, c: '#B91C1C' }; // error
+                    if (week === 2) return { type: 'Explosivo', sets: 8, reps: 3, p: 0.60, c: '#1E3A8A' }; // primary
+                    if (week === 3) return { type: 'Repeticiones', sets: 1, reps: '8+', p: 0.70, c: '#B45309' }; // warning
                 }
                 if (lift === 'BP') {
-                    if (week === 1) return { type: 'Repeticiones', sets: 1, reps: '8+', p: 0.70, c: 'orange' }; // Offset
-                    if (week === 2) return { type: 'Pesado', sets: 5, reps: 2, p: 0.80, c: 'red' };
-                    if (week === 3) return { type: 'Explosivo', sets: 8, reps: 3, p: 0.60, c: 'blue' };
+                    if (week === 1) return { type: 'Repeticiones', sets: 1, reps: '8+', p: 0.70, c: '#B45309' }; 
+                    if (week === 2) return { type: 'Pesado', sets: 5, reps: 2, p: 0.80, c: '#B91C1C' };
+                    if (week === 3) return { type: 'Explosivo', sets: 8, reps: 3, p: 0.60, c: '#1E3A8A' };
                 }
                 if (lift === 'DL') {
-                    if (week === 1) return { type: 'Explosivo', sets: 8, reps: 3, p: 0.60, c: 'blue' }; // Offset
-                    if (week === 2) return { type: 'Repeticiones', sets: 1, reps: '8+', p: 0.70, c: 'orange' };
-                    if (week === 3) return { type: 'Pesado', sets: 5, reps: 2, p: 0.80, c: 'red' };
+                    if (week === 1) return { type: 'Explosivo', sets: 8, reps: 3, p: 0.60, c: '#1E3A8A' }; 
+                    if (week === 2) return { type: 'Repeticiones', sets: 1, reps: '8+', p: 0.70, c: '#B45309' };
+                    if (week === 3) return { type: 'Pesado', sets: 5, reps: 2, p: 0.80, c: '#B91C1C' };
                 }
                 return {};
             };
@@ -277,37 +327,37 @@
             ];
 
             let listHTML = '';
-            let chartData = { labels: [], intensity: [], volume: [] };
+            let chartData = { labels: [], intensity: [], volume: [], colors: [] };
 
             lifts.forEach(l => {
                 const config = getType(l.id, currentWeek);
                 const weight = Math.round(l.tm * config.p);
                 
                 listHTML += `
-                <div class="bg-slate-50 p-3 rounded-lg border-l-4 border-${config.c}-500 mb-2">
+                <div class="bg-canvas p-3 rounded border border-border mb-2" style="border-left: 4px solid ${config.c}">
                     <div class="flex justify-between items-center mb-1">
-                        <span class="font-bold text-slate-800 text-sm">${l.name}</span>
-                        <span class="text-xs font-bold px-2 py-0.5 rounded bg-${config.c}-100 text-${config.c}-700 uppercase">${config.type}</span>
+                        <span class="font-bold text-ink text-sm">${l.name}</span>
+                        <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded uppercase" style="color:${config.c}; border: 1px solid ${config.c}40">${config.type}</span>
                     </div>
                     <div class="flex justify-between items-end">
-                        <div class="text-xs text-slate-500">${config.sets} x ${config.reps} @ ${Math.round(config.p*100)}%</div>
-                        <div class="font-black text-slate-900 text-lg">${weight}<span class="text-[10px] font-normal text-slate-400">kg</span></div>
+                        <div class="text-xs text-muted font-mono">${config.sets} x ${config.reps} @ ${Math.round(config.p*100)}%</div>
+                        <div class="font-bold font-mono text-ink text-lg">${weight}<span class="text-[10px] text-muted">kg</span></div>
                     </div>
                 </div>`;
 
-                // Data for combo chart
                 chartData.labels.push(l.id);
                 chartData.intensity.push(Math.round(config.p * 100));
-                // Vol score approx (reps * intensity factor)
+                chartData.colors.push(config.c);
+                
                 let volScore = 0;
-                if(config.type === 'Pesado') volScore = 10; // Low volume
-                if(config.type === 'Explosivo') volScore = 24; // High volume
-                if(config.type === 'Repeticiones') volScore = 15; // Med volume
+                if(config.type === 'Pesado') volScore = 10;
+                if(config.type === 'Explosivo') volScore = 24;
+                if(config.type === 'Repeticiones') volScore = 15;
                 chartData.volume.push(volScore);
             });
-            // Add Accessories generic
-            listHTML += `<div class="mt-4 p-3 bg-slate-100 rounded text-xs text-slate-500 text-center italic">
-                + Ejercicios de Culturismo (3-4 ejercicios x 10-15 reps)
+            
+            listHTML += `<div class="mt-4 p-3 bg-canvas border border-dashed border-border rounded text-[10px] font-mono text-muted text-center uppercase tracking-wide">
+                + Accesorios (3-4 ej. x 10-15 reps)
             </div>`;
 
             document.getElementById('exercisesList').innerHTML = listHTML;
@@ -316,38 +366,31 @@
             renderCharts(chartData);
         }
 
-        function getWeekColor(w) {
-            if(w===1) return 'bg-red-100 text-red-700';
-            if(w===2) return 'bg-orange-100 text-orange-700';
-            if(w===3) return 'bg-blue-100 text-blue-700';
-        }
-
         function renderCharts(chartInput) {
-            Chart.defaults.font.family = "'Inter', sans-serif";
+            Chart.defaults.font.family = "'Fira Code', monospace";
+            Chart.defaults.color = '#64748B'; // muted
 
-            // 1. RADAR (Balances slightly based on week focus)
             let radarData = [5, 5, 5, 5, 5];
-            if (currentWeek === 1) radarData = [8, 4, 6, 8, 4]; // SQ Heavy
-            if (currentWeek === 2) radarData = [7, 6, 5, 7, 4]; // DL Heavy (DL is taxing)
-            if (currentWeek === 3) radarData = [8, 5, 7, 6, 4]; // BP Heavy (Less taxing generally)
+            if (currentWeek === 1) radarData = [8, 4, 6, 8, 4]; 
+            if (currentWeek === 2) radarData = [7, 6, 5, 7, 4]; 
+            if (currentWeek === 3) radarData = [8, 5, 7, 6, 4]; 
 
             if (radarChart) radarChart.destroy();
             radarChart = new Chart(document.getElementById('radarChart'), {
                 type: 'radar',
                 data: {
-                    labels: ['Fuerza Máxima', 'Hipertrofia', 'Potencia', 'SNC Stress', 'Técnica'],
+                    labels: ['Fuerza Máx', 'Hipertrofia', 'Potencia', 'SNC Stress', 'Técnica'],
                     datasets: [{
                         label: 'Cube Focus',
                         data: radarData,
-                        backgroundColor: 'rgba(239, 68, 68, 0.2)',
-                        borderColor: '#EF4444',
-                        pointBackgroundColor: '#EF4444'
+                        backgroundColor: 'rgba(30, 58, 138, 0.1)', // primary/10
+                        borderColor: '#1E3A8A', // primary
+                        pointBackgroundColor: '#1E3A8A'
                     }]
                 },
                 options: { responsive: true, maintainAspectRatio: false, scales: { r: { ticks: { display: false }, min: 0, max: 10 } }, plugins: { legend: { display: false } } }
             });
 
-            // 2. INTENSITY BAR (Simple visual of the 3 main lifts intensity)
             if (intensityChart) intensityChart.destroy();
             intensityChart = new Chart(document.getElementById('intensityChart'), {
                 type: 'bar',
@@ -356,14 +399,13 @@
                     datasets: [{
                         label: '% TM',
                         data: chartInput.intensity,
-                        backgroundColor: chartInput.intensity.map(v => v > 75 ? '#EF4444' : (v < 65 ? '#3B82F6' : '#F97316')),
-                        borderRadius: 4
+                        backgroundColor: chartInput.colors,
+                        borderRadius: 2
                     }]
                 },
                 options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, max: 100 } } }
             });
 
-            // 3. COMBO CHART
             if (comboChart) comboChart.destroy();
             comboChart = new Chart(document.getElementById('comboChart'), {
                 type: 'bar',
@@ -373,16 +415,17 @@
                         {
                             label: 'Volumen Relativo (Score)',
                             data: chartInput.volume,
-                            backgroundColor: '#CBD5E1',
-                            order: 2
+                            backgroundColor: '#E2E8F0', // border color
+                            order: 2,
+                            borderRadius: 2
                         },
                         {
                             label: 'Intensidad (%TM)',
                             data: chartInput.intensity,
                             type: 'line',
-                            borderColor: '#0F172A',
+                            borderColor: '#1E293B', // ink
                             borderWidth: 2,
-                            tension: 0.3,
+                            tension: 0, // angular lines for technical look
                             order: 1,
                             yAxisID: 'y1'
                         }
@@ -404,61 +447,12 @@
         function openLeadModal() { document.getElementById('leadModal').classList.remove('hidden'); }
         function closeLeadModal() { document.getElementById('leadModal').classList.add('hidden'); }
         document.getElementById('leadModal').addEventListener('click', e => { if (e.target === document.getElementById('leadModal')) closeLeadModal(); });
+        
         function downloadPdfAction() {
             const element = document.getElementById('pdfPrintableArea');
             html2pdf().set({ margin: 5, filename: `IronLog_Cube_Semana${currentWeek}.pdf`, image: { type: 'jpeg', quality: 0.98 }, html2canvas: { scale: 2 }, jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' } }).from(element).save();
             closePdfModal();
         }
     </script>
-    <!-- Lead Modal -->
-    <div id="leadModal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-slate-900/80 p-4 backdrop-blur-sm">
-        <div class="bg-white w-full max-w-md rounded-2xl shadow-2xl overflow-hidden relative">
-            <button onclick="closeLeadModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-            </button>
-            <div class="p-8">
-                <div class="text-center mb-6">
-                    <div class="w-12 h-12 bg-cyan-100 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">🧊</div>
-                    <h3 class="text-xl font-black text-slate-900 mb-2">¿Querés que Lisandro revise tu programación?</h3>
-                    <p class="text-sm text-slate-600">El simulador calcula la ola. Un experto entiende si el Cube Method es lo correcto para tu fase actual.</p>
-                </div>
-                <form action="https://formspree.io/f/mnjbvkey" method="POST" class="space-y-4">
-                    <input type="email" name="email" required placeholder="tu@email.com" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-primary outline-none transition-all text-sm">
-                    <input type="text" name="context" placeholder="Ej: Cube Semana 2, preparación meet" class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-primary outline-none transition-all text-sm">
-                    <input type="hidden" name="source" value="cube_simulator">
-                    <button type="submit" class="w-full bg-primary hover:bg-blue-700 text-white font-bold py-3 rounded-lg transition-all">Enviar →</button>
-                </form>
-                <p class="text-xs text-slate-400 text-center mt-4">Sin spam. Respuesta en menos de 48hs.</p>
-            </div>
-            <div class="bg-slate-50 px-8 py-3 border-t border-slate-100 text-center">
-                <a href="demo.html" class="text-xs text-slate-500 hover:text-primary">← Volver a la librería de sistemas</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer class="bg-dark text-white py-10 border-t border-slate-800 mt-8">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between gap-6 mb-6">
-                <div class="flex items-center gap-3">
-                    <span class="text-xl">🏋️</span>
-                    <div>
-                        <span class="font-bold text-white text-sm">IronLog Interactive</span>
-                        <p class="text-xs text-slate-500">Simuladores de sistemas de fuerza</p>
-                    </div>
-                </div>
-                <div class="flex gap-8 text-sm text-slate-400">
-                    <a href="demo.html" class="hover:text-white transition-colors">← Librería de Sistemas</a>
-                    <a href="wendler.html" class="hover:text-white transition-colors">Wendler 5/3/1</a>
-                    <a href="ss.html" class="hover:text-white transition-colors">Starting Strength</a>
-                    <a href="../contacto.html" class="hover:text-white transition-colors">Consultoría</a>
-                    <a href="../index.html" class="hover:text-white transition-colors">Lisandro Cacciatore</a>
-                </div>
-            </div>
-            <div class="border-t border-slate-800 pt-4 text-xs text-slate-600 text-center">
-                © 2026 IronLog · Construido por Lisandro Cacciatore · Rosario, Argentina
-            </div>
-        </div>
-    </footer>
 </body>
 </html>

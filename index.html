@@ -8,53 +8,52 @@
     <link rel="canonical" href="https://lisandrocacciatore.com/">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=IBM+Plex+Sans:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="theme.js"></script>
-    <style>
-        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
-        h1, h2, h3, .font-heading { font-family: 'Montserrat', sans-serif; }
-    </style>
 </head>
-<body class="bg-white text-body antialiased">
+<body class="bg-canvas text-body font-sans antialiased">
 
-    <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-200">
-        <div class="max-w-6xl mx-auto px-6 h-20 flex justify-between items-center">
-            <a href="index.html" class="font-heading font-extrabold text-xl text-dark">
-                Lisandro Cacciatore <span class="text-primary">.</span>
+    <nav class="sticky top-0 z-50 bg-canvas/95 backdrop-blur-sm border-b border-border">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex justify-between items-center">
+            <a href="index.html" class="font-heading font-semibold text-lg text-ink flex items-center gap-1">
+                Lisandro Cacciatore <span class="text-primary font-mono font-bold">_</span>
             </a>
             <div class="hidden md:flex items-center gap-8">
-                <a href="#metodo" class="text-sm font-medium text-body hover:text-primary transition-colors">Método</a>
-                <a href="#servicios" class="text-sm font-medium text-body hover:text-primary transition-colors">Servicios</a>
-                <a href="blog.html" class="text-sm font-medium text-body hover:text-primary transition-colors">Blog</a>
-                <a href="contacto.html" class="bg-primary hover:bg-blue-700 text-white text-sm font-semibold px-5 py-2.5 rounded shadow-sm hover:shadow transition-all">
+                <a href="index.html#metodo" class="text-sm font-sans text-muted hover:text-ink transition-colors">Método</a>
+                <a href="index.html#servicios" class="text-sm font-sans text-muted hover:text-ink transition-colors">Servicios</a>
+                <a href="blog.html" class="text-sm font-sans text-muted hover:text-ink transition-colors">Blog</a>
+                <span class="w-px h-4 bg-border"></span> 
+                <a href="ironlog/index.html" class="text-sm font-mono text-primary hover:underline">IronLog</a>
+                <a href="contacto.html" class="bg-primary hover:bg-primary-600 text-white text-sm font-medium px-5 py-2 rounded transition-colors">
                     Solicitar Auditoría
                 </a>
             </div>
+            <button class="md:hidden text-ink p-2 focus:outline-none">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+            </button>
         </div>
     </nav>
 
     <main>
-
-        <!-- HERO -->
-        <section class="bg-dark text-white py-28 md:py-36">
-            <div class="max-w-5xl mx-auto px-6">
+        <section class="bg-dark text-white py-24 md:py-32 bg-tech-grid-dark">
+            <div class="max-w-5xl mx-auto px-6 relative z-10">
                 <div class="max-w-3xl">
-                    <span class="inline-block font-mono text-xs font-bold uppercase tracking-widest text-primary mb-8">
+                    <span class="inline-block font-mono text-xs font-bold uppercase tracking-widest text-primary mb-8 bg-primary-bg/10 px-3 py-1 rounded">
                         Consultoría en Datos Deportivos
                     </span>
-                    <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-8 tracking-tight">
+                    <h1 class="font-heading text-display font-bold text-white mb-6">
                         Tu equipo ya tiene datos.<br>
-                        Lo que necesita es <span class="text-primary">criterio para usarlos.</span>
+                        Lo que necesita es <span class="text-primary-600">criterio.</span>
                     </h1>
-                    <p class="text-lg md:text-xl text-slate-400 leading-relaxed mb-10 max-w-2xl">
-                        Trabajo con clubes y staffs técnicos para construir sistemas de decisión aplicados al rendimiento real. No más información que se pierde. No más reportes que nadie usa. Solo claridad operativa cuando más se necesita.
+                    <p class="text-lead text-subtle mb-10 max-w-2xl">
+                        Trabajo con clubes y staffs técnicos para construir sistemas de decisión aplicados al rendimiento real. No más información que se pierde. Solo claridad operativa cuando más se necesita.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="contacto.html" class="bg-primary hover:bg-blue-600 text-white font-semibold px-8 py-4 rounded shadow-lg transition-all hover:-translate-y-0.5 text-center">
+                        <a href="contacto.html" class="bg-primary hover:bg-primary-600 text-white font-medium px-8 py-4 rounded transition-all text-center">
                             Solicitar Auditoría Técnica →
                         </a>
-                        <a href="#metodo" class="border border-slate-600 hover:border-slate-400 text-slate-300 hover:text-white font-semibold px-8 py-4 rounded transition-all text-center">
+                        <a href="#metodo" class="border border-border text-subtle hover:text-white hover:border-muted font-medium px-8 py-4 rounded transition-all text-center">
                             Ver el método
                         </a>
                     </div>
@@ -62,34 +61,33 @@
             </div>
         </section>
 
-        <!-- PROBLEMA -->
-        <section class="py-20 bg-white border-b border-slate-100">
+        <section class="py-22 bg-canvas border-b border-border">
             <div class="max-w-5xl mx-auto px-6">
-                <div class="grid md:grid-cols-3 gap-px bg-slate-200 rounded-xl overflow-hidden shadow-sm">
-                    <div class="bg-white p-8">
-                        <div class="w-10 h-10 rounded bg-red-50 flex items-center justify-center mb-5">
-                            <span class="text-red-600 font-mono font-bold text-sm">01</span>
+                <div class="grid md:grid-cols-3 gap-px bg-border rounded overflow-hidden">
+                    <div class="bg-canvas p-8">
+                        <div class="w-8 h-8 flex items-center mb-4">
+                            <span class="text-error font-mono font-bold text-sm bg-error-bg px-2 py-1 rounded">01</span>
                         </div>
-                        <h3 class="font-bold text-dark text-lg mb-3">Datos sin criterio</h3>
-                        <p class="text-slate-500 text-sm leading-relaxed">
+                        <h3 class="font-heading font-semibold text-ink text-lg mb-3">Datos sin criterio</h3>
+                        <p class="text-body text-sm leading-relaxed">
                             El GPS genera cientos de métricas por sesión. Sin un sistema de filtrado, esa información acumula ruido en vez de generar claridad.
                         </p>
                     </div>
-                    <div class="bg-white p-8">
-                        <div class="w-10 h-10 rounded bg-red-50 flex items-center justify-center mb-5">
-                            <span class="text-red-600 font-mono font-bold text-sm">02</span>
+                    <div class="bg-canvas p-8">
+                        <div class="w-8 h-8 flex items-center mb-4">
+                            <span class="text-error font-mono font-bold text-sm bg-error-bg px-2 py-1 rounded">02</span>
                         </div>
-                        <h3 class="font-bold text-dark text-lg mb-3">Reportes que no se usan</h3>
-                        <p class="text-slate-500 text-sm leading-relaxed">
+                        <h3 class="font-heading font-semibold text-ink text-lg mb-3">Reportes que no se usan</h3>
+                        <p class="text-body text-sm leading-relaxed">
                             Un dashboard que el cuerpo técnico no consulta no es una solución. Es una pantalla cara que justifica presupuesto pero no cambia decisiones.
                         </p>
                     </div>
-                    <div class="bg-white p-8">
-                        <div class="w-10 h-10 rounded bg-red-50 flex items-center justify-center mb-5">
-                            <span class="text-red-600 font-mono font-bold text-sm">03</span>
+                    <div class="bg-canvas p-8">
+                        <div class="w-8 h-8 flex items-center mb-4">
+                            <span class="text-error font-mono font-bold text-sm bg-error-bg px-2 py-1 rounded">03</span>
                         </div>
-                        <h3 class="font-bold text-dark text-lg mb-3">Procesos que no escalan</h3>
-                        <p class="text-slate-500 text-sm leading-relaxed">
+                        <h3 class="font-heading font-semibold text-ink text-lg mb-3">Procesos que no escalan</h3>
+                        <p class="text-body text-sm leading-relaxed">
                             Lo que funciona cuando hay tiempo libre se rompe bajo presión. El sistema tiene que ser robusto exactamente cuando más se lo necesita.
                         </p>
                     </div>
@@ -97,17 +95,16 @@
             </div>
         </section>
 
-        <!-- MÉTODO -->
-        <section id="metodo" class="py-24 bg-slate-50 border-b border-slate-200">
+        <section id="metodo" class="py-22 bg-surface border-b border-border">
             <div class="max-w-5xl mx-auto px-6">
                 <div class="text-center mb-16">
-                    <span class="inline-block py-1 px-3 rounded text-xs font-mono font-bold uppercase tracking-wider bg-dark text-white mb-6">
+                    <span class="inline-block py-1 px-3 rounded text-xs font-mono font-bold uppercase tracking-wider border border-border text-muted mb-6 bg-canvas">
                         El Método
                     </span>
-                    <h2 class="text-3xl md:text-4xl font-extrabold text-dark mb-5 tracking-tight">
+                    <h2 class="font-heading text-4xl font-bold text-ink mb-5">
                         Estructura antes que volumen.<br>Criterio antes que software.
                     </h2>
-                    <p class="text-slate-500 max-w-2xl mx-auto leading-relaxed">
+                    <p class="text-body max-w-2xl mx-auto leading-relaxed">
                         No se trata de medir más. Se trata de saber qué medir, cuándo importa y cómo convertirlo en una decisión que el staff pueda tomar con confianza.
                     </p>
                 </div>
@@ -115,30 +112,31 @@
                 <div class="grid md:grid-cols-3 gap-8">
                     <div>
                         <div class="flex items-center gap-4 mb-5">
-                            <span class="text-4xl font-extrabold font-mono text-slate-200">01</span>
-                            <div class="h-px flex-1 bg-slate-200"></div>
+                            <span class="text-3xl font-mono font-bold text-subtle">01</span>
+                            <div class="h-px flex-1 bg-border"></div>
                         </div>
-                        <h3 class="font-bold text-dark text-xl mb-3">Auditoría de Proceso</h3>
-                        <p class="text-slate-500 leading-relaxed text-sm">
+                        <h3 class="font-heading font-semibold text-ink text-xl mb-3">Auditoría de Proceso</h3>
+                        <p class="text-body text-sm leading-relaxed">
                             Primero mapeo cómo fluye la información dentro del club: qué se captura, quién lo revisa, cómo llega a quien toma decisiones y dónde se pierde en el camino.
                         </p>
                     </div>
                     <div>
                         <div class="flex items-center gap-4 mb-5">
-                            <span class="text-4xl font-extrabold font-mono text-slate-200">02</span>
-                            <div class="h-px flex-1 bg-slate-200"></div>
+                            <span class="text-3xl font-mono font-bold text-subtle">02</span>
+                            <div class="h-px flex-1 bg-border"></div>
                         </div>
-                        <h3 class="font-bold text-dark text-xl mb-3">Diseño del Sistema</h3>
-                        <p class="text-slate-500 leading-relaxed text-sm">
+                        <h3 class="font-heading font-semibold text-ink text-xl mb-3">Diseño del Sistema</h3>
+                        <p class="text-body text-sm leading-relaxed">
                             Construyo el pipeline de datos y los criterios de validación adaptados a la realidad operativa del club. Sin sobreingeniería. Funcional desde el primer día.
                         </p>
                     </div>
                     <div>
                         <div class="flex items-center gap-4 mb-5">
-                            <span class="text-4xl font-extrabold font-mono text-slate-200">03</span>
+                            <span class="text-3xl font-mono font-bold text-subtle">03</span>
+                            <div class="h-px flex-1 bg-border"></div>
                         </div>
-                        <h3 class="font-bold text-dark text-xl mb-3">Criterio Aplicado</h3>
-                        <p class="text-slate-500 leading-relaxed text-sm">
+                        <h3 class="font-heading font-semibold text-ink text-xl mb-3">Criterio Aplicado</h3>
+                        <p class="text-body text-sm leading-relaxed">
                             El resultado no es un dashboard. Es un sistema que el staff puede operar de forma autónoma: con alertas claras, reportes accionables y lógica que resiste la presión competitiva.
                         </p>
                     </div>
@@ -146,255 +144,125 @@
             </div>
         </section>
 
-        <!-- SERVICIOS -->
-        <section id="servicios" class="py-24 bg-white border-b border-slate-200">
+        <section class="py-22 bg-canvas border-b border-border">
             <div class="max-w-5xl mx-auto px-6">
-                <div class="text-center mb-16">
-                    <span class="inline-block py-1 px-3 rounded text-xs font-mono font-bold uppercase tracking-wider bg-dark text-white mb-6">
-                        Servicios
-                    </span>
-                    <h2 class="text-3xl md:text-4xl font-extrabold text-dark mb-5 tracking-tight">
-                        Trabajo para equipos que quieren profesionalizar su sistema.
-                    </h2>
-                    <p class="text-slate-500 max-w-2xl mx-auto leading-relaxed">
-                        No es para quienes buscan una herramienta aislada o una planilla de reemplazo. Es para instituciones dispuestas a revisar cómo trabajan con la información.
-                    </p>
-                </div>
+                <div class="grid md:grid-cols-2 gap-12 items-start">
 
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div class="border border-slate-200 rounded-xl p-8 hover:border-blue-500 hover:shadow-md transition-all">
-                        <span class="text-xs font-mono font-bold uppercase tracking-wider text-primary">Auditoría Técnica</span>
-                        <h3 class="text-xl font-bold text-dark mt-2 mb-3">Diagnóstico de Infraestructura de Datos</h3>
-                        <p class="text-slate-500 leading-relaxed text-sm mb-5">
-                            Revisión completa del flujo de información: captura GPS, gestión de wellness, validación de datos y circuito de reporte. Entrego un diagnóstico con hallazgos concretos y un plan de mejora priorizado.
+                    <div>
+                        <span class="inline-block py-1 px-3 rounded text-xs font-mono font-bold uppercase tracking-wider border border-border text-muted mb-6 bg-surface">Del Blog</span>
+                        <h2 class="font-heading text-2xl font-bold text-ink mb-3">Lo que funciona en la práctica.</h2>
+                        <p class="text-body text-sm leading-relaxed mb-8">
+                            Casos reales, scripts listos y criterio aplicado. Sin teoría que no puedas usar el lunes.
                         </p>
-                        <div class="text-xs font-mono text-slate-400">Catapult · StatSports · CSV · BigQuery</div>
-                    </div>
-
-                    <div class="border border-slate-200 rounded-xl p-8 hover:border-blue-500 hover:shadow-md transition-all">
-                        <span class="text-xs font-mono font-bold uppercase tracking-wider text-primary">Automatización</span>
-                        <h3 class="text-xl font-bold text-dark mt-2 mb-3">Pipelines y Validación Automatizada</h3>
-                        <p class="text-slate-500 leading-relaxed text-sm mb-5">
-                            Construyo el proceso que convierte los datos crudos en información validada y lista para reportar. Python, automatización de QA y alertas que detectan errores antes de que lleguen al cuerpo técnico.
-                        </p>
-                        <div class="text-xs font-mono text-slate-400">Python · Power BI · BigQuery · Sheets</div>
-                    </div>
-
-                    <div class="border border-slate-200 rounded-xl p-8 hover:border-blue-500 hover:shadow-md transition-all">
-                        <span class="text-xs font-mono font-bold uppercase tracking-wider text-primary">Reporting</span>
-                        <h3 class="text-xl font-bold text-dark mt-2 mb-3">Dashboards Orientados a Decisiones</h3>
-                        <p class="text-slate-500 leading-relaxed text-sm mb-5">
-                            No diseño pantallas con métricas. Diseño reportes que responden preguntas concretas: ¿Quién tiene restricción hoy? ¿Qué carga acumuló el equipo esta semana? Información que el staff puede actuar en menos de dos minutos.
-                        </p>
-                        <div class="text-xs font-mono text-slate-400">Power BI · Looker · Tableau · Sheets</div>
-                    </div>
-
-                    <div class="border border-slate-200 rounded-xl p-8 hover:border-blue-500 hover:shadow-md transition-all">
-                        <span class="text-xs font-mono font-bold uppercase tracking-wider text-primary">Consultoría Estratégica</span>
-                        <h3 class="text-xl font-bold text-dark mt-2 mb-3">Sistema de Decisión Integrado</h3>
-                        <p class="text-slate-500 leading-relaxed text-sm mb-5">
-                            Para clubes que quieren construir capacidad interna de forma sostenida. Trabajo junto al staff para definir protocolos, criterios de interpretación y un proceso que funcione cuando yo no esté. La autonomía es el resultado.
-                        </p>
-                        <div class="text-xs font-mono text-slate-400">Proceso · Criterio · Protocolo · Transferencia</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- EVIDENCIA -->
-        <section class="py-24 bg-dark text-white">
-            <div class="max-w-5xl mx-auto px-6">
-                <div class="text-center mb-16">
-                    <span class="inline-block py-1 px-3 rounded text-xs font-mono font-bold uppercase tracking-wider bg-white/10 text-slate-300 mb-6">
-                        Casos Reales
-                    </span>
-                    <h2 class="text-3xl md:text-4xl font-extrabold mb-5 tracking-tight">
-                        Errores que nadie estaba buscando.
-                    </h2>
-                    <p class="text-slate-400 max-w-xl mx-auto leading-relaxed">
-                        Estas situaciones aparecen cuando se revisa seriamente el flujo de información de un club. En todos los casos, el problema no era la herramienta. Era el proceso.
-                    </p>
-                </div>
-
-                <div class="grid md:grid-cols-3 gap-6">
-                    <div class="bg-slate-800/60 border border-slate-700 rounded-xl p-6">
-                        <div class="font-mono text-red-400 text-xs font-bold uppercase tracking-wider mb-4">GPS sin señal</div>
-                        <p class="text-slate-300 text-sm leading-relaxed">
-                            Un dispositivo se apagó a los 32 minutos de sesión. El jugador apareció con carga baja en el reporte. El DT lo interpretó como falta de compromiso. El problema era la batería, no el rendimiento.
-                        </p>
-                        <div class="mt-5 pt-5 border-t border-slate-700">
-                            <span class="text-xs text-slate-500 font-mono">Validación de señal · QA automatizado</span>
+                        <div class="space-y-4">
+                            <a href="modelado/demo-sobrecarga.html" class="group flex gap-4 items-start p-4 rounded bg-surface border border-border hover:border-primary shadow-structural transition-all">
+                                <div>
+                                    <span class="text-[10px] font-mono font-bold text-muted uppercase mb-1 block">Modelado</span>
+                                    <h3 class="text-sm font-semibold text-ink group-hover:text-primary transition-colors">Cómo detecto sobrecarga sin algoritmos complejos</h3>
+                                </div>
+                            </a>
+                            <a href="sistemas-de-datos/validar-csv.html" class="group flex gap-4 items-start p-4 rounded bg-surface border border-border hover:border-primary shadow-structural transition-all">
+                                <div>
+                                    <span class="text-[10px] font-mono font-bold text-muted uppercase mb-1 block">Sistemas de Datos</span>
+                                    <h3 class="text-sm font-semibold text-ink group-hover:text-primary transition-colors">Qué validar antes de confiar en un CSV deportivo</h3>
+                                </div>
+                            </a>
+                            <a href="decisiones/dato-vs-intuicion.html" class="group flex gap-4 items-start p-4 rounded bg-surface border border-border hover:border-primary shadow-structural transition-all">
+                                <div>
+                                    <span class="text-[10px] font-mono font-bold text-muted uppercase mb-1 block">Decisiones</span>
+                                    <h3 class="text-sm font-semibold text-ink group-hover:text-primary transition-colors">El mito del dato objetivo: por qué la intuición del DT sigue importando</h3>
+                                </div>
+                            </a>
                         </div>
+                        <a href="blog.html" class="inline-block mt-6 text-sm font-mono font-bold text-primary hover:underline">Ver artículos _</a>
                     </div>
-                    <div class="bg-slate-800/60 border border-slate-700 rounded-xl p-6">
-                        <div class="font-mono text-red-400 text-xs font-bold uppercase tracking-wider mb-4">Datos incompletos</div>
-                        <p class="text-slate-300 text-sm leading-relaxed">
-                            El wellness se reportaba cada lunes, pero los datos del fin de semana no estaban validados. Las decisiones del lunes se tomaban sobre información incompleta sin que nadie lo supiera.
-                        </p>
-                        <div class="mt-5 pt-5 border-t border-slate-700">
-                            <span class="text-xs text-slate-500 font-mono">Control de completitud · Alertas de proceso</span>
-                        </div>
-                    </div>
-                    <div class="bg-slate-800/60 border border-slate-700 rounded-xl p-6">
-                        <div class="font-mono text-red-400 text-xs font-bold uppercase tracking-wider mb-4">Error estructural</div>
-                        <p class="text-slate-300 text-sm leading-relaxed">
-                            El analista exportaba CSVs manualmente cada día. Un error de formato generaba columnas corridas. Nadie lo detectó hasta la semana tres. Los reportes anteriores estaban mal.
-                        </p>
-                        <div class="mt-5 pt-5 border-t border-slate-700">
-                            <span class="text-xs text-slate-500 font-mono">Pipeline automatizado · Validación estructural</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
 
-        <div class="bg-slate-900 rounded-2xl p-8 text-white">
-                        <span class="inline-block py-1 px-3 rounded text-xs font-mono font-bold uppercase tracking-wider bg-blue-900/50 text-blue-300 mb-6 border border-blue-800">Piloto Cerrado</span>
+                    <div class="bg-ink rounded-lg p-8 text-surface shadow-structural">
+                        <span class="inline-block py-1 px-2 rounded text-[10px] font-mono font-bold uppercase tracking-wider bg-primary-bg text-primary mb-6">Piloto Cerrado</span>
                         <div class="flex items-center gap-3 mb-4">
                             <span class="text-3xl">🏋️</span>
-                            <h2 class="text-2xl font-extrabold tracking-tight">IronLog</h2>
+                            <h2 class="font-heading text-2xl font-bold">IronLog</h2>
                         </div>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                            El mismo problema que veo en clubes de fútbol existe en entrenamiento de fuerza: datos capturados sin proceso. IronLog es una plataforma para entrenadores que coordinan múltiples atletas y necesitan estructura, no solo un registro.
+                        <p class="text-subtle text-sm leading-relaxed mb-6">
+                            El mismo problema que veo en clubes de fútbol existe en entrenamiento de fuerza: datos capturados sin proceso. IronLog es una plataforma para entrenadores que necesitan estructura, no solo un registro.
                         </p>
                         <div class="space-y-3 mb-8">
-                            <div class="flex items-center gap-2 text-xs text-slate-300">
-                                <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
-                                Cálculo automático de e1RM por sesión
+                            <div class="flex items-center gap-2 text-xs text-muted font-mono">
+                                <span class="text-success">✔</span> e1RM Automático
                             </div>
-                            <div class="flex items-center gap-2 text-xs text-slate-300">
-                                <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
-                                Alertas de estancamiento por atleta
+                            <div class="flex items-center gap-2 text-xs text-muted font-mono">
+                                <span class="text-success">✔</span> Alertas de estancamiento
                             </div>
-                            <div class="flex items-center gap-2 text-xs text-slate-300">
-                                <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
-                                Logging mobile en 30 segundos por sesión
+                            <div class="flex items-center gap-2 text-xs text-muted font-mono">
+                                <span class="text-success">✔</span> Logging mobile (30 seg)
                             </div>
                         </div>
                         <div class="flex flex-col gap-3">
-                            <a href="ironlog/index.html#early-access" class="block w-full text-center bg-primary hover:bg-blue-600 text-white font-bold px-6 py-3 rounded-lg transition-all hover:-translate-y-0.5 shadow-lg shadow-blue-900/30">
-                                Anotarme a la lista de espera →
+                            <a href="ironlog/index.html#early-access" class="block w-full text-center bg-primary hover:bg-primary-600 text-white font-medium px-6 py-3 rounded transition-colors">
+                                Lista de espera →
                             </a>
-                            <a href="ironlog/demo.html" class="block w-full text-center text-slate-400 hover:text-white text-sm font-semibold transition-colors">
+                            <a href="ironlog/demo.html" class="block w-full text-center text-subtle hover:text-surface text-sm transition-colors">
                                 O probar simuladores gratis
                             </a>
                         </div>
                     </div>
 
-        <!-- PUENTE BLOG + IRONLOG -->
-        <section class="py-20 bg-white border-b border-slate-100">
-            <div class="max-w-5xl mx-auto px-6">
-                <div class="grid md:grid-cols-2 gap-12 items-start">
-
-                    <!-- Columna: Blog -->
-                    <div>
-                        <span class="inline-block py-1 px-3 rounded text-xs font-mono font-bold uppercase tracking-wider bg-slate-100 text-slate-600 mb-6">Del Blog</span>
-                        <h2 class="text-2xl font-extrabold text-dark mb-3 tracking-tight">Lo que funciona en la práctica.</h2>
-                        <p class="text-slate-500 text-sm leading-relaxed mb-8">
-                            Casos reales, scripts listos y criterio aplicado. Sin teoría que no puedas usar el lunes.
-                        </p>
-                        <div class="space-y-4">
-                            <a href="blog/periodizacion/demo-sobrecarga.html" class="group flex gap-4 items-start p-4 rounded-xl border border-slate-200 hover:border-primary hover:shadow-md transition-all">
-                                <span class="flex-shrink-0 w-2 h-2 rounded-full bg-red-500 mt-2"></span>
-                                <div>
-                                    <span class="text-xs font-mono text-red-600 mb-1 block">Periodización</span>
-                                    <h3 class="text-sm font-bold text-dark group-hover:text-primary transition-colors">Cómo detecto sobrecarga sin algoritmos complejos</h3>
-                                </div>
-                            </a>
-                            <a href="blog/automatizacion/validar-csv.html" class="group flex gap-4 items-start p-4 rounded-xl border border-slate-200 hover:border-primary hover:shadow-md transition-all">
-                                <span class="flex-shrink-0 w-2 h-2 rounded-full bg-green-500 mt-2"></span>
-                                <div>
-                                    <span class="text-xs font-mono text-green-600 mb-1 block">Automatización</span>
-                                    <h3 class="text-sm font-bold text-dark group-hover:text-primary transition-colors">Qué validar antes de confiar en un CSV deportivo</h3>
-                                </div>
-                            </a>
-                            <a href="blog/decisiones-estrategicas/dato-vs-intuicion.html" class="group flex gap-4 items-start p-4 rounded-xl border border-slate-200 hover:border-primary hover:shadow-md transition-all">
-                                <span class="flex-shrink-0 w-2 h-2 rounded-full bg-purple-500 mt-2"></span>
-                                <div>
-                                    <span class="text-xs font-mono text-purple-600 mb-1 block">Decisiones</span>
-                                    <h3 class="text-sm font-bold text-dark group-hover:text-primary transition-colors">El mito del dato objetivo: por qué la intuición del DT sigue importando</h3>
-                                </div>
-                            </a>
-                        </div>
-                        <a href="blog.html" class="inline-block mt-6 text-sm font-semibold text-primary hover:underline">Ver todos los artículos →</a>
-                    </div>
-
-                    <!-- Columna: IronLog Demo -->
-                    <div class="bg-slate-900 rounded-2xl p-8 text-white">
-                        <span class="inline-block py-1 px-3 rounded text-xs font-mono font-bold uppercase tracking-wider bg-primary/20 text-primary mb-6">Proyecto en desarrollo</span>
-                        <div class="flex items-center gap-3 mb-4">
-                            <span class="text-3xl">🏋️</span>
-                            <h2 class="text-2xl font-extrabold tracking-tight">IronLog</h2>
-                        </div>
-                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
-                            El mismo problema que veo en clubes de fútbol existe en entrenamiento de fuerza: datos capturados sin proceso. IronLog es una plataforma para entrenadores que coordinan múltiples atletas y necesitan estructura, no solo un registro.
-                        </p>
-                        <div class="space-y-3 mb-8">
-                            <div class="flex items-center gap-2 text-xs text-slate-300">
-                                <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
-                                Cálculo automático de e1RM por sesión
-                            </div>
-                            <div class="flex items-center gap-2 text-xs text-slate-300">
-                                <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
-                                Alertas de estancamiento por atleta
-                            </div>
-                            <div class="flex items-center gap-2 text-xs text-slate-300">
-                                <span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
-                                Logging mobile en 30 segundos por sesión
-                            </div>
-                        </div>
-                        <a href="ironlog/demo.html" class="block w-full text-center bg-primary hover:bg-blue-600 text-white font-bold px-6 py-3 rounded-lg transition-all hover:-translate-y-0.5 shadow-lg shadow-blue-900/30">
-                            Probar Demo Interactiva →
-                        </a>
-                        <p class="text-xs text-slate-500 text-center mt-3">Sin registro. Sin instalación. Lanzamiento: marzo 2026.</p>
-                    </div>
-
                 </div>
             </div>
         </section>
 
-        <!-- CONTACTO CTA -->
-        <section id="contacto" class="py-24 bg-slate-50 border-t border-slate-200">
+        <section id="contacto" class="py-22 bg-surface">
             <div class="max-w-3xl mx-auto px-6 text-center">
-                <span class="inline-block py-1 px-3 rounded text-xs font-mono font-bold uppercase tracking-wider bg-dark text-white mb-6">
-                    Primer Paso
-                </span>
-                <h2 class="text-3xl md:text-4xl font-extrabold text-dark mb-5 tracking-tight">
+                <h2 class="font-heading text-3xl font-bold text-ink mb-5">
                     ¿Tu equipo toma decisiones con información confiable?
                 </h2>
-                <p class="text-slate-500 text-lg leading-relaxed mb-10 max-w-xl mx-auto">
-                    La auditoría inicial sirve para mapear el estado real de tu flujo de datos. Sin compromiso de contratación. Con claridad sobre dónde están los problemas y qué tiene sentido resolver primero.
+                <p class="text-body text-lg leading-relaxed mb-10 max-w-xl mx-auto">
+                    La auditoría inicial sirve para mapear el estado real de tu flujo de datos. Sin compromiso. Con claridad sobre dónde están los problemas.
                 </p>
-                <a href="contacto.html" class="inline-block bg-primary hover:bg-blue-700 text-white font-semibold px-10 py-4 rounded shadow-lg transition-all hover:-translate-y-0.5">
+                <a href="contacto.html" class="inline-block bg-primary hover:bg-primary-600 text-white font-medium px-10 py-4 rounded transition-colors">
                     Solicitar Auditoría Técnica →
                 </a>
-                <p class="text-slate-400 text-sm mt-4">Rosario, Argentina · Trabajo remoto LATAM y España</p>
+                <p class="text-muted text-xs font-mono mt-6">Rosario, Argentina · Trabajo remoto LATAM y España</p>
             </div>
         </section>
 
     </main>
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ProfessionalService",
-      "name": "Lisandro Cacciatore - Sistemas de Decisión en Datos Deportivos",
-      "description": "Diseño de sistemas de decisión aplicados al rendimiento deportivo para clubes y staffs técnicos en LATAM y España.",
-      "address": { "@type": "PostalAddress", "addressLocality": "Rosario", "addressRegion": "Santa Fe", "addressCountry": "AR" },
-      "url": "https://lisandrocacciatore.com",
-      "email": "contacto@lisandrocacciatore.com"
-    }
-    </script>
-
-    <footer class="bg-dark text-white py-12 text-center border-t border-slate-800">
-        <div class="max-w-4xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-center gap-8 text-sm text-slate-500 mb-4">
-                <a href="blog.html" class="hover:text-white transition-colors">Blog</a>
-                <a href="sobre-mi.html" class="hover:text-white transition-colors">Sobre Mí</a>
-                <a href="contacto.html" class="hover:text-white transition-colors">Contacto</a>
-                <a href="privacidad.html" class="hover:text-white transition-colors">Privacidad</a>
+    <footer class="bg-dark pt-16 pb-8 border-t-4 border-primary">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div class="md:col-span-2">
+                    <span class="font-heading font-semibold text-lg text-surface block mb-4">Lisandro Cacciatore</span>
+                    <p class="text-muted text-sm leading-relaxed max-w-sm">
+                        Diseño de sistemas de decisión aplicados al rendimiento deportivo. Arquitectura de datos para staffs técnicos que operan bajo presión.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="font-heading text-surface text-xs font-bold mb-4 uppercase tracking-widest">Ecosistema</h3>
+                    <ul class="space-y-3">
+                        <li><a href="blog.html" class="text-sm font-sans text-muted hover:text-surface transition-colors">Blog Técnico</a></li>
+                        <li><a href="ironlog/index.html" class="text-sm font-sans text-muted hover:text-surface transition-colors">IronLog (Piloto)</a></li>
+                        <li><a href="ironlog/tools.html" class="text-sm font-sans text-muted hover:text-surface transition-colors">Data Tools</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-heading text-surface text-xs font-bold mb-4 uppercase tracking-widest">Operaciones</h3>
+                    <ul class="space-y-3">
+                        <li><a href="contacto.html" class="text-sm font-sans text-muted hover:text-surface transition-colors">Solicitar Auditoría</a></li>
+                        <li><span class="text-sm font-sans text-subtle block">Rosario, Argentina</span></li>
+                        <li><span class="text-sm font-sans text-subtle block">Remoto LATAM / España</span></li>
+                    </ul>
+                </div>
             </div>
-            <p class="text-sm text-slate-600">© 2026 Lisandro Cacciatore · Rosario, Argentina</p>
+            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="text-xs font-mono text-subtle">
+                    © 2026 Lisandro Cacciatore. Todos los derechos reservados.
+                </div>
+                <div class="flex gap-6 text-xs font-sans text-subtle">
+                    <a href="privacidad.html" class="hover:text-muted transition-colors">Privacidad</a>
+                    <a href="sobre-mi.html" class="hover:text-muted transition-colors">Sobre mí</a>
+                </div>
+            </div>
         </div>
     </footer>
 </body>
