@@ -16,6 +16,7 @@
         pre { background-color: #0F172A !important; border-radius: 0.5rem; padding: 1.25rem; overflow-x: auto; }
         code { font-family: 'Fira Code', monospace; font-size: 0.85rem; color: #93c5fd; }
     </style>
+    <meta property="og:type" content="article">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -136,7 +137,7 @@
                 <div class="bg-slate-800 px-4 py-2">
                     <span class="text-xs font-mono text-slate-400">validacion_1_fantasmas.py</span>
                 </div>
-                <pre><code>def detectar_fantasmas(df):
+                <pre role="region" aria-label="Ejemplo de código"><code>def detectar_fantasmas(df):
     fantasmas = df[(df['Duration_Min'] > 20) & (df['Distance_m'] < 100)]
     if not fantasmas.empty:
         raise ValueError(
@@ -163,7 +164,7 @@
                 <div class="bg-slate-800 px-4 py-2">
                     <span class="text-xs font-mono text-slate-400">validacion_2_duplicados.py</span>
                 </div>
-                <pre><code>nombres_detectados = df['Player_Name'].nunique()
+                <pre role="region" aria-label="Ejemplo de código"><code>nombres_detectados = df['Player_Name'].nunique()
 plantel_esperado = 26
 
 if nombres_detectados > plantel_esperado * 1.1:
@@ -185,7 +186,7 @@ if nombres_detectados > plantel_esperado * 1.1:
                 <div class="bg-slate-800 px-4 py-2">
                     <span class="text-xs font-mono text-slate-400">validacion_3_rangos.py</span>
                 </div>
-                <pre><code>LIMITES = {
+                <pre role="region" aria-label="Ejemplo de código"><code>LIMITES = {
     'Max_Speed_kmh': 37,
     'Total_Distance_m': 15000,
     'Max_HR_bpm': 220
@@ -224,28 +225,28 @@ for col, limite in LIMITES.items():
                     <details class="group border border-slate-200 rounded-lg">
                         <summary class="flex justify-between items-center p-5 cursor-pointer font-semibold text-dark">
                             ¿Qué es un GPS fantasma en datos deportivos?
-                            <span class="text-primary text-xl group-open:rotate-45 transition-transform">+</span>
+                            <span class="text-primary text-xl group-open:rotate-45 transition-transform" aria-hidden="true">+</span>
                         </summary>
                         <p class="px-5 pb-5 text-slate-600 text-sm leading-relaxed">Un GPS fantasma es un dispositivo que registra sesión activa (más de 20 minutos) pero con una distancia menor a 100 metros. Indica que el aparato estaba encendido pero no en el cuerpo de ningún jugador. Si entra al promedio del equipo, deprime artificialmente las métricas de carga e intensidad de la sesión.</p>
                     </details>
                     <details class="group border border-slate-200 rounded-lg">
                         <summary class="flex justify-between items-center p-5 cursor-pointer font-semibold text-dark">
                             ¿Qué validaciones debe pasar un CSV de Catapult o StatSports antes de reportar?
-                            <span class="text-primary text-xl group-open:rotate-45 transition-transform">+</span>
+                            <span class="text-primary text-xl group-open:rotate-45 transition-transform" aria-hidden="true">+</span>
                         </summary>
                         <p class="px-5 pb-5 text-slate-600 text-sm leading-relaxed">Tres controles mínimos: (1) detección de GPS fantasmas (duración alta, distancia mínima), (2) normalización de nombres de jugadores para eliminar variantes del mismo ID, y (3) verificación de rangos físicos posibles para descartar outliers de señal como velocidades superiores a 37 km/h o frecuencias cardíacas mayores a 220 bpm.</p>
                     </details>
                     <details class="group border border-slate-200 rounded-lg">
                         <summary class="flex justify-between items-center p-5 cursor-pointer font-semibold text-dark">
                             ¿Por qué los errores de GPS no se detectan visualmente en Excel?
-                            <span class="text-primary text-xl group-open:rotate-45 transition-transform">+</span>
+                            <span class="text-primary text-xl group-open:rotate-45 transition-transform" aria-hidden="true">+</span>
                         </summary>
                         <p class="px-5 pb-5 text-slate-600 text-sm leading-relaxed">Los valores extremos se pierden entre filas y el ojo humano normaliza rangos numéricos. Un valor de 42 km/h parece plausible si no conocés el umbral real. Un GPS fantasma con 47 metros en 90 minutos parece un jugador lesionado, no un error de señal. La validación automática detecta estas condiciones con reglas explícitas.</p>
                     </details>
                     <details class="group border border-slate-200 rounded-lg">
                         <summary class="flex justify-between items-center p-5 cursor-pointer font-semibold text-dark">
                             ¿Cómo implementar validación automática sin saber programar?
-                            <span class="text-primary text-xl group-open:rotate-45 transition-transform">+</span>
+                            <span class="text-primary text-xl group-open:rotate-45 transition-transform" aria-hidden="true">+</span>
                         </summary>
                         <p class="px-5 pb-5 text-slate-600 text-sm leading-relaxed">El consultor o analista técnico implementa el script una sola vez. A partir de ahí el proceso se ejecuta automáticamente con cada archivo nuevo. El staff no interactúa con el código: solo recibe alertas cuando un dato falla la validación antes de que llegue al reporte.</p>
                     </details>

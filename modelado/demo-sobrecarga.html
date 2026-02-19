@@ -16,6 +16,7 @@
         pre { background-color: #0F172A !important; border-radius: 0.5rem; padding: 1.25rem; overflow-x: auto; }
         code { font-family: 'Fira Code', monospace; font-size: 0.85rem; color: #86efac; }
     </style>
+    <meta property="og:type" content="article">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -129,7 +130,7 @@
                     <span class="text-xs font-mono text-slate-400">logica_alerta.py</span>
                     <span class="text-xs font-mono text-green-400">// lógica de la alerta</span>
                 </div>
-                <pre><code>def calcular_estado(jugador):
+                <pre role="region" aria-label="Ejemplo de código"><code>def calcular_estado(jugador):
     acwr = jugador['carga_aguda_7d'] / jugador['carga_cronica_28d']
     dolor_muscular = jugador['wellness_dolor']  # escala 1-10
 
@@ -200,35 +201,35 @@
                     <details class="group border border-slate-200 rounded-lg">
                         <summary class="flex justify-between items-center p-5 cursor-pointer font-semibold text-dark">
                             ¿Qué es el ACWR y para qué sirve en fútbol?
-                            <span class="text-primary text-xl group-open:rotate-45 transition-transform">+</span>
+                            <span class="text-primary text-xl group-open:rotate-45 transition-transform" aria-hidden="true">+</span>
                         </summary>
                         <p class="px-5 pb-5 text-slate-600 text-sm leading-relaxed">El ACWR (Acute:Chronic Workload Ratio) es el cociente entre la carga de los últimos 7 días y el promedio de los últimos 28. Mide si la carga reciente es alta respecto al historial del jugador. Un ACWR superior a 1.3 indica que el jugador está entrenando significativamente más de lo que su cuerpo tiene adaptado, lo que se asocia con mayor riesgo de lesión muscular.</p>
                     </details>
                     <details class="group border border-slate-200 rounded-lg">
                         <summary class="flex justify-between items-center p-5 cursor-pointer font-semibold text-dark">
                             ¿Cómo detectar sobrecarga con datos GPS en fútbol?
-                            <span class="text-primary text-xl group-open:rotate-45 transition-transform">+</span>
+                            <span class="text-primary text-xl group-open:rotate-45 transition-transform" aria-hidden="true">+</span>
                         </summary>
                         <p class="px-5 pb-5 text-slate-600 text-sm leading-relaxed">El método más robusto cruza datos GPS (ACWR) con wellness subjetivo del jugador. Un ACWR mayor a 1.3 Y dolor muscular mayor a 7/10 genera alerta de riesgo alto. Si solo una señal está activa, el estado es de monitoreo. El cruce de ambas fuentes filtra falsos positivos de jugadores bien adaptados.</p>
                     </details>
                     <details class="group border border-slate-200 rounded-lg">
                         <summary class="flex justify-between items-center p-5 cursor-pointer font-semibold text-dark">
                             ¿Cuánto tiempo lleva revisar el estado del plantel con este sistema?
-                            <span class="text-primary text-xl group-open:rotate-45 transition-transform">+</span>
+                            <span class="text-primary text-xl group-open:rotate-45 transition-transform" aria-hidden="true">+</span>
                         </summary>
                         <p class="px-5 pb-5 text-slate-600 text-sm leading-relaxed">Menos de dos minutos. El PF ve el semáforo por jugador (disponible, monitorear, reducir carga) antes de armar el entrenamiento, sin interpretar datos crudos. Si la pregunta "¿a quién saco del reducido?" no se responde en dos minutos, el sistema no está bien calibrado.</p>
                     </details>
                     <details class="group border border-slate-200 rounded-lg">
                         <summary class="flex justify-between items-center p-5 cursor-pointer font-semibold text-dark">
                             ¿El ACWR predice lesiones en fútbol?
-                            <span class="text-primary text-xl group-open:rotate-45 transition-transform">+</span>
+                            <span class="text-primary text-xl group-open:rotate-45 transition-transform" aria-hidden="true">+</span>
                         </summary>
                         <p class="px-5 pb-5 text-slate-600 text-sm leading-relaxed">No. Identifica jugadores en zona de riesgo estadístico, pero no predice lesiones individuales. La decisión final siempre es del PF y el médico. En períodos de doble competencia o viajes, los umbrales necesitan ajuste manual y revisión humana.</p>
                     </details>
                     <details class="group border border-slate-200 rounded-lg">
                         <summary class="flex justify-between items-center p-5 cursor-pointer font-semibold text-dark">
                             ¿Por qué el wellness subjetivo importa tanto como el GPS?
-                            <span class="text-primary text-xl group-open:rotate-45 transition-transform">+</span>
+                            <span class="text-primary text-xl group-open:rotate-45 transition-transform" aria-hidden="true">+</span>
                         </summary>
                         <p class="px-5 pb-5 text-slate-600 text-sm leading-relaxed">Cada fuente tiene un error distinto. Solo GPS: parás a jugadores bien adaptados que toleran cargas altas. Solo wellness: ignorás fatiga acumulada de jugadores que minimizan síntomas para no ser percibidos como lesionables. El cruce de ambas fuentes filtra los dos tipos de error.</p>
                     </details>

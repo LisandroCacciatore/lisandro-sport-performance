@@ -11,6 +11,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=IBM+Plex+Sans:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="theme.js"></script>
+    <meta property="og:title" content="Lisandro Cacciatore | Sistemas de Decisión en Datos Deportivos">
+    <meta property="og:description" content="Diseño sistemas de decisión aplicados al rendimiento deportivo para staffs técnicos bajo presión.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lisandrocacciatore.com/">
+    <meta property="og:image" content="https://lisandrocacciatore.com/og-default.jpg">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Lisandro Cacciatore","url":"https://lisandrocacciatore.com/","jobTitle":"Consultor en Datos Deportivos","address":{"@type":"PostalAddress","addressLocality":"Rosario","addressCountry":"AR"}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Lisandro Cacciatore","url":"https://lisandrocacciatore.com/","logo":"https://lisandrocacciatore.com/logo.png"}</script>
 </head>
 <body class="bg-canvas text-body font-sans antialiased">
 
@@ -29,9 +36,18 @@
                     Solicitar Auditoría
                 </a>
             </div>
-            <button class="md:hidden text-ink p-2 focus:outline-none">
+            <button id="mobileMenuButton" class="md:hidden text-ink p-2 focus:outline-none" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
             </button>
+        </div>
+        <div id="mobileMenu" class="hidden md:hidden border-t border-border bg-canvas absolute top-16 inset-x-0 px-6 py-4">
+            <div class="flex flex-col gap-4">
+                <a href="index.html#metodo" class="text-sm font-sans text-muted hover:text-ink transition-colors">Método</a>
+                <a href="index.html#servicios" class="text-sm font-sans text-muted hover:text-ink transition-colors">Servicios</a>
+                <a href="blog.html" class="text-sm font-sans text-muted hover:text-ink transition-colors">Blog</a>
+                <a href="ironlog/index.html" class="text-sm font-mono text-primary hover:underline">IronLog</a>
+                <a href="contacto.html" class="bg-primary hover:bg-primary-600 text-white text-sm font-medium px-5 py-2 rounded transition-colors text-center">Solicitar Auditoría</a>
+            </div>
         </div>
     </nav>
 
@@ -265,5 +281,14 @@
             </div>
         </div>
     </footer>
+<script>
+const mobileMenuButton = document.getElementById('mobileMenuButton');
+const mobileMenu = document.getElementById('mobileMenu');
+mobileMenuButton?.addEventListener('click', () => {
+  mobileMenu.classList.toggle('hidden');
+  const expanded = mobileMenuButton.getAttribute('aria-expanded') === 'true';
+  mobileMenuButton.setAttribute('aria-expanded', String(!expanded));
+});
+</script>
 </body>
 </html>
