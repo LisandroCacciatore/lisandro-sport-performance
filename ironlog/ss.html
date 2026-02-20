@@ -119,12 +119,12 @@
                 </div>
                 
                 <button onclick="generateSSDashboard()" class="w-full mt-6 bg-primary hover:bg-primary-600 text-white font-medium py-3 rounded transition-colors">
-                    Generar Microciclo →
+                    Actualizar Microciclo →
                 </button>
             </div>
         </section>
 
-        <section id="dashboard" class="hidden transition-all duration-500">
+        <section id="dashboard" class="transition-all duration-500">
             <div id="pdfPrintableArea" class="bg-surface p-8 rounded border border-border shadow-structural mb-8">
                 
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 border-b border-border pb-6 gap-4">
@@ -203,7 +203,8 @@
         document.addEventListener('DOMContentLoaded', () => {
             const leadModal = document.getElementById('leadModal');
             leadModal?.addEventListener('click', e => { if (e.target === leadModal) closeLeadModal(); });
-            selectWeek('ABA'); 
+            selectWeek('ABA');
+            generateSSDashboard();
             // Listeners para auto-update
             ['manualSquat', 'manualBench', 'manualDeadlift', 'manualPress', 'manualClean'].forEach(id => {
                 document.getElementById(id).addEventListener('input', () => {
