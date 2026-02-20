@@ -50,8 +50,9 @@
         <section class="py-22">
             <div class="max-w-2xl mx-auto px-6">
                 <div id="formWrapper" class="bg-canvas border border-border rounded shadow-structural p-8">
-                    <form id="contactForm" action="https://formspree.io/f/mnjbvkey" method="POST" class="space-y-6" novalidate>
-                        <input type="text" name="_gotcha" style="display:none" />
+                    <form id="contactForm" class="space-y-6" novalidate>
+                        <input type="text" id="website" name="website" style="display:none" tabindex="-1" autocomplete="off">
+                        
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
@@ -107,7 +108,7 @@
                         </button>
 
                         <div id="formError" class="hidden bg-error-bg border border-error/50 text-error text-sm px-4 py-3 rounded text-center">
-                            Hubo un error al enviar. Intentá de nuevo o escribime a contacto@lisandrocacciatore.com
+                            Hubo un error al enviar. Intentá de nuevo o escribime a <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="bcdfd3d2c8dddfc8d3fcd0d5cfddd2d8ced3dfdddfdfd5ddc8d3ced992dfd3d1">[email&#160;protected]</a>
                         </div>
                     </form>
 
@@ -154,10 +155,92 @@
                 </div>
                 <div class="flex gap-6 text-xs font-sans text-subtle">
                     <a href="privacidad.html" class="hover:text-muted transition-colors">Privacidad</a>
+                    <a href="sobre-mi.html" class="hover:te
                     <a href="sobre-mi.html" class="hover:text-muted transition-colors">Sobre mí</a>
                 </div>
             </div>
         </div>
     </footer>
+
+<script>
+  // ─── CONFIGURACIÓN ─────────────────────────────────────────────────────────
+  // Pegá aquí la URL del webhook de n8n después de importar el workflow
+  const N8N_WEBHOOK_URL = 'https://lcacciatore.com/webhook-test/lead-auditoria';
+
+  // ─── VALIDACIÓN INLINE ────────────────────────────────────────────────────
+  function showError(input, show) {
+    const err = input.parentElement.querySelector('.field-error');
+    if (!err) return;
+    if (show) {
+      err.classList.remove('hidden');
+      input.classList.add('border-error');
+    } else {
+      err.classList.add('hidden');
+      input.classList.remove('border-error');
+    }
+  }
+
+  document.querySelectorAll('.input-field').forEach(input => {
+    input.addEventListener('blur', () => {
+      if (input.hasAttribute('required')) showError(input, !input.value.trim());
+    });
+    input.addEventListener('input', () => {
+      if (input.value.trim()) showError(input, false);
+    });
+  });
+
+  // ─── SUBMIT → n8n WEBHOOK ─────────────────────────────────────────────────
+  document.getElementById('contactForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    // Anti-spam honeypot
+    if (document.getElementById('website') && document.getElementById('website').value.trim() !== '') return;
+
+    // Validar campos requeridos
+    let valid = true;
+    this.querySelectorAll('[required]').forEach(input => {
+      if (!input.value.trim()) { showError(input, true); valid = false; }
+    });
+    if (!valid) return;
+
+    const btn     = document.getElementById('submitBtn');
+    const btnText = document.getElementById('btnText');
+    const errBox  = document.getElementById('formError');
+    const success = document.getElementById('formSuccess');
+
+    btn.disabled = true;
+    btnText.textContent = 'Enviando...';
+    errBox.classList.add('hidden');
+
+    const payload = {
+      nombre_completo:    document.getElementById('nombre').value.trim(),
+      rol_club:           document.getElementById('rol').value.trim(),
+      email:              document.getElementById('email').value.trim().toLowerCase(),
+      organization:       document.getElementById('organization').value.trim(),
+      problema_principal: document.getElementById('problema').value,
+      detalle_adicional:  document.getElementById('detalle').value.trim(),
+      source:             'contacto_html'
+    };
+
+    try {
+      const res = await fetch(N8N_WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      if (res.ok) {
+        document.getElementById('contactForm').classList.add('hidden');
+        success.classList.remove('hidden');
+      } else {
+        throw new Error('HTTP ' + res.status);
+      }
+    } catch (err) {
+      btn.disabled = false;
+      btnText.textContent = 'Agendar revisión inicial';
+      errBox.classList.remove('hidden');
+    }
+  });
+</script>
 </body>
 </html>
