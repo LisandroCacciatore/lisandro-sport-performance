@@ -177,6 +177,9 @@
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
                     Descargar Planificación PDF
                 </button>
+                <button onclick="openLeadModal()" class="mt-4 border border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 rounded font-medium transition-colors">
+                    Solicitar Auditoría
+                </button>
             </div>
         </section>
     </div>
@@ -204,15 +207,21 @@
             <div class="p-8">
                 <div class="text-center mb-6">
                     <div class="w-12 h-12 bg-canvas border border-border rounded flex items-center justify-center mx-auto mb-4 text-2xl">🧊</div>
-                    <h3 class="font-heading text-lg font-bold text-ink mb-2">¿Querés que Lisandro revise tu programación?</h3>
-                    <p class="text-xs text-body">El simulador calcula la ola. Un experto entiende si el Cube Method es lo correcto para tu fase actual.</p>
+                    <h3 class="font-heading text-lg font-bold text-ink mb-2">¿Querés que Lisandro revise tu programación y te entregue 1 mejora implementable en 7 días?</h3>
+                    <p class="text-xs text-body">Elegí si querés feedback puntual o avanzar con una Auditoría Lean Deportiva (USD 400).</p>
                 </div>
-                <form action="https://formspree.io/f/mnjbvkey" method="POST" class="space-y-4">
-                    <input type="email" name="email" required placeholder="tu@email.com" class="w-full px-4 py-3 rounded bg-canvas border border-border focus:border-primary outline-none transition-all text-sm font-sans">
-                    <input type="text" name="context" placeholder="Ej: Cube Semana 2, preparación meet" class="w-full px-4 py-3 rounded bg-canvas border border-border focus:border-primary outline-none transition-all text-sm font-sans">
-                    <input type="hidden" name="source" value="cube_simulator">
-                    <button type="submit" class="w-full bg-primary hover:bg-primary-600 text-white font-medium py-3 rounded transition-colors text-sm">Enviar →</button>
-                </form>
+                <div class="space-y-3 mb-5">
+                    <button type="button" onclick="openLeadModalForAudit()" class="w-full bg-primary hover:bg-primary-600 text-white font-medium py-3 rounded transition-colors text-sm">Solicitar Auditoría (30 min)</button>
+                    <button type="button" onclick="document.getElementById('leadFormWrapper').classList.toggle('hidden')" class="w-full border border-border hover:border-primary text-ink font-medium py-3 rounded transition-colors text-sm">Solo quiero feedback</button>
+                </div>
+                <div id="leadFormWrapper" class="hidden">
+                    <form action="https://formspree.io/f/mnjbvkey" method="POST" class="space-y-4">
+                        <input type="email" name="email" required placeholder="tu@email.com" class="w-full px-4 py-3 rounded bg-canvas border border-border focus:border-primary outline-none transition-all text-sm font-sans">
+                        <input type="text" name="context" placeholder="Contame tu contexto" class="w-full px-4 py-3 rounded bg-canvas border border-border focus:border-primary outline-none transition-all text-sm font-sans">
+                        <input type="hidden" name="source" value="cube_simulator">
+                        <button type="submit" class="w-full bg-primary hover:bg-primary-600 text-white font-medium py-3 rounded transition-colors text-sm">Enviar feedback →</button>
+                    </form>
+                </div>
                 <p class="text-[10px] font-mono text-muted text-center mt-4 uppercase">Sin spam. Respuesta en menos de 48hs.</p>
             </div>
             <div class="bg-canvas px-8 py-3 border-t border-border text-center">
@@ -448,6 +457,11 @@
         function openPdfModal() { document.getElementById('pdfModal').classList.remove('hidden'); }
         function closePdfModal() { document.getElementById('pdfModal').classList.add('hidden'); }
         function openLeadModal() { document.getElementById('leadModal').classList.remove('hidden'); }
+        const CALENDLY_URL = "https://calendly.com/TU_CALENDLY/diagnostico-30?source=auditoria";
+        function openLeadModalForAudit() {
+            openLeadModal();
+            window.open(CALENDLY_URL, "_blank", "noopener,noreferrer");
+        }
         function closeLeadModal() { document.getElementById('leadModal').classList.add('hidden'); }
         
         
