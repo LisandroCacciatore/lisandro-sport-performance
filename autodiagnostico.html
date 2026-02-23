@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="10 preguntas para saber si tu sistema de entrenamiento produce criterio o solo datos. Sin teoría. Sin filtros.">
+    <title>Autodiagnóstico de Sistema de Decisión | Lisandro Cacciatore</title>
+    <link rel="canonical" href="https://lisandrocacciatore.com/recursos/autodiagnostico.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=IBM+Plex+Sans:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../theme.js"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        h1, h2, h3 { font-family: 'IBM Plex Sans', sans-serif; }
+
+        .option-btn {
+            transition: all 0.15s ease;
+            cursor: pointer;
+        }
+        .option-btn:hover {
+            transform: translateY(-1px);
+        }
+        .option-btn.selected-si {
+            background-color: #166534;
+            border-color: #166534;
+            color: white;
+        }
+        .option-btn.selected-aveces {
+            background-color: #92400e;
+            border-color: #92400e;
+            color: white;
+        }
+        .option-btn.selected-no {
+            background-color: #991b1b;
+            border-color: #991b1b;
+            color: white;
+        }
+        .question-card {
+            transition: all 0.3s ease;
+        }
+        .question-card.answered {
+            opacity: 0.7;
+        }
+        #resultPanel {
+            transition: all 0.4s ease;
+        }
+    </style>
+</head>
+<body class="bg-canvas text-body antialiased">
+
+    <nav class="sticky top-0 z-50 bg-canvas/95 backdrop-blur-sm border-b border-border">
+        <div class="max-w-6xl mx-auto px-6 h-20 flex justify-between items-center">
+            <a href="../index.html" class="font-heading font-extrabold text-xl text-ink">
+                Lisandro Cacciatore <span class="text-primary">.</span>
+            </a>
+            <div class="flex items-center gap-6">
+                <a href="../blog.html" class="text-sm font-medium text-muted hover:text-primary flex items-center transition-colors">
+                    <span class="mr-2">←</span> Volver al Blog
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- HERO -->
+        <section class="bg-ink text-surface py-20 border-b-4 border-primary">
+            <div class="max-w-3xl mx-auto px-6 text-center">
+                <span class="inline-block font-mono text-[10px] font-bold uppercase tracking-widest text-primary mb-4 bg-primary-bg/10 px-2 py-1 rounded border border-blue-900">
+                    Recurso gratuito · Sin registro
+                </span>
+                <h1 class="text-3xl md:text-5xl font-extrabold text-surface mb-6 leading-tight tracking-tight">
+                    Autodiagnóstico de Sistema de Decisión
+                </h1>
+                <p class="text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto">
+                    10 preguntas. Sin teoría. Sin filtros.<br>
+                    Respondé con honestidad. <strong class="text-surface">Sí / A veces / No.</strong> No hay respuesta políticamente correcta. Hay respuesta útil.
+                </p>
+            </div>
+        </section>
+
+        <!-- DIAGNOSTIC -->
+        <section class="py-16 bg-canvas">
+            <div class="max-w-3xl mx-auto px-6">
+
+                <!-- Progress bar -->
+                <div class="mb-10">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="text-xs font-mono text-muted uppercase tracking-wide">Progreso</span>
+                        <span id="progressText" class="text-xs font-mono text-muted">0 / 10</span>
+                    </div>
+                    <div class="w-full bg-surface rounded-full h-1.5 border border-border">
+                        <div id="progressBar" class="bg-primary h-1.5 rounded-full transition-all duration-500" style="width: 0%"></div>
+                    </div>
+                </div>
+
+                <!-- Questions -->
+                <div id="questionsContainer" class="space-y-6">
+
+                    <div class="question-card bg-surface rounded border border-border p-6 shadow-structural" data-q="1">
+                        <div class="flex items-start gap-4 mb-5">
+                            <span class="flex-shrink-0 w-8 h-8 bg-ink text-surface rounded font-mono font-bold text-sm flex items-center justify-center">1</span>
+                            <div>
+                                <p class="font-bold text-ink text-lg leading-tight">¿Podés explicar por qué esta semana subiste o bajaste la carga?</p>
+                                <p class="text-sm text-muted mt-2">No "porque tocaba" o "porque se veían bien". Una razón basada en un dato o una tendencia observable.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-3 pl-12">
+                            <button class="option-btn flex-1 py-2.5 px-4 rounded border border-border text-sm font-semibold text-muted hover:border-primary" data-q="1" data-val="si">Sí</button>
+                            <button class="option-btn flex-1 py-2.5 px-4 rounded border border-border text-sm font-semibold text-muted hover:border-warning" data-q="1" data-val="aveces">A veces</button>
+                            <button class="option-btn flex-1 py-2.5 px-4 rounded border border-border text-sm font-semibold text-muted hover:border-error" data-q="1" data-val="no">No</button>
+                        </div>
+                    </div>
+
+                    <div class="question-card bg-surface rounded border border-border p-6 shadow-structural" data-q="2">
+                        <div class="flex items-start gap-4 mb-5">
+                            <span class="flex-shrink-0 w-8 h-8 bg-ink text-surface rounded font-mono font-bold text-sm flex items-center justify-center">2</span>
+                            <div>
+                                <p class="font-bold text-ink text-lg leading-tight">¿Tenés un indicador que anticipe fatiga antes de que caiga el rendimiento?</p>
+                                <p class="text-sm text-muted mt-2">Algo que te avise antes de que el atleta llegue vacío. Puede ser HRV, RPE acumulado, velocidad de ejecución, wellness. Cualquiera.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-3 pl-12">
+                            <button class="option-btn flex-1 py-2.5 px-4 rounded border border-border text-sm font-semibold text-muted" data-q="2" data-val="si">Sí</button>
+                            <button class="option-btn flex-1 py-2.5 px-4 rounded border border-border text-sm font-semibold text-muted" data-q="2" data-val="aveces">A veces</button>
+                            <button class="option-btn flex-1 py-2.5 px-4 rounded border border-border text-sm font-semibold text-muted" data-q="2" data-val="no">No</button>
+                        </div>
+                    </div>
+
+                    <div class="question-card bg-surface rounded border border-border p-6 shadow-structural" data-q="3">
+                        <div class="flex items-start gap-4 mb-5">
+                            <span class="flex-shrink-0 w-8 h-8 bg-ink text-surface rounded font-mono font-bold text-sm flex items-center justify-center">3</span>
+                            <div>
+                                <p class="font-bold text-ink text-lg leading-tight">¿Tus decisiones de ajuste se basan en tendencia o en la intuición del momento?</p>
+                                <p class="text-sm text-muted mt-2">Tendencia = dos o más puntos de datos en la misma dirección. Intuición = "lo vi raro hoy".</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-3 pl-12">
+                            <button class="option-btn flex-1 py-2.5 px-4 rounded border border-border text-sm font-semibold text-muted" data-q="3" data-val="si">Tendencia</button>
+                            <button class="option-btn flex-1 py-2.5 px-4 rounded border border-border text-sm font-semibold text-muted" data-q="3" data-val="aveces">Mixto</button>
+                            <button class="option-btn flex-1 py-2.5 px-4 rounded border border-border text-sm font-semibold text-muted" data-q="3" data-val="no">Intuición</button>
+                        </div>
+                    </div>
+
+                    <div class="question-card bg-surface rounded border border-border p-6 shadow-structural" data-q="4">
+                        <div class="flex items-start gap-4 mb-5">
+                            <span class="flex-shrink-0 w-8 h-8 bg-ink text-surface rounded font-mono font-bold text-sm flex items-center justify-center">4</span>
+                            <div>
+                                <p class="font-bold text-ink text-lg leading-tight">¿Medís ejecución o solo volumen?</p>
+                                <p class="text-sm text-muted mt-2">Volumen = cuántos kilos, series, reps. Ejecución = cómo se ejecutó. Velocidad, calidad de movimiento, tiempo de descanso real.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-3 pl-12">
+                            <button class="option-btn flex-1 py-2.5 px-4 rounded border border-border text-sm font-semibold text-muted" data-q="4" data-val="si">Ejecución</button>
+                            <button class="option-btn flex-1 py-2.5 px-4 rounded border border-border text-sm font-semibold text-muted" data-q="4" data-val="aveces">Ambos</button>
+                            <button class="option-btn flex-1 py-2.5 px-4 rounded border border-border text-sm font-semibold text-muted" data-q="4" data-val="no">Solo volumen</button>
+                        </div>
+                    </div>
+
+                    <div class="question-card bg-surface rounded border border-border p-6 shadow-structural" data-q="5">
+                        <div class="flex items-start gap-4 mb-5">
+                            <span class="flex-shrink-0 w-8 h-8 bg-ink text-surface rounded font-mono font-bold text-sm flex items-center justify-center">5</span>
+                            <div>
+                                <p class="font-bold text-ink text-lg leading-tight">¿Podés mostrarle a un atleta evidencia de progreso estructural sin esperar al test de RM?</p>
+                                <p class="text-sm text-muted mt-2">Un número, una tendencia, algo concreto que justifique las semanas de trabajo antes del test final.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-3 pl-12">
+                            <button class="option-btn flex-1 py-2.5 px-4 rounded border border-border text-sm font-semibold text-muted" data-q="5" data-val="si">Sí</button>
+                            <button class="option-btn flex-1 py-2.5 px-4 rounded border border-border text-sm font-semibold text-muted" data-q="5" data-val="aveces">A veces</button>
+                            <button class="option-btn flex-1 py-2.5 px-4 rounded border border-border text-sm font-semibold text-muted" data-q="5" data-val="no">No</button>
+                        </div>
+                    </div>
+
+                    <div class="question-card bg-surface rounded border border-border p-6 shadow-structural" data-q="6">
+                        <div class="flex items-start gap-4 mb-5">
+                            <span class="flex-shrink-0 w-8 h-8 bg-ink text-surface rounded font-mono font-bold text-sm flex items-center justify-center">6</span>
+                            <div>
+                                <p class="font-bold text-ink text-lg leading-tight">Si un bloque de 6 semanas no produce mejora, ¿sabés exactamente qué falló?</p>
+                                <p class="text-sm text-muted mt-2">¿Fue el volumen? ¿La intensidad? ¿La fatiga acumulada? ¿La falta de test intermedio? ¿O no sabés bien?</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-3 pl-12">
+                            <button class="option-btn flex-1 py-2.5 px-4 rounded border border-border text-sm font-semibold text-muted" data-q="6" data-val="si">Sí, sé exactamente</button>
+                            <button class="option-btn flex-1 py-2.5 px-4 rounded border border-border text-sm font-semibold text-muted" data-q="6" data-val="aveces">Tengo una idea</button>
+                            <button class="option-btn flex-1 py-2.5 px-4 rounded border border-border text-sm font-semibold text-muted" data-q="6" data-val="no">No sé bien</button>
+                        </div>
+                    </div>
+
+                    <div class="question-card bg-surface rounded border border-border p-6 shadow-structural" data-q="7">
+                        <div class="flex items-start gap-4 mb-5">
+                            <span class="flex-shrink-0 w-8 h-8 bg-ink text-surface rounded font-mono font-bold text-sm flex items-center justify-center">7</span>
+                            <div>
+                                <p class="font-bold text-ink text-lg leading-tight">¿Tenés una regla escrita que dispare un ajuste de carga?</p>
+                                <p class="text-sm text-muted mt-2">Algo tipo: si X pasa → hago Y. No tiene que ser complejo. Tiene que existir y estar escrito, o al menos acordado.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-3 pl-12">
+                            <button class="option-btn flex-1 py-2.5 px-4 rounded border border-border text-sm font-semibold text-muted" data-q="7" data-val="si">Sí, está escrita</button>
+                            <button class="option-btn flex-1 py-2.5 px-4 rounded border border-border text-sm font-semibold text-muted" data-q="7" data-val="aveces">Está en mi cabeza</button>
+                            <button class="option-btn flex-1 py-2.5 px-4 rounded border border-border text-sm font-semibold text-muted" data-q="7" data-val="no">No existe</button>
+                        </div>
+                    </div>
+
+                    <div class="question-card bg-surface rounded border border-border p-6 shadow-structural" data-q="8">
+                        <div class="flex items-start gap-4 mb-5">
+                            <span class="flex-shrink-0 w-8 h-8 bg-ink text-surface rounded font-mono font-bold text-sm flex items-center justify-center">8</span>
+                            <div>
+                                <p class="font-bold text-ink text-lg leading-tight">¿Sabés cuánto del volumen que programás realmente genera adaptación?</p>
+                                <p class="text-sm text-muted mt-2">Diferencia entre volumen total y volumen efectivo. ¿Cuántas series están en la zona donde pasan cosas?</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-3 pl-12">
+                            <button class="option-btn flex-1 py-2.5 px-4 rounded border border-border text-sm font-semibold text-muted" data-q="8" data-val="si">Sí</button>
+                            <button class="option-btn flex-1 py-2.5 px-4 rounded border border-border text-sm font-semibold text-muted" data-q="8" data-val="aveces">Más o menos</button>
+                            <button class="option-btn flex-1 py-2.5 px-4 rounded border border-border text-sm font-semibold text-muted" data-q="8" data-val="no">No</button>
+                        </div>
+                    </div>
+
+                    <div class="question-card bg-surface rounded border border-border p-6 shadow-structural" data-q="9">
+                        <div class="flex items-start gap-4 mb-5">
+                            <span class="flex-shrink-0 w-8 h-8 bg-ink text-surface rounded font-mono font-bold text-sm flex items-center justify-center">9</span>
+                            <div>
+                                <p class="font-bold text-ink text-lg leading-tight">¿Podés reproducir los resultados de una buena temporada sin depender de que "todo salió bien"?</p>
+                                <p class="text-sm text-muted mt-2">Si la siguiente temporada empezara mañana, ¿sabrías exactamente qué replicar y qué cambiar?</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-3 pl-12">
+                            <button class="option-btn flex-1 py-2.5 px-4 rounded border border-border text-sm font-semibold text-muted" data-q="9" data-val="si">Sí</button>
+                            <button class="option-btn flex-1 py-2.5 px-4 rounded border border-border text-sm font-semibold text-muted" data-q="9" data-val="aveces">En parte</button>
+                            <button class="option-btn flex-1 py-2.5 px-4 rounded border border-border text-sm font-semibold text-muted" data-q="9" data-val="no">No</button>
+                        </div>
+                    </div>
+
+                    <div class="question-card bg-surface rounded border border-border p-6 shadow-structural" data-q="10">
+                        <div class="flex items-start gap-4 mb-5">
+                            <span class="flex-shrink-0 w-8 h-8 bg-ink text-surface rounded font-mono font-bold text-sm flex items-center justify-center">10</span>
+                            <div>
+                                <p class="font-bold text-ink text-lg leading-tight">¿Quién toma la decisión de cambiar de fase y basándose en qué?</p>
+                                <p class="text-sm text-muted mt-2">¿Hay criterios claros o la decisión depende de quién está más seguro ese día?</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-3 pl-12">
+                            <button class="option-btn flex-1 py-2.5 px-4 rounded border border-border text-sm font-semibold text-muted" data-q="10" data-val="si">Criterios claros</button>
+                            <button class="option-btn flex-1 py-2.5 px-4 rounded border border-border text-sm font-semibold text-muted" data-q="10" data-val="aveces">Mixto</button>
+                            <button class="option-btn flex-1 py-2.5 px-4 rounded border border-border text-sm font-semibold text-muted" data-q="10" data-val="no">Depende del momento</button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Result panel (hidden until complete) -->
+                <div id="resultPanel" class="hidden mt-10">
+                    <div id="resultCard" class="rounded border p-8 shadow-structural">
+                        <div class="text-center mb-8">
+                            <div id="resultScore" class="text-5xl font-mono font-bold mb-2"></div>
+                            <div id="resultLabel" class="text-xs font-mono uppercase tracking-widest font-bold mb-4"></div>
+                            <h2 id="resultTitle" class="text-2xl font-bold text-ink font-heading mb-3"></h2>
+                            <p id="resultBody" class="text-body leading-relaxed max-w-xl mx-auto"></p>
+                        </div>
+
+                        <!-- Score breakdown -->
+                        <div class="flex gap-4 justify-center mb-8">
+                            <div class="text-center px-4 py-3 bg-canvas rounded border border-border">
+                                <div id="siCount" class="text-xl font-mono font-bold text-success">–</div>
+                                <div class="text-[10px] font-mono text-muted uppercase tracking-wide mt-0.5">Sí</div>
+                            </div>
+                            <div class="text-center px-4 py-3 bg-canvas rounded border border-border">
+                                <div id="avecesCount" class="text-xl font-mono font-bold text-warning">–</div>
+                                <div class="text-[10px] font-mono text-muted uppercase tracking-wide mt-0.5">A veces</div>
+                            </div>
+                            <div class="text-center px-4 py-3 bg-canvas rounded border border-border">
+                                <div id="noCount" class="text-xl font-mono font-bold text-error">–</div>
+                                <div class="text-[10px] font-mono text-muted uppercase tracking-wide mt-0.5">No</div>
+                            </div>
+                        </div>
+
+                        <div class="border-t border-border pt-6 text-center">
+                            <p class="text-sm text-muted italic mb-6">Si el resultado te incomoda, ese es exactamente el punto.</p>
+                            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                                <a href="../contacto.html" class="bg-primary hover:bg-primary-600 text-white font-bold py-3 px-8 rounded transition-colors text-sm">
+                                    Solicitar Diagnóstico completo →
+                                </a>
+                                <a href="autodiagnostico.pdf" download class="border border-border hover:border-primary text-ink font-medium py-3 px-8 rounded transition-colors text-sm">
+                                    Descargar PDF del diagnóstico
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CONTEXT SECTION -->
+        <section class="py-16 bg-surface border-t border-border">
+            <div class="max-w-3xl mx-auto px-6">
+                <h2 class="font-heading text-xl font-bold text-ink mb-6">Para qué sirve este diagnóstico</h2>
+                <p class="text-body leading-relaxed mb-4">
+                    La mayoría de los preparadores físicos registran carga. Pocos tienen un sistema que convierte ese registro en decisiones claras. Este autodiagnóstico hace visible la brecha entre lo que registrás y lo que realmente usás para ajustar.
+                </p>
+                <p class="text-body leading-relaxed mb-4">
+                    No evalúa si tu periodización es correcta. Evalúa si tenés un sistema que te permite detectar problemas antes de que caiga el rendimiento. Esa es una pregunta diferente, y es la que importa operativamente.
+                </p>
+                <p class="text-sm text-muted leading-relaxed">
+                    Si querés ir más lejos del autodiagnóstico, la <a href="../contacto.html" class="text-primary hover:underline">Auditoría de Variable Crítica</a> analiza tu sistema actual, identifica la variable que realmente importa en tu contexto y define una regla concreta de ajuste que podés aplicar desde la semana siguiente.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-white py-12 text-center border-t border-slate-800">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-center gap-8 text-sm text-slate-500 mb-4">
+                <a href="../index.html" class="hover:text-white transition-colors">Inicio</a>
+                <a href="../blog.html" class="hover:text-white transition-colors">Blog</a>
+                <a href="../contacto.html" class="hover:text-white transition-colors">Contacto</a>
+            </div>
+            <p class="text-sm text-slate-500">© 2026 Lisandro Cacciatore</p>
+        </div>
+    </footer>
+
+<script>
+    const answers = {};
+    const totalQuestions = 10;
+
+    function updateProgress() {
+        const answered = Object.keys(answers).length;
+        const pct = (answered / totalQuestions) * 100;
+        document.getElementById('progressBar').style.width = pct + '%';
+        document.getElementById('progressText').textContent = answered + ' / ' + totalQuestions;
+
+        if (answered === totalQuestions) {
+            setTimeout(showResult, 300);
+        }
+    }
+
+    function showResult() {
+        const si = Object.values(answers).filter(v => v === 'si').length;
+        const aveces = Object.values(answers).filter(v => v === 'aveces').length;
+        const no = Object.values(answers).filter(v => v === 'no').length;
+
+        document.getElementById('siCount').textContent = si;
+        document.getElementById('avecesCount').textContent = aveces;
+        document.getElementById('noCount').textContent = no;
+
+        const panel = document.getElementById('resultPanel');
+        const card = document.getElementById('resultCard');
+        panel.classList.remove('hidden');
+
+        let level, title, body, borderClass, scoreText, labelText;
+
+        if (si >= 7) {
+            level = 'verde';
+            scoreText = si + '/10 SÍ';
+            labelText = 'Sistema con base';
+            title = 'Tu sistema tiene estructura. Se puede optimizar.';
+            body = 'Tomás decisiones con criterio la mayoría de las veces. Las brechas que encontrás son oportunidades de ajuste fino, no de reconstrucción. El siguiente paso es formalizar lo que ya hacés intuitivamente bien.';
+            borderClass = 'border-success bg-success-bg';
+        } else if (si >= 4) {
+            level = 'amarillo';
+            scoreText = si + '/10 SÍ';
+            labelText = 'Zona de riesgo silencioso';
+            title = 'Tenés partes del sistema funcionando. Hay brechas importantes.';
+            body = 'Algunas decisiones tienen respaldo. Otras dependen de la intuición del momento. En el corto plazo funciona. En el largo plazo, las brechas se acumulan y el estancamiento llega sin que puedas identificar exactamente qué falló.';
+            borderClass = 'border-warning bg-warning-bg';
+        } else {
+            level = 'rojo';
+            scoreText = si + '/10 SÍ';
+            labelText = 'Registrás. No gestionás.';
+            title = 'Las decisiones son principalmente intuitivas. Hay desperdicio que no ves.';
+            body = 'El registro existe pero no produce criterio. Las decisiones se basan en percepción acumulada, no en tendencias observables. Eso no significa que estés entrenando mal. Significa que no podés saber si estás entrenando bien.';
+            borderClass = 'border-error bg-red-50';
+        }
+
+        card.className = 'rounded border p-8 shadow-structural ' + borderClass;
+        document.getElementById('resultScore').textContent = scoreText;
+        document.getElementById('resultLabel').textContent = labelText;
+        document.getElementById('resultTitle').textContent = title;
+        document.getElementById('resultBody').textContent = body;
+
+        panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Event delegation for option buttons
+    document.getElementById('questionsContainer').addEventListener('click', function(e) {
+        const btn = e.target.closest('.option-btn');
+        if (!btn) return;
+
+        const q = btn.dataset.q;
+        const val = btn.dataset.val;
+
+        // Deselect all in this question
+        document.querySelectorAll(`.option-btn[data-q="${q}"]`).forEach(b => {
+            b.classList.remove('selected-si', 'selected-aveces', 'selected-no');
+        });
+
+        // Select this one
+        btn.classList.add('selected-' + val);
+
+        // Store answer
+        const wasAnswered = !!answers[q];
+        answers[q] = val;
+
+        // Mark card as answered
+        document.querySelector(`.question-card[data-q="${q}"]`).classList.add('answered');
+
+        updateProgress();
+    });
+</script>
+</body>
+</html>
