@@ -45,10 +45,13 @@
             </div>
             
             <div class="bg-surface p-6 md:p-8 rounded border border-border shadow-structural">
-                <h2 class="font-heading text-lg font-bold text-ink mb-3">Configuración Avanzada</h2>
+                <h2 class="font-heading text-lg font-bold text-ink mb-3">Variable Crítica: Intensidad sostenida sobre el Training Max</h2>
                 <div class="text-body text-sm space-y-4 leading-relaxed">
                     <p>
-                        Configura tus RMs, elige tu <strong>Plantilla de Asistencia</strong> (BBB, FSL, Jokers) y selecciona la semana del ciclo para ver cómo impacta en la carga total, intensidad y enfoque fisiológico.
+                        Wendler no persigue pesos máximos sesión a sesión. La Variable Crítica es <strong>cuánto trabaja el atleta por encima del 85% del TM de forma consistente durante el ciclo</strong>. Cuando esa variable se mantiene, la fuerza crece. Cuando se fuerza prematuramente, el sistema se rompe.
+                    </p>
+                    <p class="text-muted">
+                        Configurá tus RMs, elegí la plantilla de asistencia y seleccioná la semana para ver el impacto en la carga total y el enfoque fisiológico del microciclo.
                     </p>
                 </div>
             </div>
@@ -104,8 +107,7 @@
             
             <div class="grid grid-cols-1 md:grid-cols-4 gap-4" id="weekSelector">
                 
-                <div role="button" tabindex="0" onkeydown="if(event.key===\'Enter\' || event.key===\' \' ){selectWeek(1)}" onclick="selectWeek(1)" id="card-week-1" class="week-card bg-surface p-5 rounded border border-border shadow-structural relative overflow-hidden group">
-                    <div class="relative z-10">
+                <div role="button" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') { selectWeek(1); }" onclick="selectWeek(1)" id="card-week-1" class="week-card bg-surface p-5 rounded border border-border shadow-structural relative overflow-hidden group">                    <div class="relative z-10">
                         <div class="font-heading font-bold text-ink mb-2 border-b border-border pb-2 flex justify-between">Semana 1</div>
                         <div class="text-[10px] font-mono font-bold text-primary bg-primary-bg px-2 py-1 rounded inline-block mb-3 border border-blue-100 uppercase tracking-wide">Volumen (3x5+)</div>
                         <ul class="text-xs text-muted space-y-1 font-mono">
@@ -114,7 +116,7 @@
                     </div>
                 </div>
 
-                <div role="button" tabindex="0" onkeydown="if(event.key===\'Enter\' || event.key===\' \' ){selectWeek(2)}" onclick="selectWeek(2)" id="card-week-2" class="week-card bg-surface p-5 rounded border border-border shadow-structural relative overflow-hidden group">
+                <div role="button" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') { selectWeek(2); }" onclick="selectWeek(2)" id="card-week-2" class="week-card bg-surface p-5 rounded border border-border shadow-structural relative overflow-hidden group">
                     <div class="relative z-10">
                         <div class="font-heading font-bold text-ink mb-2 border-b border-border pb-2 flex justify-between">Semana 2</div>
                         <div class="text-[10px] font-mono font-bold text-warning bg-warning-bg px-2 py-1 rounded inline-block mb-3 border border-amber-200 uppercase tracking-wide">Híbrido (3x3+)</div>
@@ -124,7 +126,7 @@
                     </div>
                 </div>
 
-                <div role="button" tabindex="0" onkeydown="if(event.key===\'Enter\' || event.key===\' \' ){selectWeek(3)}" onclick="selectWeek(3)" id="card-week-3" class="week-card bg-surface p-5 rounded border border-border shadow-structural relative overflow-hidden group">
+                <div role="button" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') { selectWeek(3); }" onclick="selectWeek(3)" id="card-week-3" class="week-card bg-surface p-5 rounded border border-border shadow-structural relative overflow-hidden group">
                     <div class="relative z-10">
                         <div class="font-heading font-bold text-ink mb-2 border-b border-border pb-2 flex justify-between">Semana 3</div>
                         <div class="text-[10px] font-mono font-bold text-error bg-error-bg px-2 py-1 rounded inline-block mb-3 border border-red-200 uppercase tracking-wide">Pico (5/3/1+)</div>
@@ -134,7 +136,7 @@
                     </div>
                 </div>
 
-                <div role="button" tabindex="0" onkeydown="if(event.key===\'Enter\' || event.key===\' \' ){selectWeek(4)}" onclick="selectWeek(4)" id="card-week-4" class="week-card bg-surface p-5 rounded border border-border shadow-structural relative overflow-hidden group">
+                <div role="button" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') { selectWeek(4); }" onclick="selectWeek(4)" id="card-week-4" class="week-card bg-surface p-5 rounded border border-border shadow-structural relative overflow-hidden group">
                     <div class="relative z-10">
                         <div class="font-heading font-bold text-ink mb-2 border-b border-border pb-2 flex justify-between">Semana 4</div>
                         <div class="text-[10px] font-mono font-bold text-success bg-success-bg px-2 py-1 rounded inline-block mb-3 border border-green-200 uppercase tracking-wide">Descarga</div>
@@ -230,12 +232,12 @@
             <div class="p-8">
                 <div class="text-center mb-6">
                     <div class="w-12 h-12 bg-canvas border border-border rounded flex items-center justify-center mx-auto mb-4 text-2xl">📈</div>
-                    <h3 class="font-heading text-lg font-bold text-ink mb-2">¿Querés que Lisandro revise tu programación y te entregue 1 mejora implementable en 7 días?</h3>
-                    <p class="text-xs text-body">Elegí si querés feedback puntual o avanzar con una Auditoría Lean Deportiva (USD 400).</p>
+                    <h3 class="font-heading text-lg font-bold text-ink mb-2">¿Querés validar si este sistema es el correcto para tu atleta en este momento?</h3>
+                    <p class="text-xs text-body">El simulador te da los números. El criterio para decidir si aplicarlos es otra conversación.</p>
                 </div>
                 <div class="space-y-3 mb-5">
-                    <button type="button" onclick="openLeadModalForAudit()" class="w-full bg-primary hover:bg-primary-600 text-white font-medium py-3 rounded transition-colors text-sm">Solicitar Auditoría (30 min)</button>
-                    <button type="button" onclick="document.getElementById('leadFormWrapper').classList.toggle('hidden')" class="w-full border border-border hover:border-primary text-ink font-medium py-3 rounded transition-colors text-sm">Solo quiero feedback</button>
+                    <button type="button" onclick="openLeadModalForAudit()" class="w-full bg-primary hover:bg-primary-600 text-white font-medium py-3 rounded transition-colors text-sm">Solicitar Diagnóstico (30 min)</button>
+                    <button type="button" onclick="document.getElementById('leadFormWrapper').classList.toggle('hidden')" class="w-full border border-border hover:border-primary text-ink font-medium py-3 rounded transition-colors text-sm">Hacerme una consulta puntual</button>
                 </div>
                 <div id="leadFormWrapper" class="hidden">
                     <form action="https://formspree.io/f/mnjbvkey" method="POST" class="space-y-4">
@@ -259,7 +261,7 @@
                 <div class="md:col-span-2">
                     <span class="font-heading font-semibold text-lg text-surface block mb-4">Lisandro Cacciatore <span class="text-primary font-mono font-bold">_</span></span>
                     <p class="text-muted text-sm leading-relaxed max-w-sm">
-                        Diseño de sistemas de decisión aplicados al rendimiento deportivo. Arquitectura de datos para staffs técnicos que operan bajo presión.
+                        Sistemas de validación semanal para preparadores físicos. Criterio claro, decisiones con fundamento.
                     </p>
                 </div>
                 <div>

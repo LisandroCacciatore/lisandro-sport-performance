@@ -43,11 +43,13 @@
                 <h1 class="font-heading text-3xl md:text-5xl font-bold text-ink tracking-tight">The Cube Method</h1>
             </div>
             <div class="bg-surface p-6 md:p-8 rounded border border-border shadow-structural">
-                <h2 class="font-heading text-lg font-bold text-ink mb-3">La Lógica: Rotación Ondulatoria</h2>
+                <h2 class="font-heading text-lg font-bold text-ink mb-3">Variable Crítica: Recuperación del SNC semana a semana</h2>
                 <div class="text-body text-sm space-y-4 leading-relaxed">
                     <p>
-                        En el Cubo, nunca entrenas todo pesado a la vez. Rotamos tres cualidades: <strong>Pesado (Max Effort)</strong>, <strong>Explosivo (Dynamic)</strong> y <strong>Repeticiones (Hypertrophy)</strong>.
-                        Selecciona la semana para ver cómo rotan los levantamientos.
+                        El Cube no intenta maximizar la carga en cada sesión. La Variable Crítica es <strong>que el SNC nunca llegue al límite antes de la semana que importa</strong>. Por eso nunca todo pesado a la vez. Rota entre Pesado, Explosivo y Repeticiones para que el atleta llegue fresco cuando tiene que llegar fresco.
+                    </p>
+                    <p class="text-muted">
+                        Seleccioná la semana de la ola para ver cómo rotan las cualidades en los tres levantamientos principales.
                     </p>
                 </div>
             </div>
@@ -61,7 +63,7 @@
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="weekSelector">
                 
-                <div role="button" tabindex="0" onkeydown="if(event.key===\'Enter\' || event.key===\' \' ){selectWeek(1)}" onclick="selectWeek(1)" id="card-week-1" class="week-card bg-surface p-5 rounded border border-border shadow-structural relative overflow-hidden group">
+                <div role="button" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') { selectWeek(1); }" onclick="selectWeek(1)" id="card-week-1" class="week-card bg-surface p-5 rounded border border-border shadow-structural relative overflow-hidden group">
                     <div class="relative z-10">
                         <div class="font-heading font-bold text-ink mb-2 border-b border-border pb-2 flex justify-between">Semana 1</div>
                         <div class="text-[10px] font-mono font-bold text-error bg-error-bg px-2 py-1 rounded inline-block mb-3 border border-red-200 uppercase tracking-wide">Foco: Sentadilla Pesada</div>
@@ -73,7 +75,7 @@
                     </div>
                 </div>
 
-                <div role="button" tabindex="0" onkeydown="if(event.key===\'Enter\' || event.key===\' \' ){selectWeek(2)}" onclick="selectWeek(2)" id="card-week-2" class="week-card bg-surface p-5 rounded border border-border shadow-structural relative overflow-hidden group">
+                <div role="button" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') { selectWeek(2); }" onclick="selectWeek(2)" id="card-week-2" class="week-card bg-surface p-5 rounded border border-border shadow-structural relative overflow-hidden group">
                     <div class="relative z-10">
                         <div class="font-heading font-bold text-ink mb-2 border-b border-border pb-2 flex justify-between">Semana 2</div>
                         <div class="text-[10px] font-mono font-bold text-warning bg-warning-bg px-2 py-1 rounded inline-block mb-3 border border-amber-200 uppercase tracking-wide">Foco: P.Muerto Pesado</div>
@@ -85,7 +87,7 @@
                     </div>
                 </div>
 
-                <div role="button" tabindex="0" onkeydown="if(event.key===\'Enter\' || event.key===\' \' ){selectWeek(3)}" onclick="selectWeek(3)" id="card-week-3" class="week-card bg-surface p-5 rounded border border-border shadow-structural relative overflow-hidden group">
+                <div role="button" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') { selectWeek(3); }" onclick="selectWeek(3)" id="card-week-3" class="week-card bg-surface p-5 rounded border border-border shadow-structural relative overflow-hidden group">
                     <div class="relative z-10">
                         <div class="font-heading font-bold text-ink mb-2 border-b border-border pb-2 flex justify-between">Semana 3</div>
                         <div class="text-[10px] font-mono font-bold text-primary bg-primary-bg px-2 py-1 rounded inline-block mb-3 border border-blue-100 uppercase tracking-wide">Foco: Banca Pesada</div>
@@ -96,6 +98,8 @@
                         </ul>
                     </div>
                 </div>
+
+
 
             </div>
         </section>
@@ -207,12 +211,12 @@
             <div class="p-8">
                 <div class="text-center mb-6">
                     <div class="w-12 h-12 bg-canvas border border-border rounded flex items-center justify-center mx-auto mb-4 text-2xl">🧊</div>
-                    <h3 class="font-heading text-lg font-bold text-ink mb-2">¿Querés que Lisandro revise tu programación y te entregue 1 mejora implementable en 7 días?</h3>
-                    <p class="text-xs text-body">Elegí si querés feedback puntual o avanzar con una Auditoría Lean Deportiva (USD 400).</p>
+                    <h3 class="font-heading text-lg font-bold text-ink mb-2">¿Querés validar si la rotación del Cube tiene sentido para tu atleta ahora mismo?</h3>
+                    <p class="text-xs text-body">Los números del simulador son el punto de partida. El criterio para usarlos bien es otra conversación.</p>
                 </div>
                 <div class="space-y-3 mb-5">
-                    <button type="button" onclick="openLeadModalForAudit()" class="w-full bg-primary hover:bg-primary-600 text-white font-medium py-3 rounded transition-colors text-sm">Solicitar Auditoría (30 min)</button>
-                    <button type="button" onclick="document.getElementById('leadFormWrapper').classList.toggle('hidden')" class="w-full border border-border hover:border-primary text-ink font-medium py-3 rounded transition-colors text-sm">Solo quiero feedback</button>
+                    <button type="button" onclick="openLeadModalForAudit()" class="w-full bg-primary hover:bg-primary-600 text-white font-medium py-3 rounded transition-colors text-sm">Solicitar Diagnóstico (30 min)</button>
+                    <button type="button" onclick="document.getElementById('leadFormWrapper').classList.toggle('hidden')" class="w-full border border-border hover:border-primary text-ink font-medium py-3 rounded transition-colors text-sm">Hacerme una consulta puntual</button>
                 </div>
                 <div id="leadFormWrapper" class="hidden">
                     <form action="https://formspree.io/f/mnjbvkey" method="POST" class="space-y-4">
@@ -236,7 +240,7 @@
                 <div class="md:col-span-2">
                     <span class="font-heading font-semibold text-lg text-surface block mb-4">Lisandro Cacciatore <span class="text-primary font-mono font-bold">_</span></span>
                     <p class="text-muted text-sm leading-relaxed max-w-sm">
-                        Diseño de sistemas de decisión aplicados al rendimiento deportivo. Arquitectura de datos para staffs técnicos que operan bajo presión.
+                        Sistemas de validación semanal para preparadores físicos. Criterio claro, decisiones con fundamento.
                     </p>
                 </div>
                 <div>

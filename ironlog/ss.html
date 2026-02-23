@@ -43,50 +43,88 @@
                 <h1 class="font-heading text-3xl md:text-5xl font-bold text-ink tracking-tight">Starting Strength</h1>
             </div>
             <div class="bg-surface p-6 md:p-8 rounded border border-border shadow-structural">
-                <h2 class="font-heading text-lg font-bold text-ink mb-3">La Lógica: Progresión Lineal</h2>
+                <h2 class="font-heading text-lg font-bold text-ink mb-3">Variable Crítica: Frecuencia y progresión sesión a sesión</h2>
                 <div class="text-body text-sm space-y-4 leading-relaxed">
                     <p>
-                        A diferencia de otros sistemas, aquí no ondulamos intensidad. El objetivo es <strong>añadir peso a la barra en cada sesión</strong> (Linear Progression).
-                        Elige tu tipo de semana para ver la alternancia de sesiones A y B.
+                        Starting Strength asume una cosa: el novicio puede mejorar en cada sesión. La Variable Crítica no es el volumen, ni la intensidad relativa. Es <strong>si el peso de la barra subió respecto a la sesión anterior</strong>. Cuando esa variable deja de moverse, el sistema perdió su argumento central.
+                    </p>
+                    <p class="text-muted">
+                        Alternancia A/B con sentadilla en cada sesión. La frecuencia no es un error de diseño: es la variable que hace funcionar la progresión lineal.
                     </p>
                 </div>
             </div>
         </header>
 
-        <section class="mb-10">
-            <div class="flex items-center gap-2 mb-6">
-                <span class="bg-ink text-surface text-xs font-mono font-bold px-2 py-1 rounded">PASO 1</span>
-                <h3 class="font-heading font-bold text-ink">Selecciona el Esquema Semanal</h3>
-            </div>
+<section class="mb-10">
+    <div class="flex items-center gap-2 mb-6">
+        <span class="bg-ink text-surface text-xs font-mono font-bold px-2 py-1 rounded">
+            PASO 1
+        </span>
+        <h3 class="font-heading font-bold text-ink">
+            Selecciona el Esquema Semanal
+        </h3>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="weekSelector">
+        
+        <!-- ABA -->
+        <div
+            role="button"
+            tabindex="0"
+            onkeydown="if(event.key === 'Enter' || event.key === ' ') { selectWeek('ABA'); }"
+            onclick="selectWeek('ABA')"
+            id="card-week-ABA"
+            class="week-card bg-surface p-6 rounded border border-border shadow-structural relative overflow-hidden group cursor-pointer"
+        >
+            <div class="absolute top-0 right-0 w-24 h-24 bg-primary-bg rounded-bl-full -mr-8 -mt-8 z-0"></div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="weekSelector">
-                <div role="button" tabindex="0" onkeydown="if(event.key===\'Enter\' || event.key===\' \' ){selectWeek('ABA')}" onclick="selectWeek('ABA')" id="card-week-ABA" class="week-card bg-surface p-6 rounded border border-border shadow-structural relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 w-24 h-24 bg-primary-bg rounded-bl-full -mr-8 -mt-8 z-0"></div>
-                    <div class="relative z-10">
-                        <div class="font-heading font-bold text-ink mb-2 border-b border-border pb-2 flex justify-between">Semana 1 (A-B-A)</div>
-                        <div class="text-[10px] font-mono font-bold text-primary bg-primary-bg px-2 py-1 rounded inline-block mb-3 border border-blue-100 uppercase tracking-wide">Enfoque Sentadilla/Press</div>
-                        <ul class="text-xs text-muted space-y-1 font-mono">
-                            <li>Lunes: <span class="text-ink font-bold">Sesión A</span></li>
-                            <li>Miércoles: <span class="text-ink font-bold">Sesión B</span></li>
-                            <li>Viernes: <span class="text-ink font-bold">Sesión A</span></li>
-                        </ul>
-                    </div>
+            <div class="relative z-10">
+                <div class="font-heading font-bold text-ink mb-2 border-b border-border pb-2 flex justify-between">
+                    Semana 1 (A-B-A)
                 </div>
 
-                <div role="button" tabindex="0" onkeydown="if(event.key===\'Enter\' || event.key===\' \' ){selectWeek('BAB')}" onclick="selectWeek('BAB')" id="card-week-BAB" class="week-card bg-surface p-6 rounded border border-border shadow-structural relative overflow-hidden group">
-                    <div class="absolute top-0 right-0 w-24 h-24 bg-warning-bg rounded-bl-full -mr-8 -mt-8 z-0"></div>
-                    <div class="relative z-10">
-                        <div class="font-heading font-bold text-ink mb-2 border-b border-border pb-2 flex justify-between">Semana 2 (B-A-B)</div>
-                        <div class="text-[10px] font-mono font-bold text-warning bg-warning-bg px-2 py-1 rounded inline-block mb-3 border border-amber-200 uppercase tracking-wide">Enfoque Banca/P.Muerto</div>
-                        <ul class="text-xs text-muted space-y-1 font-mono">
-                            <li>Lunes: <span class="text-ink font-bold">Sesión B</span></li>
-                            <li>Miércoles: <span class="text-ink font-bold">Sesión A</span></li>
-                            <li>Viernes: <span class="text-ink font-bold">Sesión B</span></li>
-                        </ul>
-                    </div>
+                <div class="text-[10px] font-mono font-bold text-primary bg-primary-bg px-2 py-1 rounded inline-block mb-3 border border-blue-100 uppercase tracking-wide">
+                    Enfoque Sentadilla / Press
                 </div>
+
+                <ul class="text-xs text-muted space-y-1 font-mono">
+                    <li>Lunes: <span class="text-ink font-bold">Sesión A</span></li>
+                    <li>Miércoles: <span class="text-ink font-bold">Sesión B</span></li>
+                    <li>Viernes: <span class="text-ink font-bold">Sesión A</span></li>
+                </ul>
             </div>
-        </section>
+        </div>
+
+        <!-- BAB -->
+        <div
+            role="button"
+            tabindex="0"
+            onkeydown="if(event.key === 'Enter' || event.key === ' ') { selectWeek('BAB'); }"
+            onclick="selectWeek('BAB')"
+            id="card-week-BAB"
+            class="week-card bg-surface p-6 rounded border border-border shadow-structural relative overflow-hidden group cursor-pointer"
+        >
+            <div class="absolute top-0 right-0 w-24 h-24 bg-warning-bg rounded-bl-full -mr-8 -mt-8 z-0"></div>
+            
+            <div class="relative z-10">
+                <div class="font-heading font-bold text-ink mb-2 border-b border-border pb-2 flex justify-between">
+                    Semana 2 (B-A-B)
+                </div>
+
+                <div class="text-[10px] font-mono font-bold text-warning bg-warning-bg px-2 py-1 rounded inline-block mb-3 border border-amber-200 uppercase tracking-wide">
+                    Enfoque Banca / P. Muerto
+                </div>
+
+                <ul class="text-xs text-muted space-y-1 font-mono">
+                    <li>Lunes: <span class="text-ink font-bold">Sesión B</span></li>
+                    <li>Miércoles: <span class="text-ink font-bold">Sesión A</span></li>
+                    <li>Viernes: <span class="text-ink font-bold">Sesión B</span></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</section>
 
         <section id="configSection" class="mb-12">
             <div class="bg-surface rounded shadow-structural border border-border overflow-hidden p-6 md:p-8">
@@ -384,12 +422,12 @@
             <div class="p-8">
                 <div class="text-center mb-6">
                     <div class="w-12 h-12 bg-canvas border border-border rounded flex items-center justify-center mx-auto mb-4 text-2xl">🚂</div>
-                    <h3 class="font-heading text-lg font-bold text-ink mb-2">¿Querés que Lisandro revise tu programación y te entregue 1 mejora implementable en 7 días?</h3>
-                    <p class="text-xs text-body">Elegí si querés feedback puntual o avanzar con una Auditoría Lean Deportiva (USD 400).</p>
+                    <h3 class="font-heading text-lg font-bold text-ink mb-2">¿Querés saber si Starting Strength tiene sentido para tu atleta en este momento?</h3>
+                    <p class="text-xs text-body">El sistema es el instrumento. El criterio es tuyo. Si querés revisar si la Variable Crítica de este sistema aplica a tu caso, podemos verlo juntos.</p>
                 </div>
                 <div class="space-y-3 mb-5">
-                    <button type="button" onclick="openLeadModalForAudit()" class="w-full bg-primary hover:bg-primary-600 text-white font-medium py-3 rounded transition-colors text-sm">Solicitar Auditoría (30 min)</button>
-                    <button type="button" onclick="document.getElementById('leadFormWrapper').classList.toggle('hidden')" class="w-full border border-border hover:border-primary text-ink font-medium py-3 rounded transition-colors text-sm">Solo quiero feedback</button>
+                    <button type="button" onclick="openLeadModalForAudit()" class="w-full bg-primary hover:bg-primary-600 text-white font-medium py-3 rounded transition-colors text-sm">Solicitar Diagnóstico (30 min)</button>
+                    <button type="button" onclick="document.getElementById('leadFormWrapper').classList.toggle('hidden')" class="w-full border border-border hover:border-primary text-ink font-medium py-3 rounded transition-colors text-sm">Hacerme una consulta puntual</button>
                 </div>
                 <div id="leadFormWrapper" class="hidden">
                     <form action="https://formspree.io/f/mnjbvkey" method="POST" class="space-y-4">
@@ -413,7 +451,7 @@
                 <div class="md:col-span-2">
                     <span class="font-heading font-semibold text-lg text-surface block mb-4">Lisandro Cacciatore <span class="text-primary font-mono font-bold">_</span></span>
                     <p class="text-muted text-sm leading-relaxed max-w-sm">
-                        Diseño de sistemas de decisión aplicados al rendimiento deportivo. Arquitectura de datos para staffs técnicos que operan bajo presión.
+                        Sistemas de validación semanal para preparadores físicos. Criterio claro, decisiones con fundamento.
                     </p>
                 </div>
                 <div>
