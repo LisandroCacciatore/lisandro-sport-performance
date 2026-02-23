@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IronLog no resuelve el problema de criterio. Te obliga a tenerlo. | Lisandro Cacciatore</title>
+    <meta name="description" content="IronLog no es el sistema. Es el instrumento que permite ejecutarlo. La diferencia importa antes de hablar de cualquier feature.">
+    <link rel="canonical" href="https://lisandrocacciatore.com/blog/ironlog-en-contexto.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=IBM+Plex+Sans:ital,wght@0,600;0,700;0,800;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <script src="../theme.js"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        h1, h2, h3, .font-heading { font-family: 'IBM Plex Sans', sans-serif; }
+        code, .font-mono { font-family: 'Fira Code', monospace; }
+    </style>
+    <meta property="og:type" content="article">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "IronLog no resuelve el problema de criterio. Te obliga a tenerlo.",
+      "description": "IronLog no es el sistema. Es el instrumento que permite ejecutarlo. La diferencia importa.",
+      "author": { "@type": "Person", "name": "Lisandro Cacciatore", "url": "https://lisandrocacciatore.com" },
+      "datePublished": "2026-02-23",
+      "dateModified": "2026-02-23"
+    }
+    </script>
+</head>
+<body class="bg-canvas text-body antialiased">
+
+    <nav class="sticky top-0 z-50 bg-canvas/95 backdrop-blur-sm border-b border-border">
+        <div class="max-w-4xl mx-auto px-6 h-16 flex justify-between items-center">
+            <a href="../index.html" class="font-heading font-semibold text-lg text-ink flex items-center gap-1">
+                Lisandro Cacciatore <span class="text-primary font-mono font-bold">_</span>
+            </a>
+            <a href="../blog.html" class="text-sm font-medium text-muted hover:text-primary transition-colors">← Blog</a>
+        </div>
+    </nav>
+
+    <main class="py-16 px-6">
+        <article class="max-w-3xl mx-auto">
+
+            <header class="mb-14 text-center">
+                <nav class="flex justify-center text-xs text-muted font-mono gap-2 items-center mb-6">
+                    <a href="../blog.html" class="hover:text-primary">Blog</a>
+                    <span>/</span>
+                    <span class="text-body">IronLog · Contexto</span>
+                </nav>
+                <span class="inline-block py-1 px-3 rounded text-[10px] font-mono font-bold uppercase tracking-wider bg-surface border border-border text-muted mb-6">IronLog · Artículo 5</span>
+                <h1 class="font-heading text-3xl md:text-5xl font-bold text-ink mb-6 leading-tight">
+                    IronLog no resuelve el problema de criterio.<br>Te obliga a tenerlo.
+                </h1>
+                <p class="text-lg text-body leading-relaxed max-w-2xl mx-auto">
+                    IronLog no es el sistema. Es el instrumento que permite ejecutarlo. La diferencia importa, y vale la pena explicarla antes de hablar de cualquier feature.
+                </p>
+                <div class="mt-6 text-xs font-mono text-muted">Lisandro Cacciatore · Febrero 2026 · 7 min de lectura</div>
+            </header>
+
+            <div class="prose prose-lg prose-slate max-w-none
+                prose-headings:font-heading prose-headings:text-ink prose-headings:font-bold
+                prose-a:text-primary prose-a:no-underline hover:prose-a:underline
+                prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:pl-6 prose-blockquote:not-italic
+                prose-blockquote:text-body prose-blockquote:font-medium
+                prose-strong:text-ink">
+
+                <h2>El patrón que lo originó</h2>
+                <p>
+                    Trabajando con preparadores físicos individuales, vi un patrón que se repetía: todos registraban. RPE, cargas, series, tests. Algunos con planillas. Algunos con apps. Algunos en papel. El registro no era el problema.
+                </p>
+                <p>
+                    El problema era que el registro no producía decisiones diferentes. El dato existía pero no cambiaba nada. O cambiaba algo, pero nadie podía explicar qué dato lo justificó. La decisión se tomaba igual, con o sin el dato. En esos casos, registrar es un costo sin retorno.
+                </p>
+                <p>
+                    Lo que faltaba no era más datos. Era una variable clara que actuara como señal. Una variable que cuando se mueve, algo tiene que cambiar. Eso es lo que llamo <a href="./variable-critica-validada.html">Variable Crítica Validada</a>: la métrica que representa adaptación real en un contexto específico, con un umbral de referencia y una regla concreta de ajuste.
+                </p>
+
+                <h2>Por qué el registro solo no alcanza</h2>
+                <p>
+                    Un preparador que sigue la sentadilla de un powerlifter en bloque de fuerza máxima puede registrar volumen total, RPE por sesión, percepción de recuperación, asistencia, y cinco cosas más. Todos esos datos son reales. Ninguno es la VCV de ese bloque.
+                </p>
+                <p>
+                    La VCV en ese contexto es el e1RM proyectado en sentadilla. Esa variable. No las demás. Cuando esa variable no sube en tres semanas consecutivas con carga adecuada, hay un problema. No cuando el atleta "se siente raro". Cuando el dato lo dice.
+                </p>
+                <p>
+                    Sin un instrumento que haga visible esa variable semana a semana, el preparador toma decisiones por intuición acumulada. Que puede ser buena. Pero que no puede validarse, no puede explicarse, y no puede reproducirse.
+                </p>
+
+                <blockquote>
+                    Un sistema sin validación continua produce resultados que no podés atribuir a nada concreto. Cuando funciona, no sabés por qué. Cuando no funciona, tampoco.
+                </blockquote>
+
+                <h2>Qué es IronLog dentro de ese marco</h2>
+                <p>
+                    IronLog es el instrumento operativo. No el sistema. El sistema es estratégico: implica identificar la VCV para cada atleta en cada fase, definir el umbral de referencia y la regla de ajuste, y revisar semanalmente si la señal indica progreso o problema.
+                </p>
+                <p>
+                    IronLog hace posible ejecutar ese sistema sin que el registro sea una carga para el preparador o el atleta. Registra sin fricción, muestra la variable que importa esa semana, y genera la señal antes de que el preparador la detecte por intuición.
+                </p>
+                <p>
+                    Dicho de forma directa: IronLog no te hace mejor preparador. Te obliga a decidir con criterio. Si no tenés el criterio, el instrumento no lo crea. Si lo tenés, el instrumento te permite aplicarlo de forma sistemática.
+                </p>
+
+                <h2>La distinción que más importa</h2>
+                <p>
+                    Hay una diferencia entre un instrumento que te dice qué hacer y un instrumento que te obliga a decirle qué querés medir. IronLog es lo segundo.
+                </p>
+                <p>
+                    Para configurar el seguimiento semanal de un atleta en IronLog, el preparador tiene que declarar cuál es la VCV del bloque actual. No puede evitar esa pregunta. El instrumento no funciona sin respuesta. Y esa pregunta —cuál es la variable que dice si este bloque está funcionando— es exactamente la que la mayoría de los preparadores no tienen respondida con claridad antes de que el bloque empiece.
+                </p>
+                <p>
+                    Eso es lo que IronLog produce: no la respuesta, sino la obligación de tenerla. La herramienta fuerza el proceso. Y el proceso es lo que produce criterio.
+                </p>
+
+                <h2>Para quién está pensado y para quién no</h2>
+                <p>
+                    Para preparadores físicos individuales que trabajan con atletas de fuerza o rendimiento y sienten que podrían tomar mejores decisiones si tuvieran un sistema de validación más claro. No requiere ninguna escala particular. Requiere que el preparador tenga criterio y quiera respaldarlo con datos.
+                </p>
+                <p>
+                    No está pensado para quien ya tiene un sistema consolidado que funciona y no necesita estructura adicional. Tampoco para quien quiere una app que le diga qué hacer con el atleta. Está pensado para quien ya sabe lo que hace pero no puede demostrarlo de forma estructurada, ni replicarlo de forma sistemática.
+                </p>
+                <p>
+                    Si el autodiagnóstico muestra que tu proceso actual produce criterio claro, probablemente no necesitás IronLog. Si muestra que tus decisiones son principalmente intuitivas sin respaldo de tendencia, el instrumento puede ser útil. Pero el instrumento solo funciona si el preparador pone el criterio primero.
+                </p>
+
+                <h2>Estado actual</h2>
+                <p>
+                    IronLog está en desarrollo activo. Un grupo de preparadores valida el flujo de trabajo real antes de la apertura. Los simuladores de sistemas de fuerza —Wendler, Starting Strength, Cube— están disponibles ahora de forma gratuita para probar la lógica de cálculo y entender qué variable prioriza cada sistema.
+                </p>
+                <p>
+                    Si querés entender si el sistema tiene sentido para tu contexto antes de esperar acceso a la herramienta, el mejor primer paso es el <a href="../autodiagnostico.html">Autodiagnóstico de Sistema de Decisión</a>: 10 preguntas que hacen visible si tu proceso actual produce criterio o solo datos.
+                </p>
+
+            </div>
+
+            <div class="not-prose my-14 flex flex-col sm:flex-row gap-4">
+                <a href="../autodiagnostico.html" class="flex-1 bg-primary text-white font-medium px-7 py-4 rounded text-center transition-all hover:-translate-y-0.5 shadow-structural font-heading font-bold">
+                    Hacer el Autodiagnóstico →
+                </a>
+                <a href="../ironlog/demo.html" class="flex-1 bg-surface border border-border text-ink font-medium px-7 py-4 rounded text-center hover:border-primary transition-colors font-heading font-bold">
+                    Probar los Simuladores (Gratis)
+                </a>
+            </div>
+
+            <!-- FAQ -->
+            <div class="not-prose mt-10 border-t border-border pt-10">
+                <h2 class="font-heading font-bold text-ink text-2xl mb-8">Preguntas frecuentes</h2>
+                <div class="space-y-4">
+                    <details class="group border border-border rounded-lg">
+                        <summary class="flex justify-between items-center p-5 cursor-pointer font-heading font-semibold text-ink">
+                            ¿Para qué tipo de preparador es IronLog?
+                            <span class="text-primary text-xl group-open:rotate-45 transition-transform" aria-hidden="true">+</span>
+                        </summary>
+                        <p class="px-5 pb-5 text-body text-sm leading-relaxed">Para preparadores físicos que ya tienen criterio y quieren respaldarlo con un sistema de validación semanal. No es para quien quiere que la herramienta le diga qué hacer. Es para quien ya sabe lo que hace pero toma decisiones sin un proceso de validación estructurado.</p>
+                    </details>
+                    <details class="group border border-border rounded-lg">
+                        <summary class="flex justify-between items-center p-5 cursor-pointer font-heading font-semibold text-ink">
+                            ¿Qué es una Variable Crítica Validada?
+                            <span class="text-primary text-xl group-open:rotate-45 transition-transform" aria-hidden="true">+</span>
+                        </summary>
+                        <p class="px-5 pb-5 text-body text-sm leading-relaxed">La métrica que representa adaptación real en un contexto específico. No es la variable más fácil de medir ni la más popular. Es la que, cuando se mueve en la dirección correcta, indica que el entrenamiento está funcionando. Cuando se detiene o cae, algo tiene que cambiar. Para cada atleta y cada fase, la VCV puede ser diferente.</p>
+                    </details>
+                    <details class="group border border-border rounded-lg">
+                        <summary class="flex justify-between items-center p-5 cursor-pointer font-heading font-semibold text-ink">
+                            ¿En qué estado de desarrollo está IronLog?
+                            <span class="text-primary text-xl group-open:rotate-45 transition-transform" aria-hidden="true">+</span>
+                        </summary>
+                        <p class="px-5 pb-5 text-body text-sm leading-relaxed">En desarrollo activo con un grupo de preparadores que valida el flujo de trabajo real. Los simuladores de Wendler, Starting Strength y Cube están disponibles para probar la lógica de cálculo. Si querés acceso cuando esté disponible, podés escribirme directamente.</p>
+                    </details>
+                </div>
+            </div>
+
+            <div class="not-prose mt-14 border-t border-border pt-10">
+                <p class="text-[10px] font-mono font-bold uppercase tracking-wider text-muted mb-6">Seguir leyendo</p>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <a href="./estancamiento-silencioso.html" class="group block p-5 bg-surface border border-border rounded hover:border-primary transition-colors">
+                        <span class="text-[10px] font-mono text-muted uppercase block mb-1">Artículo 1</span>
+                        <h4 class="font-heading font-bold text-ink group-hover:text-primary transition-colors leading-snug">Llevas semanas ajustando. Pero no sabés desde cuándo el problema empezó.</h4>
+                    </a>
+                    <a href="./periodizacion-y-deteccion.html" class="group block p-5 bg-surface border border-border rounded hover:border-primary transition-colors">
+                        <span class="text-[10px] font-mono text-muted uppercase block mb-1">Artículo 4</span>
+                        <h4 class="font-heading font-bold text-ink group-hover:text-primary transition-colors leading-snug">Periodizar bien no alcanza si no sabés cuándo el plan se rompió.</h4>
+                    </a>
+                </div>
+            </div>
+
+        </article>
+    </main>
+
+    <footer class="bg-dark pt-12 pb-8 border-t-4 border-primary mt-16">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-start gap-8 mb-10">
+                <div>
+                    <span class="font-heading font-semibold text-surface block mb-2">Lisandro Cacciatore</span>
+                    <p class="text-muted text-sm max-w-xs">Sistemas de decisión aplicados al rendimiento deportivo. Rosario, Argentina.</p>
+                </div>
+                <div class="flex gap-10 text-sm">
+                    <div>
+                        <p class="text-[10px] font-mono uppercase tracking-wider text-muted mb-3">Sitio</p>
+                        <ul class="space-y-2">
+                            <li><a href="../index.html" class="text-muted hover:text-surface transition-colors">Inicio</a></li>
+                            <li><a href="../blog.html" class="text-muted hover:text-surface transition-colors">Blog</a></li>
+                            <li><a href="../contacto.html" class="text-muted hover:text-surface transition-colors">Contacto</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p class="text-[10px] font-mono uppercase tracking-wider text-muted mb-3">Recursos</p>
+                        <ul class="space-y-2">
+                            <li><a href="../autodiagnostico.html" class="text-muted hover:text-surface transition-colors">Autodiagnóstico</a></li>
+                            <li><a href="../ironlog/demo.html" class="text-muted hover:text-surface transition-colors">Simuladores</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 pt-6">
+                <p class="text-xs font-mono text-subtle">© 2026 Lisandro Cacciatore · Rosario, Argentina</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
