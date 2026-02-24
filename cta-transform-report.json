@@ -1,0 +1,223 @@
+[
+  {
+    "page": "index.html",
+    "status": "ok",
+    "checks": {
+      "single_primary_above_fold": true,
+      "no_ironlog_primary_violation": true,
+      "all_ctas_have_level": true,
+      "all_ctas_have_destination": true,
+      "text_matches_approved": true,
+      "contacto_single_cta": null
+    },
+    "notes": ""
+  },
+  {
+    "page": "sobre-mi.html",
+    "status": "ok",
+    "checks": {
+      "single_primary_above_fold": true,
+      "no_ironlog_primary_violation": true,
+      "all_ctas_have_level": true,
+      "all_ctas_have_destination": true,
+      "text_matches_approved": true,
+      "contacto_single_cta": null
+    },
+    "notes": ""
+  },
+  {
+    "page": "servicios.html",
+    "status": "ok",
+    "checks": {
+      "single_primary_above_fold": true,
+      "no_ironlog_primary_violation": true,
+      "all_ctas_have_level": true,
+      "all_ctas_have_destination": true,
+      "text_matches_approved": true,
+      "contacto_single_cta": null
+    },
+    "notes": ""
+  },
+  {
+    "page": "contacto.html",
+    "status": "ok",
+    "checks": {
+      "single_primary_above_fold": true,
+      "no_ironlog_primary_violation": true,
+      "all_ctas_have_level": true,
+      "all_ctas_have_destination": true,
+      "text_matches_approved": true,
+      "contacto_single_cta": true
+    },
+    "notes": ""
+  },
+  {
+    "page": "blog.html",
+    "status": "ok",
+    "checks": {
+      "single_primary_above_fold": true,
+      "no_ironlog_primary_violation": true,
+      "all_ctas_have_level": true,
+      "all_ctas_have_destination": true,
+      "text_matches_approved": true,
+      "contacto_single_cta": null
+    },
+    "notes": ""
+  },
+  {
+    "page": "autodiagnostico.html",
+    "status": "ok",
+    "checks": {
+      "single_primary_above_fold": true,
+      "no_ironlog_primary_violation": true,
+      "all_ctas_have_level": true,
+      "all_ctas_have_destination": true,
+      "text_matches_approved": true,
+      "contacto_single_cta": null
+    },
+    "notes": ""
+  },
+  {
+    "page": "ironlog/index.html",
+    "status": "ok",
+    "checks": {
+      "single_primary_above_fold": true,
+      "no_ironlog_primary_violation": true,
+      "all_ctas_have_level": true,
+      "all_ctas_have_destination": true,
+      "text_matches_approved": true,
+      "contacto_single_cta": null
+    },
+    "notes": ""
+  },
+  {
+    "page": "ironlog/demo.html",
+    "status": "ok",
+    "checks": {
+      "single_primary_above_fold": true,
+      "no_ironlog_primary_violation": true,
+      "all_ctas_have_level": true,
+      "all_ctas_have_destination": true,
+      "text_matches_approved": true,
+      "contacto_single_cta": null
+    },
+    "notes": ""
+  },
+  {
+    "page": "ironlog/ss.html",
+    "status": "ok",
+    "checks": {
+      "single_primary_above_fold": true,
+      "no_ironlog_primary_violation": true,
+      "all_ctas_have_level": true,
+      "all_ctas_have_destination": true,
+      "text_matches_approved": true,
+      "contacto_single_cta": null
+    },
+    "notes": ""
+  },
+  {
+    "page": "ironlog/wendler.html",
+    "status": "ok",
+    "checks": {
+      "single_primary_above_fold": true,
+      "no_ironlog_primary_violation": true,
+      "all_ctas_have_level": true,
+      "all_ctas_have_destination": true,
+      "text_matches_approved": true,
+      "contacto_single_cta": null
+    },
+    "notes": ""
+  },
+  {
+    "page": "ironlog/cube.html",
+    "status": "ok",
+    "checks": {
+      "single_primary_above_fold": true,
+      "no_ironlog_primary_violation": true,
+      "all_ctas_have_level": true,
+      "all_ctas_have_destination": true,
+      "text_matches_approved": true,
+      "contacto_single_cta": null
+    },
+    "notes": ""
+  },
+  {
+    "page": "ironlog/tools.html",
+    "status": "ok",
+    "checks": {
+      "single_primary_above_fold": true,
+      "no_ironlog_primary_violation": true,
+      "all_ctas_have_level": true,
+      "all_ctas_have_destination": true,
+      "text_matches_approved": true,
+      "contacto_single_cta": null
+    },
+    "notes": ""
+  },
+  {
+    "page": "blog/criterio-sin-respaldo.html",
+    "status": "ok",
+    "checks": {
+      "single_primary_above_fold": true,
+      "no_ironlog_primary_violation": true,
+      "all_ctas_have_level": true,
+      "all_ctas_have_destination": true,
+      "text_matches_approved": true,
+      "contacto_single_cta": null
+    },
+    "notes": ""
+  },
+  {
+    "page": "blog/periodizacion-y-deteccion.html",
+    "status": "ok",
+    "checks": {
+      "single_primary_above_fold": true,
+      "no_ironlog_primary_violation": true,
+      "all_ctas_have_level": true,
+      "all_ctas_have_destination": true,
+      "text_matches_approved": true,
+      "contacto_single_cta": null
+    },
+    "notes": ""
+  },
+  {
+    "page": "blog/variable-critica-validada.html",
+    "status": "ok",
+    "checks": {
+      "single_primary_above_fold": true,
+      "no_ironlog_primary_violation": true,
+      "all_ctas_have_level": true,
+      "all_ctas_have_destination": true,
+      "text_matches_approved": true,
+      "contacto_single_cta": null
+    },
+    "notes": ""
+  },
+  {
+    "page": "blog/estancamiento-silencioso.html",
+    "status": "ok",
+    "checks": {
+      "single_primary_above_fold": true,
+      "no_ironlog_primary_violation": true,
+      "all_ctas_have_level": true,
+      "all_ctas_have_destination": true,
+      "text_matches_approved": true,
+      "contacto_single_cta": null
+    },
+    "notes": ""
+  },
+  {
+    "page": "blog/ironlog-en-contexto.html",
+    "status": "ok",
+    "checks": {
+      "single_primary_above_fold": true,
+      "no_ironlog_primary_violation": true,
+      "all_ctas_have_level": true,
+      "all_ctas_have_destination": true,
+      "text_matches_approved": true,
+      "contacto_single_cta": null
+    },
+    "notes": ""
+  }
+]

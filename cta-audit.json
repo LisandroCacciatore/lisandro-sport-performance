@@ -1,0 +1,1005 @@
+{
+  "generated": "2026-02-24",
+  "pages": [
+    {
+      "page": "index.html",
+      "ctas": [
+        {
+          "id": "index-001",
+          "element": "a",
+          "text": "Solicitar revisión →",
+          "href": "contacto.html",
+          "classes": [
+            "bg-primary",
+            "hover:bg-primary-600",
+            "text-white",
+            "text-sm",
+            "font-medium",
+            "px-5",
+            "py-2",
+            "rounded",
+            "transition-colors",
+            "cta",
+            "cta--primary"
+          ],
+          "data_cta_level": 1,
+          "data_cta_destination": "auditoria-vcv",
+          "position": "body",
+          "visible_without_scroll": true,
+          "issues": []
+        },
+        {
+          "id": "index-002",
+          "element": "a",
+          "text": "Solicitar revisión →",
+          "href": "contacto.html",
+          "classes": [
+            "bg-primary",
+            "hover:bg-primary-600",
+            "text-white",
+            "px-8",
+            "py-4",
+            "rounded",
+            "font-medium",
+            "transition-colors",
+            "shadow-structural",
+            "cta",
+            "cta--primary"
+          ],
+          "data_cta_level": 1,
+          "data_cta_destination": "auditoria-vcv",
+          "position": "body",
+          "visible_without_scroll": true,
+          "issues": []
+        },
+        {
+          "id": "index-003",
+          "element": "a",
+          "text": "Solicitar revisión →",
+          "href": "contacto.html",
+          "classes": [
+            "bg-primary",
+            "hover:bg-primary-600",
+            "text-white",
+            "px-8",
+            "py-4",
+            "rounded",
+            "font-medium",
+            "transition-colors",
+            "shadow-structural",
+            "cta",
+            "cta--primary"
+          ],
+          "data_cta_level": 1,
+          "data_cta_destination": "auditoria-vcv",
+          "position": "body",
+          "visible_without_scroll": false,
+          "issues": []
+        }
+      ]
+    },
+    {
+      "page": "sobre-mi.html",
+      "ctas": [
+        {
+          "id": "sobre-mi-001",
+          "element": "a",
+          "text": "Solicitar revisión →",
+          "href": "contacto.html",
+          "classes": [
+            "bg-primary",
+            "hover:bg-primary-600",
+            "text-white",
+            "text-sm",
+            "font-medium",
+            "px-5",
+            "py-2",
+            "rounded",
+            "transition-colors",
+            "cta",
+            "cta--primary"
+          ],
+          "data_cta_level": 1,
+          "data_cta_destination": "auditoria-vcv",
+          "position": "body",
+          "visible_without_scroll": true,
+          "issues": []
+        },
+        {
+          "id": "sobre-mi-002",
+          "element": "a",
+          "text": "Solicitar revisión →",
+          "href": "contacto.html",
+          "classes": [
+            "inline-block",
+            "bg-primary",
+            "hover:bg-primary-600",
+            "text-white",
+            "font-medium",
+            "px-8",
+            "py-3",
+            "rounded",
+            "transition-colors",
+            "cta",
+            "cta--primary"
+          ],
+          "data_cta_level": 1,
+          "data_cta_destination": "auditoria-vcv",
+          "position": "body",
+          "visible_without_scroll": false,
+          "issues": []
+        }
+      ]
+    },
+    {
+      "page": "servicios.html",
+      "ctas": [
+        {
+          "id": "servicios-001",
+          "element": "a",
+          "text": "Solicitar revisión →",
+          "href": "contacto.html",
+          "classes": [
+            "bg-primary",
+            "hover:bg-primary-600",
+            "text-white",
+            "text-sm",
+            "font-medium",
+            "px-5",
+            "py-2",
+            "rounded",
+            "transition-colors",
+            "cta",
+            "cta--primary"
+          ],
+          "data_cta_level": 1,
+          "data_cta_destination": "auditoria-vcv",
+          "position": "body",
+          "visible_without_scroll": true,
+          "issues": []
+        },
+        {
+          "id": "servicios-002",
+          "element": "a",
+          "text": "Solicitar revisión →",
+          "href": "contacto.html",
+          "classes": [
+            "inline-block",
+            "bg-primary",
+            "hover:bg-primary-600",
+            "text-white",
+            "font-medium",
+            "px-8",
+            "py-3",
+            "rounded",
+            "transition-colors",
+            "cta",
+            "cta--primary"
+          ],
+          "data_cta_level": 1,
+          "data_cta_destination": "auditoria-vcv",
+          "position": "body",
+          "visible_without_scroll": true,
+          "issues": []
+        },
+        {
+          "id": "servicios-003",
+          "element": "a",
+          "text": "Solicitar revisión →",
+          "href": "contacto.html",
+          "classes": [
+            "inline-block",
+            "border",
+            "border-border",
+            "hover:border-primary",
+            "text-ink",
+            "font-medium",
+            "px-8",
+            "py-3",
+            "rounded",
+            "transition-colors",
+            "text-center",
+            "cta",
+            "cta--primary"
+          ],
+          "data_cta_level": 1,
+          "data_cta_destination": "auditoria-vcv",
+          "position": "body",
+          "visible_without_scroll": false,
+          "issues": []
+        }
+      ]
+    },
+    {
+      "page": "contacto.html",
+      "ctas": [
+        {
+          "id": "contacto-001",
+          "element": "button",
+          "text": "Enviar solicitud →",
+          "href": null,
+          "classes": [
+            "w-full",
+            "bg-primary",
+            "hover:bg-primary-600",
+            "text-white",
+            "font-medium",
+            "py-3",
+            "rounded",
+            "transition-colors",
+            "flex",
+            "items-center",
+            "justify-center",
+            "gap-2",
+            "cta",
+            "cta--primary"
+          ],
+          "data_cta_level": 1,
+          "data_cta_destination": "auditoria-vcv",
+          "position": "body",
+          "visible_without_scroll": false,
+          "issues": []
+        }
+      ]
+    },
+    {
+      "page": "blog.html",
+      "ctas": [
+        {
+          "id": "blog-001",
+          "element": "a",
+          "text": "Solicitar revisión →",
+          "href": "contacto.html",
+          "classes": [
+            "bg-primary",
+            "hover:bg-primary",
+            "text-white",
+            "text-sm",
+            "font-medium",
+            "px-5",
+            "py-2",
+            "rounded",
+            "transition-colors",
+            "cta",
+            "cta--secondary"
+          ],
+          "data_cta_level": 2,
+          "data_cta_destination": "auditoria-vcv",
+          "position": "body",
+          "visible_without_scroll": true,
+          "issues": []
+        },
+        {
+          "id": "blog-002",
+          "element": "a",
+          "text": "Hacer autodiagnóstico →",
+          "href": "autodiagnostico.html",
+          "classes": [
+            "flex-shrink-0",
+            "bg-primary",
+            "hover:bg-primary",
+            "text-white",
+            "font-medium",
+            "px-6",
+            "py-3",
+            "rounded",
+            "transition-all",
+            "hover:-translate-y-0.5",
+            "whitespace-nowrap",
+            "shadow-structural",
+            "cta",
+            "cta--primary"
+          ],
+          "data_cta_level": 1,
+          "data_cta_destination": "autodiagnostico",
+          "position": "body",
+          "visible_without_scroll": true,
+          "issues": []
+        },
+        {
+          "id": "blog-003",
+          "element": "a",
+          "text": "Solicitar revisión →",
+          "href": "contacto.html",
+          "classes": [
+            "inline-block",
+            "bg-primary",
+            "hover:bg-primary",
+            "text-white",
+            "font-medium",
+            "px-9",
+            "py-4",
+            "rounded",
+            "transition-all",
+            "hover:-translate-y-0.5",
+            "shadow-structural",
+            "cta",
+            "cta--secondary"
+          ],
+          "data_cta_level": 2,
+          "data_cta_destination": "auditoria-vcv",
+          "position": "body",
+          "visible_without_scroll": false,
+          "issues": []
+        }
+      ]
+    },
+    {
+      "page": "autodiagnostico.html",
+      "ctas": [
+        {
+          "id": "autodiagnostico-001",
+          "element": "a",
+          "text": "Solicitar revisión de sistema →",
+          "href": "contacto.html",
+          "classes": [
+            "bg-primary",
+            "hover:bg-primary-600",
+            "text-white",
+            "font-bold",
+            "py-3",
+            "px-8",
+            "rounded",
+            "transition-colors",
+            "text-sm",
+            "cta",
+            "cta--primary"
+          ],
+          "data_cta_level": 1,
+          "data_cta_destination": "auditoria-vcv",
+          "position": "body",
+          "visible_without_scroll": false,
+          "issues": []
+        },
+        {
+          "id": "autodiagnostico-002",
+          "element": "a",
+          "text": "Solicitar acceso anticipado →",
+          "href": "/ironlog/index.html#acceso",
+          "classes": [
+            "cta",
+            "cta--primary"
+          ],
+          "data_cta_level": 1,
+          "data_cta_destination": "formulario-ironlog",
+          "position": "body",
+          "visible_without_scroll": false,
+          "issues": []
+        },
+        {
+          "id": "autodiagnostico-003",
+          "element": "a",
+          "text": "Solicitar revisión igual →",
+          "href": "/contacto.html",
+          "classes": [
+            "cta",
+            "cta--secondary"
+          ],
+          "data_cta_level": 2,
+          "data_cta_destination": "auditoria-vcv",
+          "position": "body",
+          "visible_without_scroll": false,
+          "issues": []
+        },
+        {
+          "id": "autodiagnostico-004",
+          "element": "a",
+          "text": "Solicitar revisión de sistema →",
+          "href": "/contacto.html",
+          "classes": [
+            "cta",
+            "cta--primary"
+          ],
+          "data_cta_level": 1,
+          "data_cta_destination": "auditoria-vcv",
+          "position": "body",
+          "visible_without_scroll": false,
+          "issues": []
+        },
+        {
+          "id": "autodiagnostico-005",
+          "element": "a",
+          "text": "Solicitar revisión de sistema →",
+          "href": "/contacto.html",
+          "classes": [
+            "cta",
+            "cta--primary"
+          ],
+          "data_cta_level": 1,
+          "data_cta_destination": "auditoria-vcv",
+          "position": "body",
+          "visible_without_scroll": false,
+          "issues": []
+        }
+      ]
+    },
+    {
+      "page": "ironlog/index.html",
+      "ctas": [
+        {
+          "id": "ironlog-index-001",
+          "element": "a",
+          "text": "Solicitar revisión →",
+          "href": "../contacto.html",
+          "classes": [
+            "bg-primary",
+            "hover:bg-primary-600",
+            "text-white",
+            "px-8",
+            "py-4",
+            "rounded",
+            "font-medium",
+            "transition-colors",
+            "shadow-structural",
+            "cta",
+            "cta--secondary"
+          ],
+          "data_cta_level": 2,
+          "data_cta_destination": "auditoria-vcv",
+          "position": "body",
+          "visible_without_scroll": false,
+          "issues": []
+        },
+        {
+          "id": "ironlog-index-002",
+          "element": "button",
+          "text": "Solicitar acceso anticipado →",
+          "href": null,
+          "classes": [
+            "w-full",
+            "bg-primary",
+            "hover:bg-primary-600",
+            "text-white",
+            "py-3",
+            "rounded",
+            "font-medium",
+            "transition-colors",
+            "mt-2",
+            "cta",
+            "cta--primary"
+          ],
+          "data_cta_level": 1,
+          "data_cta_destination": "formulario-ironlog",
+          "position": "body",
+          "visible_without_scroll": false,
+          "issues": []
+        }
+      ]
+    },
+    {
+      "page": "ironlog/demo.html",
+      "ctas": [
+        {
+          "id": "ironlog-demo-001",
+          "element": "a",
+          "text": "Revisar mi sistema →",
+          "href": "../contacto.html",
+          "classes": [
+            "bg-primary",
+            "hover:bg-primary-600",
+            "text-white",
+            "px-8",
+            "py-3",
+            "rounded",
+            "font-medium",
+            "transition-colors",
+            "cta",
+            "cta--primary"
+          ],
+          "data_cta_level": 1,
+          "data_cta_destination": "auditoria-vcv",
+          "position": "body",
+          "visible_without_scroll": false,
+          "issues": []
+        },
+        {
+          "id": "ironlog-demo-002",
+          "element": "a",
+          "text": "Ver simuladores →",
+          "href": "tools.html",
+          "classes": [
+            "border",
+            "border-border",
+            "text-ink",
+            "hover:border-primary",
+            "px-8",
+            "py-3",
+            "rounded",
+            "font-medium",
+            "transition-colors",
+            "cta",
+            "cta--secondary"
+          ],
+          "data_cta_level": 2,
+          "data_cta_destination": "simulador",
+          "position": "body",
+          "visible_without_scroll": false,
+          "issues": []
+        }
+      ]
+    },
+    {
+      "page": "ironlog/ss.html",
+      "ctas": [
+        {
+          "id": "ironlog-ss-001",
+          "element": "button",
+          "text": "Revisar mi sistema →",
+          "href": null,
+          "classes": [
+            "mt-4",
+            "border",
+            "border-primary",
+            "text-primary",
+            "hover:bg-primary",
+            "hover:text-white",
+            "px-8",
+            "py-3",
+            "rounded",
+            "font-medium",
+            "transition-colors",
+            "cta",
+            "cta--primary"
+          ],
+          "data_cta_level": 1,
+          "data_cta_destination": "auditoria-vcv",
+          "position": "body",
+          "visible_without_scroll": false,
+          "issues": []
+        },
+        {
+          "id": "ironlog-ss-002",
+          "element": "button",
+          "text": "Revisar mi sistema →",
+          "href": null,
+          "classes": [
+            "w-full",
+            "bg-primary",
+            "hover:bg-primary-600",
+            "text-white",
+            "font-medium",
+            "py-3",
+            "rounded",
+            "transition-colors",
+            "text-sm",
+            "cta",
+            "cta--primary"
+          ],
+          "data_cta_level": 1,
+          "data_cta_destination": "auditoria-vcv",
+          "position": "body",
+          "visible_without_scroll": false,
+          "issues": []
+        },
+        {
+          "id": "ironlog-ss-003",
+          "element": "button",
+          "text": "Revisar mi sistema →",
+          "href": null,
+          "classes": [
+            "w-full",
+            "bg-primary",
+            "hover:bg-primary-600",
+            "text-white",
+            "font-medium",
+            "py-3",
+            "rounded",
+            "transition-colors",
+            "text-sm",
+            "cta",
+            "cta--primary"
+          ],
+          "data_cta_level": 1,
+          "data_cta_destination": "auditoria-vcv",
+          "position": "body",
+          "visible_without_scroll": false,
+          "issues": []
+        }
+      ]
+    },
+    {
+      "page": "ironlog/wendler.html",
+      "ctas": [
+        {
+          "id": "ironlog-wendler-001",
+          "element": "button",
+          "text": "Revisar mi sistema →",
+          "href": null,
+          "classes": [
+            "w-full",
+            "bg-primary",
+            "hover:bg-primary-600",
+            "text-white",
+            "font-medium",
+            "py-3",
+            "rounded",
+            "transition-colors",
+            "text-sm",
+            "cta",
+            "cta--primary"
+          ],
+          "data_cta_level": 1,
+          "data_cta_destination": "auditoria-vcv",
+          "position": "body",
+          "visible_without_scroll": false,
+          "issues": []
+        },
+        {
+          "id": "ironlog-wendler-002",
+          "element": "button",
+          "text": "Revisar mi sistema →",
+          "href": null,
+          "classes": [
+            "w-full",
+            "bg-primary",
+            "hover:bg-primary-600",
+            "text-white",
+            "font-medium",
+            "py-3",
+            "rounded",
+            "transition-colors",
+            "text-sm",
+            "cta",
+            "cta--primary"
+          ],
+          "data_cta_level": 1,
+          "data_cta_destination": "auditoria-vcv",
+          "position": "body",
+          "visible_without_scroll": false,
+          "issues": []
+        }
+      ]
+    },
+    {
+      "page": "ironlog/cube.html",
+      "ctas": [
+        {
+          "id": "ironlog-cube-001",
+          "element": "button",
+          "text": "Revisar mi sistema →",
+          "href": null,
+          "classes": [
+            "mt-4",
+            "border",
+            "border-primary",
+            "text-primary",
+            "hover:bg-primary",
+            "hover:text-white",
+            "px-8",
+            "py-3",
+            "rounded",
+            "font-medium",
+            "transition-colors",
+            "cta",
+            "cta--primary"
+          ],
+          "data_cta_level": 1,
+          "data_cta_destination": "auditoria-vcv",
+          "position": "body",
+          "visible_without_scroll": false,
+          "issues": []
+        },
+        {
+          "id": "ironlog-cube-002",
+          "element": "button",
+          "text": "Revisar mi sistema →",
+          "href": null,
+          "classes": [
+            "w-full",
+            "bg-primary",
+            "hover:bg-primary-600",
+            "text-white",
+            "font-medium",
+            "py-3",
+            "rounded",
+            "transition-colors",
+            "text-sm",
+            "cta",
+            "cta--primary"
+          ],
+          "data_cta_level": 1,
+          "data_cta_destination": "auditoria-vcv",
+          "position": "body",
+          "visible_without_scroll": false,
+          "issues": []
+        },
+        {
+          "id": "ironlog-cube-003",
+          "element": "button",
+          "text": "Revisar mi sistema →",
+          "href": null,
+          "classes": [
+            "w-full",
+            "bg-primary",
+            "hover:bg-primary-600",
+            "text-white",
+            "font-medium",
+            "py-3",
+            "rounded",
+            "transition-colors",
+            "text-sm",
+            "cta",
+            "cta--primary"
+          ],
+          "data_cta_level": 1,
+          "data_cta_destination": "auditoria-vcv",
+          "position": "body",
+          "visible_without_scroll": false,
+          "issues": []
+        }
+      ]
+    },
+    {
+      "page": "ironlog/tools.html",
+      "ctas": [
+        {
+          "id": "ironlog-tools-001",
+          "element": "a",
+          "text": "Hacer autodiagnóstico →",
+          "href": "../autodiagnostico.html",
+          "classes": [
+            "bg-primary",
+            "hover:bg-primary-600",
+            "text-white",
+            "px-6",
+            "py-2",
+            "rounded",
+            "font-medium",
+            "text-sm",
+            "transition-colors",
+            "text-center",
+            "cta",
+            "cta--secondary"
+          ],
+          "data_cta_level": 2,
+          "data_cta_destination": "autodiagnostico",
+          "position": "body",
+          "visible_without_scroll": true,
+          "issues": []
+        },
+        {
+          "id": "ironlog-tools-002",
+          "element": "a",
+          "text": "Solicitar revisión →",
+          "href": "../contacto.html",
+          "classes": [
+            "text-xs",
+            "font-mono",
+            "font-bold",
+            "text-primary",
+            "hover:underline",
+            "cta",
+            "cta--primary"
+          ],
+          "data_cta_level": 1,
+          "data_cta_destination": "auditoria-vcv",
+          "position": "body",
+          "visible_without_scroll": false,
+          "issues": []
+        }
+      ]
+    },
+    {
+      "page": "blog/criterio-sin-respaldo.html",
+      "ctas": [
+        {
+          "id": "blog-criterio-sin-respaldo-001",
+          "element": "a",
+          "text": "Hacer autodiagnóstico →",
+          "href": "../autodiagnostico.html",
+          "classes": [
+            "flex-shrink-0",
+            "bg-primary",
+            "text-white",
+            "font-medium",
+            "px-7",
+            "py-3",
+            "rounded",
+            "transition-all",
+            "hover:-translate-y-0.5",
+            "shadow-structural",
+            "whitespace-nowrap",
+            "cta",
+            "cta--primary"
+          ],
+          "data_cta_level": 1,
+          "data_cta_destination": "autodiagnostico",
+          "position": "body",
+          "visible_without_scroll": false,
+          "issues": []
+        }
+      ]
+    },
+    {
+      "page": "blog/periodizacion-y-deteccion.html",
+      "ctas": [
+        {
+          "id": "blog-periodizacion-y-deteccion-001",
+          "element": "a",
+          "text": "Hacer autodiagnóstico →",
+          "href": "../autodiagnostico.html",
+          "classes": [
+            "flex-shrink-0",
+            "bg-primary",
+            "text-white",
+            "font-medium",
+            "px-7",
+            "py-3",
+            "rounded",
+            "transition-all",
+            "hover:-translate-y-0.5",
+            "shadow-structural",
+            "whitespace-nowrap",
+            "cta",
+            "cta--primary"
+          ],
+          "data_cta_level": 1,
+          "data_cta_destination": "autodiagnostico",
+          "position": "body",
+          "visible_without_scroll": false,
+          "issues": []
+        }
+      ]
+    },
+    {
+      "page": "blog/variable-critica-validada.html",
+      "ctas": [
+        {
+          "id": "blog-variable-critica-validada-001",
+          "element": "a",
+          "text": "Hacer autodiagnóstico →",
+          "href": "../autodiagnostico.html",
+          "classes": [
+            "flex-shrink-0",
+            "bg-primary",
+            "text-white",
+            "font-medium",
+            "px-7",
+            "py-3",
+            "rounded",
+            "transition-all",
+            "hover:-translate-y-0.5",
+            "shadow-structural",
+            "whitespace-nowrap",
+            "cta",
+            "cta--primary"
+          ],
+          "data_cta_level": 1,
+          "data_cta_destination": "autodiagnostico",
+          "position": "body",
+          "visible_without_scroll": false,
+          "issues": []
+        }
+      ]
+    },
+    {
+      "page": "blog/estancamiento-silencioso.html",
+      "ctas": [
+        {
+          "id": "blog-estancamiento-silencioso-001",
+          "element": "a",
+          "text": "Solicitar revisión →",
+          "href": "../contacto.html",
+          "classes": [
+            "flex-shrink-0",
+            "bg-primary",
+            "hover:bg-primary",
+            "text-white",
+            "font-medium",
+            "px-7",
+            "py-3",
+            "rounded",
+            "transition-all",
+            "hover:-translate-y-0.5",
+            "shadow-structural",
+            "whitespace-nowrap",
+            "cta",
+            "cta--primary"
+          ],
+          "data_cta_level": 1,
+          "data_cta_destination": "auditoria-vcv",
+          "position": "body",
+          "visible_without_scroll": false,
+          "issues": []
+        },
+        {
+          "id": "blog-estancamiento-silencioso-002",
+          "element": "a",
+          "text": "Hacer autodiagnóstico →",
+          "href": "../autodiagnostico.html",
+          "classes": [
+            "flex-shrink-0",
+            "border",
+            "border-border",
+            "text-ink",
+            "font-medium",
+            "px-7",
+            "py-3",
+            "rounded",
+            "transition-colors",
+            "whitespace-nowrap",
+            "cta",
+            "cta--secondary"
+          ],
+          "data_cta_level": 2,
+          "data_cta_destination": "autodiagnostico",
+          "position": "body",
+          "visible_without_scroll": false,
+          "issues": []
+        }
+      ]
+    },
+    {
+      "page": "blog/ironlog-en-contexto.html",
+      "ctas": [
+        {
+          "id": "blog-ironlog-en-contexto-001",
+          "element": "a",
+          "text": "Hacer autodiagnóstico →",
+          "href": "../autodiagnostico.html",
+          "classes": [
+            "flex-1",
+            "bg-primary",
+            "text-white",
+            "font-medium",
+            "px-7",
+            "py-4",
+            "rounded",
+            "text-center",
+            "transition-all",
+            "hover:-translate-y-0.5",
+            "shadow-structural",
+            "font-heading",
+            "font-bold",
+            "cta",
+            "cta--primary"
+          ],
+          "data_cta_level": 1,
+          "data_cta_destination": "autodiagnostico",
+          "position": "body",
+          "visible_without_scroll": false,
+          "issues": []
+        },
+        {
+          "id": "blog-ironlog-en-contexto-002",
+          "element": "a",
+          "text": "Solicitar acceso anticipado →",
+          "href": "../ironlog/index.html#early-access",
+          "classes": [
+            "flex-1",
+            "bg-surface",
+            "border",
+            "border-border",
+            "text-ink",
+            "font-medium",
+            "px-7",
+            "py-4",
+            "rounded",
+            "text-center",
+            "hover:border-primary",
+            "transition-colors",
+            "font-heading",
+            "font-bold",
+            "cta",
+            "cta--secondary"
+          ],
+          "data_cta_level": 2,
+          "data_cta_destination": "formulario-ironlog",
+          "position": "body",
+          "visible_without_scroll": false,
+          "issues": []
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total_pages": 17,
+    "total_ctas": 38,
+    "ctas_without_level": 0,
+    "ctas_without_destination": 0,
+    "pages_missing_primary": [],
+    "pages_with_multiple_primary_above_fold": [],
+    "ironlog_primary_violations": [],
+    "text_mismatches": []
+  }
+}
