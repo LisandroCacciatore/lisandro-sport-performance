@@ -236,7 +236,7 @@
                     <p class="text-xs text-body">El simulador te da los números. El criterio para decidir si aplicarlos es otra conversación.</p>
                 </div>
                 <div class="space-y-3 mb-5">
-                    <button type="button" onclick="openLeadModalForAudit()" class="w-full bg-primary hover:bg-primary-600 text-white font-medium py-3 rounded transition-colors text-sm">Solicitar Diagnóstico (30 min)</button>
+                    <button type="button" onclick="openLeadModalForAudit()" class="w-full bg-primary hover:bg-primary-600 text-white font-medium py-3 rounded transition-colors text-sm cta cta--primary" data-cta-level="1" data-cta-destination="auditoria-vcv">Revisar mi sistema →</button>
                     <button type="button" onclick="document.getElementById('leadFormWrapper').classList.toggle('hidden')" class="w-full border border-border hover:border-primary text-ink font-medium py-3 rounded transition-colors text-sm">Hacerme una consulta puntual</button>
                 </div>
                 <div id="leadFormWrapper" class="hidden">
@@ -244,7 +244,7 @@
                         <input type="email" name="email" required placeholder="tu@email.com" class="w-full px-4 py-3 rounded bg-canvas border border-border focus:border-primary outline-none transition-all text-sm font-sans">
                         <input type="text" name="context" placeholder="Contame tu contexto" class="w-full px-4 py-3 rounded bg-canvas border border-border focus:border-primary outline-none transition-all text-sm font-sans">
                         <input type="hidden" name="source" value="wendler_simulator">
-                        <button type="submit" class="w-full bg-primary hover:bg-primary-600 text-white font-medium py-3 rounded transition-colors text-sm">Enviar feedback →</button>
+                        <button type="submit" class="w-full bg-primary hover:bg-primary-600 text-white font-medium py-3 rounded transition-colors text-sm cta cta--primary" data-cta-level="1" data-cta-destination="auditoria-vcv">Revisar mi sistema →</button>
                     </form>
                 </div>
                 <p class="text-[10px] font-mono text-muted text-center mt-4 uppercase">Sin spam. Respuesta en menos de 48hs.</p>
@@ -275,7 +275,7 @@
                 <div>
                     <h3 class="font-heading text-surface text-xs font-bold mb-4 uppercase tracking-widest">Operaciones</h3>
                     <ul class="space-y-3">
-                        <li><a href="../contacto.html" class="text-sm font-sans text-muted hover:text-surface transition-colors">Solicitar Diagnóstico</a></li>
+                        <li><a href="../contacto.html" class="text-sm font-sans text-muted hover:text-surface transition-colors">Revisar mi sistema →</a></li>
                         <li><span class="text-sm font-sans text-subtle block">Rosario, Argentina</span></li>
                         <li><span class="text-sm font-sans text-subtle block">Remoto LATAM / España</span></li>
                     </ul>

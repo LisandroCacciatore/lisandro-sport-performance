@@ -278,14 +278,27 @@
                         <div class="border-t border-border pt-6 text-center">
                             <p class="text-sm text-muted italic mb-6">Si el resultado te incomoda, ese es exactamente el punto.</p>
                             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                                <a href="contacto.html" class="bg-primary hover:bg-primary-600 text-white font-bold py-3 px-8 rounded transition-colors text-sm">
-                                    Solicitar Diagnóstico completo →
-                                </a>
+                                <a href="contacto.html" class="bg-primary hover:bg-primary-600 text-white font-bold py-3 px-8 rounded transition-colors text-sm cta cta--primary" data-cta-level="1" data-cta-destination="auditoria-vcv">
+                    Solicitar revisión de sistema →
+                </a>
                                 <a href="autodiagnostico-vcv.pdf" download class="border border-border hover:border-primary text-ink font-medium py-3 px-8 rounded transition-colors text-sm">
                                     Descargar PDF del diagnóstico
                                 </a>
                             </div>
                         </div>
+
+                        <!-- CTAs condicionales por resultado · I-01b -->
+                        <div class="cta-resultado" data-resultado="verde" style="display:none">
+                            <a href="/ironlog/index.html#acceso" class="cta cta--primary" data-cta-level="1" data-cta-destination="formulario-ironlog">Solicitar acceso anticipado →</a>
+                            <a href="/contacto.html" class="cta cta--secondary" data-cta-level="2" data-cta-destination="auditoria-vcv">Solicitar revisión igual →</a>
+                        </div>
+                        <div class="cta-resultado" data-resultado="amarillo" style="display:none">
+                            <a href="/contacto.html" class="cta cta--primary" data-cta-level="1" data-cta-destination="auditoria-vcv">Solicitar revisión de sistema →</a>
+                        </div>
+                        <div class="cta-resultado" data-resultado="rojo" style="display:none">
+                            <a href="/contacto.html" class="cta cta--primary" data-cta-level="1" data-cta-destination="auditoria-vcv">Solicitar revisión de sistema →</a>
+                        </div>
+
                     </div>
                 </div>
 
@@ -378,6 +391,11 @@
         document.getElementById('resultLabel').textContent = labelText;
         document.getElementById('resultTitle').textContent = title;
         document.getElementById('resultBody').textContent = body;
+
+
+        document.querySelectorAll('.cta-resultado').forEach(el => el.style.display = 'none');
+        const resultCta = document.querySelector(`.cta-resultado[data-resultado="${level}"]`);
+        if (resultCta) resultCta.style.display = 'block';
 
         panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
