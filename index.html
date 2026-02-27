@@ -30,11 +30,36 @@
                 </a>
             </div>
             <!-- Mobile menu button -->
-            <button class="md:hidden text-muted hover:text-ink">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            <button id="mobile-menu-btn" class="md:hidden text-muted hover:text-ink" aria-label="Abrir menú">
+                <svg id="icon-open" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                <svg id="icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
             </button>
         </div>
+        <!-- Mobile dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-canvas border-t border-border px-6 py-4 flex flex-col gap-4">
+            <a href="#el-problema" class="text-sm font-sans text-muted hover:text-ink transition-colors">El Problema</a>
+            <a href="#metodo" class="text-sm font-sans text-muted hover:text-ink transition-colors">Método</a>
+            <a href="#para-quien" class="text-sm font-sans text-muted hover:text-ink transition-colors">Para Quién</a>
+            <a href="blog.html" class="text-sm font-sans text-muted hover:text-ink transition-colors">Blog</a>
+            <a href="contacto.html" class="bg-primary text-white text-sm font-medium px-5 py-2 rounded transition-colors text-center">Solicitar revisión →</a>
+        </div>
     </nav>
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const iconOpen = document.getElementById('icon-open');
+        const iconClose = document.getElementById('icon-close');
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            iconOpen.classList.toggle('hidden');
+            iconClose.classList.toggle('hidden');
+        });
+        menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+            menu.classList.add('hidden');
+            iconOpen.classList.remove('hidden');
+            iconClose.classList.add('hidden');
+        }));
+    </script>
 
     <main>
 
@@ -171,6 +196,44 @@
                     <p class="text-slate-300 leading-relaxed">
                         No hace falta más tecnología. Hace falta saber cuál de los datos que ya tenés importa esta semana y qué pasa si ese dato se mueve. Con eso alcanza para tomar decisiones que podés explicar. Lo demás es ruido.
                     </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIOS -->
+        <section class="py-22 bg-surface border-b border-border">
+            <div class="max-w-3xl mx-auto px-6">
+                <span class="inline-block py-1 px-3 rounded text-[10px] font-mono font-bold uppercase tracking-wider bg-canvas border border-border text-muted mb-6">
+                    Resultados
+                </span>
+                <h2 class="font-heading text-3xl font-bold text-ink mb-10">
+                    Lo que dicen preparadores que ya trabajaron con el sistema.
+                </h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-canvas border border-border rounded p-6">
+                        <p class="text-body text-sm leading-relaxed italic mb-5">
+                            "Empecé a tomar decisiones que podía explicar. No por intuición, sino porque el dato lo indicaba. Eso cambia completamente la conversación con el atleta y con el club."
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-ink font-semibold text-sm">Preparador Físico</p>
+                                <p class="text-muted text-xs font-mono">Club de fútbol · España</p>
+                            </div>
+                            <span class="text-[10px] font-mono font-bold text-success bg-success/10 border border-success/20 px-2 py-1 rounded">✔ Proceso validado</span>
+                        </div>
+                    </div>
+                    <div class="bg-canvas border border-border rounded p-6">
+                        <p class="text-body text-sm leading-relaxed italic mb-5">
+                            "Tenía datos de todo. No sabía cuál mirar. La VCV me obligó a elegir uno y a construir el criterio alrededor de eso. Tres semanas después detecté un estancamiento antes de que el atleta lo sintiera."
+                        </p>
+                        <div class="flex items-center justify-between">
+                            <div>
+                                <p class="text-ink font-semibold text-sm">Entrenador de Fuerza</p>
+                                <p class="text-muted text-xs font-mono">Independiente · Argentina</p>
+                            </div>
+                            <span class="text-[10px] font-mono font-bold text-success bg-success/10 border border-success/20 px-2 py-1 rounded">✔ Proceso validado</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

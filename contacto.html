@@ -1,17 +1,22 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto | Lisandro Cacciatore</title>
-    <meta name="description" content="Solicitar auditoría técnica de datos deportivos. Rosario, Argentina. Trabajo remoto LATAM y España.">
+    <meta name="description"
+        content="Solicitar auditoría técnica de datos deportivos. Rosario, Argentina. Trabajo remoto LATAM y España.">
     <link rel="canonical" href="https://lisandrocacciatore.com/contacto.html">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=IBM+Plex+Sans:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=IBM+Plex+Sans:wght@600;700&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="theme.js"></script>
 </head>
+
 <body class="bg-canvas text-body font-sans antialiased">
 
     <nav class="sticky top-0 z-50 bg-canvas/95 backdrop-blur-sm border-b border-border">
@@ -20,12 +25,15 @@
                 Lisandro Cacciatore <span class="text-primary font-mono font-bold">_</span>
             </a>
             <div class="hidden md:flex items-center gap-8">
-                <a href="index.html#metodo" class="text-sm font-sans text-muted hover:text-ink transition-colors">Método</a>
-                <a href="servicios.html" class="text-sm font-sans text-muted hover:text-ink transition-colors">Servicios</a>
+                <a href="index.html#metodo"
+                    class="text-sm font-sans text-muted hover:text-ink transition-colors">Método</a>
+                <a href="servicios.html"
+                    class="text-sm font-sans text-muted hover:text-ink transition-colors">Servicios</a>
                 <a href="blog.html" class="text-sm font-sans text-muted hover:text-ink transition-colors">Blog</a>
-                <span class="w-px h-4 bg-border"></span> 
+                <span class="w-px h-4 bg-border"></span>
                 <a href="ironlog/index.html" class="text-sm font-mono text-primary hover:underline">IronLog</a>
-                <a href="contacto.html" class="bg-primary hover:bg-primary-600 text-white text-sm font-medium px-5 py-2 rounded transition-colors">
+                <a href="contacto.html"
+                    class="bg-primary hover:bg-primary-600 text-white text-sm font-medium px-5 py-2 rounded transition-colors">
                     Solicitar Auditoría
                 </a>
             </div>
@@ -35,139 +43,201 @@
     <main>
         <section class="bg-surface py-22 border-b border-border">
             <div class="max-w-3xl mx-auto px-6 text-center">
-                <span class="inline-block py-1 px-3 rounded text-[10px] font-mono font-bold uppercase tracking-wider bg-canvas border border-border text-muted mb-6">
+                <span
+                    class="inline-block py-1 px-3 rounded text-[10px] font-mono font-bold uppercase tracking-wider bg-canvas border border-border text-muted mb-6">
                     Operaciones
                 </span>
                 <h1 class="font-heading text-4xl font-bold text-ink mb-6">
                     Empezamos por entender el problema.
                 </h1>
                 <p class="text-lead text-body max-w-2xl mx-auto">
-                    Antes de proponer cualquier solución, necesito entender cómo fluye la información en tu club. Contame brevemente dónde están los cuellos de botella y agendamos una revisión inicial.
+                    Antes de proponer cualquier solución, necesito entender cómo fluye la información en tu club.
+                    Contame brevemente dónde están los cuellos de botella y agendamos una revisión inicial.
                 </p>
             </div>
         </section>
 
         <section class="py-22">
-            <div class="max-w-2xl mx-auto px-6">
-                <div id="formWrapper" class="bg-canvas border border-border rounded shadow-structural p-8">
-                    <form id="contactForm" class="space-y-6" novalidate>
-                        <!-- Honeypot anti-spam -->
-                        <input type="text" id="website" name="website" style="display:none" tabindex="-1" autocomplete="off">
+            <div class="max-w-5xl mx-auto px-6">
+                <div class="grid md:grid-cols-5 gap-10 items-start">
 
-                        <!-- Hidden fields — F-01 Contrato de Datos v1.0 -->
-                        <input type="hidden" name="form_name"   value="lead-auditoria">
-                        <input type="hidden" name="lead_type"   value="auditoria">
-                        <input type="hidden" name="source_page" id="h_source_page">
-                        <input type="hidden" name="source_cta"  id="h_source_cta">
-                        <input type="hidden" name="utm_source"  id="h_utm_source">
-                        <input type="hidden" name="utm_medium"  id="h_utm_medium">
-                        <input type="hidden" name="utm_campaign" id="h_utm_campaign">
-                        <input type="hidden" name="utm_content" id="h_utm_content">
+                    <!-- Formulario (izquierda, 3/5) -->
+                    <div id="formWrapper"
+                        class="md:col-span-3 bg-canvas border border-border rounded shadow-structural p-8">
+                        <form id="contactForm" class="space-y-6" novalidate>
+                            <!-- Honeypot anti-spam -->
+                            <input type="text" id="website" name="website" style="display:none" tabindex="-1"
+                                autocomplete="off">
 
-                        <!-- Nombre -->
-                        <div>
-                            <label for="nombre" class="block text-sm font-semibold text-ink mb-2">Tu nombre <span class="text-error">*</span></label>
-                            <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre"
-                                class="input-field w-full px-4 py-3 rounded border border-border bg-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition text-ink font-sans text-sm">
-                            <p class="field-error hidden text-xs text-error mt-1">Completá este campo para continuar.</p>
+                            <!-- Hidden fields — F-01 Contrato de Datos v1.0 -->
+                            <input type="hidden" name="form_name" value="lead-auditoria">
+                            <input type="hidden" name="lead_type" value="auditoria">
+                            <input type="hidden" name="source_page" id="h_source_page">
+                            <input type="hidden" name="source_cta" id="h_source_cta">
+                            <input type="hidden" name="utm_source" id="h_utm_source">
+                            <input type="hidden" name="utm_medium" id="h_utm_medium">
+                            <input type="hidden" name="utm_campaign" id="h_utm_campaign">
+                            <input type="hidden" name="utm_content" id="h_utm_content">
+
+                            <!-- Nombre -->
+                            <div>
+                                <label for="nombre" class="block text-sm font-semibold text-ink mb-2">Tu nombre <span
+                                        class="text-error">*</span></label>
+                                <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre"
+                                    class="input-field w-full px-4 py-3 rounded border border-border bg-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition text-ink font-sans text-sm">
+                                <p class="field-error hidden text-xs text-error mt-1">Completá este campo para
+                                    continuar.</p>
+                            </div>
+
+                            <!-- Email -->
+                            <div>
+                                <label for="email" class="block text-sm font-semibold text-ink mb-2">Email <span
+                                        class="text-error">*</span></label>
+                                <input type="email" id="email" name="email" required placeholder="tu@email.com"
+                                    class="input-field w-full px-4 py-3 rounded border border-border bg-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition text-ink font-sans text-sm">
+                                <p class="field-error hidden text-xs text-error mt-1">El formato del email no es válido.
+                                    Revisá que incluya el @.</p>
+                            </div>
+
+                            <!-- Rol — enum F-01 Hoja 2 -->
+                            <div>
+                                <label for="rol" class="block text-sm font-semibold text-ink mb-2">Tu rol principal
+                                    <span class="text-error">*</span></label>
+                                <p class="text-xs text-muted mb-2">Esto orienta el diagnóstico hacia tu contexto real.
+                                </p>
+                                <select id="rol" name="rol" required
+                                    class="input-field w-full px-4 py-3 rounded border border-border bg-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition text-ink font-sans text-sm">
+                                    <option value="" disabled selected></option>
+                                    <option value="preparador_fisico_individual">Preparador físico individual</option>
+                                    <option value="coordinador_club">Coordinador / Director técnico</option>
+                                    <option value="entrenador_fuerza">Entrenador de fuerza / S&C</option>
+                                    <option value="analista_deportivo">Analista de datos deportivo</option>
+                                    <option value="otro">Otro</option>
+                                </select>
+                                <p class="field-error hidden text-xs text-error mt-1">Seleccioná una opción para
+                                    continuar.</p>
+                            </div>
+
+                            <!-- Organización — opcional -->
+                            <div>
+                                <label for="organizacion" class="block text-sm font-semibold text-ink mb-2">
+                                    Organización <span class="text-muted font-normal">(opcional)</span>
+                                </label>
+                                <p class="text-xs text-muted mb-2">Si trabajás en un club, el diagnóstico se orienta
+                                    diferente que si sos independiente.</p>
+                                <input type="text" id="organizacion" name="organizacion"
+                                    placeholder="Club, institución o contexto"
+                                    class="input-field w-full px-4 py-3 rounded border border-border bg-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition text-ink font-sans text-sm">
+                            </div>
+
+                            <!-- Problema principal — enum F-01 Hoja 2 -->
+                            <div>
+                                <label for="problema" class="block text-sm font-semibold text-ink mb-2">¿Qué problema
+                                    querés revisar? <span class="text-error">*</span></label>
+                                <p class="text-xs text-muted mb-2">Elegí el que más se acerca.</p>
+                                <select id="problema" name="problema_principal" required
+                                    class="input-field w-full px-4 py-3 rounded border border-border bg-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition text-ink font-sans text-sm">
+                                    <option value="" disabled selected></option>
+                                    <option value="no-se-si-mis-decisiones-funcionan">No sé si mis decisiones están
+                                        funcionando.</option>
+                                    <option value="estancamiento-sin-explicacion">Tengo estancamiento sin explicación
+                                        clara.</option>
+                                    <option value="registro-datos-sin-convertir-en-criterio">Registro datos pero no los
+                                        convierto en criterio.</option>
+                                    <option value="disenando-sistema-desde-cero">Estoy diseñando un sistema desde cero.
+                                    </option>
+                                    <option value="otro">Otro — lo explico en el campo siguiente.</option>
+                                </select>
+                                <p class="field-error hidden text-xs text-error mt-1">Seleccioná una opción para
+                                    continuar.</p>
+                            </div>
+
+                            <!-- Detalle adicional — opcional -->
+                            <div>
+                                <label for="detalle" class="block text-sm font-semibold text-ink mb-2">
+                                    Contexto adicional <span class="text-muted font-normal">(opcional)</span>
+                                </label>
+                                <p class="text-xs text-muted mb-2">Cuanto más específico, más útil es la primera
+                                    conversación.</p>
+                                <textarea id="detalle" name="detalle_adicional" rows="4"
+                                    placeholder="Cuántos atletas trabajás, qué registrás hoy, qué esperás de la revisión."
+                                    class="w-full px-4 py-3 rounded border border-border bg-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition text-ink font-sans text-sm resize-none"></textarea>
+                            </div>
+
+                            <!-- Consent — F-01 obligatorio -->
+                            <div>
+                                <label class="flex items-start gap-3 cursor-pointer">
+                                    <input type="checkbox" id="consent" name="consent" required
+                                        class="mt-0.5 shrink-0 accent-primary">
+                                    <span class="text-xs text-muted leading-relaxed">
+                                        Acepto que Lisandro Cacciatore procese estos datos para coordinar la revisión
+                                        solicitada, de acuerdo con la
+                                        <a href="privacidad.html"
+                                            class="underline hover:text-ink transition-colors">política de
+                                            privacidad</a>.
+                                    </span>
+                                </label>
+                                <p class="field-error hidden text-xs text-error mt-1">Es necesario aceptar para enviar
+                                    la solicitud.</p>
+                            </div>
+
+                            <button id="submitBtn" type="submit"
+                                class="w-full bg-primary hover:bg-primary-600 text-white font-medium py-3 rounded transition-colors flex items-center justify-center gap-2 cta cta--primary"
+                                data-cta-level="1" data-cta-destination="auditoria-vcv">
+                                <span id="btnText">Enviar solicitud →</span>
+                            </button>
+
+                            <div id="formError"
+                                class="hidden bg-error-bg border border-error/50 text-error text-sm px-4 py-3 rounded text-center">
+                                No se pudo enviar la solicitud. Revisá tu conexión e intentá de nuevo.
+                            </div>
+                        </form>
+
+                        <div id="formSuccess" class="hidden text-center py-8">
+                            <div class="text-success text-4xl mb-4 font-mono">OK</div>
+                            <h3 class="font-heading text-xl font-bold text-ink mb-2">Solicitud recibida.</h3>
+                            <p class="text-body text-sm">En las próximas 24 horas te escribo para coordinar la
+                                conversación de 30 minutos. Si no recibís nada, revisá la carpeta de spam.</p>
+                            <button onclick="window.location.reload()"
+                                class="mt-6 text-sm text-primary font-mono font-bold hover:underline">_Volver</button>
                         </div>
-
-                        <!-- Email -->
-                        <div>
-                            <label for="email" class="block text-sm font-semibold text-ink mb-2">Email <span class="text-error">*</span></label>
-                            <input type="email" id="email" name="email" required placeholder="tu@email.com"
-                                class="input-field w-full px-4 py-3 rounded border border-border bg-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition text-ink font-sans text-sm">
-                            <p class="field-error hidden text-xs text-error mt-1">El formato del email no es válido. Revisá que incluya el @.</p>
-                        </div>
-
-                        <!-- Rol — enum F-01 Hoja 2 -->
-                        <div>
-                            <label for="rol" class="block text-sm font-semibold text-ink mb-2">Tu rol principal <span class="text-error">*</span></label>
-                            <p class="text-xs text-muted mb-2">Esto orienta el diagnóstico hacia tu contexto real.</p>
-                            <select id="rol" name="rol" required
-                                class="input-field w-full px-4 py-3 rounded border border-border bg-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition text-ink font-sans text-sm">
-                                <option value="" disabled selected></option>
-                                <option value="preparador_fisico_individual">Preparador físico individual</option>
-                                <option value="coordinador_club">Coordinador / Director técnico</option>
-                                <option value="entrenador_fuerza">Entrenador de fuerza / S&C</option>
-                                <option value="analista_deportivo">Analista de datos deportivo</option>
-                                <option value="otro">Otro</option>
-                            </select>
-                            <p class="field-error hidden text-xs text-error mt-1">Seleccioná una opción para continuar.</p>
-                        </div>
-
-                        <!-- Organización — opcional -->
-                        <div>
-                            <label for="organizacion" class="block text-sm font-semibold text-ink mb-2">
-                                Organización <span class="text-muted font-normal">(opcional)</span>
-                            </label>
-                            <p class="text-xs text-muted mb-2">Si trabajás en un club, el diagnóstico se orienta diferente que si sos independiente.</p>
-                            <input type="text" id="organizacion" name="organizacion" placeholder="Club, institución o contexto"
-                                class="input-field w-full px-4 py-3 rounded border border-border bg-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition text-ink font-sans text-sm">
-                        </div>
-
-                        <!-- Problema principal — enum F-01 Hoja 2 -->
-                        <div>
-                            <label for="problema" class="block text-sm font-semibold text-ink mb-2">¿Qué problema querés revisar? <span class="text-error">*</span></label>
-                            <p class="text-xs text-muted mb-2">Elegí el que más se acerca.</p>
-                            <select id="problema" name="problema_principal" required
-                                class="input-field w-full px-4 py-3 rounded border border-border bg-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition text-ink font-sans text-sm">
-                                <option value="" disabled selected></option>
-                                <option value="no-se-si-mis-decisiones-funcionan">No sé si mis decisiones están funcionando.</option>
-                                <option value="estancamiento-sin-explicacion">Tengo estancamiento sin explicación clara.</option>
-                                <option value="registro-datos-sin-convertir-en-criterio">Registro datos pero no los convierto en criterio.</option>
-                                <option value="disenando-sistema-desde-cero">Estoy diseñando un sistema desde cero.</option>
-                                <option value="otro">Otro — lo explico en el campo siguiente.</option>
-                            </select>
-                            <p class="field-error hidden text-xs text-error mt-1">Seleccioná una opción para continuar.</p>
-                        </div>
-
-                        <!-- Detalle adicional — opcional -->
-                        <div>
-                            <label for="detalle" class="block text-sm font-semibold text-ink mb-2">
-                                Contexto adicional <span class="text-muted font-normal">(opcional)</span>
-                            </label>
-                            <p class="text-xs text-muted mb-2">Cuanto más específico, más útil es la primera conversación.</p>
-                            <textarea id="detalle" name="detalle_adicional" rows="4"
-                                placeholder="Cuántos atletas trabajás, qué registrás hoy, qué esperás de la revisión."
-                                class="w-full px-4 py-3 rounded border border-border bg-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none transition text-ink font-sans text-sm resize-none"></textarea>
-                        </div>
-
-                        <!-- Consent — F-01 obligatorio -->
-                        <div>
-                            <label class="flex items-start gap-3 cursor-pointer">
-                                <input type="checkbox" id="consent" name="consent" required
-                                    class="mt-0.5 shrink-0 accent-primary">
-                                <span class="text-xs text-muted leading-relaxed">
-                                    Acepto que Lisandro Cacciatore procese estos datos para coordinar la revisión
-                                    solicitada, de acuerdo con la
-                                    <a href="privacidad.html" class="underline hover:text-ink transition-colors">política de privacidad</a>.
-                                </span>
-                            </label>
-                            <p class="field-error hidden text-xs text-error mt-1">Es necesario aceptar para enviar la solicitud.</p>
-                        </div>
-
-                        <button id="submitBtn" type="submit"
-                            class="w-full bg-primary hover:bg-primary-600 text-white font-medium py-3 rounded transition-colors flex items-center justify-center gap-2 cta cta--primary"
-                            data-cta-level="1" data-cta-destination="auditoria-vcv">
-                            <span id="btnText">Enviar solicitud →</span>
-                        </button>
-
-                        <div id="formError" class="hidden bg-error-bg border border-error/50 text-error text-sm px-4 py-3 rounded text-center">
-                            No se pudo enviar la solicitud. Revisá tu conexión e intentá de nuevo.
-                        </div>
-                    </form>
-
-                    <div id="formSuccess" class="hidden text-center py-8">
-                        <div class="text-success text-4xl mb-4 font-mono">OK</div>
-                        <h3 class="font-heading text-xl font-bold text-ink mb-2">Solicitud recibida.</h3>
-                        <p class="text-body text-sm">En las próximas 24 horas te escribo para coordinar la conversación de 30 minutos. Si no recibís nada, revisá la carpeta de spam.</p>
-                        <button onclick="window.location.reload()" class="mt-6 text-sm text-primary font-mono font-bold hover:underline">_Volver</button>
                     </div>
+
+                    <!-- Sidebar de confianza (derecha, 2/5) -->
+                    <div class="md:col-span-2 flex flex-col gap-4">
+                        <div class="bg-canvas border border-border rounded p-5">
+                            <p class="text-[10px] font-mono font-bold uppercase tracking-widest text-muted mb-1">Tiempo
+                                de respuesta</p>
+                            <p class="text-ink font-semibold text-sm">Menos de 24 horas</p>
+                        </div>
+                        <div class="bg-canvas border border-border rounded p-5">
+                            <p class="text-[10px] font-mono font-bold uppercase tracking-widest text-muted mb-1">
+                                Modalidad</p>
+                            <p class="text-ink font-semibold text-sm">100% remoto · España y LATAM</p>
+                        </div>
+                        <div class="bg-canvas border border-border rounded p-5">
+                            <p class="text-[10px] font-mono font-bold uppercase tracking-widest text-muted mb-1">
+                                Ubicación</p>
+                            <p class="text-ink font-semibold text-sm">Rosario, Argentina</p>
+                        </div>
+                        <div class="bg-ink rounded p-6 border border-slate-700">
+                            <p class="text-slate-300 text-sm leading-relaxed italic">
+                                "Si no veo margen de mejora real, no te recomiendo la auditoría."
+                            </p>
+                        </div>
+                        <div class="bg-canvas border border-border rounded p-5 flex items-center gap-3">
+                            <span
+                                class="text-[10px] font-mono font-bold text-success bg-success-bg border border-success/20 px-2 py-1 rounded shrink-0">✔
+                                Activo</span>
+                            <p class="text-sm text-body">Actualmente tomando nuevos proyectos</p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
     </main>
+
 
     <footer class="bg-dark pt-16 pb-8 border-t-4 border-primary">
         <div class="max-w-7xl mx-auto px-6">
@@ -175,21 +245,32 @@
                 <div class="md:col-span-2">
                     <span class="font-heading font-semibold text-lg text-surface block mb-4">Lisandro Cacciatore</span>
                     <p class="text-muted text-sm leading-relaxed max-w-sm">
-                        Diseño de sistemas de decisión aplicados al rendimiento deportivo. Arquitectura de datos para staffs técnicos que operan bajo presión.
+                        Diseño de sistemas de decisión aplicados al rendimiento deportivo. Arquitectura de datos para
+                        staffs técnicos que operan bajo presión.
                     </p>
                 </div>
                 <div>
-                    <h3 class="font-heading text-surface text-xs font-bold mb-4 uppercase tracking-widest">Ecosistema</h3>
+                    <h3 class="font-heading text-surface text-xs font-bold mb-4 uppercase tracking-widest">Ecosistema
+                    </h3>
                     <ul class="space-y-3">
-                        <li><a href="blog.html" class="text-sm font-sans text-muted hover:text-surface transition-colors">Blog Técnico</a></li>
-                        <li><a href="ironlog/index.html" class="text-sm font-sans text-muted hover:text-surface transition-colors">IronLog (Piloto)</a></li>
-                        <li><a href="ironlog/tools.html" class="text-sm font-sans text-muted hover:text-surface transition-colors">Data Tools</a></li>
+                        <li><a href="blog.html"
+                                class="text-sm font-sans text-muted hover:text-surface transition-colors">Blog
+                                Técnico</a></li>
+                        <li><a href="ironlog/index.html"
+                                class="text-sm font-sans text-muted hover:text-surface transition-colors">IronLog
+                                (Piloto)</a></li>
+                        <li><a href="ironlog/tools.html"
+                                class="text-sm font-sans text-muted hover:text-surface transition-colors">Data Tools</a>
+                        </li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="font-heading text-surface text-xs font-bold mb-4 uppercase tracking-widest">Operaciones</h3>
+                    <h3 class="font-heading text-surface text-xs font-bold mb-4 uppercase tracking-widest">Operaciones
+                    </h3>
                     <ul class="space-y-3">
-                        <li><a href="contacto.html" class="text-sm font-sans text-muted hover:text-surface transition-colors">Solicitar Auditoría</a></li>
+                        <li><a href="contacto.html"
+                                class="text-sm font-sans text-muted hover:text-surface transition-colors">Solicitar
+                                Auditoría</a></li>
                         <li><span class="text-sm font-sans text-subtle block">Rosario, Argentina</span></li>
                         <li><span class="text-sm font-sans text-subtle block">Remoto LATAM / España</span></li>
                     </ul>
@@ -202,112 +283,113 @@
                 <div class="flex gap-6 text-xs font-sans text-subtle">
                     <a href="privacidad.html" class="hover:text-muted transition-colors">Privacidad</a>
                     <a href="sobre-mi.html" class="hover:te
-                    <a href="sobre-mi.html" class="hover:text-muted transition-colors">Sobre mí</a>
+                    <a href=" sobre-mi.html" class="hover:text-muted transition-colors">Sobre mí</a>
                 </div>
             </div>
         </div>
     </footer>
 
-<script>
-  // ─── CONFIGURACIÓN ─────────────────────────────────────────────────────────
-  // Pegá aquí la URL del webhook de n8n después de importar el workflow
-  const N8N_WEBHOOK_URL = 'https://lcacciatore.com/webhook-test/lead-auditoria';
+    <script>
+        // ─── CONFIGURACIÓN ─────────────────────────────────────────────────────────
+        // Pegá aquí la URL del webhook de n8n después de importar el workflow
+        const N8N_WEBHOOK_URL = 'https://lcacciatore.com/webhook-test/lead-auditoria';
 
-  // ─── HIDDEN FIELDS — F-01 Contrato de Datos v1.0 ──────────────────────────
-  (function populateHiddenFields() {
-    const params = new URLSearchParams(window.location.search);
-    document.getElementById('h_source_page').value    = window.location.pathname;
-    document.getElementById('h_source_cta').value     = params.get('cta') || 'unknown';
-    document.getElementById('h_utm_source').value     = params.get('utm_source') || '';
-    document.getElementById('h_utm_medium').value     = params.get('utm_medium') || '';
-    document.getElementById('h_utm_campaign').value   = params.get('utm_campaign') || '';
-    document.getElementById('h_utm_content').value    = params.get('utm_content') || '';
-  })();
+        // ─── HIDDEN FIELDS — F-01 Contrato de Datos v1.0 ──────────────────────────
+        (function populateHiddenFields() {
+            const params = new URLSearchParams(window.location.search);
+            document.getElementById('h_source_page').value = window.location.pathname;
+            document.getElementById('h_source_cta').value = params.get('cta') || 'unknown';
+            document.getElementById('h_utm_source').value = params.get('utm_source') || '';
+            document.getElementById('h_utm_medium').value = params.get('utm_medium') || '';
+            document.getElementById('h_utm_campaign').value = params.get('utm_campaign') || '';
+            document.getElementById('h_utm_content').value = params.get('utm_content') || '';
+        })();
 
-  // ─── VALIDACIÓN INLINE ────────────────────────────────────────────────────
-  function showError(input, show) {
-    const err = input.closest('div').querySelector('.field-error');
-    if (!err) return;
-    if (show) {
-      err.classList.remove('hidden');
-      input.classList.add('border-error');
-    } else {
-      err.classList.add('hidden');
-      input.classList.remove('border-error');
-    }
-  }
+        // ─── VALIDACIÓN INLINE ────────────────────────────────────────────────────
+        function showError(input, show) {
+            const err = input.closest('div').querySelector('.field-error');
+            if (!err) return;
+            if (show) {
+                err.classList.remove('hidden');
+                input.classList.add('border-error');
+            } else {
+                err.classList.add('hidden');
+                input.classList.remove('border-error');
+            }
+        }
 
-  document.querySelectorAll('.input-field').forEach(input => {
-    input.addEventListener('blur', () => {
-      if (input.hasAttribute('required')) showError(input, !input.value.trim());
-    });
-    input.addEventListener('input', () => {
-      if (input.value.trim()) showError(input, false);
-    });
-  });
+        document.querySelectorAll('.input-field').forEach(input => {
+            input.addEventListener('blur', () => {
+                if (input.hasAttribute('required')) showError(input, !input.value.trim());
+            });
+            input.addEventListener('input', () => {
+                if (input.value.trim()) showError(input, false);
+            });
+        });
 
-  // ─── SUBMIT → n8n WEBHOOK ─────────────────────────────────────────────────
-  document.getElementById('contactForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
+        // ─── SUBMIT → n8n WEBHOOK ─────────────────────────────────────────────────
+        document.getElementById('contactForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
 
-    // Anti-spam honeypot
-    if (document.getElementById('website').value.trim() !== '') return;
+            // Anti-spam honeypot
+            if (document.getElementById('website').value.trim() !== '') return;
 
-    // Validar campos requeridos (incluyendo checkbox consent)
-    let valid = true;
-    this.querySelectorAll('[required]').forEach(input => {
-      const empty = input.type === 'checkbox' ? !input.checked : !input.value.trim();
-      if (empty) { showError(input, true); valid = false; }
-    });
-    if (!valid) return;
+            // Validar campos requeridos (incluyendo checkbox consent)
+            let valid = true;
+            this.querySelectorAll('[required]').forEach(input => {
+                const empty = input.type === 'checkbox' ? !input.checked : !input.value.trim();
+                if (empty) { showError(input, true); valid = false; }
+            });
+            if (!valid) return;
 
-    const btn     = document.getElementById('submitBtn');
-    const btnText = document.getElementById('btnText');
-    const errBox  = document.getElementById('formError');
-    const success = document.getElementById('formSuccess');
+            const btn = document.getElementById('submitBtn');
+            const btnText = document.getElementById('btnText');
+            const errBox = document.getElementById('formError');
+            const success = document.getElementById('formSuccess');
 
-    btn.disabled = true;
-    btnText.textContent = 'Enviando...';
-    errBox.classList.add('hidden');
+            btn.disabled = true;
+            btnText.textContent = 'Enviando...';
+            errBox.classList.add('hidden');
 
-    // Payload alineado con F-01 Contrato de Datos v1.0
-    const payload = {
-      form_name:          'lead-auditoria',
-      lead_type:          'auditoria',
-      source_page:        document.getElementById('h_source_page').value,
-      source_cta:         document.getElementById('h_source_cta').value,
-      utm_source:         document.getElementById('h_utm_source').value,
-      utm_medium:         document.getElementById('h_utm_medium').value,
-      utm_campaign:       document.getElementById('h_utm_campaign').value,
-      utm_content:        document.getElementById('h_utm_content').value,
-      nombre:             document.getElementById('nombre').value.trim(),
-      email:              document.getElementById('email').value.trim().toLowerCase(),
-      rol:                document.getElementById('rol').value,
-      organizacion:       document.getElementById('organizacion').value.trim() || null,
-      problema_principal: document.getElementById('problema').value,
-      detalle_adicional:  document.getElementById('detalle').value.trim() || null,
-      consent:            document.getElementById('consent').checked
-    };
+            // Payload alineado con F-01 Contrato de Datos v1.0
+            const payload = {
+                form_name: 'lead-auditoria',
+                lead_type: 'auditoria',
+                source_page: document.getElementById('h_source_page').value,
+                source_cta: document.getElementById('h_source_cta').value,
+                utm_source: document.getElementById('h_utm_source').value,
+                utm_medium: document.getElementById('h_utm_medium').value,
+                utm_campaign: document.getElementById('h_utm_campaign').value,
+                utm_content: document.getElementById('h_utm_content').value,
+                nombre: document.getElementById('nombre').value.trim(),
+                email: document.getElementById('email').value.trim().toLowerCase(),
+                rol: document.getElementById('rol').value,
+                organizacion: document.getElementById('organizacion').value.trim() || null,
+                problema_principal: document.getElementById('problema').value,
+                detalle_adicional: document.getElementById('detalle').value.trim() || null,
+                consent: document.getElementById('consent').checked
+            };
 
-    try {
-      const res = await fetch(N8N_WEBHOOK_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
+            try {
+                const res = await fetch(N8N_WEBHOOK_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
 
-      if (res.ok) {
-        document.getElementById('contactForm').classList.add('hidden');
-        success.classList.remove('hidden');
-      } else {
-        throw new Error('HTTP ' + res.status);
-      }
-    } catch (err) {
-      btn.disabled = false;
-      btnText.textContent = 'Enviar solicitud →';
-      errBox.classList.remove('hidden');
-    }
-  });
-</script>
+                if (res.ok) {
+                    document.getElementById('contactForm').classList.add('hidden');
+                    success.classList.remove('hidden');
+                } else {
+                    throw new Error('HTTP ' + res.status);
+                }
+            } catch (err) {
+                btn.disabled = false;
+                btnText.textContent = 'Enviar solicitud →';
+                errBox.classList.remove('hidden');
+            }
+        });
+    </script>
 </body>
+
 </html>
