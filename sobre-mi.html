@@ -13,30 +13,65 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=IBM+Plex+Sans:wght@600;700&family=Inter:wght@400;500;600&display=swap"
         rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="theme.js"></script>
 </head>
 
 <body class="bg-canvas text-body font-sans antialiased">
 
-    <nav class="sticky top-0 z-50 bg-canvas/95 backdrop-blur-sm border-b border-border">
-        <div class="max-w-7xl mx-auto px-6 h-16 flex justify-between items-center">
-            <a href="index.html" class="font-heading font-semibold text-lg text-ink flex items-center gap-1">
-                Lisandro Cacciatore <span class="text-primary font-mono font-bold">_</span>
+    <nav class="sticky top-0 z-50 w-full bg-canvas/90 backdrop-blur-md border-b border-border">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3 text-ink group">
+                <span class="material-symbols-outlined text-primary text-xl">
+                    terminal
+                </span>
+                <h2 class="text-lg font-bold font-heading tracking-tight group-hover:text-primary transition-colors">
+                    Lisandro Cacciatore_</h2>
             </a>
-            <div class="hidden md:flex items-center gap-8">
-                <a href="index.html#el-problema"
-                    class="text-sm font-sans text-muted hover:text-ink transition-colors">El Problema</a>
-                <a href="index.html#metodo"
-                    class="text-sm font-sans text-muted hover:text-ink transition-colors">Método</a>
-                <a href="blog.html" class="text-sm font-sans text-muted hover:text-ink transition-colors">Blog</a>
-                <span class="w-px h-4 bg-border"></span>
-                <a href="ironlog/index.html" class="text-sm font-mono text-primary hover:underline">IronLog</a>
+            <div class="flex items-center gap-8">
+                <div class="hidden md:flex items-center gap-6">
+                    <a href="index.html#metodo"
+                        class="text-muted hover:text-primary text-sm font-medium transition-colors">Método</a>
+                    <a href="servicios.html"
+                        class="text-muted hover:text-primary text-sm font-medium transition-colors">Servicios</a>
+                    <a href="blog.html"
+                        class="text-muted hover:text-primary text-sm font-medium transition-colors">Blog</a>
+                    <span class="w-px h-4 bg-border"></span>
+                    <a href="ironlog/index.html" class="text-primary font-mono text-sm hover:underline">IronLog</a>
+                </div>
                 <a href="contacto.html"
-                    class="bg-primary hover:bg-primary-600 text-white text-sm font-medium px-5 py-2 rounded transition-colors cta cta--primary"
-                    data-cta-level="1" data-cta-destination="auditoria-vcv">
+                    class="hidden md:flex items-center justify-center rounded-md h-9 px-4 bg-dark hover:bg-primary-600 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-sm">
                     Solicitar revisión →
                 </a>
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden p-2 text-body relative z-50 focus:outline-none"
+                    onclick="document.getElementById('mobile-menu').classList.toggle('hidden'); this.querySelector('span').innerText = this.querySelector('span').innerText === 'menu' ? 'close' : 'menu';">
+                    <span class="material-symbols-outlined select-none">menu</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu"
+            class="hidden absolute top-16 left-0 w-full bg-canvas border-b border-border shadow-lg md:hidden">
+            <div class="flex flex-col px-6 py-4 space-y-4">
+                <a href="index.html#metodo" class="text-body font-medium hover:text-primary transition-colors"
+                    onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.querySelector('button.md\\:hidden span').innerText = 'menu';">Método</a>
+                <a href="servicios.html" class="text-body font-medium hover:text-primary transition-colors"
+                    onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.querySelector('button.md\\:hidden span').innerText = 'menu';">Servicios</a>
+                <a href="blog.html" class="text-body font-medium hover:text-primary transition-colors"
+                    onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.querySelector('button.md\\:hidden span').innerText = 'menu';">Blog</a>
+                <a href="ironlog/index.html" class="text-primary font-mono font-medium hover:underline"
+                    onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.querySelector('button.md\\:hidden span').innerText = 'menu';">IronLog</a>
+                <div class="pt-4 border-t border-border">
+                    <a href="contacto.html"
+                        class="flex items-center justify-center rounded-md h-10 w-full bg-dark hover:bg-primary-600 text-white text-sm font-bold uppercase tracking-wider transition-all shadow-sm"
+                        onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.querySelector('button.md\\:hidden span').innerText = 'menu';">
+                        Solicitar revisión →
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
@@ -46,10 +81,10 @@
         <section class="bg-surface py-22 border-b border-border bg-tech-grid">
             <div class="max-w-3xl mx-auto px-6">
                 <div class="flex flex-col sm:flex-row items-start sm:items-center gap-8 mb-10">
-                    <!-- Avatar placeholder -->
-                    <div
-                        class="shrink-0 w-20 h-20 rounded bg-ink flex items-center justify-center border border-slate-700">
-                        <span class="font-mono font-bold text-primary text-2xl">LC</span>
+                    <!-- Lisandro Portrait -->
+                    <div class="shrink-0 w-20 h-20 rounded bg-ink overflow-hidden border border-slate-700">
+                        <img src="img/lisandro-portrait.jpg" alt="Lisandro Cacciatore"
+                            class="w-full h-full object-cover">
                     </div>
                     <div>
                         <span
@@ -130,6 +165,10 @@
                         evidencia detrás antes de ejecutarse. Eso cambia el rol del preparador físico: deja de ser el
                         que siente, y pasa a ser el que puede justificar.
                     </p>
+                    <div class="my-10 rounded overflow-hidden border border-border shadow-structural">
+                        <img src="img/lisandro-office.jpg" alt="Lisandro Cacciatore en su consultoría"
+                            class="w-full h-auto">
+                    </div>
                     <div class="grid md:grid-cols-2 gap-4 mb-8">
                         <div class="flex items-start gap-3 p-4 bg-surface rounded border border-border">
                             <span class="text-success font-mono font-bold mt-0.5">✔</span>
@@ -210,45 +249,67 @@
         </section>
     </main>
 
-    <footer class="bg-dark pt-16 pb-8 border-t-4 border-primary">
+    <footer class="bg-dark border-t-4 border-primary text-white pt-16 pb-8">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-                <div class="md:col-span-2">
-                    <span class="font-heading font-semibold text-lg text-surface block mb-4">Lisandro Cacciatore</span>
-                    <p class="text-muted text-sm leading-relaxed max-w-sm">
-                        Sistemas de validación semanal para preparadores físicos. Criterio claro, decisiones con
-                        fundamento.
+                <!-- Brand -->
+                <div class="col-span-1 flex flex-col gap-4">
+                    <h3 class="font-heading font-bold text-xl flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary text-xl">terminal</span>
+                        Lisandro Cacciatore_
+                    </h3>
+                    <p class="text-subtle text-sm leading-relaxed max-w-sm">
+                        Consultoría en performance y sistemas de decisión para el deporte de élite.
                     </p>
                 </div>
-                <div>
-                    <h3 class="font-heading text-surface text-xs font-bold mb-4 uppercase tracking-widest">Contenido
-                    </h3>
-                    <ul class="space-y-3">
-                        <li><a href="blog.html"
-                                class="text-sm font-sans text-muted hover:text-surface transition-colors">Blog</a></li>
-                        <li><a href="ironlog/index.html"
-                                class="text-sm font-sans text-muted hover:text-surface transition-colors">IronLog</a>
-                        </li>
-                    </ul>
+                <!-- Nav -->
+                <div class="flex flex-col gap-4">
+                    <h4 class="font-mono text-xs font-bold text-primary uppercase tracking-widest">Navegación</h4>
+                    <a class="text-slate-300 hover:text-white text-sm transition-colors"
+                        href="index.html#metodo">Método</a>
+                    <a class="text-slate-300 hover:text-white text-sm transition-colors"
+                        href="servicios.html">Servicios</a>
+                    <a class="text-slate-300 hover:text-white text-sm transition-colors" href="blog.html">Blog</a>
+                    <a class="text-slate-300 hover:text-white text-sm transition-colors"
+                        href="ironlog/index.html">IronLog</a>
                 </div>
-                <div>
-                    <h3 class="font-heading text-surface text-xs font-bold mb-4 uppercase tracking-widest">Contacto</h3>
-                    <ul class="space-y-3">
-                        <li><a href="contacto.html"
-                                class="text-sm font-sans text-muted hover:text-surface transition-colors">Solicitar
-                                revisión →</a></li>
-                        <li><span class="text-sm font-sans text-subtle block">Rosario, Argentina</span></li>
-                        <li><span class="text-sm font-sans text-subtle block">Remoto · España y LATAM</span></li>
-                    </ul>
+                <!-- Social -->
+                <div class="flex flex-col gap-4">
+                    <h4 class="font-mono text-xs font-bold text-primary uppercase tracking-widest">Contacto</h4>
+                    <a class="text-slate-300 hover:text-white text-sm transition-colors flex items-center gap-2"
+                        href="https://www.linkedin.com/in/lisandrolc/" target="_blank">
+                        LinkedIn <span class="material-symbols-outlined text-[14px]">arrow_outward</span>
+                    </a>
+                    <a class="text-slate-300 hover:text-white text-sm transition-colors flex items-center gap-2"
+                        href="mailto:info@lisandrocacciatore.com">
+                        Email <span class="material-symbols-outlined text-[14px]">arrow_outward</span>
+                    </a>
+                    <a class="text-slate-300 hover:text-white text-sm transition-colors flex items-center gap-2"
+                        href="contacto.html">
+                        Solicitar Revisión <span class="material-symbols-outlined text-[14px]">arrow_outward</span>
+                    </a>
+                </div>
+                <!-- Legal -->
+                <div class="flex flex-col gap-4">
+                    <h4 class="font-mono text-xs font-bold text-primary uppercase tracking-widest">Legal & Operaciones
+                    </h4>
+                    <a class="text-slate-300 hover:text-white text-sm transition-colors"
+                        href="privacidad.html">Privacidad</a>
+                    <a class="text-slate-300 hover:text-white text-sm transition-colors" href="sobre-mi.html">Sobre
+                        mí</a>
+                    <span class="text-slate-400 text-sm mt-2 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[14px]">location_on</span> Rosario, Argentina
+                    </span>
                 </div>
             </div>
             <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <div class="text-xs font-mono text-subtle">
+                <p class="font-mono text-xs text-subtle">
                     © 2026 Lisandro Cacciatore. Todos los derechos reservados.
-                </div>
-                <div class="flex gap-6 text-xs font-sans text-subtle">
-                    <a href="privacidad.html" class="hover:text-muted transition-colors">Privacidad</a>
-                    <a href="sobre-mi.html" class="hover:text-muted transition-colors">Sobre mí</a>
+                </p>
+                <div class="flex gap-4">
+                    <span class="w-2 h-2 rounded-full bg-slate-700"></span>
+                    <span class="w-2 h-2 rounded-full bg-slate-700"></span>
+                    <span class="w-2 h-2 rounded-full bg-slate-700"></span>
                 </div>
             </div>
         </div>
