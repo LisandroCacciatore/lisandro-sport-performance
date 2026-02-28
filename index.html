@@ -1,85 +1,106 @@
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lisandro Cacciatore | Validación Semanal para Preparadores Físicos</title>
-    <meta name="description" content="Ajustás por sensación. El atleta no retrocede, pero tampoco avanza. Profesionalizo la toma de decisiones para preparadores físicos que quieren criterio con evidencia.">
+    <meta name="description"
+        content="Ajustás por sensación. El atleta no retrocede, pero tampoco avanza. Profesionalizo la toma de decisiones para preparadores físicos que quieren criterio con evidencia.">
     <link rel="canonical" href="https://lisandrocacciatore.com/">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=IBM+Plex+Sans:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=IBM+Plex+Sans:wght@600;700&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="theme.js"></script>
 </head>
+
 <body class="bg-canvas text-body font-sans antialiased">
 
-    <nav class="sticky top-0 z-50 bg-canvas/95 backdrop-blur-sm border-b border-border">
-        <div class="max-w-7xl mx-auto px-6 h-16 flex justify-between items-center">
-            <a href="index.html" class="font-heading font-semibold text-lg text-ink flex items-center gap-1">
-                Lisandro Cacciatore <span class="text-primary font-mono font-bold">_</span>
+    <nav class="sticky top-0 z-50 w-full bg-canvas/90 backdrop-blur-md border-b border-border">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3 text-ink group">
+                <span class="material-symbols-outlined text-primary text-xl">
+                    terminal
+                </span>
+                <h2 class="text-lg font-bold font-heading tracking-tight group-hover:text-primary transition-colors">
+                    Lisandro Cacciatore_</h2>
             </a>
-            <div class="hidden md:flex items-center gap-8">
-                <a href="#el-problema" class="text-sm font-sans text-muted hover:text-ink transition-colors">El Problema</a>
-                <a href="#metodo" class="text-sm font-sans text-muted hover:text-ink transition-colors">Método</a>
-                <a href="#para-quien" class="text-sm font-sans text-muted hover:text-ink transition-colors">Para Quién</a>
-                <a href="blog.html" class="text-sm font-sans text-muted hover:text-ink transition-colors">Blog</a>
-                <span class="w-px h-4 bg-border"></span>
-                <a href="contacto.html" class="bg-primary hover:bg-primary-600 text-white text-sm font-medium px-5 py-2 rounded transition-colors cta cta--primary" data-cta-level="1" data-cta-destination="auditoria-vcv">
+            <div class="flex items-center gap-8">
+                <div class="hidden md:flex items-center gap-6">
+                    <a href="index.html#metodo"
+                        class="text-muted hover:text-primary text-sm font-medium transition-colors">Método</a>
+                    <a href="servicios.html"
+                        class="text-muted hover:text-primary text-sm font-medium transition-colors">Servicios</a>
+                    <a href="blog.html"
+                        class="text-muted hover:text-primary text-sm font-medium transition-colors">Blog</a>
+                    <span class="w-px h-4 bg-border"></span>
+                    <a href="ironlog/index.html" class="text-primary font-mono text-sm hover:underline">IronLog</a>
+                </div>
+                <a href="contacto.html"
+                    class="hidden md:flex items-center justify-center rounded-md h-9 px-4 bg-dark hover:bg-primary-600 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-sm">
                     Solicitar revisión →
                 </a>
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden p-2 text-body relative z-50 focus:outline-none"
+                    onclick="document.getElementById('mobile-menu').classList.toggle('hidden'); this.querySelector('span').innerText = this.querySelector('span').innerText === 'menu' ? 'close' : 'menu';">
+                    <span class="material-symbols-outlined select-none">menu</span>
+                </button>
             </div>
-            <!-- Mobile menu button -->
-            <button id="mobile-menu-btn" class="md:hidden text-muted hover:text-ink" aria-label="Abrir menú">
-                <svg id="icon-open" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-                <svg id="icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-            </button>
         </div>
-        <!-- Mobile dropdown -->
-        <div id="mobile-menu" class="hidden md:hidden bg-canvas border-t border-border px-6 py-4 flex flex-col gap-4">
-            <a href="#el-problema" class="text-sm font-sans text-muted hover:text-ink transition-colors">El Problema</a>
-            <a href="#metodo" class="text-sm font-sans text-muted hover:text-ink transition-colors">Método</a>
-            <a href="#para-quien" class="text-sm font-sans text-muted hover:text-ink transition-colors">Para Quién</a>
-            <a href="blog.html" class="text-sm font-sans text-muted hover:text-ink transition-colors">Blog</a>
-            <a href="contacto.html" class="bg-primary text-white text-sm font-medium px-5 py-2 rounded transition-colors text-center">Solicitar revisión →</a>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu"
+            class="hidden absolute top-16 left-0 w-full bg-canvas border-b border-border shadow-lg md:hidden">
+            <div class="flex flex-col px-6 py-4 space-y-4">
+                <a href="index.html#metodo" class="text-body font-medium hover:text-primary transition-colors"
+                    onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.querySelector('button.md\\:hidden span').innerText = 'menu';">Método</a>
+                <a href="servicios.html" class="text-body font-medium hover:text-primary transition-colors"
+                    onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.querySelector('button.md\\:hidden span').innerText = 'menu';">Servicios</a>
+                <a href="blog.html" class="text-body font-medium hover:text-primary transition-colors"
+                    onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.querySelector('button.md\\:hidden span').innerText = 'menu';">Blog</a>
+                <a href="ironlog/index.html" class="text-primary font-mono font-medium hover:underline"
+                    onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.querySelector('button.md\\:hidden span').innerText = 'menu';">IronLog</a>
+                <div class="pt-4 border-t border-border">
+                    <a href="contacto.html"
+                        class="flex items-center justify-center rounded-md h-10 w-full bg-dark hover:bg-primary-600 text-white text-sm font-bold uppercase tracking-wider transition-all shadow-sm"
+                        onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.querySelector('button.md\\:hidden span').innerText = 'menu';">
+                        Solicitar revisión →
+                    </a>
+                </div>
+            </div>
         </div>
     </nav>
-    <script>
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
-        const iconOpen = document.getElementById('icon-open');
-        const iconClose = document.getElementById('icon-close');
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-            iconOpen.classList.toggle('hidden');
-            iconClose.classList.toggle('hidden');
-        });
-        menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-            menu.classList.add('hidden');
-            iconOpen.classList.remove('hidden');
-            iconClose.classList.add('hidden');
-        }));
-    </script>
 
     <main>
 
         <!-- HERO -->
         <section class="py-24 md:py-36 bg-surface border-b border-border bg-tech-grid">
             <div class="max-w-3xl mx-auto px-6 text-center">
-                <span class="inline-block py-1 px-3 rounded text-[10px] font-mono font-bold uppercase tracking-wider bg-canvas border border-border text-muted mb-8">
+                <span
+                    class="inline-block py-1 px-3 rounded text-[10px] font-mono font-bold uppercase tracking-wider bg-canvas border border-border text-muted mb-8">
                     Para preparadores físicos · España y LATAM
                 </span>
                 <h1 class="font-heading text-4xl md:text-5xl font-bold text-ink mb-6 leading-tight">
                     Ajustás. Pero no sabés<br class="hidden md:block"> si funcionó.
                 </h1>
                 <p class="text-lg text-body max-w-xl mx-auto mb-10 leading-relaxed">
-                    Registrás. Periodizás. Ajustás. El atleta progresa, hasta que deja de progresar. Y cuando lo notás, ya llevás semanas sin saber qué falló ni desde cuándo. Trabajo con preparadores físicos para que ese momento llegue con un dato adelante, no con el problema ya instalado.
+                    Registrás. Periodizás. Ajustás. El atleta progresa, hasta que deja de progresar. Y cuando lo notás,
+                    ya llevás semanas sin saber qué falló ni desde cuándo. Trabajo con preparadores físicos para que ese
+                    momento llegue con un dato adelante, no con el problema ya instalado.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="contacto.html" class="bg-primary hover:bg-primary-600 text-white px-8 py-4 rounded font-medium transition-colors shadow-structural cta cta--primary" data-cta-level="1" data-cta-destination="auditoria-vcv">
-                    Solicitar revisión →
-                </a>
-                    <a href="#el-problema" class="border border-border text-ink hover:border-muted font-medium px-8 py-4 rounded transition-colors">
+                    <a href="contacto.html"
+                        class="bg-primary hover:bg-primary-600 text-white px-8 py-4 rounded font-medium transition-colors shadow-structural cta cta--primary"
+                        data-cta-level="1" data-cta-destination="auditoria-vcv">
+                        Solicitar revisión →
+                    </a>
+                    <a href="#el-problema"
+                        class="border border-border text-ink hover:border-muted font-medium px-8 py-4 rounded transition-colors">
                         Ver el Problema
                     </a>
                 </div>
@@ -89,7 +110,8 @@
         <!-- EL PROBLEMA -->
         <section id="el-problema" class="py-22 bg-canvas border-b border-border">
             <div class="max-w-3xl mx-auto px-6">
-                <span class="inline-block py-1 px-3 rounded text-[10px] font-mono font-bold uppercase tracking-wider bg-canvas border border-border text-muted mb-6">
+                <span
+                    class="inline-block py-1 px-3 rounded text-[10px] font-mono font-bold uppercase tracking-wider bg-canvas border border-border text-muted mb-6">
                     El Problema
                 </span>
                 <h2 class="font-heading text-3xl font-bold text-ink mb-10">
@@ -101,28 +123,36 @@
                         <span class="text-error font-mono font-bold text-lg mt-0.5 shrink-0">✕</span>
                         <div>
                             <p class="font-heading font-semibold text-ink mb-1">El estancamiento no avisa</p>
-                            <p class="text-body text-sm leading-relaxed">El atleta no colapsa. Sigue entrenando, sigue presente. Pero lleva semanas sin progresar y vos no lo sabés. Cuando lo notás, ya perdiste tiempo que no volvés a recuperar.</p>
+                            <p class="text-body text-sm leading-relaxed">El atleta no colapsa. Sigue entrenando, sigue
+                                presente. Pero lleva semanas sin progresar y vos no lo sabés. Cuando lo notás, ya
+                                perdiste tiempo que no volvés a recuperar.</p>
                         </div>
                     </div>
                     <div class="flex gap-5 items-start">
                         <span class="text-error font-mono font-bold text-lg mt-0.5 shrink-0">✕</span>
                         <div>
                             <p class="font-heading font-semibold text-ink mb-1">Ajustás tarde, siempre tarde</p>
-                            <p class="text-body text-sm leading-relaxed">El ajuste llega cuando el problema ya está instalado. No porque llegues tarde a propósito. Sino porque sin validación semanal, no hay forma de llegar antes.</p>
+                            <p class="text-body text-sm leading-relaxed">El ajuste llega cuando el problema ya está
+                                instalado. No porque llegues tarde a propósito. Sino porque sin validación semanal, no
+                                hay forma de llegar antes.</p>
                         </div>
                     </div>
                     <div class="flex gap-5 items-start">
                         <span class="text-error font-mono font-bold text-lg mt-0.5 shrink-0">✕</span>
                         <div>
                             <p class="font-heading font-semibold text-ink mb-1">Decisiones sin argumento</p>
-                            <p class="text-body text-sm leading-relaxed">Modificás la carga. Cambias ejercicios. Reducís el volumen. Pero si te preguntan por qué, la respuesta es la sensación. No el dato. La sensación, aunque sea la de un profesional experimentado, no es suficiente.</p>
+                            <p class="text-body text-sm leading-relaxed">Modificás la carga. Cambias ejercicios. Reducís
+                                el volumen. Pero si te preguntan por qué, la respuesta es la sensación. No el dato. La
+                                sensación, aunque sea la de un profesional experimentado, no es suficiente.</p>
                         </div>
                     </div>
                     <div class="flex gap-5 items-start">
                         <span class="text-error font-mono font-bold text-lg mt-0.5 shrink-0">✕</span>
                         <div>
                             <p class="font-heading font-semibold text-ink mb-1">Sin respaldo cuando más lo necesitás</p>
-                            <p class="text-body text-sm leading-relaxed">El atleta cuestiona la dirección. El club pide resultados concretos. El médico pide un historial. Y lo que tenés son registros sueltos, sin estructura, sin argumento claro.</p>
+                            <p class="text-body text-sm leading-relaxed">El atleta cuestiona la dirección. El club pide
+                                resultados concretos. El médico pide un historial. Y lo que tenés son registros sueltos,
+                                sin estructura, sin argumento claro.</p>
                         </div>
                     </div>
                 </div>
@@ -132,31 +162,48 @@
         <!-- QUÉ HAGO -->
         <section id="metodo" class="py-22 bg-surface border-b border-border">
             <div class="max-w-3xl mx-auto px-6">
-                <span class="inline-block py-1 px-3 rounded text-[10px] font-mono font-bold uppercase tracking-wider bg-canvas border border-border text-muted mb-6">
+                <span
+                    class="inline-block py-1 px-3 rounded text-[10px] font-mono font-bold uppercase tracking-wider bg-canvas border border-border text-muted mb-6">
                     El Enfoque
                 </span>
                 <h2 class="font-heading text-3xl font-bold text-ink mb-4">
                     Criterio que se puede demostrar.
                 </h2>
-                <p class="text-body mb-12 leading-relaxed">
-                    No reemplazo tu experiencia. La hago verificable. El trabajo es construir un proceso de validación semanal que convierta lo que sabés en algo que podés demostrar, reproducir y ajustar a tiempo.
+                <p class="text-body mb-8 leading-relaxed">
+                    No reemplazo tu experiencia. La hago verificable. El trabajo es construir un proceso de validación
+                    semanal que convierta lo que sabés en algo que podés demostrar, reproducir y ajustar a tiempo.
                 </p>
+
+                <div class="mb-12 rounded overflow-hidden border border-border shadow-lg">
+                    <img src="img/lisandro-criterio.jpg" alt="Antes del dashboard, el criterio. - Lisandro Cacciatore"
+                        class="w-full h-auto">
+                </div>
 
                 <div class="space-y-6">
                     <div class="bg-canvas p-6 rounded border border-border">
                         <h3 class="font-heading font-bold text-ink mb-2">Proceso de decisión estructurado</h3>
-                        <p class="text-body text-sm leading-relaxed">Definimos qué evaluar, cuándo, con qué criterio y qué hacer según el resultado. El proceso pasa a ser repetible. Deja de depender de cómo estés vos ese día.</p>
+                        <p class="text-body text-sm leading-relaxed">Definimos qué evaluar, cuándo, con qué criterio y
+                            qué hacer según el resultado. El proceso pasa a ser repetible. Deja de depender de cómo
+                            estés vos ese día.</p>
                     </div>
                     <div class="bg-canvas p-6 rounded border border-border">
                         <h3 class="font-heading font-bold text-ink mb-2">Validación semanal concreta</h3>
-                        <p class="text-body text-sm leading-relaxed">No tableros con cien métricas. Una revisión semanal con un indicador claro que responde una sola pregunta: ¿el proceso va en la dirección correcta? Si la respuesta cambia, actuás antes de que el problema escale.</p>
+                        <p class="text-body text-sm leading-relaxed">No tableros con cien métricas. Una revisión semanal
+                            con un indicador claro que responde una sola pregunta: ¿el proceso va en la dirección
+                            correcta? Si la respuesta cambia, actuás antes de que el problema escale.</p>
                     </div>
                     <div class="bg-canvas p-6 rounded border border-border">
                         <h3 class="font-heading font-bold text-ink mb-2">Variable Crítica Validada (VCV)</h3>
-                        <p class="text-body text-sm leading-relaxed">No todo dato importa. Para cada atleta y cada objetivo hay una variable que importa más que el resto en este momento del proceso. A eso lo llamamos Variable Crítica Validada.</p>
+                        <p class="text-body text-sm leading-relaxed">No todo dato importa. Para cada atleta y cada
+                            objetivo hay una variable que importa más que el resto en este momento del proceso. A eso lo
+                            llamamos Variable Crítica Validada.</p>
                         <div class="mt-4 p-4 bg-surface rounded border border-border">
                             <p class="text-xs font-mono text-muted uppercase tracking-wide mb-2">Ejemplo práctico</p>
-                            <p class="text-body text-sm leading-relaxed">Un preparador trabaja con un fondista en fase de base. Mide volumen, RPE, frecuencia cardíaca en reposo, sueño. Muchos datos. Pero la VCV en ese momento es la potencia media sostenida en zona 3. No las demás. Esa. Cuando esa variable baja dos semanas seguidas sin causa externa identificable, hay un problema. Esa señal justifica el ajuste antes de que el atleta lo note.</p>
+                            <p class="text-body text-sm leading-relaxed">Un preparador trabaja con un fondista en fase
+                                de base. Mide volumen, RPE, frecuencia cardíaca en reposo, sueño. Muchos datos. Pero la
+                                VCV en ese momento es la potencia media sostenida en zona 3. No las demás. Esa. Cuando
+                                esa variable baja dos semanas seguidas sin causa externa identificable, hay un problema.
+                                Esa señal justifica el ajuste antes de que el atleta lo note.</p>
                         </div>
                     </div>
                 </div>
@@ -166,7 +213,8 @@
         <!-- PARA QUIÉN -->
         <section id="para-quien" class="py-22 bg-canvas border-b border-border">
             <div class="max-w-3xl mx-auto px-6">
-                <span class="inline-block py-1 px-3 rounded text-[10px] font-mono font-bold uppercase tracking-wider bg-canvas border border-border text-muted mb-6">
+                <span
+                    class="inline-block py-1 px-3 rounded text-[10px] font-mono font-bold uppercase tracking-wider bg-canvas border border-border text-muted mb-6">
                     Para Quién Es Esto
                 </span>
                 <h2 class="font-heading text-3xl font-bold text-ink mb-10">
@@ -176,25 +224,31 @@
                 <div class="grid md:grid-cols-2 gap-4 mb-12">
                     <div class="flex items-start gap-3 p-5 bg-surface rounded border border-border">
                         <span class="text-primary font-mono font-bold mt-0.5 shrink-0">→</span>
-                        <p class="text-body text-sm leading-relaxed">Ajustás el entrenamiento. Pero si te preguntan en qué dato te basaste, la respuesta es "la sensación de la sesión".</p>
+                        <p class="text-body text-sm leading-relaxed">Ajustás el entrenamiento. Pero si te preguntan en
+                            qué dato te basaste, la respuesta es "la sensación de la sesión".</p>
                     </div>
                     <div class="flex items-start gap-3 p-5 bg-surface rounded border border-border">
                         <span class="text-primary font-mono font-bold mt-0.5 shrink-0">→</span>
-                        <p class="text-body text-sm leading-relaxed">Sabés que el atleta está estancado. No sabés desde cuándo exactamente ni qué dato lo confirma.</p>
+                        <p class="text-body text-sm leading-relaxed">Sabés que el atleta está estancado. No sabés desde
+                            cuándo exactamente ni qué dato lo confirma.</p>
                     </div>
                     <div class="flex items-start gap-3 p-5 bg-surface rounded border border-border">
                         <span class="text-primary font-mono font-bold mt-0.5 shrink-0">→</span>
-                        <p class="text-body text-sm leading-relaxed">Querés argumentos claros frente a atletas, familias o clubes. No para defenderte. Para explicar con fundamento.</p>
+                        <p class="text-body text-sm leading-relaxed">Querés argumentos claros frente a atletas, familias
+                            o clubes. No para defenderte. Para explicar con fundamento.</p>
                     </div>
                     <div class="flex items-start gap-3 p-5 bg-surface rounded border border-border">
                         <span class="text-primary font-mono font-bold mt-0.5 shrink-0">→</span>
-                        <p class="text-body text-sm leading-relaxed">Tenés experiencia. No te falta conocimiento técnico. Te falta un sistema que haga ese conocimiento verificable.</p>
+                        <p class="text-body text-sm leading-relaxed">Tenés experiencia. No te falta conocimiento
+                            técnico. Te falta un sistema que haga ese conocimiento verificable.</p>
                     </div>
                 </div>
 
                 <div class="bg-ink text-surface p-8 rounded border border-slate-700">
                     <p class="text-slate-300 leading-relaxed">
-                        No hace falta más tecnología. Hace falta saber cuál de los datos que ya tenés importa esta semana y qué pasa si ese dato se mueve. Con eso alcanza para tomar decisiones que podés explicar. Lo demás es ruido.
+                        No hace falta más tecnología. Hace falta saber cuál de los datos que ya tenés importa esta
+                        semana y qué pasa si ese dato se mueve. Con eso alcanza para tomar decisiones que podés
+                        explicar. Lo demás es ruido.
                     </p>
                 </div>
             </div>
@@ -203,7 +257,8 @@
         <!-- TESTIMONIOS -->
         <section class="py-22 bg-surface border-b border-border">
             <div class="max-w-3xl mx-auto px-6">
-                <span class="inline-block py-1 px-3 rounded text-[10px] font-mono font-bold uppercase tracking-wider bg-canvas border border-border text-muted mb-6">
+                <span
+                    class="inline-block py-1 px-3 rounded text-[10px] font-mono font-bold uppercase tracking-wider bg-canvas border border-border text-muted mb-6">
                     Resultados
                 </span>
                 <h2 class="font-heading text-3xl font-bold text-ink mb-10">
@@ -212,26 +267,33 @@
                 <div class="grid md:grid-cols-2 gap-6">
                     <div class="bg-canvas border border-border rounded p-6">
                         <p class="text-body text-sm leading-relaxed italic mb-5">
-                            "Empecé a tomar decisiones que podía explicar. No por intuición, sino porque el dato lo indicaba. Eso cambia completamente la conversación con el atleta y con el club."
+                            "Empecé a tomar decisiones que podía explicar. No por intuición, sino porque el dato lo
+                            indicaba. Eso cambia completamente la conversación con el atleta y con el club."
                         </p>
                         <div class="flex items-center justify-between">
                             <div>
                                 <p class="text-ink font-semibold text-sm">Preparador Físico</p>
                                 <p class="text-muted text-xs font-mono">Club de fútbol · España</p>
                             </div>
-                            <span class="text-[10px] font-mono font-bold text-success bg-success/10 border border-success/20 px-2 py-1 rounded">✔ Proceso validado</span>
+                            <span
+                                class="text-[10px] font-mono font-bold text-success bg-success/10 border border-success/20 px-2 py-1 rounded">✔
+                                Proceso validado</span>
                         </div>
                     </div>
                     <div class="bg-canvas border border-border rounded p-6">
                         <p class="text-body text-sm leading-relaxed italic mb-5">
-                            "Tenía datos de todo. No sabía cuál mirar. La VCV me obligó a elegir uno y a construir el criterio alrededor de eso. Tres semanas después detecté un estancamiento antes de que el atleta lo sintiera."
+                            "Tenía datos de todo. No sabía cuál mirar. La VCV me obligó a elegir uno y a construir el
+                            criterio alrededor de eso. Tres semanas después detecté un estancamiento antes de que el
+                            atleta lo sintiera."
                         </p>
                         <div class="flex items-center justify-between">
                             <div>
                                 <p class="text-ink font-semibold text-sm">Entrenador de Fuerza</p>
                                 <p class="text-muted text-xs font-mono">Independiente · Argentina</p>
                             </div>
-                            <span class="text-[10px] font-mono font-bold text-success bg-success/10 border border-success/20 px-2 py-1 rounded">✔ Proceso validado</span>
+                            <span
+                                class="text-[10px] font-mono font-bold text-success bg-success/10 border border-success/20 px-2 py-1 rounded">✔
+                                Proceso validado</span>
                         </div>
                     </div>
                 </div>
@@ -245,13 +307,17 @@
                     ¿Cuándo fue la última vez que tomaste una decisión con un dato claro detrás?
                 </h2>
                 <p class="text-body mb-10 leading-relaxed">
-                    Si la respuesta tarda en llegar, ahí está el problema. El diagnóstico es una sesión de 30 minutos para ver cómo tomás decisiones hoy y qué cambiaría con validación semanal.
+                    Si la respuesta tarda en llegar, ahí está el problema. El diagnóstico es una sesión de 30 minutos
+                    para ver cómo tomás decisiones hoy y qué cambiaría con validación semanal.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="contacto.html" class="bg-primary hover:bg-primary-600 text-white px-8 py-4 rounded font-medium transition-colors shadow-structural cta cta--primary" data-cta-level="1" data-cta-destination="auditoria-vcv">
-                    Solicitar revisión →
-                </a>
-                    <a href="sobre-mi.html" class="border border-border text-ink hover:border-muted font-medium px-8 py-4 rounded transition-colors">
+                    <a href="contacto.html"
+                        class="bg-primary hover:bg-primary-600 text-white px-8 py-4 rounded font-medium transition-colors shadow-structural cta cta--primary"
+                        data-cta-level="1" data-cta-destination="auditoria-vcv">
+                        Solicitar revisión →
+                    </a>
+                    <a href="sobre-mi.html"
+                        class="border border-border text-ink hover:border-muted font-medium px-8 py-4 rounded transition-colors">
                         Ver el Enfoque
                     </a>
                 </div>
@@ -260,43 +326,72 @@
 
     </main>
 
-    <footer class="bg-dark pt-16 pb-8 border-t-4 border-primary">
+    <footer class="bg-dark border-t-4 border-primary text-white pt-16 pb-8">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-                <div class="md:col-span-2">
-                    <span class="font-heading font-semibold text-lg text-surface block mb-4">Lisandro Cacciatore</span>
-                    <p class="text-muted text-sm leading-relaxed max-w-sm">
-                        Sistemas de validación semanal para preparadores físicos. Criterio claro, decisiones con fundamento.
+                <!-- Brand -->
+                <div class="col-span-1 flex flex-col gap-4">
+                    <h3 class="font-heading font-bold text-xl flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary text-xl">terminal</span>
+                        Lisandro Cacciatore_
+                    </h3>
+                    <p class="text-subtle text-sm leading-relaxed max-w-sm">
+                        Consultoría en performance y sistemas de decisión para el deporte de élite.
                     </p>
                 </div>
-                <div>
-                    <h3 class="font-heading text-surface text-xs font-bold mb-4 uppercase tracking-widest">Contenido</h3>
-                    <ul class="space-y-3">
-                        <li><a href="blog.html" class="text-sm font-sans text-muted hover:text-surface transition-colors">Blog</a></li>
-                        <li><a href="sobre-mi.html" class="text-sm font-sans text-muted hover:text-surface transition-colors">Sobre mí</a></li>
-                        <li><a href="ironlog/index.html" class="text-sm font-mono text-primary hover:text-surface transition-colors">IronLog</a></li>
-                    </ul>
+                <!-- Nav -->
+                <div class="flex flex-col gap-4">
+                    <h4 class="font-mono text-xs font-bold text-primary uppercase tracking-widest">Navegación</h4>
+                    <a class="text-slate-300 hover:text-white text-sm transition-colors"
+                        href="index.html#metodo">Método</a>
+                    <a class="text-slate-300 hover:text-white text-sm transition-colors"
+                        href="servicios.html">Servicios</a>
+                    <a class="text-slate-300 hover:text-white text-sm transition-colors" href="blog.html">Blog</a>
+                    <a class="text-slate-300 hover:text-white text-sm transition-colors"
+                        href="ironlog/index.html">IronLog</a>
                 </div>
-                <div>
-                    <h3 class="font-heading text-surface text-xs font-bold mb-4 uppercase tracking-widest">Contacto</h3>
-                    <ul class="space-y-3">
-                        <li><a href="contacto.html" class="text-sm font-sans text-muted hover:text-surface transition-colors">Solicitar revisión →</a></li>
-                        <li><span class="text-sm font-sans text-subtle block">Rosario, Argentina</span></li>
-                        <li><span class="text-sm font-sans text-subtle block">Remoto · España y LATAM</span></li>
-                    </ul>
+                <!-- Social -->
+                <div class="flex flex-col gap-4">
+                    <h4 class="font-mono text-xs font-bold text-primary uppercase tracking-widest">Contacto</h4>
+                    <a class="text-slate-300 hover:text-white text-sm transition-colors flex items-center gap-2"
+                        href="https://www.linkedin.com/in/lisandrolc/" target="_blank">
+                        LinkedIn <span class="material-symbols-outlined text-[14px]">arrow_outward</span>
+                    </a>
+                    <a class="text-slate-300 hover:text-white text-sm transition-colors flex items-center gap-2"
+                        href="mailto:info@lisandrocacciatore.com">
+                        Email <span class="material-symbols-outlined text-[14px]">arrow_outward</span>
+                    </a>
+                    <a class="text-slate-300 hover:text-white text-sm transition-colors flex items-center gap-2"
+                        href="contacto.html">
+                        Solicitar Revisión <span class="material-symbols-outlined text-[14px]">arrow_outward</span>
+                    </a>
+                </div>
+                <!-- Legal -->
+                <div class="flex flex-col gap-4">
+                    <h4 class="font-mono text-xs font-bold text-primary uppercase tracking-widest">Legal & Operaciones
+                    </h4>
+                    <a class="text-slate-300 hover:text-white text-sm transition-colors"
+                        href="privacidad.html">Privacidad</a>
+                    <a class="text-slate-300 hover:text-white text-sm transition-colors" href="sobre-mi.html">Sobre
+                        mí</a>
+                    <span class="text-slate-400 text-sm mt-2 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-[14px]">location_on</span> Rosario, Argentina
+                    </span>
                 </div>
             </div>
             <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <div class="text-xs font-mono text-subtle">
+                <p class="font-mono text-xs text-subtle">
                     © 2026 Lisandro Cacciatore. Todos los derechos reservados.
-                </div>
-                <div class="flex gap-6 text-xs font-sans text-subtle">
-                    <a href="privacidad.html" class="hover:text-muted transition-colors">Privacidad</a>
-                    <a href="sobre-mi.html" class="hover:text-muted transition-colors">Sobre mí</a>
+                </p>
+                <div class="flex gap-4">
+                    <span class="w-2 h-2 rounded-full bg-slate-700"></span>
+                    <span class="w-2 h-2 rounded-full bg-slate-700"></span>
+                    <span class="w-2 h-2 rounded-full bg-slate-700"></span>
                 </div>
             </div>
         </div>
     </footer>
 
 </body>
+
 </html>
