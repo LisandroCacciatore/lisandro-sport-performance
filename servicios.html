@@ -1,282 +1,511 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Servicios | Lisandro Cacciatore</title>
-    <meta name="description"
-        content="Dos formas de dejar de improvisar con tus datos: Auditoría técnica y Programa modular IronLog.">
-    <link rel="canonical" href="https://lisandrocacciatore.com/servicios.html">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=IBM+Plex+Sans:wght@600;700&family=Inter:wght@400;500;600&display=swap"
-        rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-        rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Servicios — Lisandro Cacciatore · IronLog</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="theme.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Inter:wght@400;500&family=Fira+Code:wght@400;500;700&display=swap"
+        rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ink: "#0F172A",
+                        body: "#334155",
+                        muted: "#64748B",
+                        subtle: "#94A3B8",
+                        border: "#E2E8F0",
+                        surface: "#F8FAFC",
+                        canvas: "#FFFFFF",
+                        dark: "#0F172A",
+                        primary: "#1E3A8A",
+                        "primary-bg": "#EFF6FF",
+                        success: "#16A34A",
+                        "success-bg": "#F0FDF4",
+                        warning: "#D97706",
+                        "warning-bg": "#FFFBEB",
+                        error: "#DC2626",
+                        "error-bg": "#FEF2F2",
+                    },
+                    fontFamily: {
+                        heading: ["IBM Plex Sans", "sans-serif"],
+                        sans: ["Inter", "sans-serif"],
+                        mono: ["Fira Code", "monospace"],
+                    },
+                    boxShadow: {
+                        structural: "0 1px 3px 0 rgba(15,23,42,0.08), 0 1px 2px -1px rgba(15,23,42,0.06)",
+                    },
+                    borderRadius: {
+                        DEFAULT: "4px",
+                        md: "6px",
+                    },
+                },
+            },
+        };
+    </script>
 </head>
 
-<body class="bg-canvas text-body font-sans antialiased">
-    <nav class="sticky top-0 z-50 w-full bg-canvas/90 backdrop-blur-md border-b border-border">
-        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-3 text-ink group">
-                <span class="material-symbols-outlined text-primary text-xl">
-                    terminal
-                </span>
-                <h2 class="text-lg font-bold font-heading tracking-tight group-hover:text-primary transition-colors">
-                    Lisandro Cacciatore_</h2>
-            </a>
-            <div class="flex items-center gap-8">
-                <div class="hidden md:flex items-center gap-6">
-                    <a href="index.html#metodo"
-                        class="text-muted hover:text-primary text-sm font-medium transition-colors">Método</a>
-                    <a href="servicios.html"
-                        class="text-primary font-semibold text-sm transition-colors border-b-2 border-primary pb-0.5">Servicios</a>
-                    <a href="blog.html"
-                        class="text-muted hover:text-primary text-sm font-medium transition-colors">Blog</a>
-                    <span class="w-px h-4 bg-border"></span>
-                    <a href="ironlog/index.html" class="text-primary font-mono text-sm hover:underline">IronLog</a>
-                </div>
-                <a href="contacto.html"
-                    class="hidden md:flex items-center justify-center rounded-md h-9 px-4 bg-dark hover:bg-primary-600 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-sm">
-                    Solicitar revisión →
-                </a>
-                <!-- Mobile Menu Button -->
-                <button class="md:hidden p-2 text-body relative z-50 focus:outline-none"
-                    onclick="document.getElementById('mobile-menu').classList.toggle('hidden'); this.querySelector('span').innerText = this.querySelector('span').innerText === 'menu' ? 'close' : 'menu';">
-                    <span class="material-symbols-outlined select-none">menu</span>
-                </button>
-            </div>
-        </div>
+<body class="bg-canvas font-sans text-body antialiased">
 
-        <!-- Mobile Menu Dropdown -->
-        <div id="mobile-menu"
-            class="hidden absolute top-16 left-0 w-full bg-canvas border-b border-border shadow-lg md:hidden">
-            <div class="flex flex-col px-6 py-4 space-y-4">
-                <a href="index.html#metodo" class="text-body font-medium hover:text-primary transition-colors"
-                    onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.querySelector('button.md\\:hidden span').innerText = 'menu';">Método</a>
-                <a href="servicios.html" class="text-primary font-medium transition-colors"
-                    onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.querySelector('button.md\\:hidden span').innerText = 'menu';">Servicios</a>
-                <a href="blog.html" class="text-body font-medium hover:text-primary transition-colors"
-                    onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.querySelector('button.md\\:hidden span').innerText = 'menu';">Blog</a>
-                <a href="ironlog/index.html" class="text-primary font-mono font-medium hover:underline"
-                    onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.querySelector('button.md\\:hidden span').innerText = 'menu';">IronLog</a>
-                <div class="pt-4 border-t border-border">
-                    <a href="contacto.html"
-                        class="flex items-center justify-center rounded-md h-10 w-full bg-dark hover:bg-primary-600 text-white text-sm font-bold uppercase tracking-wider transition-all shadow-sm"
-                        onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.querySelector('button.md\\:hidden span').innerText = 'menu';">
-                        Solicitar revisión →
-                    </a>
-                </div>
+    <!-- ── NAV STRIP ─────────────────────────────────────────────────────── -->
+    <nav class="bg-dark border-b border-slate-800">
+        <div class="max-w-5xl mx-auto px-6 py-3 flex items-center justify-between">
+            <a href="index.html"
+                class="text-[11px] font-mono font-bold text-white uppercase tracking-widest hover:text-primary transition-colors">
+                Lisandro Cacciatore · IronLog
+            </a>
+            <div class="flex items-center gap-6">
+                <a href="simuladores/wendler.html"
+                    class="text-[11px] font-mono text-muted hover:text-white transition-colors hidden sm:block">
+                    Simuladores
+                </a>
+                <a href="servicios.html"
+                    class="text-[11px] font-mono font-bold text-white border-b border-primary pb-0.5">
+                    Servicios
+                </a>
+                <a href="contacto.html"
+                    class="text-[11px] font-mono font-bold bg-primary text-white px-3 py-1.5 rounded transition-colors hover:opacity-90">
+                    Consulta →
+                </a>
             </div>
         </div>
     </nav>
 
-    <main>
-        <section class="py-24 border-b border-slate-800 relative overflow-hidden" style="background:#0F172A;">
-            <!-- Background Image Overlay -->
-            <div class="absolute inset-0 opacity-20 mix-blend-overlay pointer-events-none">
-                <img src="img/gym-context.jpg" alt="" class="w-full h-full object-cover grayscale">
-            </div>
-            <div class="max-w-5xl mx-auto px-6 relative z-10">
-                <span
-                    class="inline-block py-1 px-3 rounded text-[10px] font-mono font-bold uppercase tracking-wider border border-slate-700 text-primary mb-6">Servicios</span>
-                <h1 class="font-heading text-4xl md:text-5xl font-bold text-white max-w-4xl">Dos formas de dejar de
-                    improvisar con tus datos.</h1>
-                <p class="text-slate-400 mt-6 max-w-2xl text-sm md:text-base">Elegí intervención puntual para ordenar el
-                    caos o un sistema modular para implementar procesos sostenibles de seguimiento y toma de decisiones.
+    <!-- ── HERO ─────────────────────────────────────────────────────────── -->
+    <section class="max-w-5xl mx-auto px-6 pt-14 pb-10">
+        <div class="text-[10px] font-mono font-bold text-muted uppercase tracking-widest mb-3">
+            // Servicios
+        </div>
+        <h1 class="font-heading text-3xl md:text-4xl font-bold text-ink tracking-tight mb-4">
+            Sistemas de decisión<br class="hidden md:block" /> para el rendimiento deportivo.
+        </h1>
+        <p class="text-sm text-body leading-relaxed max-w-xl">
+            No programas. No dashboards. El objetivo es uno: que las decisiones de carga
+            tengan criterio escrito, no solo experiencia tácita.
+        </p>
+
+        <!-- Self-classification prompt -->
+        <div class="mt-8 grid md:grid-cols-2 gap-3">
+            <a href="#auditoria"
+                class="group bg-surface border border-border rounded p-4 hover:border-primary transition-all shadow-structural block">
+                <div class="text-[10px] font-mono font-bold text-muted uppercase tracking-widest mb-1">
+                    Brecha Tipo A
+                </div>
+                <p class="text-sm text-ink font-medium leading-snug group-hover:text-primary transition-colors">
+                    Trabajo solo o con un staff pequeño. Tomo decisiones de carga, pero no tengo una regla escrita para
+                    hacerlo.
                 </p>
-            </div>
-        </section>
-
-        <section class="py-20 border-b border-border">
-            <div class="max-w-5xl mx-auto px-6">
-                <div class="bg-surface border border-border rounded shadow-structural p-8 md:p-10">
-                    <div class="flex items-start justify-between gap-4 flex-wrap mb-4">
-                        <span
-                            class="inline-block text-[10px] font-mono font-bold uppercase tracking-widest text-primary bg-primary-bg px-2 py-1 rounded">Sección
-                            A — Auditoría</span>
-                        <div class="text-right">
-                            <p class="text-xs font-mono text-muted uppercase tracking-wide">Inversión</p>
-                            <p class="font-heading text-3xl font-bold text-ink">USD 400</p>
-                            <p class="text-xs text-muted font-mono">Entrega en 7 días</p>
-                        </div>
-                    </div>
-                    <h2 class="font-heading text-3xl font-bold text-ink mb-4">Auditoría Lean Deportiva — Arquitectura de
-                        decisión en 7 días</h2>
-                    <p class="text-body text-base leading-relaxed mb-3">Si registrás datos pero las decisiones no
-                        cambian, no tenés un sistema. Tenés fricción operativa.</p>
-                    <p class="text-body text-sm leading-relaxed mb-2">La Auditoría Lean Deportiva analiza cómo fluye la
-                        información desde la sesión hasta la decisión de carga. Identifica desperdicio, inventario
-                        muerto y puntos donde el plan domina al criterio.</p>
-                    <p class="text-body text-sm leading-relaxed mb-8">No reviso tu conocimiento técnico. Evalúo la
-                        arquitectura de tus decisiones.</p>
-                    <div class="grid md:grid-cols-2 gap-6 mb-8">
-                        <div class="bg-canvas border border-border rounded p-4">
-                            <h3 class="text-xs font-mono font-bold uppercase text-muted mb-2">01 — Diagnóstico de valor
-                            </h3>
-                            <p class="text-sm text-body">¿Tus datos cambian decisiones reales o solo se acumulan?</p>
-                        </div>
-                        <div class="bg-canvas border border-border rounded p-4">
-                            <h3 class="text-xs font-mono font-bold uppercase text-muted mb-2">02 — Mapa de flujo
-                                operativo</h3>
-                            <p class="text-sm text-body">Seguimos el recorrido del dato: registro → análisis → ajuste →
-                                comunicación.</p>
-                        </div>
-                        <div class="bg-canvas border border-border rounded p-4">
-                            <h3 class="text-xs font-mono font-bold uppercase text-muted mb-2">03 — Clasificación Push vs
-                                Pull</h3>
-                            <p class="text-sm text-body">Determinamos si tu sistema impone carga o la ajusta según señal
-                                real.</p>
-                        </div>
-                        <div class="bg-canvas border border-border rounded p-4">
-                            <h3 class="text-xs font-mono font-bold uppercase text-muted mb-2">04 — Plan de acción en 7
-                                días</h3>
-                            <p class="text-sm text-body">Un único cambio concreto que elimina el desperdicio más
-                                costoso.</p>
-                        </div>
-                    </div>
-                    <div class="mb-8">
-                        <p class="text-xs font-mono font-bold uppercase tracking-widest text-muted mb-3">Entregable</p>
-                        <ul class="space-y-2 text-sm text-body">
-                            <li>✔ Informe confidencial de 5–8 páginas</li>
-                            <li>✔ Semáforo estructural (Verde / Amarillo / Rojo)</li>
-                            <li>✔ Mapa visual del flujo de datos</li>
-                            <li>✔ Call estratégica de cierre (30 min)</li>
-                            <li>✔ Recomendación priorizada implementable en 7 días</li>
-                        </ul>
-                    </div>
-                    <div class="flex flex-col items-start gap-3">
-                        <a href="contacto.html"
-                            class="inline-block bg-primary hover:bg-primary-600 text-white font-medium px-8 py-3 rounded transition-colors cta cta--primary"
-                            data-cta-level="1" data-cta-destination="auditoria-vcv">Solicitar revisión →</a>
-                        <p class="text-sm text-body max-w-xl">Escribime desde el formulario de contacto con tu contexto
-                            actual.<br>Si no veo margen de mejora real, no te recomiendo la auditoría.</p>
-                    </div>
+                <div class="mt-3 text-[10px] font-mono text-primary font-bold">
+                    → Auditoría VCV · USD 250
                 </div>
-            </div>
-        </section>
+            </a>
+            <a href="#gobernanza"
+                class="group bg-surface border border-border rounded p-4 hover:border-primary transition-all shadow-structural block">
+                <div class="text-[10px] font-mono font-bold text-muted uppercase tracking-widest mb-1">
+                    Brecha Tipo B
+                </div>
+                <p class="text-sm text-ink font-medium leading-snug group-hover:text-primary transition-colors">
+                    Tenemos datos de varios entrenadores, pero cada uno decide con criterio diferente y el ruido supera
+                    a la señal.
+                </p>
+                <div class="mt-3 text-[10px] font-mono text-primary font-bold">
+                    → Sistema de Gobernanza · USD 500/mes
+                </div>
+            </a>
+        </div>
+    </section>
 
-        <section class="py-20">
-            <div class="max-w-5xl mx-auto px-6">
-                <div class="bg-surface border border-border rounded shadow-structural p-8 md:p-10">
+    <!-- ── DIVIDER ───────────────────────────────────────────────────────── -->
+    <div class="max-w-5xl mx-auto px-6">
+        <div class="flex items-center gap-3 mb-10">
+            <div class="h-px flex-1 bg-border"></div>
+            <span class="text-[10px] font-mono font-bold text-muted uppercase tracking-widest px-2">
+                // Tiers de servicio
+            </span>
+            <div class="h-px flex-1 bg-border"></div>
+        </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════════════════ -->
+    <!-- TIER 1 — AUDITORÍA VCV                                              -->
+    <!-- ════════════════════════════════════════════════════════════════════ -->
+    <section id="auditoria" class="max-w-5xl mx-auto px-6 mb-12">
+
+        <!-- Card -->
+        <div class="bg-surface rounded border border-border shadow-structural overflow-hidden">
+
+            <!-- Header -->
+            <div class="flex items-center justify-between gap-4 px-6 py-4 border-b border-border">
+                <div class="flex items-center gap-3">
                     <span
-                        class="inline-block text-[10px] font-mono font-bold uppercase tracking-widest text-warning bg-warning-bg px-2 py-1 rounded mb-4">IronLog
-                        — Sistema</span>
-                    <h2 class="font-heading text-3xl font-bold text-ink mb-4">IronLog: de la auditoría al control
-                        operativo</h2>
-                    <p class="text-body text-sm leading-relaxed mb-6">IronLog es la librería de herramientas pensada
-                        para convertir hallazgos de una <strong>Auditoría Lean Deportiva</strong> en procesos
-                        repetibles: captura fiable, validación, reporting y protocolos de acción. No es solo un
-                        dashboard: es el paso operativo entre el diagnóstico y la mejora real.</p>
+                        class="bg-ink text-surface text-[10px] font-mono font-bold px-2 py-1 rounded uppercase tracking-wide">
+                        Tier 1
+                    </span>
+                    <h2 class="font-heading font-bold text-ink text-lg">Auditoría VCV</h2>
+                </div>
+                <span
+                    class="text-[10px] font-mono font-bold text-muted bg-canvas border border-border px-3 py-1 rounded uppercase tracking-wide whitespace-nowrap">
+                    14 días · Pago único
+                </span>
+            </div>
 
-                    <div class="grid md:grid-cols-2 gap-6 mb-6">
-                        <div class="border border-border rounded p-5 bg-canvas">
-                            <h3 class="font-heading text-lg font-bold text-ink mb-2">Conecta con la Auditoría</h3>
-                            <p class="text-sm text-body">Si contratás la Auditoría, el entregable viene con una playbook
-                                para implementar 1 cambio (7 días) usando IronLog Team o un template rápido.</p>
+            <div class="p-6 md:p-8">
+                <div class="grid md:grid-cols-[1fr_220px] gap-8">
+
+                    <!-- Left: description + phases -->
+                    <div>
+                        <!-- Description (prose, no bullets) -->
+                        <p class="text-sm text-body leading-relaxed mb-6">
+                            Una revisión del sistema de decisión de carga actual. Se identifica la Variable
+                            Crítica del bloque, se definen sus umbrales de variación, y se diseña el esquema
+                            IF&nbsp;→&nbsp;THEN que el staff puede ejecutar de forma autónoma desde el lunes siguiente.
+                            Al final de los 14 días, el criterio operativo queda instalado en el equipo, sin
+                            dependencia del consultor.
+                        </p>
+
+                        <!-- Phases -->
+                        <h3 class="text-[10px] font-mono font-bold text-muted uppercase tracking-widest mb-4">
+                            Estructura del proceso
+                        </h3>
+
+                        <!-- Phase 1 -->
+                        <div class="border border-border rounded overflow-hidden mb-3">
+                            <div class="flex items-center justify-between px-4 py-2.5 bg-canvas border-b border-border">
+                                <div class="flex items-center gap-2">
+                                    <span class="text-[10px] font-mono font-bold text-primary">01</span>
+                                    <span class="text-sm font-heading font-bold text-ink">Diagnóstico</span>
+                                </div>
+                                <span class="text-[10px] font-mono text-muted">Días 1–4</span>
+                            </div>
+                            <div class="px-4 py-3">
+                                <p class="text-xs text-body leading-relaxed">
+                                    Revisión del proceso existente. Identificación de la Variable Crítica Validada
+                                    del bloque en curso. Mapa de brechas: qué se registra vs. qué determina la
+                                    decisión del lunes.
+                                </p>
+                                <p class="text-[10px] font-mono text-muted mt-2">
+                                    → Entregable: Documento de 1 página con la regla de decisión ausente.
+                                </p>
+                            </div>
                         </div>
-                        <div class="border border-border rounded p-5 bg-canvas">
-                            <h3 class="font-heading text-lg font-bold text-ink mb-2">Qué aporta</h3>
-                            <p class="text-sm text-body">Templates de logging, checklist de readiness, simuladores para
-                                validar microciclos y reportes PDF exportables para stakeholders.</p>
+
+                        <!-- Phase 2 -->
+                        <div class="border border-border rounded overflow-hidden mb-3">
+                            <div class="flex items-center justify-between px-4 py-2.5 bg-canvas border-b border-border">
+                                <div class="flex items-center gap-2">
+                                    <span class="text-[10px] font-mono font-bold text-primary">02</span>
+                                    <span class="text-sm font-heading font-bold text-ink">Diseño</span>
+                                </div>
+                                <span class="text-[10px] font-mono text-muted">Días 5–10</span>
+                            </div>
+                            <div class="px-4 py-3">
+                                <p class="text-xs text-body leading-relaxed">
+                                    Definición de umbrales de acción para la VCV. Diseño del esquema
+                                    IF&nbsp;→&nbsp;THEN operativo. Protocolo de validación semanal ejecutable
+                                    en menos de 15 minutos.
+                                </p>
+                                <p class="text-[10px] font-mono text-muted mt-2">
+                                    → Entregable: Esquema de decisión escrito, aplicable desde el lunes siguiente.
+                                </p>
+                            </div>
                         </div>
-                        <div class="border border-border rounded p-5 bg-canvas">
-                            <h3 class="font-heading text-lg font-bold text-ink mb-2">Para quién</h3>
-                            <p class="text-sm text-body">Coaches y staffs que necesitan pasar del dato a la decisión sin
-                                crear más ruido operativo.</p>
-                        </div>
-                        <div class="border border-primary rounded p-5 bg-primary-bg">
-                            <h3 class="font-heading text-lg font-bold text-primary mb-2">Herramientas en desarrollo</h3>
-                            <p class="text-sm text-body">IronLog Team y IronLog Bloque estarán disponibles próximamente.
-                                Los simuladores ya están online y son gratuitos.</p>
+
+                        <!-- Phase 3 -->
+                        <div class="border border-border rounded overflow-hidden">
+                            <div class="flex items-center justify-between px-4 py-2.5 bg-canvas border-b border-border">
+                                <div class="flex items-center gap-2">
+                                    <span class="text-[10px] font-mono font-bold text-primary">03</span>
+                                    <span class="text-sm font-heading font-bold text-ink">Transferencia</span>
+                                </div>
+                                <span class="text-[10px] font-mono text-muted">Días 11–14</span>
+                            </div>
+                            <div class="px-4 py-3">
+                                <p class="text-xs text-body leading-relaxed">
+                                    El staff ejecuta el primer ciclo con el nuevo esquema. Acompañamiento en
+                                    tiempo real para las primeras dos validaciones.
+                                </p>
+                                <p class="text-[10px] font-mono text-muted mt-2">
+                                    → Entregable: Staff operando con criterio propio. Sin dependencia del consultor.
+                                </p>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="ironlog/demo.html"
-                            class="inline-block bg-primary hover:bg-primary-600 text-white font-medium px-8 py-3 rounded transition-colors text-center">Probar
-                            simuladores gratis →</a>
+                    <!-- Right: price + CTA -->
+                    <div class="flex flex-col gap-4">
+
+                        <!-- Price block -->
+                        <div class="bg-canvas border border-border rounded p-5">
+                            <div class="text-[10px] font-mono font-bold text-muted uppercase tracking-widest mb-2">
+                                Inversión
+                            </div>
+                            <div class="font-mono font-bold text-ink text-3xl leading-none mb-1">
+                                USD 250
+                            </div>
+                            <div class="text-[10px] font-mono text-muted">Pago único al inicio</div>
+                            <div class="h-px bg-border my-4"></div>
+                            <ul class="space-y-2">
+                                <li class="text-xs text-body flex items-start gap-2">
+                                    <span class="font-mono text-success font-bold mt-0.5">✓</span>
+                                    <span>Las tres fases + esquema entregable</span>
+                                </li>
+                                <li class="text-xs text-body flex items-start gap-2">
+                                    <span class="font-mono text-success font-bold mt-0.5">✓</span>
+                                    <span>Sin software adicional ni dashboards</span>
+                                </li>
+                                <li class="text-xs text-body flex items-start gap-2">
+                                    <span class="font-mono text-success font-bold mt-0.5">✓</span>
+                                    <span>Sin renovación automática</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- CTA -->
                         <a href="contacto.html"
-                            class="inline-block border border-border hover:border-primary text-ink font-medium px-8 py-3 rounded transition-colors text-center cta cta--primary"
-                            data-cta-level="1" data-cta-destination="auditoria-vcv">Solicitar revisión →</a>
-                    </div>
+                            class="bg-primary hover:opacity-90 text-white px-6 py-3 rounded font-medium transition-opacity text-sm text-center">
+                            Revisar mi sistema →
+                        </a>
 
-                    <p class="text-xs text-muted mt-4">¿Tenés dudas? La Auditoría te devuelve una mejora concreta en 7
-                        días. Descargá el one-pager para ver el detalle completo.</p>
+                        <!-- Add-on note -->
+                        <div class="bg-primary-bg border border-blue-100 rounded p-3">
+                            <div class="text-[10px] font-mono font-bold text-primary uppercase tracking-wide mb-1">
+                                Add-on disponible
+                            </div>
+                            <p class="text-[11px] text-body leading-relaxed">
+                                Seguimiento mensual post-auditoría por <span class="font-mono font-bold text-ink">USD
+                                    200/mes</span>.
+                                2 revisiones de validación + actualización del esquema IF&nbsp;→&nbsp;THEN por cambio de
+                                bloque.
+                            </p>
+                        </div>
+
+                    </div>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <footer class="bg-dark border-t-4 border-primary text-white pt-16 pb-8">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-                <!-- Brand -->
-                <div class="col-span-1 flex flex-col gap-4">
-                    <h3 class="font-heading font-bold text-xl flex items-center gap-2">
-                        <span class="material-symbols-outlined text-primary text-xl">terminal</span>
-                        Lisandro Cacciatore_
-                    </h3>
-                    <p class="text-subtle text-sm leading-relaxed max-w-sm">
-                        Consultoría en performance y sistemas de decisión para el deporte de élite.
-                    </p>
-                </div>
-                <!-- Nav -->
-                <div class="flex flex-col gap-4">
-                    <h4 class="font-mono text-xs font-bold text-primary uppercase tracking-widest">Navegación</h4>
-                    <a class="text-slate-300 hover:text-white text-sm transition-colors"
-                        href="index.html#metodo">Método</a>
-                    <a class="text-slate-300 hover:text-white text-sm transition-colors"
-                        href="servicios.html">Servicios</a>
-                    <a class="text-slate-300 hover:text-white text-sm transition-colors" href="blog.html">Blog</a>
-                    <a class="text-slate-300 hover:text-white text-sm transition-colors"
-                        href="ironlog/index.html">IronLog</a>
-                </div>
-                <!-- Social -->
-                <div class="flex flex-col gap-4">
-                    <h4 class="font-mono text-xs font-bold text-primary uppercase tracking-widest">Contacto</h4>
-                    <a class="text-slate-300 hover:text-white text-sm transition-colors flex items-center gap-2"
-                        href="https://www.linkedin.com/in/lisandrolc/" target="_blank">
-                        LinkedIn <span class="material-symbols-outlined text-[14px]">arrow_outward</span>
-                    </a>
-                    <a class="text-slate-300 hover:text-white text-sm transition-colors flex items-center gap-2"
-                        href="mailto:info@lisandrocacciatore.com">
-                        Email <span class="material-symbols-outlined text-[14px]">arrow_outward</span>
-                    </a>
-                    <a class="text-slate-300 hover:text-white text-sm transition-colors flex items-center gap-2"
-                        href="contacto.html">
-                        Solicitar Revisión <span class="material-symbols-outlined text-[14px]">arrow_outward</span>
-                    </a>
-                </div>
-                <!-- Legal -->
-                <div class="flex flex-col gap-4">
-                    <h4 class="font-mono text-xs font-bold text-primary uppercase tracking-widest">Legal & Operaciones
-                    </h4>
-                    <a class="text-slate-300 hover:text-white text-sm transition-colors"
-                        href="privacidad.html">Privacidad</a>
-                    <a class="text-slate-300 hover:text-white text-sm transition-colors" href="sobre-mi.html">Sobre
-                        mí</a>
-                    <span class="text-slate-400 text-sm mt-2 flex items-center gap-2">
-                        <span class="material-symbols-outlined text-[14px]">location_on</span> Rosario, Argentina
+    <!-- ════════════════════════════════════════════════════════════════════ -->
+    <!-- TIER 2 — SISTEMA DE GOBERNANZA                                      -->
+    <!-- ════════════════════════════════════════════════════════════════════ -->
+    <section id="gobernanza" class="max-w-5xl mx-auto px-6 mb-16">
+
+        <div class="bg-surface rounded border border-border shadow-structural overflow-hidden">
+
+            <!-- Header -->
+            <div class="flex items-center justify-between gap-4 px-6 py-4 border-b border-border">
+                <div class="flex items-center gap-3">
+                    <span
+                        class="bg-ink text-surface text-[10px] font-mono font-bold px-2 py-1 rounded uppercase tracking-wide">
+                        Tier 2
+                    </span>
+                    <h2 class="font-heading font-bold text-ink text-lg">Sistema de Gobernanza</h2>
+                    <span
+                        class="text-[10px] font-mono font-bold text-primary bg-primary-bg border border-blue-100 px-2 py-1 rounded uppercase tracking-wide">
+                        Academia / Cuerpo técnico
                     </span>
                 </div>
+                <span
+                    class="text-[10px] font-mono font-bold text-muted bg-canvas border border-border px-3 py-1 rounded uppercase tracking-wide whitespace-nowrap">
+                    3 meses · Compromiso mínimo
+                </span>
             </div>
-            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="font-mono text-xs text-subtle">
-                    © 2026 Lisandro Cacciatore. Todos los derechos reservados.
+
+            <div class="p-6 md:p-8">
+                <div class="grid md:grid-cols-[1fr_220px] gap-8">
+
+                    <!-- Left: description + phases -->
+                    <div>
+                        <!-- Description -->
+                        <p class="text-sm text-body leading-relaxed mb-4">
+                            Para academias y cuerpos técnicos donde el problema no es la ausencia de datos,
+                            sino el exceso de ruido blanco estadístico sin jerarquía: múltiples entrenadores
+                            registrando con criterio inconsistente entre sí, sin un protocolo común que defina
+                            quién interpreta, quién decide, y en base a qué variable.
+                        </p>
+                        <p class="text-sm text-body leading-relaxed mb-6">
+                            El Sistema de Gobernanza instala la arquitectura de roles y la lógica de
+                            decisión que convierten ese ruido en señal operativa. Al final de los 3 meses,
+                            el staff tiene gobernanza del proceso instalada de forma independiente.
+                        </p>
+
+                        <h3 class="text-[10px] font-mono font-bold text-muted uppercase tracking-widest mb-4">
+                            Estructura del proceso
+                        </h3>
+
+                        <!-- Month 1 -->
+                        <div class="border border-border rounded overflow-hidden mb-3">
+                            <div class="flex items-center justify-between px-4 py-2.5 bg-canvas border-b border-border">
+                                <div class="flex items-center gap-2">
+                                    <span class="text-[10px] font-mono font-bold text-primary">01</span>
+                                    <span class="text-sm font-heading font-bold text-ink">Diagnóstico de
+                                        Gobernanza</span>
+                                </div>
+                                <span class="text-[10px] font-mono text-muted">Mes 1</span>
+                            </div>
+                            <div class="px-4 py-3">
+                                <p class="text-xs text-body leading-relaxed">
+                                    Auditoría VCV completa del sistema actual. Mapeo de roles: quién registra,
+                                    quién interpreta, quién decide. Identificación de los puntos de fricción y
+                                    contradicciones entre entrenadores.
+                                </p>
+                                <p class="text-[10px] font-mono text-muted mt-2">
+                                    → Entregable: Arquitectura de roles propuesta.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Month 2 -->
+                        <div class="border border-border rounded overflow-hidden mb-3">
+                            <div class="flex items-center justify-between px-4 py-2.5 bg-canvas border-b border-border">
+                                <div class="flex items-center gap-2">
+                                    <span class="text-[10px] font-mono font-bold text-primary">02</span>
+                                    <span class="text-sm font-heading font-bold text-ink">Implementación</span>
+                                </div>
+                                <span class="text-[10px] font-mono text-muted">Mes 2</span>
+                            </div>
+                            <div class="px-4 py-3">
+                                <p class="text-xs text-body leading-relaxed">
+                                    Definición de VCV por bloque para cada atleta o grupo. Instalación del
+                                    protocolo de reunión técnica semanal en máximo 20 minutos. Estandarización
+                                    del lenguaje de datos entre el staff.
+                                </p>
+                                <p class="text-[10px] font-mono text-muted mt-2">
+                                    → Entregable: Manual operativo del sistema.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Month 3 -->
+                        <div class="border border-border rounded overflow-hidden">
+                            <div class="flex items-center justify-between px-4 py-2.5 bg-canvas border-b border-border">
+                                <div class="flex items-center gap-2">
+                                    <span class="text-[10px] font-mono font-bold text-primary">03</span>
+                                    <span class="text-sm font-heading font-bold text-ink">Autonomía</span>
+                                </div>
+                                <span class="text-[10px] font-mono text-muted">Mes 3</span>
+                            </div>
+                            <div class="px-4 py-3">
+                                <p class="text-xs text-body leading-relaxed">
+                                    El staff opera el sistema sin intervención directa. Revisión quincenal
+                                    para validar consistencia. Ajuste del sistema si el calendario de competencia
+                                    cambia.
+                                </p>
+                                <p class="text-[10px] font-mono text-muted mt-2">
+                                    → Entregable: Gobernanza del proceso instalada e independiente.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: price + CTA -->
+                    <div class="flex flex-col gap-4">
+
+                        <!-- Price block -->
+                        <div class="bg-canvas border border-border rounded p-5">
+                            <div class="text-[10px] font-mono font-bold text-muted uppercase tracking-widest mb-2">
+                                Inversión
+                            </div>
+                            <div class="font-mono font-bold text-ink text-3xl leading-none mb-1">
+                                USD 500
+                            </div>
+                            <div class="text-[10px] font-mono text-muted">/mes · Compromiso mínimo 3 meses</div>
+                            <div class="h-px bg-border my-4"></div>
+                            <ul class="space-y-2">
+                                <li class="text-xs text-body flex items-start gap-2">
+                                    <span class="font-mono text-success font-bold mt-0.5">✓</span>
+                                    <span>Los tres meses completos</span>
+                                </li>
+                                <li class="text-xs text-body flex items-start gap-2">
+                                    <span class="font-mono text-success font-bold mt-0.5">✓</span>
+                                    <span>Auditoría VCV incluida en Mes 1</span>
+                                </li>
+                                <li class="text-xs text-body flex items-start gap-2">
+                                    <span class="font-mono text-success font-bold mt-0.5">✓</span>
+                                    <span>Manual operativo del sistema</span>
+                                </li>
+                                <li class="text-xs text-body flex items-start gap-2">
+                                    <span class="font-mono text-success font-bold mt-0.5">✓</span>
+                                    <span>Sin dependencia del consultor al cierre</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- CTA -->
+                        <a href="contacto.html"
+                            class="bg-primary hover:opacity-90 text-white px-6 py-3 rounded font-medium transition-opacity text-sm text-center">
+                            Revisar mi sistema →
+                        </a>
+
+                        <!-- When NOT to pick this -->
+                        <div class="bg-canvas border border-border rounded p-3">
+                            <div class="text-[10px] font-mono font-bold text-muted uppercase tracking-wide mb-1">
+                                ¿No estás seguro?
+                            </div>
+                            <p class="text-[11px] text-body leading-relaxed">
+                                Si sos un preparador individual, la Auditoría VCV es el punto de partida correcto.
+                                La Gobernanza es el paso siguiente cuando el sistema necesita escalar.
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── BOTTOM CTA BANNER ─────────────────────────────────────────────── -->
+    <div class="bg-ink border-t-4 border-primary">
+        <div
+            class="max-w-5xl mx-auto px-6 py-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+            <div class="max-w-xl">
+                <div class="text-[10px] font-mono font-bold text-primary uppercase tracking-widest mb-3">
+                    // Siguiente paso
+                </div>
+                <h3 class="font-heading text-xl font-bold text-white mb-3">
+                    Una conversación de 20 minutos para revisar el sistema actual.
+                </h3>
+                <p class="text-sm text-muted leading-relaxed">
+                    Sin compromiso. Sin presentación de ventas.
+                    Si la Auditoría VCV no tiene sentido para el momento del ciclo, lo decimos en esa conversación.
                 </p>
-                <div class="flex gap-4">
-                    <span class="w-2 h-2 rounded-full bg-slate-700"></span>
-                    <span class="w-2 h-2 rounded-full bg-slate-700"></span>
-                    <span class="w-2 h-2 rounded-full bg-slate-700"></span>
+            </div>
+            <a href="contacto.html"
+                class="shrink-0 bg-primary hover:opacity-90 text-white px-8 py-3 rounded font-medium transition-opacity text-sm whitespace-nowrap">
+                Revisar mi sistema →
+            </a>
+        </div>
+    </div>
+
+    <!-- ── FOOTER ────────────────────────────────────────────────────────── -->
+    <footer class="bg-dark border-t border-slate-800">
+        <div
+            class="max-w-5xl mx-auto px-6 py-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+            <div>
+                <div class="text-[11px] font-mono font-bold text-white mb-1">
+                    Lisandro Cacciatore · IronLog
+                </div>
+                <div class="text-[10px] font-mono text-muted">
+                    Sistemas de decisión para el rendimiento deportivo
+                </div>
+            </div>
+            <div class="text-right">
+                <div class="text-[10px] font-mono text-subtle">
+                    Rosario, Argentina · Remoto LATAM / España
+                </div>
+                <div class="text-[10px] font-mono text-muted mt-1">
+                    "El simulador te da los números. El criterio para usarlos bien es otra conversación."
                 </div>
             </div>
         </div>
     </footer>
+
 </body>
 
 </html>
