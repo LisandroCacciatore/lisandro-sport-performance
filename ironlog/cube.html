@@ -3,16 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Cube Method - IronLog Interactive</title>
+    <title>The Cube Method - IronLog Interactive | Lisandro Cacciatore</title>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=IBM+Plex+Sans:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="../theme.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="https://cdn.sheetjs.com/xlsx-0.20.0/package/dist/xlsx.full.min.js"></script>
     <style>
         .week-card { transition: all 0.3s ease; cursor: pointer; }
         .week-card:hover { transform: translateY(-4px); }
         .week-active { box-shadow: 0 0 0 3px #1E3A8A; transform: scale(1.02); outline: none; }
+        select { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
+        .sim-tab-active { background: #1E3A8A !important; color: #fff !important; border-color: #1E3A8A !important; }
     </style>
 </head>
 <body class="bg-canvas text-body font-sans antialiased">
@@ -25,15 +28,24 @@
                 <span class="text-xl">🧮</span>
                 <a href="demo.html" class="font-heading font-extrabold text-lg text-ink">IronLog <span class="font-sans font-normal text-muted text-sm">/ Simuladores</span></a>
             </div>
-            
             <div class="flex items-center gap-6">
                 <a href="tools.html" class="text-sm font-sans text-muted hover:text-ink transition-colors hidden md:block">Herramientas</a>
-                <a href="index.html#early-access" class="bg-primary hover:bg-primary-600 text-white px-4 py-2 rounded font-medium text-sm transition-colors">
-                    Lista de espera
-                </a>
+                <a href="index.html#early-access" class="bg-primary hover:bg-primary-600 text-white px-4 py-2 rounded font-medium text-sm transition-colors">Lista de espera</a>
             </div>
         </div>
     </nav>
+
+    <!-- ── NAVEGACIÓN CRUZADA ── -->
+    <div class="bg-surface border-b border-border">
+        <div class="max-w-5xl mx-auto px-6 py-3 flex items-center gap-2 flex-wrap">
+            <span class="text-[10px] font-mono font-bold text-muted uppercase tracking-widest mr-2">Simuladores:</span>
+            <a href="wendler.html" class="text-[11px] font-mono font-bold px-3 py-1.5 rounded border border-border text-muted hover:text-ink hover:border-primary transition-all">📈 Wendler 5/3/1</a>
+            <a href="cube.html" class="sim-tab-active text-[11px] font-mono font-bold px-3 py-1.5 rounded border">🧊 The Cube</a>
+            <a href="ss.html" class="text-[11px] font-mono font-bold px-3 py-1.5 rounded border border-border text-muted hover:text-ink hover:border-primary transition-all">🚂 Starting Strength</a>
+            <span class="text-border mx-1 hidden sm:block">|</span>
+            <a href="../contacto.html" class="text-[11px] font-mono text-muted hover:text-primary transition-colors hidden sm:block">¿No sabés cuál usar? →</a>
+        </div>
+    </div>
 
     <div class="max-w-5xl mx-auto px-6 py-12 pb-24">
 
@@ -45,72 +57,56 @@
             <div class="bg-surface p-6 md:p-8 rounded border border-border shadow-structural">
                 <h2 class="font-heading text-lg font-bold text-ink mb-3">Variable Crítica: Recuperación del SNC semana a semana</h2>
                 <div class="text-body text-sm space-y-4 leading-relaxed">
-                    <p>
-                        El Cube no intenta maximizar la carga en cada sesión. La Variable Crítica es <strong>que el SNC nunca llegue al límite antes de la semana que importa</strong>. Por eso nunca todo pesado a la vez. Rota entre Pesado, Explosivo y Repeticiones para que el atleta llegue fresco cuando tiene que llegar fresco.
-                    </p>
-                    <p class="text-muted">
-                        Seleccioná la semana de la ola para ver cómo rotan las cualidades en los tres levantamientos principales.
-                    </p>
+                    <p>El Cube no intenta maximizar la carga en cada sesión. La Variable Crítica es <strong>que el SNC nunca llegue al límite antes de la semana que importa</strong>. Por eso nunca todo pesado a la vez. Rota entre Pesado, Explosivo y Repeticiones para que el atleta llegue fresco cuando tiene que llegar fresco.</p>
+                    <p class="text-muted">Este simulador no reemplaza el criterio. Muestra los números que deberías estar mirando. Si el SNC llega saturado a la semana pesada, el problema está en la rotación — no en la carga de esa sesión.</p>
                 </div>
             </div>
         </header>
 
+        <!-- PASO 1: Semana -->
         <section class="mb-10">
             <div class="flex items-center gap-2 mb-6">
                 <span class="bg-ink text-surface text-xs font-mono font-bold px-2 py-1 rounded">PASO 1</span>
                 <h3 class="font-heading font-bold text-ink">Selecciona la Semana de la Ola</h3>
             </div>
-            
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="weekSelector">
-                
-                <div role="button" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') { selectWeek(1); }" onclick="selectWeek(1)" id="card-week-1" class="week-card bg-surface p-5 rounded border border-border shadow-structural relative overflow-hidden group">
-                    <div class="relative z-10">
-                        <div class="font-heading font-bold text-ink mb-2 border-b border-border pb-2 flex justify-between">Semana 1</div>
-                        <div class="text-[10px] font-mono font-bold text-error bg-error-bg px-2 py-1 rounded inline-block mb-3 border border-red-200 uppercase tracking-wide">Foco: Sentadilla Pesada</div>
-                        <ul class="text-xs text-muted space-y-1 font-mono">
-                            <li>SQ: <span class="text-ink font-bold">Pesado</span></li>
-                            <li>BP: <span class="text-muted">Explosivo</span></li>
-                            <li>DL: <span class="text-muted">Repeticiones</span></li>
-                        </ul>
-                    </div>
+                <div role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')selectWeek(1)" onclick="selectWeek(1)" id="card-week-1" class="week-card bg-surface p-5 rounded border border-border shadow-structural">
+                    <div class="font-heading font-bold text-ink mb-2 border-b border-border pb-2">Semana 1</div>
+                    <div class="text-[10px] font-mono font-bold text-error bg-error-bg px-2 py-1 rounded inline-block mb-3 border border-red-200 uppercase tracking-wide">Foco: Sentadilla Pesada</div>
+                    <ul class="text-xs text-muted space-y-1 font-mono">
+                        <li>SQ: <span class="text-ink font-bold">Pesado</span></li>
+                        <li>BP: <span class="text-muted">Explosivo</span></li>
+                        <li>DL: <span class="text-muted">Repeticiones</span></li>
+                    </ul>
                 </div>
-
-                <div role="button" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') { selectWeek(2); }" onclick="selectWeek(2)" id="card-week-2" class="week-card bg-surface p-5 rounded border border-border shadow-structural relative overflow-hidden group">
-                    <div class="relative z-10">
-                        <div class="font-heading font-bold text-ink mb-2 border-b border-border pb-2 flex justify-between">Semana 2</div>
-                        <div class="text-[10px] font-mono font-bold text-warning bg-warning-bg px-2 py-1 rounded inline-block mb-3 border border-amber-200 uppercase tracking-wide">Foco: P.Muerto Pesado</div>
-                        <ul class="text-xs text-muted space-y-1 font-mono">
-                            <li>SQ: <span class="text-muted">Explosivo</span></li>
-                            <li>BP: <span class="text-muted">Repeticiones</span></li>
-                            <li>DL: <span class="text-ink font-bold">Pesado</span></li>
-                        </ul>
-                    </div>
+                <div role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')selectWeek(2)" onclick="selectWeek(2)" id="card-week-2" class="week-card bg-surface p-5 rounded border border-border shadow-structural">
+                    <div class="font-heading font-bold text-ink mb-2 border-b border-border pb-2">Semana 2</div>
+                    <div class="text-[10px] font-mono font-bold text-warning bg-warning-bg px-2 py-1 rounded inline-block mb-3 border border-amber-200 uppercase tracking-wide">Foco: P.Muerto Pesado</div>
+                    <ul class="text-xs text-muted space-y-1 font-mono">
+                        <li>SQ: <span class="text-muted">Explosivo</span></li>
+                        <li>BP: <span class="text-muted">Repeticiones</span></li>
+                        <li>DL: <span class="text-ink font-bold">Pesado</span></li>
+                    </ul>
                 </div>
-
-                <div role="button" tabindex="0" onkeydown="if(event.key === 'Enter' || event.key === ' ') { selectWeek(3); }" onclick="selectWeek(3)" id="card-week-3" class="week-card bg-surface p-5 rounded border border-border shadow-structural relative overflow-hidden group">
-                    <div class="relative z-10">
-                        <div class="font-heading font-bold text-ink mb-2 border-b border-border pb-2 flex justify-between">Semana 3</div>
-                        <div class="text-[10px] font-mono font-bold text-primary bg-primary-bg px-2 py-1 rounded inline-block mb-3 border border-blue-100 uppercase tracking-wide">Foco: Banca Pesada</div>
-                        <ul class="text-xs text-muted space-y-1 font-mono">
-                            <li>SQ: <span class="text-muted">Repeticiones</span></li>
-                            <li>BP: <span class="text-ink font-bold">Pesado</span></li>
-                            <li>DL: <span class="text-muted">Explosivo</span></li>
-                        </ul>
-                    </div>
+                <div role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')selectWeek(3)" onclick="selectWeek(3)" id="card-week-3" class="week-card bg-surface p-5 rounded border border-border shadow-structural">
+                    <div class="font-heading font-bold text-ink mb-2 border-b border-border pb-2">Semana 3</div>
+                    <div class="text-[10px] font-mono font-bold text-primary bg-primary-bg px-2 py-1 rounded inline-block mb-3 border border-blue-100 uppercase tracking-wide">Foco: Banca Pesada</div>
+                    <ul class="text-xs text-muted space-y-1 font-mono">
+                        <li>SQ: <span class="text-muted">Repeticiones</span></li>
+                        <li>BP: <span class="text-ink font-bold">Pesado</span></li>
+                        <li>DL: <span class="text-muted">Explosivo</span></li>
+                    </ul>
                 </div>
-
-
-
             </div>
         </section>
 
+        <!-- PASO 2: Config -->
         <section id="configSection" class="mb-12">
             <div class="bg-surface rounded shadow-structural border border-border overflow-hidden p-6 md:p-8">
                 <div class="flex items-center gap-2 mb-6 border-b border-border pb-4">
                     <span class="bg-ink text-surface text-xs font-mono font-bold px-2 py-1 rounded">PASO 2</span>
                     <h3 class="font-heading font-bold text-ink">Configura tus 1RM Reales</h3>
                 </div>
-
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div>
                         <label class="block text-[10px] font-mono font-bold text-muted uppercase mb-2">Squat (1RM)</label>
@@ -125,16 +121,12 @@
                         <input type="number" id="manualDeadlift" value="185" class="w-full p-3 border border-border bg-canvas rounded font-mono font-bold focus:border-primary outline-none text-ink">
                     </div>
                 </div>
-                
-                <button onclick="generateCubeDashboard()" class="w-full mt-6 bg-primary hover:bg-primary-600 text-white font-medium py-3 rounded transition-colors">
-                    Actualizar Ola del Cubo →
-                </button>
             </div>
         </section>
 
+        <!-- DASHBOARD -->
         <section id="dashboard" class="transition-all duration-500">
             <div id="pdfPrintableArea" class="bg-surface p-8 rounded border border-border shadow-structural mb-8">
-                
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 border-b border-border pb-6 gap-4">
                     <div>
                         <h2 class="font-heading text-2xl font-bold text-ink">Hoja de Ruta: The Cube Method</h2>
@@ -148,44 +140,180 @@
                         <div class="text-sm font-mono text-ink font-bold" id="tmDisplay">Calculando...</div>
                     </div>
                 </div>
-
                 <div class="grid lg:grid-cols-3 gap-8 mb-8">
                     <div class="lg:col-span-1">
                         <h3 class="text-[10px] font-mono font-bold text-muted uppercase tracking-widest mb-4">Rotación Semanal</h3>
                         <div id="exercisesList" class="space-y-3"></div>
                     </div>
-
                     <div class="lg:col-span-1 flex flex-col">
                         <h3 class="text-[10px] font-mono font-bold text-muted uppercase tracking-widest mb-2 text-center">Enfoque Fisiológico</h3>
                         <div class="flex-grow bg-canvas rounded p-2 border border-border flex items-center justify-center">
                             <div class="h-56 w-full"><canvas id="radarChart"></canvas></div>
                         </div>
                     </div>
-
                     <div class="lg:col-span-1 flex flex-col">
-                         <h3 class="text-[10px] font-mono font-bold text-muted uppercase tracking-widest mb-2 text-center">Intensidad Relativa</h3>
-                         <div class="flex-grow bg-canvas rounded p-2 border border-border flex items-center justify-center">
-                             <div class="h-56 w-full"><canvas id="intensityChart"></canvas></div>
-                         </div>
+                        <h3 class="text-[10px] font-mono font-bold text-muted uppercase tracking-widest mb-2 text-center">Intensidad Relativa</h3>
+                        <div class="flex-grow bg-canvas rounded p-2 border border-border flex items-center justify-center">
+                            <div class="h-56 w-full"><canvas id="intensityChart"></canvas></div>
+                        </div>
                     </div>
                 </div>
-
                 <div class="mt-8 pt-8 border-t border-border">
                     <h3 class="text-[10px] font-mono font-bold text-muted uppercase tracking-widest mb-4">Distribución de Carga por Ejercicio</h3>
                     <div class="h-64 w-full"><canvas id="comboChart"></canvas></div>
                 </div>
             </div>
 
-            <div class="text-center">
-                <button onclick="openPdfModal()" class="bg-primary text-white px-8 py-3 rounded font-medium shadow-structural hover:bg-primary-600 transition-colors flex items-center justify-center gap-2 mx-auto">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                    Descargar Planificación PDF
+            <!-- ── VARIABLE A VALIDAR ── -->
+            <div id="vcvBlock" class="mb-6 bg-primary-bg border border-blue-200 rounded p-5">
+                <div class="flex items-start gap-3">
+                    <span class="text-xl mt-0.5">🎯</span>
+                    <div>
+                        <div class="text-[10px] font-mono font-bold text-primary uppercase tracking-widest mb-1">Variable a validar esta semana</div>
+                        <p id="vcvQuestion" class="text-sm text-ink font-medium leading-relaxed"></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── SEÑALES DE RUPTURA ── -->
+            <div class="mb-8 bg-surface border border-border rounded shadow-structural overflow-hidden">
+                <div class="px-6 py-4 border-b border-border flex items-center gap-2">
+                    <span class="text-base">⚠️</span>
+                    <span class="text-[10px] font-mono font-bold text-muted uppercase tracking-widest">Señales de ruptura del sistema</span>
+                </div>
+                <div class="divide-y divide-border">
+                    <div class="px-6 py-4 flex items-start gap-4">
+                        <span class="text-error font-mono font-bold text-sm mt-0.5 shrink-0">01</span>
+                        <div>
+                            <p class="text-sm text-ink font-medium mb-0.5">El atleta llega fatigado a la semana pesada del movimiento principal</p>
+                            <p class="text-xs text-muted font-mono">→ La rotación no está funcionando. La semana explosiva o de repeticiones está acumulando más estrés del que el atleta puede absorber.</p>
+                        </div>
+                    </div>
+                    <div class="px-6 py-4 flex items-start gap-4">
+                        <span class="text-error font-mono font-bold text-sm mt-0.5 shrink-0">02</span>
+                        <div>
+                            <p class="text-sm text-ink font-medium mb-0.5">Los pesos en la semana de repeticiones suben demasiado rápido ciclo a ciclo</p>
+                            <p class="text-xs text-muted font-mono">→ El volumen acumulado supera la capacidad de recuperación. El Cube no es un programa de volumen progresivo: la carga debe escalar despacio.</p>
+                        </div>
+                    </div>
+                    <div class="px-6 py-4 flex items-start gap-4">
+                        <span class="text-error font-mono font-bold text-sm mt-0.5 shrink-0">03</span>
+                        <div>
+                            <p class="text-sm text-ink font-medium mb-0.5">El atleta modifica la rotación "porque no se siente pesado" en la semana explosiva</p>
+                            <p class="text-xs text-muted font-mono">→ La lógica del Cube depende de respetar la rotación aunque la sensación no lo justifique. Modificarla ad hoc rompe el argumento central del sistema.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="px-6 py-4 bg-canvas border-t border-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                    <p class="text-xs text-muted font-mono">¿Estás viendo alguna de estas señales en tu atleta?</p>
+                    <button onclick="openLeadModal()" class="text-xs font-mono font-bold text-primary hover:underline shrink-0">Auditoría VCV →</button>
+                </div>
+            </div>
+
+            <!-- ── BOTONES DE ACCIÓN ── -->
+            <div class="flex flex-col sm:flex-row gap-3 justify-center mb-16">
+                <button onclick="openLeadModal()" class="bg-primary hover:bg-primary-600 text-white px-8 py-3 rounded font-medium transition-colors">
+                    Revisar mi sistema →
                 </button>
-                <button onclick="openLeadModal()" class="mt-4 border border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 rounded font-medium transition-colors cta cta--primary" data-cta-level="1" data-cta-destination="auditoria-vcv">Revisar mi sistema →</button>
+                <button onclick="openExcelModal()" class="border border-border hover:border-primary text-ink px-8 py-3 rounded font-medium transition-colors flex items-center justify-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                    Excel (.xlsx)
+                </button>
+                <button onclick="openPdfModal()" class="border border-border hover:border-primary text-ink px-8 py-3 rounded font-medium transition-colors flex items-center justify-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                    PDF
+                </button>
+            </div>
+        </section>
+
+        <!-- ── CICLO COMPLETO ── -->
+        <section class="mt-4">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="h-px flex-1 bg-border"></div>
+                <span class="text-[10px] font-mono font-bold text-muted uppercase tracking-widest px-2">// Ciclo Completo — La Ola de 3 Semanas</span>
+                <div class="h-px flex-1 bg-border"></div>
+            </div>
+            <div class="bg-surface rounded border border-border shadow-structural overflow-hidden mb-4">
+                <div class="p-4 border-b border-border bg-canvas">
+                    <p class="text-xs text-muted font-mono">La lógica del Cube: ningún movimiento se entrena pesado dos semanas seguidas. El SNC siempre llega descansado a la semana que importa.</p>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-xs font-mono">
+                        <thead>
+                            <tr class="bg-ink text-surface">
+                                <th class="text-left px-4 py-3 font-bold uppercase tracking-wide border-r border-slate-700">Ejercicio</th>
+                                <th class="px-4 py-3 font-bold uppercase tracking-wide text-center">Semana 1</th>
+                                <th class="px-4 py-3 font-bold uppercase tracking-wide text-center">Semana 2</th>
+                                <th class="px-4 py-3 font-bold uppercase tracking-wide text-center">Semana 3</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cycleTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="bg-canvas border border-border rounded p-5">
+                <div class="text-[10px] font-mono font-bold text-muted uppercase tracking-widest mb-3">// Lógica de rotación</div>
+                <div class="grid grid-cols-3 gap-4 text-xs font-mono">
+                    <div class="p-3 bg-error-bg border border-red-100 rounded text-center">
+                        <div class="font-bold text-error mb-1">PESADO</div>
+                        <div class="text-muted">5×2 @ 80% TM</div>
+                        <div class="text-muted">Fuerza máxima</div>
+                    </div>
+                    <div class="p-3 bg-primary-bg border border-blue-100 rounded text-center">
+                        <div class="font-bold text-primary mb-1">EXPLOSIVO</div>
+                        <div class="text-muted">8×3 @ 60% TM</div>
+                        <div class="text-muted">Potencia / baja fatiga SNC</div>
+                    </div>
+                    <div class="p-3 bg-warning-bg border border-amber-100 rounded text-center">
+                        <div class="font-bold text-warning mb-1">REPETICIONES</div>
+                        <div class="text-muted">1×8+ @ 70% TM</div>
+                        <div class="text-muted">Hipertrofia / volumen</div>
+                    </div>
+                </div>
             </div>
         </section>
     </div>
 
+    <!-- MODAL EXCEL -->
+    <div id="excelModal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-dark/80 p-4 backdrop-blur-sm">
+        <div class="bg-surface w-full max-w-md rounded shadow-structural border border-border overflow-hidden relative">
+            <button onclick="closeExcelModal()" class="absolute top-4 right-4 text-muted hover:text-ink">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <div class="p-8">
+                <div class="text-center mb-6">
+                    <div class="w-12 h-12 bg-success-bg border border-green-200 rounded flex items-center justify-center mx-auto mb-4 text-2xl">📊</div>
+                    <h3 class="font-heading text-lg font-bold text-ink mb-1">Tu planilla del Cube está lista</h3>
+                    <p class="text-xs text-muted">2 hojas: semana actual con pesos · rotación completa de la ola.</p>
+                </div>
+                <form id="excelForm" class="space-y-3">
+                    <div>
+                        <label class="block text-[10px] font-mono font-bold text-muted uppercase mb-2">Tu email</label>
+                        <input type="email" id="excelEmail" name="email" required placeholder="tu@email.com" class="w-full px-4 py-3 rounded bg-canvas border border-border focus:border-primary outline-none transition-all text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-mono font-bold text-muted uppercase mb-2">Rol</label>
+                        <div class="relative">
+                            <select id="excelRol" name="rol" class="w-full px-4 py-3 rounded bg-canvas border border-border focus:border-primary outline-none text-sm appearance-none cursor-pointer">
+                                <option value="preparador">Preparador físico</option>
+                                <option value="entrenador">Entrenador personal</option>
+                                <option value="atleta">Atleta / autoentrenado</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                            <div class="absolute inset-y-0 right-0 flex items-center px-3 pointer-events-none text-muted">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="text" name="_honey" style="display:none">
+                    <button type="submit" id="excelSubmitBtn" class="w-full bg-success hover:opacity-90 text-white font-medium py-3 rounded transition-all text-sm mt-2">Descargar Excel →</button>
+                </form>
+                <p class="text-[10px] font-mono text-muted text-center mt-4 uppercase">Sin spam. El email se usa para seguimiento opcional.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL PDF -->
     <div id="pdfModal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-dark/80 p-4 backdrop-blur-sm">
         <div class="bg-surface w-full max-w-md rounded shadow-structural border border-border overflow-hidden relative">
             <button onclick="closePdfModal()" class="absolute top-4 right-4 text-muted hover:text-ink">
@@ -194,13 +322,12 @@
             <div class="p-8 text-center">
                 <h3 class="font-heading text-xl font-bold text-ink mb-2">Cubo Resuelto</h3>
                 <p class="text-sm text-body mb-6">Tu microciclo ondulado está listo para descargar.</p>
-                <button id="downloadBtn" onclick="downloadPdfAction()" class="w-full bg-primary hover:bg-primary-600 text-white font-medium py-3 rounded transition-colors">
-                    Descargar Ahora
-                </button>
+                <button id="downloadBtn" onclick="downloadPdfAction()" class="w-full bg-primary hover:bg-primary-600 text-white font-medium py-3 rounded transition-colors">Descargar Ahora</button>
             </div>
         </div>
     </div>
 
+    <!-- MODAL LEAD -->
     <div id="leadModal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-dark/80 p-4 backdrop-blur-sm">
         <div class="bg-surface w-full max-w-md rounded shadow-structural border border-border overflow-hidden relative">
             <button onclick="closeLeadModal()" class="absolute top-4 right-4 text-muted hover:text-ink">
@@ -209,19 +336,19 @@
             <div class="p-8">
                 <div class="text-center mb-6">
                     <div class="w-12 h-12 bg-canvas border border-border rounded flex items-center justify-center mx-auto mb-4 text-2xl">🧊</div>
-                    <h3 class="font-heading text-lg font-bold text-ink mb-2">¿Querés validar si la rotación del Cube tiene sentido para tu atleta ahora mismo?</h3>
-                    <p class="text-xs text-body">Los números del simulador son el punto de partida. El criterio para usarlos bien es otra conversación.</p>
+                    <h3 class="font-heading text-lg font-bold text-ink mb-2">El simulador te da los números. El criterio para usarlos bien es otra conversación.</h3>
+                    <p class="text-xs text-body">Auditoría VCV: revisión de 10 a 14 días de tu sistema de decisión actual.</p>
                 </div>
                 <div class="space-y-3 mb-5">
-                    <button type="button" onclick="openLeadModalForAudit()" class="w-full bg-primary hover:bg-primary-600 text-white font-medium py-3 rounded transition-colors text-sm cta cta--primary" data-cta-level="1" data-cta-destination="auditoria-vcv">Revisar mi sistema →</button>
+                    <button type="button" onclick="window.location.href='../contacto.html'" class="w-full bg-primary hover:bg-primary-600 text-white font-medium py-3 rounded transition-colors text-sm">Revisar mi sistema →</button>
                     <button type="button" onclick="document.getElementById('leadFormWrapper').classList.toggle('hidden')" class="w-full border border-border hover:border-primary text-ink font-medium py-3 rounded transition-colors text-sm">Hacerme una consulta puntual</button>
                 </div>
                 <div id="leadFormWrapper" class="hidden">
                     <form action="https://formspree.io/f/mnjbvkey" method="POST" class="space-y-4">
-                        <input type="email" name="email" required placeholder="tu@email.com" class="w-full px-4 py-3 rounded bg-canvas border border-border focus:border-primary outline-none transition-all text-sm font-sans">
-                        <input type="text" name="context" placeholder="Contame tu contexto" class="w-full px-4 py-3 rounded bg-canvas border border-border focus:border-primary outline-none transition-all text-sm font-sans">
+                        <input type="email" name="email" required placeholder="tu@email.com" class="w-full px-4 py-3 rounded bg-canvas border border-border focus:border-primary outline-none transition-all text-sm">
+                        <input type="text" name="context" placeholder="Contame tu contexto" class="w-full px-4 py-3 rounded bg-canvas border border-border focus:border-primary outline-none transition-all text-sm">
                         <input type="hidden" name="source" value="cube_simulator">
-                        <button type="submit" class="w-full bg-primary hover:bg-primary-600 text-white font-medium py-3 rounded transition-colors text-sm cta cta--primary" data-cta-level="1" data-cta-destination="auditoria-vcv">Revisar mi sistema →</button>
+                        <button type="submit" class="w-full bg-primary hover:bg-primary-600 text-white font-medium py-3 rounded transition-colors text-sm">Enviar →</button>
                     </form>
                 </div>
                 <p class="text-[10px] font-mono text-muted text-center mt-4 uppercase">Sin spam. Respuesta en menos de 48hs.</p>
@@ -232,37 +359,45 @@
         </div>
     </div>
 
+    <!-- ── AUDITORÍA VCV CALLOUT ── -->
+    <div class="bg-ink border-t-4 border-primary">
+        <div class="max-w-5xl mx-auto px-6 py-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+            <div class="max-w-xl">
+                <div class="text-[10px] font-mono font-bold text-primary uppercase tracking-widest mb-3">// Auditoría VCV</div>
+                <h3 class="font-heading text-xl font-bold text-surface mb-3">¿El simulador te genera más preguntas que respuestas?</h3>
+                <p class="text-sm text-muted leading-relaxed">La Auditoría VCV es una revisión de 10 a 14 días de tu sistema de decisión actual. Identificás la variable que realmente gobierna tus ajustes de carga — y salís con un esquema claro de validación semanal.</p>
+            </div>
+            <a href="../contacto.html" class="shrink-0 bg-primary hover:bg-primary-600 text-white px-8 py-3 rounded font-medium transition-colors text-sm whitespace-nowrap">Ver cómo funciona →</a>
+        </div>
+    </div>
+
     <footer class="bg-dark pt-16 pb-8 border-t-4 border-primary">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
                 <div class="md:col-span-2">
                     <span class="font-heading font-semibold text-lg text-surface block mb-4">Lisandro Cacciatore <span class="text-primary font-mono font-bold">_</span></span>
-                    <p class="text-muted text-sm leading-relaxed max-w-sm">
-                        Sistemas de validación semanal para preparadores físicos. Criterio claro, decisiones con fundamento.
-                    </p>
+                    <p class="text-muted text-sm leading-relaxed max-w-sm">Sistemas de validación semanal para preparadores físicos. Criterio claro, decisiones con fundamento.</p>
                 </div>
                 <div>
                     <h3 class="font-heading text-surface text-xs font-bold mb-4 uppercase tracking-widest">Ecosistema</h3>
                     <ul class="space-y-3">
-                        <li><a href="../blog.html" class="text-sm font-sans text-muted hover:text-surface transition-colors">Blog Técnico</a></li>
-                        <li><a href="index.html" class="text-sm font-sans text-muted hover:text-surface transition-colors">IronLog (Piloto)</a></li>
-                        <li><a href="tools.html" class="text-sm font-sans text-muted hover:text-surface transition-colors">Data Tools</a></li>
+                        <li><a href="../blog.html" class="text-sm text-muted hover:text-surface transition-colors">Blog Técnico</a></li>
+                        <li><a href="index.html" class="text-sm text-muted hover:text-surface transition-colors">IronLog (Piloto)</a></li>
+                        <li><a href="tools.html" class="text-sm text-muted hover:text-surface transition-colors">Data Tools</a></li>
                     </ul>
                 </div>
                 <div>
                     <h3 class="font-heading text-surface text-xs font-bold mb-4 uppercase tracking-widest">Operaciones</h3>
                     <ul class="space-y-3">
-                        <li><a href="../contacto.html" class="text-sm font-sans text-muted hover:text-surface transition-colors">Revisar mi sistema →</a></li>
-                        <li><span class="text-sm font-sans text-subtle block">Rosario, Argentina</span></li>
-                        <li><span class="text-sm font-sans text-subtle block">Remoto LATAM / España</span></li>
+                        <li><a href="../contacto.html" class="text-sm text-muted hover:text-surface transition-colors">Revisar mi sistema →</a></li>
+                        <li><span class="text-sm text-subtle block">Rosario, Argentina</span></li>
+                        <li><span class="text-sm text-subtle block">Remoto LATAM / España</span></li>
                     </ul>
                 </div>
             </div>
             <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <div class="text-xs font-mono text-subtle">
-                    © 2026 Lisandro Cacciatore. Todos los derechos reservados.
-                </div>
-                <div class="flex gap-6 text-xs font-sans text-subtle">
+                <div class="text-xs font-mono text-subtle">© 2026 Lisandro Cacciatore. Todos los derechos reservados.</div>
+                <div class="flex gap-6 text-xs text-subtle">
                     <a href="../privacidad.html" class="hover:text-muted transition-colors">Privacidad</a>
                     <a href="../sobre-mi.html" class="hover:text-muted transition-colors">Sobre mí</a>
                 </div>
@@ -272,89 +407,95 @@
 
     <script>
         let currentWeek = 1;
-        let radarChart = null;
-        let intensityChart = null;
-        let comboChart = null;
+        let radarChart = null, intensityChart = null, comboChart = null;
+
+        const vcvQuestions = {
+            1: '¿El SNC del atleta llegó recuperado a la semana pesada de Sentadilla? Si hay fatiga residual, el problema está en la semana explosiva anterior — no en la carga de hoy.',
+            2: '¿El SNC del atleta llegó recuperado a la semana pesada de Peso Muerto? La combinación de Sentadilla explosiva y Banca de repeticiones de la semana anterior define si este bloque puede rendir.',
+            3: '¿El SNC del atleta llegó recuperado a la semana pesada de Banca? Si el atleta está fatigado, la rotación de las dos semanas anteriores acumuló más de lo que puede absorber.'
+        };
+
+        function updateVCV() {
+            const el = document.getElementById('vcvQuestion');
+            if (el) el.textContent = vcvQuestions[currentWeek] || '';
+        }
+
+        // Devuelve la configuración de tipo para un ejercicio en una semana dada
+        function getType(lift, week) {
+            const matrix = {
+                SQ: { 1:{type:'Pesado',    sets:5, reps:2,   p:0.80, c:'#B91C1C'},
+                      2:{type:'Explosivo',  sets:8, reps:3,   p:0.60, c:'#1E3A8A'},
+                      3:{type:'Repeticiones',sets:1,reps:'8+',p:0.70, c:'#B45309'} },
+                BP: { 1:{type:'Repeticiones',sets:1,reps:'8+',p:0.70, c:'#B45309'},
+                      2:{type:'Pesado',    sets:5, reps:2,   p:0.80, c:'#B91C1C'},
+                      3:{type:'Explosivo', sets:8, reps:3,   p:0.60, c:'#1E3A8A'} },
+                DL: { 1:{type:'Explosivo', sets:8, reps:3,   p:0.60, c:'#1E3A8A'},
+                      2:{type:'Repeticiones',sets:1,reps:'8+',p:0.70, c:'#B45309'},
+                      3:{type:'Pesado',   sets:5, reps:2,   p:0.80, c:'#B91C1C'} }
+            };
+            return matrix[lift][week];
+        }
 
         document.addEventListener('DOMContentLoaded', () => {
-            const leadModal = document.getElementById('leadModal');
-            leadModal?.addEventListener('click', e => { if (e.target === leadModal) closeLeadModal(); });
+            document.getElementById('leadModal').addEventListener('click',  e => { if(e.target===document.getElementById('leadModal'))  closeLeadModal();  });
+            document.getElementById('excelModal').addEventListener('click', e => { if(e.target===document.getElementById('excelModal')) closeExcelModal(); });
+            document.getElementById('excelForm').addEventListener('submit', handleExcelSubmit);
+            ['manualSquat','manualBench','manualDeadlift'].forEach(id =>
+                document.getElementById(id).addEventListener('input', generateCubeDashboard)
+            );
             selectWeek(1);
-            generateCubeDashboard();
-            ['manualSquat', 'manualBench', 'manualDeadlift'].forEach(id => {
-                document.getElementById(id).addEventListener('input', () => {
-                    if(!document.getElementById('dashboard').classList.contains('hidden')) generateCubeDashboard();
-                });
-            });
         });
 
         function selectWeek(week) {
             currentWeek = week;
-            document.querySelectorAll('.week-card').forEach((el, idx) => {
-                el.classList.remove('week-active');
-                el.classList.add('opacity-60');
-                if((idx + 1) === week) {
-                    el.classList.add('week-active');
-                    el.classList.remove('opacity-60');
-                }
+            document.querySelectorAll('.week-card').forEach((el,i) => {
+                el.classList.toggle('week-active', i+1===week);
+                el.classList.toggle('opacity-60',  i+1!==week);
             });
-            if(!document.getElementById('dashboard').classList.contains('hidden')) generateCubeDashboard();
+            generateCubeDashboard();
+            updateVCV();
         }
 
-        function generateCubeDashboard() {
-            const sq = parseFloat(document.getElementById('manualSquat').value) || 0;
-            const bp = parseFloat(document.getElementById('manualBench').value) || 0;
-            const dl = parseFloat(document.getElementById('manualDeadlift').value) || 0;
-            
-            const tmSq = Math.round(sq * 0.95);
-            const tmBp = Math.round(bp * 0.95);
-            const tmDl = Math.round(dl * 0.95);
-            
-            document.getElementById('tmDisplay').innerText = `TMs: SQ ${tmSq} | BP ${tmBp} | DL ${tmDl}`;
-            
-            const weekNames = ["Squat Heavy", "Deadlift Heavy", "Bench Heavy"];
-            document.getElementById('reportWeekBadge').innerText = `Semana ${currentWeek}: ${weekNames[currentWeek-1] || ''}`;
-
-            const getType = (lift, week) => {
-                if (lift === 'SQ') {
-                    if (week === 1) return { type: 'Pesado', sets: 5, reps: 2, p: 0.80, c: '#B91C1C' }; // error
-                    if (week === 2) return { type: 'Explosivo', sets: 8, reps: 3, p: 0.60, c: '#1E3A8A' }; // primary
-                    if (week === 3) return { type: 'Repeticiones', sets: 1, reps: '8+', p: 0.70, c: '#B45309' }; // warning
-                }
-                if (lift === 'BP') {
-                    if (week === 1) return { type: 'Repeticiones', sets: 1, reps: '8+', p: 0.70, c: '#B45309' }; 
-                    if (week === 2) return { type: 'Pesado', sets: 5, reps: 2, p: 0.80, c: '#B91C1C' };
-                    if (week === 3) return { type: 'Explosivo', sets: 8, reps: 3, p: 0.60, c: '#1E3A8A' };
-                }
-                if (lift === 'DL') {
-                    if (week === 1) return { type: 'Explosivo', sets: 8, reps: 3, p: 0.60, c: '#1E3A8A' }; 
-                    if (week === 2) return { type: 'Repeticiones', sets: 1, reps: '8+', p: 0.70, c: '#B45309' };
-                    if (week === 3) return { type: 'Pesado', sets: 5, reps: 2, p: 0.80, c: '#B91C1C' };
-                }
-                return {};
+        function getRMs() {
+            return {
+                sq: parseFloat(document.getElementById('manualSquat').value)    || 0,
+                bp: parseFloat(document.getElementById('manualBench').value)     || 0,
+                dl: parseFloat(document.getElementById('manualDeadlift').value)  || 0,
             };
+        }
+        function calcTMs(rms) {
+            return { sq:Math.round(rms.sq*0.95), bp:Math.round(rms.bp*0.95), dl:Math.round(rms.dl*0.95) };
+        }
 
-            const lifts = [
-                { id: 'SQ', name: 'Sentadilla', tm: tmSq },
-                { id: 'BP', name: 'Press Banca', tm: tmBp },
-                { id: 'DL', name: 'Peso Muerto', tm: tmDl }
-            ];
+        const LIFTS = [
+            { id:'SQ', name:'Sentadilla', tmKey:'sq' },
+            { id:'BP', name:'Press Banca', tmKey:'bp' },
+            { id:'DL', name:'Peso Muerto', tmKey:'dl' },
+        ];
+
+        function generateCubeDashboard() {
+            const rms = getRMs();
+            const tms = calcTMs(rms);
+
+            document.getElementById('tmDisplay').innerText = `TMs: SQ ${tms.sq} | BP ${tms.bp} | DL ${tms.dl}`;
+            const weekNames = ['SQ Heavy','DL Heavy','BP Heavy'];
+            document.getElementById('reportWeekBadge').innerText = `Semana ${currentWeek}: ${weekNames[currentWeek-1]}`;
 
             let listHTML = '';
-            let chartData = { labels: [], intensity: [], volume: [], colors: [] };
+            const chartData = { labels:[], intensity:[], volume:[], colors:[] };
 
-            lifts.forEach(l => {
+            LIFTS.forEach(l => {
+                const tm     = tms[l.tmKey];
                 const config = getType(l.id, currentWeek);
-                const weight = Math.round(l.tm * config.p);
-                
-                listHTML += `
-                <div class="bg-canvas p-3 rounded border border-border mb-2" style="border-left: 4px solid ${config.c}">
+                const weight = Math.round(tm * config.p);
+
+                listHTML += `<div class="bg-canvas p-3 rounded border border-border mb-2" style="border-left:4px solid ${config.c}">
                     <div class="flex justify-between items-center mb-1">
                         <span class="font-bold text-ink text-sm">${l.name}</span>
-                        <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded uppercase" style="color:${config.c}; border: 1px solid ${config.c}40">${config.type}</span>
+                        <span class="text-[10px] font-mono font-bold px-2 py-0.5 rounded uppercase" style="color:${config.c};border:1px solid ${config.c}40">${config.type}</span>
                     </div>
                     <div class="flex justify-between items-end">
-                        <div class="text-xs text-muted font-mono">${config.sets} x ${config.reps} @ ${Math.round(config.p*100)}%</div>
+                        <div class="text-xs text-muted font-mono">${config.sets} × ${config.reps} @ ${Math.round(config.p*100)}%</div>
                         <div class="font-bold font-mono text-ink text-lg">${weight}<span class="text-[10px] text-muted">kg</span></div>
                     </div>
                 </div>`;
@@ -362,116 +503,163 @@
                 chartData.labels.push(l.id);
                 chartData.intensity.push(Math.round(config.p * 100));
                 chartData.colors.push(config.c);
-                
-                let volScore = 0;
-                if(config.type === 'Pesado') volScore = 10;
-                if(config.type === 'Explosivo') volScore = 24;
-                if(config.type === 'Repeticiones') volScore = 15;
+                const volScore = config.type==='Pesado'?10 : config.type==='Explosivo'?24 : 15;
                 chartData.volume.push(volScore);
             });
-            
+
             listHTML += `<div class="mt-4 p-3 bg-canvas border border-dashed border-border rounded text-[10px] font-mono text-muted text-center uppercase tracking-wide">
-                + Accesorios (3-4 ej. x 10-15 reps)
+                + Accesorios (3-4 ej. × 10-15 reps)
             </div>`;
 
             document.getElementById('exercisesList').innerHTML = listHTML;
             document.getElementById('dashboard').classList.remove('hidden');
 
             renderCharts(chartData);
+            renderCycleTable(tms);
         }
 
         function renderCharts(chartInput) {
             Chart.defaults.font.family = "'Fira Code', monospace";
-            Chart.defaults.color = '#64748B'; // muted
+            Chart.defaults.color = '#64748B';
 
-            let radarData = [5, 5, 5, 5, 5];
-            if (currentWeek === 1) radarData = [8, 4, 6, 8, 4]; 
-            if (currentWeek === 2) radarData = [7, 6, 5, 7, 4]; 
-            if (currentWeek === 3) radarData = [8, 5, 7, 6, 4]; 
-
+            const radarData = [[8,4,6,8,4],[7,6,5,7,4],[8,5,7,6,4]][currentWeek-1];
             if (radarChart) radarChart.destroy();
             radarChart = new Chart(document.getElementById('radarChart'), {
-                type: 'radar',
-                data: {
-                    labels: ['Fuerza Máx', 'Hipertrofia', 'Potencia', 'SNC Stress', 'Técnica'],
-                    datasets: [{
-                        label: 'Cube Focus',
-                        data: radarData,
-                        backgroundColor: 'rgba(30, 58, 138, 0.1)', // primary/10
-                        borderColor: '#1E3A8A', // primary
-                        pointBackgroundColor: '#1E3A8A'
-                    }]
-                },
-                options: { responsive: true, maintainAspectRatio: false, scales: { r: { ticks: { display: false }, min: 0, max: 10 } }, plugins: { legend: { display: false } } }
+                type:'radar',
+                data:{ labels:['Fuerza Máx','Hipertrofia','Potencia','SNC Stress','Técnica'],
+                    datasets:[{ data:radarData, backgroundColor:'rgba(30,58,138,0.1)', borderColor:'#1E3A8A', pointBackgroundColor:'#1E3A8A' }] },
+                options:{ responsive:true, maintainAspectRatio:false, scales:{r:{ticks:{display:false},min:0,max:10}}, plugins:{legend:{display:false}} }
             });
 
             if (intensityChart) intensityChart.destroy();
             intensityChart = new Chart(document.getElementById('intensityChart'), {
-                type: 'bar',
-                data: {
-                    labels: ['SQ', 'BP', 'DL'],
-                    datasets: [{
-                        label: '% TM',
-                        data: chartInput.intensity,
-                        backgroundColor: chartInput.colors,
-                        borderRadius: 2
-                    }]
-                },
-                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true, max: 100 } } }
+                type:'bar',
+                data:{ labels:['SQ','BP','DL'],
+                    datasets:[{ label:'% TM', data:chartInput.intensity, backgroundColor:chartInput.colors, borderRadius:2 }] },
+                options:{ responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false}}, scales:{y:{beginAtZero:true,max:100}} }
             });
 
             if (comboChart) comboChart.destroy();
             comboChart = new Chart(document.getElementById('comboChart'), {
-                type: 'bar',
-                data: {
-                    labels: ['Sentadilla', 'Banca', 'P.Muerto'],
-                    datasets: [
-                        {
-                            label: 'Volumen Relativo (Score)',
-                            data: chartInput.volume,
-                            backgroundColor: '#E2E8F0', // border color
-                            order: 2,
-                            borderRadius: 2
-                        },
-                        {
-                            label: 'Intensidad (%TM)',
-                            data: chartInput.intensity,
-                            type: 'line',
-                            borderColor: '#1E293B', // ink
-                            borderWidth: 2,
-                            tension: 0, // angular lines for technical look
-                            order: 1,
-                            yAxisID: 'y1'
-                        }
-                    ]
-                },
-                options: { 
-                    responsive: true, 
-                    maintainAspectRatio: false,
-                    scales: { 
-                        y: { display: false }, 
-                        y1: { position: 'right', min: 0, max: 100, grid: {display:false} } 
-                    } 
-                }
+                type:'bar',
+                data:{ labels:['Sentadilla','Banca','P.Muerto'],
+                    datasets:[
+                        { label:'Volumen (score)', data:chartInput.volume, backgroundColor:'#E2E8F0', order:2, borderRadius:2 },
+                        { label:'Intensidad (%TM)', data:chartInput.intensity, type:'line', borderColor:'#1E293B', borderWidth:2, tension:0, order:1, yAxisID:'y1' }
+                    ] },
+                options:{ responsive:true, maintainAspectRatio:false,
+                    scales:{ y:{display:false}, y1:{position:'right',min:0,max:100,grid:{display:false}} } }
             });
         }
 
-        function openPdfModal() { document.getElementById('pdfModal').classList.remove('hidden'); }
-        function closePdfModal() { document.getElementById('pdfModal').classList.add('hidden'); }
-        function openLeadModal() { document.getElementById('leadModal').classList.remove('hidden'); }
-        
-        function openLeadModalForAudit() {
-            openLeadModal();
-            window.location.href = "../contacto.html";
+        function renderCycleTable(tms) {
+            let tbody = '';
+            const typeColors = { 'Pesado':'#B91C1C','Explosivo':'#1E3A8A','Repeticiones':'#B45309' };
+            const typeBg     = { 'Pesado':'bg-error-bg','Explosivo':'bg-primary-bg','Repeticiones':'bg-warning-bg' };
+
+            LIFTS.forEach((l,ri) => {
+                const tm = tms[l.tmKey];
+                let row  = `<tr class="${ri%2===1?'bg-surface':''} border-t border-border">
+                    <td class="px-4 py-3 font-bold text-ink border-r border-border whitespace-nowrap">
+                        ${l.name}<br><span class="font-normal text-muted text-[10px]">TM: ${tm}kg</span>
+                    </td>`;
+                [1,2,3].forEach(w => {
+                    const cfg    = getType(l.id, w);
+                    const weight = Math.round(tm * cfg.p);
+                    const isAct  = w === currentWeek;
+                    row += `<td class="px-4 py-3 text-center border-l border-border ${isAct?'bg-primary-bg':''}">
+                        <div class="inline-block text-[10px] font-bold px-2 py-0.5 rounded mb-1" style="color:${cfg.c};background:${cfg.c}18;border:1px solid ${cfg.c}30">${cfg.type}</div>
+                        <div class="font-bold ${isAct?'text-primary':'text-body'}">${weight}kg</div>
+                        <div class="text-[10px] text-muted">${cfg.sets}×${cfg.reps}</div>
+                    </td>`;
+                });
+                row += '</tr>';
+                tbody += row;
+            });
+            document.getElementById('cycleTableBody').innerHTML = tbody;
         }
-        function closeLeadModal() { document.getElementById('leadModal').classList.add('hidden'); }
-        
-        
+
+        // ── EXCEL ──────────────────────────────────────────────────────────
+        function openExcelModal()  { document.getElementById('excelModal').classList.remove('hidden'); }
+        function closeExcelModal() { document.getElementById('excelModal').classList.add('hidden'); }
+
+        async function handleExcelSubmit(e) {
+            e.preventDefault();
+            const btn = document.getElementById('excelSubmitBtn');
+            btn.textContent = 'Generando...'; btn.disabled = true;
+            try {
+                await fetch('https://formspree.io/f/mnjbvkey', {
+                    method:'POST', headers:{'Content-Type':'application/json'},
+                    body:JSON.stringify({
+                        email: document.getElementById('excelEmail').value,
+                        rol:   document.getElementById('excelRol').value,
+                        source:'cube_excel', simulador:'The Cube Method', semana: currentWeek
+                    })
+                });
+            } catch(_) {}
+            generateExcel();
+            closeExcelModal();
+            btn.textContent = 'Descargar Excel →'; btn.disabled = false;
+        }
+
+        function generateExcel() {
+            const rms = getRMs();
+            const tms = calcTMs(rms);
+            const wb  = XLSX.utils.book_new();
+
+            // Sheet 1: Semana actual
+            const s1 = [
+                ['THE CUBE METHOD — IronLog | lisandrocacciatore.com','','',''],
+                [`Semana ${currentWeek} de la Ola`,'Autor: Brandon Lilly','',''],
+                [`TMs (95%): SQ ${tms.sq} | BP ${tms.bp} | DL ${tms.dl}`,'','',''],
+                [],
+                ['Ejercicio','Tipo','Sets × Reps','Peso (kg)','% TM'],
+            ];
+            LIFTS.forEach(l => {
+                const tm  = tms[l.tmKey];
+                const cfg = getType(l.id, currentWeek);
+                s1.push([l.name, cfg.type, `${cfg.sets}×${cfg.reps}`,
+                    Math.round(tm*cfg.p), `${Math.round(cfg.p*100)}%`]);
+            });
+            s1.push([],['+ Accesorios: 3-4 ejercicios × 10-15 reps (no se calculan automáticamente)']);
+            const ws1 = XLSX.utils.aoa_to_sheet(s1);
+            ws1['!cols'] = [{wch:18},{wch:16},{wch:14},{wch:12},{wch:10}];
+            XLSX.utils.book_append_sheet(wb, ws1, 'Semana Actual');
+
+            // Sheet 2: Ola completa (3 semanas × 3 lifts)
+            const s2hdr = ['Ejercicio','TM','Semana 1 (SQ Heavy)','','Semana 2 (DL Heavy)','','Semana 3 (BP Heavy)',''];
+            const s2sub = ['','','Tipo','Peso','Tipo','Peso','Tipo','Peso'];
+            const s2 = [['OLA COMPLETA — THE CUBE METHOD'], s2hdr, s2sub];
+            LIFTS.forEach(l => {
+                const tm = tms[l.tmKey];
+                const row = [l.name, `${tm}kg`];
+                [1,2,3].forEach(w => {
+                    const cfg = getType(l.id, w);
+                    row.push(cfg.type, `${Math.round(tm*cfg.p)}kg`);
+                });
+                s2.push(row);
+            });
+            const ws2 = XLSX.utils.aoa_to_sheet(s2);
+            ws2['!cols'] = [{wch:18},{wch:10},...Array(6).fill({wch:20})];
+            XLSX.utils.book_append_sheet(wb, ws2, 'Ola Completa');
+
+            XLSX.writeFile(wb, `IronLog_Cube_Semana${currentWeek}.xlsx`);
+        }
+
+        // ── PDF ──────────────────────────────────────────────────────────
+        function openPdfModal()  { document.getElementById('pdfModal').classList.remove('hidden'); }
+        function closePdfModal() { document.getElementById('pdfModal').classList.add('hidden'); }
         function downloadPdfAction() {
-            const element = document.getElementById('pdfPrintableArea');
-            html2pdf().set({ margin: 5, filename: `IronLog_Cube_Semana${currentWeek}.pdf`, image: { type: 'jpeg', quality: 0.98 }, html2canvas: { scale: 2 }, jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' } }).from(element).save();
+            html2pdf().set({ margin:5, filename:`IronLog_Cube_Semana${currentWeek}.pdf`,
+                image:{type:'jpeg',quality:0.98}, html2canvas:{scale:2},
+                jsPDF:{unit:'mm',format:'a4',orientation:'portrait'} })
+            .from(document.getElementById('pdfPrintableArea')).save();
             closePdfModal();
         }
+
+        // ── LEAD ─────────────────────────────────────────────────────────
+        function openLeadModal()  { document.getElementById('leadModal').classList.remove('hidden'); }
+        function closeLeadModal() { document.getElementById('leadModal').classList.add('hidden'); }
     </script>
 </body>
 </html>
