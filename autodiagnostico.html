@@ -86,10 +86,17 @@
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <a href="index.html" class="text-xl font-bold tracking-tighter uppercase">Lisandro Cacciatore<span
                     class="text-blue-600">_</span></a>
-            <div class="flex items-center gap-6">
-                <a href="blog.html"
-                    class="text-xs font-mono uppercase tracking-[0.2em] text-slate-500 hover:text-blue-500 transition">←
-                    Volver al Blog</a>
+            <div class="hidden md:flex space-x-8 font-mono text-sm uppercase tracking-widest">
+                <a href="index.html" class="hover:text-blue-500 transition">Inicio</a>
+                <a href="servicios.html" class="hover:text-blue-500 transition">Servicios</a>
+                <a href="blog.html" class="hover:text-blue-500 transition">Blog</a>
+                <a href="ironlog/index.html" class="text-blue-500 font-bold hover:text-blue-400 transition">IronLog</a>
+                <a href="contacto.html"
+                    class="px-4 py-2 border border-blue-600 rounded text-blue-500 hover:bg-blue-600 hover:text-white transition">Contacto</a>
+            </div>
+            <!-- Mobile "Back" for context -->
+            <div class="md:hidden">
+                <a href="blog.html" class="text-[10px] font-mono text-slate-500">← Volver</a>
             </div>
         </div>
     </nav>
