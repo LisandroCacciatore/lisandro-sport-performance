@@ -1,189 +1,225 @@
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recursos de Validación | IronLog</title>
-    <meta name="description" content="Recursos para preparadores físicos que quieren construir criterio con evidencia. Checklist de validación, instrumentos de seguimiento y más.">
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=IBM+Plex+Sans:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <meta name="description"
+        content="Recursos para preparadores físicos que quieren construir criterio con evidencia. Checklist de validación, instrumentos de seguimiento y más.">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="../theme.js"></script>
-</head>
-<body class="bg-canvas text-body font-sans antialiased">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+        }
 
-    <nav class="sticky top-0 z-50 bg-canvas/95 backdrop-blur-sm border-b border-border">
-        <div class="max-w-7xl mx-auto px-6 h-16 flex justify-between items-center">
-            <a href="../index.html" class="text-xs font-mono text-muted hover:text-ink transition-colors hidden md:block">← Lisandro Cacciatore</a>
-            <span class="text-border hidden md:block">|</span>
-            <div class="flex items-center gap-2">
-                <span class="text-xl">🛠️</span>
-                <a href="index.html" class="font-heading font-extrabold text-lg text-ink">IronLog <span class="font-sans font-normal text-muted text-sm">/ Tools</span></a>
+        .font-mono {
+            font-family: 'Fira Code', monospace;
+        }
+
+        .glass-card {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(51, 65, 85, 0.5);
+        }
+    </style>
+</head>
+
+<body class="bg-[#0f172a] text-slate-200 antialiased">
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-[#0f172a]/80 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <a href="../index.html" class="text-xs font-mono text-slate-500 hover:text-blue-500 transition">←
+                    INICIO</a>
+                <span class="text-slate-800">|</span>
+                <a href="index.html" class="text-xl font-bold tracking-tighter uppercase">IronLog<span
+                        class="text-blue-600">_</span></a>
             </div>
-            
-            <div class="flex items-center gap-6">
-                <a href="demo.html" class="text-sm font-sans text-muted hover:text-ink transition-colors hidden md:block">Simuladores (Free)</a>
-                <a href="../contacto.html" class="bg-primary hover:bg-primary-600 text-white px-4 py-2 rounded font-medium text-sm transition-colors">
-                    Consultoría
-                </a>
+            <div class="hidden md:flex space-x-8 font-mono text-sm uppercase tracking-widest">
+                <a href="demo.html" class="text-slate-400 hover:text-blue-500 transition">Simuladores</a>
+                <a href="tools.html" class="text-blue-500 transition">Tools</a>
             </div>
         </div>
     </nav>
 
-    <header class="bg-surface border-b border-border bg-tech-grid">
-        <div class="max-w-5xl mx-auto px-6 py-20 relative z-10">
-            <span class="inline-block font-mono text-[10px] font-bold uppercase tracking-widest text-primary mb-4 bg-primary-bg px-2 py-1 rounded border border-blue-100">
-                Recursos de validación · Uso libre y de pago
+    <header class="border-b border-slate-800 bg-[#0f172a] relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(37,99,235,0.05),transparent_50%)]">
+        </div>
+        <div class="max-w-5xl mx-auto px-6 py-24 relative z-10">
+            <span
+                class="inline-block font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-blue-500 mb-6 px-3 py-1 bg-blue-900/10 border border-blue-800/30 rounded">
+                INSTRUMENTOS DE VALIDACIÓN
             </span>
-            <h1 class="font-heading text-4xl md:text-5xl font-bold text-ink mb-6">
-                Cada recurso resuelve<br>un problema de criterio concreto.
+            <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-8">
+                Cada recurso resuelve<br><span class="text-blue-600">un problema de criterio.</span>
             </h1>
-            <p class="text-lead text-body max-w-2xl leading-relaxed">
-                No son herramientas de productividad. Son instrumentos dentro de un sistema de validación. Si no sabés qué problema tienen que resolver, no te sirven.
+            <p class="text-slate-400 text-lg max-w-2xl leading-relaxed">
+                No son herramientas de productividad. Son instrumentos dentro de un sistema de gobernanza. Si no sabés
+                qué problema tienen que resolver, no te sirven.
             </p>
         </div>
     </header>
 
-    <main class="max-w-4xl mx-auto px-6 py-22">
+    <main class="max-w-4xl mx-auto px-6 py-24">
 
-        <div class="bg-canvas rounded border border-primary/30 p-8 mb-8 shadow-structural relative overflow-hidden">
-            <div class="absolute top-0 left-0 w-1 h-full bg-primary"></div>
-            <div class="flex-grow pl-2">
-                <div class="flex flex-wrap items-center gap-3 mb-3">
-                    <h3 class="font-heading text-xl font-bold text-ink">Checklist de Validación Semanal del Proceso</h3>
-                    <span class="text-[10px] font-mono bg-surface border border-border text-muted px-2 py-1 rounded uppercase">PDF</span>
-                    <span class="text-[10px] font-mono bg-success-bg text-success border border-success/30 px-2 py-1 rounded uppercase font-bold">Gratis</span>
+        <!-- Active Resource -->
+        <div class="glass-card rounded-3xl p-10 mb-12 border border-blue-800/30 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-48 h-48 bg-blue-600/5 rounded-full -mr-24 -mt-24 blur-3xl"></div>
+
+            <div class="relative z-10">
+                <div class="flex flex-wrap items-center gap-4 mb-4">
+                    <h3 class="text-2xl font-bold text-white">Checklist de Validación Semanal</h3>
+                    <span
+                        class="text-[9px] font-mono bg-slate-900 text-slate-500 px-3 py-1 rounded border border-slate-800 uppercase tracking-widest">PDF</span>
+                    <span
+                        class="text-[9px] font-mono bg-emerald-950/20 text-emerald-500 px-3 py-1 rounded border border-emerald-900/20 uppercase tracking-widest font-bold">ACCESO
+                        LIBRE</span>
                 </div>
-                <p class="text-sm text-body mb-6 leading-relaxed">
-                    10 preguntas para validar si tus decisiones semanales tienen criterio consistente. No revisa solo el dato: revisa cómo justificás ajustes, qué variable seguís y cuándo decidís cambiar de fase.
+                <p class="text-slate-400 mb-8 leading-relaxed">
+                    10 preguntas críticas para validar si tus decisiones semanales tienen criterio consistente. No
+                    revisa solo el dato: revisa cómo justificás ajustes y qué variable gobierna el proceso.
                 </p>
 
-                <div class="bg-surface border-l-4 border-border p-4 mb-6">
-                    <h4 class="text-xs font-mono font-bold text-muted uppercase tracking-wide mb-1">Para qué sirve y para qué no</h4>
-                    <p class="text-xs text-body">Este recurso no reemplaza una consultoría. Funciona como control semanal para detectar cuándo tu proceso empieza a perder consistencia antes de que caiga el rendimiento.</p>
+                <div class="grid md:grid-cols-2 gap-8 mb-10">
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3">
+                            <span class="text-blue-500 font-mono text-xs mt-1">01</span>
+                            <p class="text-xs text-slate-500">Justificación de ajustes de carga (SNC vs Metabolismo).
+                            </p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-blue-500 font-mono text-xs mt-1">02</span>
+                            <p class="text-xs text-slate-500">Detección de "ruido blanco" en las métricas de campo.</p>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3">
+                            <span class="text-blue-500 font-mono text-xs mt-1">03</span>
+                            <p class="text-xs text-slate-500">Criterio de permanencia vs transición de fase.</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-blue-500 font-mono text-xs mt-1">04</span>
+                            <p class="text-xs text-slate-500">Validación de la Variable Crítica Semanal.</p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="flex flex-col sm:flex-row items-center justify-between border-t border-border pt-6 gap-4">
-                    <ul class="text-xs text-muted space-y-1 font-mono">
-                        <li>+ 10 preguntas de validación de proceso</li>
-                        <li>+ Escala Sí / A veces / No</li>
-                        <li>+ Interpretación en tres niveles (verde/amarillo/rojo)</li>
-                    </ul>
-                    <div class="flex items-center gap-4 w-full sm:w-auto">
-                        <span class="font-mono font-bold text-lg text-success">Gratis</span>
-                        <a href="../autodiagnostico.html" class="bg-primary hover:bg-primary-600 text-white px-6 py-2 rounded font-medium text-sm transition-colors text-center cta cta--secondary" data-cta-level="2" data-cta-destination="autodiagnostico">Hacer autodiagnóstico →</a>
+                <div
+                    class="flex flex-col sm:flex-row items-center justify-between border-t border-slate-800 pt-8 gap-6">
+                    <div class="text-xs font-mono text-slate-500 uppercase tracking-widest">
+                        Instrumento de Autocontrol
+                    </div>
+                    <a href="../autodiagnostico.html"
+                        class="w-full sm:w-auto px-8 py-4 bg-blue-700 hover:bg-blue-600 text-white font-bold rounded-lg transition-all uppercase tracking-widest text-[10px] text-center">
+                        Iniciar Autodiagnóstico →
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Future Resources -->
+        <div class="mb-10">
+            <h3 class="text-[10px] font-mono font-bold uppercase tracking-[0.2em] text-slate-600 mb-8">Instrumentos en
+                Desarrollo</h3>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- IronLog Team -->
+                <div class="glass-card rounded-2xl p-8 border-dashed border-slate-800 opacity-60">
+                    <div class="flex items-start justify-between mb-4">
+                        <h4 class="font-bold text-white uppercase tracking-tight">IronLog Team</h4>
+                        <span
+                            class="text-[8px] font-mono text-blue-500 border border-blue-900/30 px-2 py-0.5 rounded uppercase">Sheets</span>
+                    </div>
+                    <p class="text-[11px] text-slate-500 leading-relaxed mb-8">
+                        Seguimiento grupal. Semáforo por atleta basado en su Variable Crítica. Foco en la productividad
+                        de la semana, no en el registro masivo.
+                    </p>
+                    <div class="flex items-center justify-between border-t border-slate-800/50 pt-6">
+                        <span class="font-mono text-xs text-slate-600 uppercase tracking-widest">USD 25</span>
+                        <span class="text-[8px] font-mono font-bold text-slate-700 uppercase">PRÓXIMAMENTE</span>
+                    </div>
+                </div>
+
+                <!-- IronLog Bloque -->
+                <div class="glass-card rounded-2xl p-8 border-dashed border-slate-800 opacity-60">
+                    <div class="flex items-start justify-between mb-4">
+                        <h4 class="font-bold text-white uppercase tracking-tight">IronLog Bloque</h4>
+                        <span
+                            class="text-[8px] font-mono text-blue-500 border border-blue-900/30 px-2 py-0.5 rounded uppercase">Sheets</span>
+                    </div>
+                    <p class="text-[11px] text-slate-500 leading-relaxed mb-8">
+                        Planificación inversa desde competencia. Detecta desfases entre plan y ejecución real antes de
+                        que afecten el timing de la puesta a punto.
+                    </p>
+                    <div class="flex items-center justify-between border-t border-slate-800/50 pt-6">
+                        <span class="font-mono text-xs text-slate-600 uppercase tracking-widest">USD 25</span>
+                        <span class="text-[8px] font-mono font-bold text-slate-700 uppercase">PRÓXIMAMENTE</span>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- ── IRONLOG TOOLS — PRÓXIMAMENTE ── -->
-        <div class="mb-4">
-            <p class="text-xs font-mono font-bold uppercase tracking-widest text-muted">En desarrollo — Instrumentos del sistema IronLog</p>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-6 mb-8">
-
-            <div class="bg-canvas rounded border border-dashed border-border p-6 opacity-70">
-                <div class="flex flex-wrap items-center gap-3 mb-3">
-                    <h3 class="font-heading text-lg font-bold text-ink">IronLog Team</h3>
-                    <span class="text-[10px] font-mono bg-surface border border-border text-muted px-2 py-1 rounded uppercase">Google Sheets</span>
-                    <span class="text-[10px] font-mono bg-primary-bg text-primary px-2 py-1 rounded uppercase font-bold">Próximamente</span>
-                </div>
-                <p class="text-sm text-body mb-4 leading-relaxed">
-                    Instrumento de seguimiento grupal semanal. Semáforo por atleta basado en la Variable Crítica de cada uno. No muestra todo. Muestra si la semana fue productiva o no.
-                </p>
-                <div class="flex items-center justify-between border-t border-border pt-4">
-                    <span class="font-mono font-bold text-lg text-subtle">USD 20</span>
-                    <button disabled class="bg-surface border border-border text-subtle px-4 py-2 rounded font-medium text-sm cursor-not-allowed">Próximamente</button>
-                </div>
+        <!-- Load Dashboard -->
+        <div class="glass-card rounded-3xl p-12 border-dashed border-slate-800 opacity-40 text-center">
+            <div
+                class="inline-block px-3 py-1 bg-blue-900/10 border border-blue-800/30 rounded text-[9px] font-mono text-blue-500 mb-6 uppercase tracking-[0.2em]">
+                BI & ANALYTICS
             </div>
-
-            <div class="bg-canvas rounded border border-dashed border-border p-6 opacity-70">
-                <div class="flex flex-wrap items-center gap-3 mb-3">
-                    <h3 class="font-heading text-lg font-bold text-ink">IronLog Bloque</h3>
-                    <span class="text-[10px] font-mono bg-surface border border-border text-muted px-2 py-1 rounded uppercase">Google Sheets</span>
-                    <span class="text-[10px] font-mono bg-primary-bg text-primary px-2 py-1 rounded uppercase font-bold">Próximamente</span>
-                </div>
-                <p class="text-sm text-body mb-4 leading-relaxed">
-                    Instrumento de planificación inversa desde la competencia. Permite detectar desfases entre el plan y la ejecución real antes de que sean un problema de tiempo.
-                </p>
-                <div class="flex items-center justify-between border-t border-border pt-4">
-                    <span class="font-mono font-bold text-lg text-subtle">USD 20</span>
-                    <button disabled class="bg-surface border border-border text-subtle px-4 py-2 rounded font-medium text-sm cursor-not-allowed">Próximamente</button>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- ── TRAINING LOAD DASHBOARD — EN DESARROLLO ── -->
-        <div class="bg-canvas rounded border border-dashed border-border p-8 opacity-60">
-            <div class="flex flex-wrap items-center gap-3 mb-3">
-                <h3 class="font-heading text-xl font-bold text-ink">Training Load QA Dashboard</h3>
-                <span class="text-[10px] font-mono bg-surface border border-border text-muted px-2 py-1 rounded uppercase">Looker Studio</span>
-                <span class="text-[10px] font-mono bg-primary-bg text-primary px-2 py-1 rounded uppercase font-bold">En Desarrollo</span>
-            </div>
-            <p class="text-sm text-body mb-4 leading-relaxed">
-                Instrumento de control de calidad de datos. No muestra rendimiento. Muestra si la información que alimenta las decisiones tiene errores o vacíos antes de que contaminen el análisis.
+            <h3 class="text-xl font-bold text-white mb-4">Training Load QA Dashboard</h3>
+            <p class="text-xs text-slate-500 max-w-lg mx-auto leading-relaxed mb-8">
+                Control de calidad de datos en Looker Studio. Identifica errores y vacíos en la información antes de que
+                contaminen el análisis y las decisiones.
             </p>
-            <div class="flex items-center justify-between border-t border-border pt-4">
-                <span class="font-mono font-bold text-lg text-subtle">-- USD</span>
-                <button disabled class="bg-surface border border-border text-subtle px-6 py-2 rounded font-medium text-sm cursor-not-allowed">Próximamente</button>
-            </div>
+            <span class="text-[9px] font-mono text-slate-700 uppercase tracking-[0.3em]">BETA PRIVADA</span>
         </div>
 
     </main>
 
-    <section class="bg-ink py-22">
+    <!-- Consultation CTA -->
+    <section class="bg-slate-950 border-y border-slate-900 py-24">
         <div class="max-w-3xl mx-auto px-6 text-center">
-            <span class="font-mono text-[10px] text-surface uppercase tracking-widest mb-4 block opacity-50">Validación · Criterio · Decisión</span>
-            <h2 class="font-heading text-3xl font-bold text-surface mb-4">¿No estás seguro de si el sistema aplica al caso del atleta?</h2>
-            <p class="text-slate-400 mb-8 leading-relaxed text-sm">
-                El autodiagnóstico ordena el problema. El siguiente paso es revisar tu caso concreto y definir qué Variable Crítica conviene seguir en esta fase.
+            <h2 class="text-3xl font-bold text-white mb-6">¿El simulador te genera más preguntas que respuestas?</h2>
+            <p class="text-slate-400 mb-10 leading-relaxed text-sm">
+                El autodiagnóstico ordena el problema. El siguiente paso es revisar tu sistema de decisión actual y
+                definir qué Variable Crítica conviene seguir en esta fase.
             </p>
-            <div class="inline-block p-6 border border-slate-700 rounded bg-dark text-left w-full max-w-lg">
-                <h4 class="font-heading font-bold text-surface mb-2">Diagnóstico de sistema — Gratuito</h4>
-                <p class="text-sm text-slate-400 mb-4">30 minutos para revisar cómo tomás decisiones hoy. Sin compromiso. Con argumento claro al finalizar.</p>
-                <a href="../contacto.html" class="text-xs font-mono font-bold text-primary hover:underline cta cta--primary" data-cta-level="1" data-cta-destination="auditoria-vcv">Solicitar revisión →</a>
+            <div class="p-10 bg-[#0f172a] border border-blue-800/20 rounded-3xl text-left max-w-xl mx-auto shadow-2xl">
+                <h4 class="font-bold text-blue-400 mb-3 uppercase tracking-widest text-xs">Auditoría VCV — Gratuita</h4>
+                <p class="text-xs text-slate-500 mb-8 leading-relaxed">
+                    30 minutos para revisar cómo tomás decisiones hoy. Sin compromiso. Con argumento técnico claro al
+                    finalizar la sesión.
+                </p>
+                <a href="../contacto.html"
+                    class="inline-block text-[10px] font-mono font-bold text-white bg-blue-700 hover:bg-blue-600 px-6 py-4 rounded-lg uppercase tracking-[0.2em] transition-all">
+                    Solicitar Auditoría →
+                </a>
             </div>
         </div>
     </section>
 
-    <footer class="bg-dark pt-16 pb-8 border-t-4 border-primary">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-                <div class="md:col-span-2">
-                    <span class="font-heading font-semibold text-lg text-surface block mb-4">Lisandro Cacciatore <span class="text-primary font-mono font-bold">_</span></span>
-                    <p class="text-muted text-sm leading-relaxed max-w-sm">
-                        Sistemas de validación semanal para preparadores físicos. Criterio claro, decisiones con fundamento.
-                    </p>
-                </div>
-                <div>
-                    <h3 class="font-heading text-surface text-xs font-bold mb-4 uppercase tracking-widest">Ecosistema</h3>
-                    <ul class="space-y-3">
-                        <li><a href="../blog.html" class="text-sm font-sans text-muted hover:text-surface transition-colors">Blog Técnico</a></li>
-                        <li><a href="index.html" class="text-sm font-sans text-muted hover:text-surface transition-colors">IronLog (Piloto)</a></li>
-                        <li><a href="tools.html" class="text-sm font-sans text-muted hover:text-surface transition-colors">Data Tools</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="font-heading text-surface text-xs font-bold mb-4 uppercase tracking-widest">Operaciones</h3>
-                    <ul class="space-y-3">
-                        <li><a href="../contacto.html" class="text-sm font-sans text-muted hover:text-surface transition-colors">Solicitar revisión →</a></li>
-                        <li><span class="text-sm font-sans text-subtle block">Rosario, Argentina</span></li>
-                        <li><span class="text-sm font-sans text-subtle block">Remoto LATAM / España</span></li>
-                    </ul>
-                </div>
+    <!-- Footer -->
+    <footer class="bg-[#0f172a] border-t border-slate-800 py-16 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
+            <div class="flex flex-col gap-3 items-center md:items-start">
+                <span class="text-2xl font-bold tracking-tighter uppercase text-white">IronLog<span
+                        class="text-blue-600">_</span></span>
+                <p class="text-slate-500 text-[10px] font-mono uppercase tracking-[0.2em]">Sistemas de Validación
+                    Semanal</p>
             </div>
-            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <div class="text-xs font-mono text-subtle">
-                    © 2026 Lisandro Cacciatore. Todos los derechos reservados.
-                </div>
-                <div class="flex gap-6 text-xs font-sans text-subtle">
-                    <a href="../privacidad.html" class="hover:text-muted transition-colors">Privacidad</a>
-                    <a href="../sobre-mi.html" class="hover:text-muted transition-colors">Sobre mí</a>
-                </div>
+            <div class="flex space-x-12 text-[10px] font-mono uppercase tracking-[0.3em] text-slate-600">
+                <a href="../privacidad.html" class="hover:text-blue-500 transition">Privacidad</a>
+                <a href="../sobre-mi.html" class="hover:text-blue-500 transition">Sobre mí</a>
+                <span class="text-slate-800">© 2026</span>
             </div>
         </div>
     </footer>
 </body>
+
 </html>

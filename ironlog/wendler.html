@@ -1,103 +1,181 @@
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wendler 5/3/1 - IronLog Interactive | Lisandro Cacciatore</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=IBM+Plex+Sans:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="../theme.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script src="https://cdn.sheetjs.com/xlsx-0.20.0/package/dist/xlsx.full.min.js"></script>
     <style>
-        .week-card { transition: all 0.3s ease; cursor: pointer; }
-        .week-card:hover { transform: translateY(-4px); }
-        .week-active { box-shadow: 0 0 0 3px #1E3A8A; transform: scale(1.02); outline: none; }
-        select { -webkit-appearance: none; -moz-appearance: none; appearance: none; }
-        .sim-tab { transition: all 0.2s ease; }
-        .sim-tab-active { background: #1E3A8A !important; color: #fff !important; border-color: #1E3A8A !important; }
-        .cycle-tr:nth-child(even) td { background: #F8FAFC; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+        }
+
+        .font-mono {
+            font-family: 'Fira Code', monospace;
+        }
+
+        .week-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid rgba(51, 65, 85, 0.5);
+            background: rgba(30, 41, 59, 0.4);
+        }
+
+        .week-card:hover {
+            transform: translateY(-4px);
+            border-color: #3b82f6;
+        }
+
+        .week-active {
+            background: rgba(30, 58, 138, 0.4) !important;
+            border-color: #2563eb !important;
+            box-shadow: 0 0 20px rgba(37, 99, 235, 0.2);
+            outline: none;
+        }
+
+        .sim-tab-active {
+            background: #1d4ed8 !important;
+            color: white !important;
+            border-color: #1d4ed8 !important;
+        }
+
+        .glass-card {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(51, 65, 85, 0.5);
+        }
+
+        select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+
+        /* Chart dark mode adjustments */
+        canvas {
+            filter: saturate(1.2);
+        }
     </style>
 </head>
-<body class="bg-canvas text-body font-sans antialiased">
 
-    <nav class="sticky top-0 z-50 bg-canvas/95 backdrop-blur-sm border-b border-border">
-        <div class="max-w-7xl mx-auto px-6 h-16 flex justify-between items-center">
-            <a href="../index.html" class="text-xs font-mono text-muted hover:text-ink transition-colors hidden md:block">← Lisandro Cacciatore</a>
-            <span class="text-border hidden md:block">|</span>
-            <div class="flex items-center gap-2">
-                <span class="text-xl">🧮</span>
-                <a href="demo.html" class="font-heading font-extrabold text-lg text-ink">IronLog <span class="font-sans font-normal text-muted text-sm">/ Simuladores</span></a>
+<body class="bg-[#0f172a] text-slate-200 antialiased">
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-[#0f172a]/80 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <a href="../index.html" class="text-xs font-mono text-slate-500 hover:text-blue-500 transition">←
+                    INICIO</a>
+                <span class="text-slate-800">|</span>
+                <a href="index.html" class="text-xl font-bold tracking-tighter uppercase">IronLog<span
+                        class="text-blue-600">_</span></a>
             </div>
-            <div class="flex items-center gap-6">
-                <a href="tools.html" class="text-sm font-sans text-muted hover:text-ink transition-colors hidden md:block">Herramientas</a>
-                <a href="index.html#early-access" class="bg-primary hover:bg-primary-600 text-white px-4 py-2 rounded font-medium text-sm transition-colors">Lista de espera</a>
+            <div class="hidden md:flex space-x-8 font-mono text-sm uppercase tracking-widest">
+                <a href="demo.html" class="text-blue-500 transition">Simuladores</a>
+                <a href="index.html#early-access"
+                    class="px-4 py-2 border border-blue-600 rounded text-blue-500 hover:bg-blue-600 hover:text-white transition">Lista
+                    de Espera</a>
             </div>
         </div>
     </nav>
 
-    <!-- ── NAVEGACIÓN CRUZADA ── -->
-    <div class="bg-surface border-b border-border">
-        <div class="max-w-5xl mx-auto px-6 py-3 flex items-center gap-2 flex-wrap">
-            <span class="text-[10px] font-mono font-bold text-muted uppercase tracking-widest mr-2">Simuladores:</span>
-            <a href="wendler.html" class="sim-tab sim-tab-active text-[11px] font-mono font-bold px-3 py-1.5 rounded border">📈 Wendler 5/3/1</a>
-            <a href="cube.html" class="sim-tab text-[11px] font-mono font-bold px-3 py-1.5 rounded border border-border text-muted hover:text-ink hover:border-primary">🧊 The Cube</a>
-            <a href="ss.html" class="sim-tab text-[11px] font-mono font-bold px-3 py-1.5 rounded border border-border text-muted hover:text-ink hover:border-primary">🚂 Starting Strength</a>
-            <span class="text-border mx-1 hidden sm:block">|</span>
-            <a href="../contacto.html" class="text-[11px] font-mono text-muted hover:text-primary transition-colors hidden sm:block">¿No sabés cuál usar? →</a>
+    <!-- Cross Nav -->
+    <div class="bg-slate-900/50 border-b border-slate-800">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex items-center gap-3 overflow-x-auto no-scrollbar">
+            <span
+                class="text-[10px] font-mono font-bold text-slate-500 uppercase tracking-widest mr-2 shrink-0">Instrumentos:</span>
+            <a href="wendler.html"
+                class="sim-tab-active text-[10px] font-mono font-bold px-4 py-2 rounded border border-blue-700 whitespace-nowrap">📈
+                Wendler 5/3/1</a>
+            <a href="cube.html"
+                class="text-[10px] font-mono font-bold px-4 py-2 rounded border border-slate-700 text-slate-400 hover:text-white hover:border-slate-500 transition whitespace-nowrap">🧊
+                The Cube</a>
+            <a href="ss.html"
+                class="text-[10px] font-mono font-bold px-4 py-2 rounded border border-slate-700 text-slate-400 hover:text-white hover:border-slate-500 transition whitespace-nowrap">🚂
+                Starting Strength</a>
         </div>
     </div>
 
     <div class="max-w-5xl mx-auto px-6 py-12 pb-24">
-
-        <header class="mb-12">
-            <div class="flex items-center gap-3 mb-4">
+        <!-- Header Section -->
+        <header class="mb-16">
+            <div class="flex items-center gap-4 mb-6">
                 <span class="text-4xl">📈</span>
-                <h1 class="font-heading text-3xl md:text-5xl font-bold text-ink tracking-tight">Wendler 5/3/1</h1>
+                <h1 class="text-4xl md:text-5xl font-bold tracking-tight">Wendler 5/3/1</h1>
             </div>
-            <div class="bg-surface p-6 md:p-8 rounded border border-border shadow-structural">
-                <h2 class="font-heading text-lg font-bold text-ink mb-3">Variable Crítica: Intensidad sostenida sobre el Training Max</h2>
-                <div class="text-body text-sm space-y-4 leading-relaxed">
-                    <p>Wendler no persigue pesos máximos sesión a sesión. La Variable Crítica es <strong>cuánto trabaja el atleta por encima del 85% del TM de forma consistente durante el ciclo</strong>. Cuando esa variable se mantiene, la fuerza crece. Cuando se fuerza prematuramente, el sistema se rompe.</p>
-                    <p class="text-muted">Este simulador no reemplaza el criterio. Muestra los números que deberías estar mirando. Si no tenés claro cuándo esos números dejaron de importar, la herramienta no alcanza.</p>
+            <div class="glass-card p-8 rounded-2xl border border-slate-800">
+                <h2 class="text-lg font-bold text-blue-400 mb-4 uppercase tracking-wide">Variable Crítica: Intensidad
+                    sostenida sobre el Training Max</h2>
+                <div class="text-slate-400 text-sm space-y-4 leading-relaxed">
+                    <p>Wendler no persigue pesos máximos sesión a sesión. La Variable Crítica es <strong
+                            class="text-slate-200">cuánto trabaja el atleta por encima del 85% del TM de forma
+                            consistente durante el ciclo</strong>. Cuando esa variable se mantiene, la fuerza crece.
+                        Cuando se fuerza prematuramente, el sistema se rompe.</p>
                 </div>
             </div>
         </header>
 
-        <section id="configSection" class="mb-12">
-            <div class="bg-surface rounded border border-border shadow-structural overflow-hidden p-6 md:p-8">
-                <div class="flex items-center gap-2 mb-6 border-b border-border pb-4">
-                    <span class="bg-ink text-surface text-xs font-mono font-bold px-2 py-1 rounded">PASO 1</span>
-                    <h3 class="font-heading font-bold text-ink">Configura tus Variables</h3>
+        <!-- Config Paso 1 -->
+        <section id="configSection" class="mb-16">
+            <div class="glass-card rounded-2xl p-8">
+                <div class="flex items-center gap-3 mb-8 border-b border-slate-800 pb-6">
+                    <span class="bg-blue-600 text-white text-[10px] font-mono font-bold px-2 py-1 rounded">01</span>
+                    <h3 class="font-bold uppercase tracking-widest text-xs">Configuración de Carga Base</h3>
                 </div>
-                <div class="grid md:grid-cols-5 gap-6">
-                    <div class="col-span-2 md:col-span-1">
-                        <label class="block text-[10px] font-mono font-bold text-muted uppercase mb-2">Squat (RM)</label>
-                        <input type="number" id="manualSquat" value="140" class="w-full p-3 border border-border bg-canvas rounded font-mono font-bold focus:border-primary outline-none text-ink">
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-6">
+                    <div>
+                        <label
+                            class="block text-[10px] font-mono font-bold text-slate-500 uppercase mb-3 tracking-widest">Squat
+                            (RM)</label>
+                        <input type="number" id="manualSquat" value="140"
+                            class="w-full bg-slate-950 border border-slate-800 p-4 rounded-lg focus:border-blue-600 outline-none transition text-slate-200 font-mono font-bold">
+                    </div>
+                    <div>
+                        <label
+                            class="block text-[10px] font-mono font-bold text-slate-500 uppercase mb-3 tracking-widest">Bench
+                            (RM)</label>
+                        <input type="number" id="manualBench" value="105"
+                            class="w-full bg-slate-950 border border-slate-800 p-4 rounded-lg focus:border-blue-600 outline-none transition text-slate-200 font-mono font-bold">
+                    </div>
+                    <div>
+                        <label
+                            class="block text-[10px] font-mono font-bold text-slate-500 uppercase mb-3 tracking-widest">Deadlift
+                            (RM)</label>
+                        <input type="number" id="manualDeadlift" value="185"
+                            class="w-full bg-slate-950 border border-slate-800 p-4 rounded-lg focus:border-blue-600 outline-none transition text-slate-200 font-mono font-bold">
+                    </div>
+                    <div>
+                        <label
+                            class="block text-[10px] font-mono font-bold text-slate-500 uppercase mb-3 tracking-widest">OHP
+                            (RM)</label>
+                        <input type="number" id="manualOhp" value="65"
+                            class="w-full bg-slate-950 border border-slate-800 p-4 rounded-lg focus:border-blue-600 outline-none transition text-slate-200 font-mono font-bold">
                     </div>
                     <div class="col-span-2 md:col-span-1">
-                        <label class="block text-[10px] font-mono font-bold text-muted uppercase mb-2">Bench (RM)</label>
-                        <input type="number" id="manualBench" value="105" class="w-full p-3 border border-border bg-canvas rounded font-mono font-bold focus:border-primary outline-none text-ink">
-                    </div>
-                    <div class="col-span-2 md:col-span-1">
-                        <label class="block text-[10px] font-mono font-bold text-muted uppercase mb-2">Deadlift (RM)</label>
-                        <input type="number" id="manualDeadlift" value="185" class="w-full p-3 border border-border bg-canvas rounded font-mono font-bold focus:border-primary outline-none text-ink">
-                    </div>
-                    <div class="col-span-2 md:col-span-1">
-                        <label class="block text-[10px] font-mono font-bold text-muted uppercase mb-2">OHP (RM)</label>
-                        <input type="number" id="manualOhp" value="65" class="w-full p-3 border border-border bg-canvas rounded font-mono font-bold focus:border-primary outline-none text-ink">
-                    </div>
-                    <div class="col-span-4 md:col-span-1">
-                        <label class="block text-[10px] font-mono font-bold text-primary uppercase mb-2">Plantilla Asistencia</label>
+                        <label
+                            class="block text-[10px] font-mono font-bold text-blue-500 uppercase mb-3 tracking-widest">Asistencia</label>
                         <div class="relative">
-                            <select id="assistanceTemplate" onchange="generateWendlerDashboard()" class="w-full p-3 border border-blue-200 bg-primary-bg text-primary font-mono font-bold rounded focus:border-primary outline-none cursor-pointer">
+                            <select id="assistanceTemplate" onchange="generateWendlerDashboard()"
+                                class="w-full bg-blue-900/20 border border-blue-800/50 p-4 rounded-lg focus:border-blue-600 outline-none transition text-blue-400 font-mono font-bold cursor-pointer">
                                 <option value="BBB">Boring But Big</option>
                                 <option value="FSL">First Set Last</option>
                                 <option value="JOKER">Joker Sets</option>
                             </select>
-                            <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none text-primary">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            <div
+                                class="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-blue-500">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7"></path>
+                                </svg>
                             </div>
                         </div>
                     </div>
@@ -105,301 +183,347 @@
             </div>
         </section>
 
-        <section class="mb-10">
-            <div class="flex items-center gap-2 mb-6">
-                <span class="bg-ink text-surface text-xs font-mono font-bold px-2 py-1 rounded">PASO 2</span>
-                <h3 class="font-heading font-bold text-ink">Selecciona la Semana del Microciclo</h3>
+        <!-- Weeks Paso 2 -->
+        <section class="mb-16">
+            <div class="flex items-center gap-3 mb-8">
+                <span class="bg-blue-600 text-white text-[10px] font-mono font-bold px-2 py-1 rounded">02</span>
+                <h3 class="font-bold uppercase tracking-widest text-xs">Fase del Microciclo</h3>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-4" id="weekSelector">
-                <div role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')selectWeek(1)" onclick="selectWeek(1)" id="card-week-1" class="week-card bg-surface p-5 rounded border border-border shadow-structural">
-                    <div class="font-heading font-bold text-ink mb-2 border-b border-border pb-2">Semana 1</div>
-                    <div class="text-[10px] font-mono font-bold text-primary bg-primary-bg px-2 py-1 rounded inline-block mb-3 border border-blue-100 uppercase tracking-wide">Volumen (3x5+)</div>
-                    <ul class="text-xs text-muted space-y-1 font-mono"><li>Base: 65% / 75% / 85%</li></ul>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="weekSelector">
+                <div role="button" tabindex="0" onclick="selectWeek(1)" id="card-week-1"
+                    class="week-card p-6 rounded-xl">
+                    <div class="font-bold text-slate-200 mb-3 border-b border-slate-800 pb-3">Semana 1</div>
+                    <div class="text-[10px] font-mono font-bold text-blue-400 uppercase tracking-widest mb-4">Volumen
+                        (3x5+)</div>
+                    <ul class="text-[10px] text-slate-500 space-y-1 font-mono uppercase">
+                        <li>65% / 75% / 85%</li>
+                    </ul>
                 </div>
-                <div role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')selectWeek(2)" onclick="selectWeek(2)" id="card-week-2" class="week-card bg-surface p-5 rounded border border-border shadow-structural">
-                    <div class="font-heading font-bold text-ink mb-2 border-b border-border pb-2">Semana 2</div>
-                    <div class="text-[10px] font-mono font-bold text-warning bg-warning-bg px-2 py-1 rounded inline-block mb-3 border border-amber-200 uppercase tracking-wide">Híbrido (3x3+)</div>
-                    <ul class="text-xs text-muted space-y-1 font-mono"><li>Base: 70% / 80% / 90%</li></ul>
+                <div role="button" tabindex="0" onclick="selectWeek(2)" id="card-week-2"
+                    class="week-card p-6 rounded-xl">
+                    <div class="font-bold text-slate-200 mb-3 border-b border-slate-800 pb-3">Semana 2</div>
+                    <div class="text-[10px] font-mono font-bold text-amber-500 uppercase tracking-widest mb-4">Híbrido
+                        (3x3+)</div>
+                    <ul class="text-[10px] text-slate-500 space-y-1 font-mono uppercase">
+                        <li>70% / 80% / 90%</li>
+                    </ul>
                 </div>
-                <div role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')selectWeek(3)" onclick="selectWeek(3)" id="card-week-3" class="week-card bg-surface p-5 rounded border border-border shadow-structural">
-                    <div class="font-heading font-bold text-ink mb-2 border-b border-border pb-2">Semana 3</div>
-                    <div class="text-[10px] font-mono font-bold text-error bg-error-bg px-2 py-1 rounded inline-block mb-3 border border-red-200 uppercase tracking-wide">Pico (5/3/1+)</div>
-                    <ul class="text-xs text-muted space-y-1 font-mono"><li>Base: 75% / 85% / 95%</li></ul>
+                <div role="button" tabindex="0" onclick="selectWeek(3)" id="card-week-3"
+                    class="week-card p-6 rounded-xl">
+                    <div class="font-bold text-slate-200 mb-3 border-b border-slate-800 pb-3">Semana 3</div>
+                    <div class="text-[10px] font-mono font-bold text-red-500 uppercase tracking-widest mb-4">Pico
+                        (5/3/1+)</div>
+                    <ul class="text-[10px] text-slate-500 space-y-1 font-mono uppercase">
+                        <li>75% / 85% / 95%</li>
+                    </ul>
                 </div>
-                <div role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')selectWeek(4)" onclick="selectWeek(4)" id="card-week-4" class="week-card bg-surface p-5 rounded border border-border shadow-structural">
-                    <div class="font-heading font-bold text-ink mb-2 border-b border-border pb-2">Semana 4</div>
-                    <div class="text-[10px] font-mono font-bold text-success bg-success-bg px-2 py-1 rounded inline-block mb-3 border border-green-200 uppercase tracking-wide">Descarga</div>
-                    <ul class="text-xs text-muted space-y-1 font-mono"><li>Recuperación Activa</li></ul>
+                <div role="button" tabindex="0" onclick="selectWeek(4)" id="card-week-4"
+                    class="week-card p-6 rounded-xl">
+                    <div class="font-bold text-slate-200 mb-3 border-b border-slate-800 pb-3">Semana 4</div>
+                    <div class="text-[10px] font-mono font-bold text-emerald-500 uppercase tracking-widest mb-4">
+                        Descarga</div>
+                    <ul class="text-[10px] text-slate-500 space-y-1 font-mono uppercase">
+                        <li>Reg. Activa</li>
+                    </ul>
                 </div>
             </div>
         </section>
 
+        <!-- Dashboard Result -->
         <section id="dashboard" class="transition-all duration-500">
-            <div id="pdfPrintableArea" class="bg-surface p-8 rounded border border-border shadow-structural mb-8">
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 border-b border-border pb-6 gap-4">
+            <div id="pdfPrintableArea"
+                class="glass-card p-8 md:p-12 rounded-3xl border border-slate-800 mb-8 bg-[#0f172a]">
+                <div
+                    class="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 border-b border-slate-800 pb-8 gap-6">
                     <div>
-                        <h2 class="font-heading text-2xl font-bold text-ink">Reporte de Carga</h2>
-                        <div class="flex items-center gap-3 mt-1 flex-wrap">
-                            <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase bg-canvas border border-border text-ink" id="reportWeekBadge">Semana 1</span>
-                            <span class="text-border">|</span>
-                            <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase bg-primary-bg text-primary border border-blue-100" id="reportTemplateBadge">Plantilla: BBB</span>
+                        <h2 class="text-3xl font-bold tracking-tight mb-2 text-white">Proyección de Carga</h2>
+                        <div class="flex items-center gap-4 flex-wrap">
+                            <span
+                                class="px-3 py-1 rounded text-[10px] font-mono font-bold uppercase bg-slate-900 border border-slate-700 text-slate-400"
+                                id="reportWeekBadge">Semana 1</span>
+                            <span
+                                class="px-3 py-1 rounded text-[10px] font-mono font-bold uppercase bg-blue-900/30 text-blue-400 border border-blue-800/50"
+                                id="reportTemplateBadge">BBB</span>
                         </div>
                     </div>
-                    <div class="text-right">
-                        <div class="text-[10px] font-mono font-bold text-muted uppercase tracking-widest mb-1">Training Maxes (90%)</div>
-                        <div class="text-sm font-mono text-ink font-bold bg-canvas px-3 py-1 rounded border border-border" id="tmDisplay">SQ:126 | BP:95 | DL:166 | OH:58</div>
+                    <div class="md:text-right">
+                        <div class="text-[10px] font-mono font-bold text-slate-500 uppercase tracking-widest mb-2">
+                            Training Max (90%)</div>
+                        <div class="text-xs font-mono text-blue-400 font-bold bg-blue-900/20 px-4 py-2 rounded-lg border border-blue-800/30"
+                            id="tmDisplay">SQ:126 | BP:95 | DL:166 | OH:58</div>
                     </div>
                 </div>
-                <div class="grid lg:grid-cols-3 gap-8 mb-8">
+
+                <div class="grid lg:grid-cols-3 gap-12 mb-12">
                     <div class="lg:col-span-1">
-                        <h3 class="text-[10px] font-mono font-bold text-muted uppercase tracking-widest mb-4">Estructura Diaria</h3>
-                        <div id="exercisesList" class="space-y-3"></div>
+                        <h3 class="text-[10px] font-mono font-bold text-slate-500 uppercase tracking-widest mb-6">Sesión
+                            Diaria</h3>
+                        <div id="exercisesList" class="space-y-4"></div>
                     </div>
                     <div class="lg:col-span-1 flex flex-col">
-                        <h3 class="text-[10px] font-mono font-bold text-muted uppercase tracking-widest mb-2 text-center">Perfil Fisiológico</h3>
-                        <div class="flex-grow bg-canvas rounded p-2 border border-border flex items-center justify-center">
+                        <h3
+                            class="text-[10px] font-mono font-bold text-slate-500 uppercase tracking-widest mb-6 text-center">
+                            Perfil de Impacto</h3>
+                        <div
+                            class="flex-grow bg-slate-950/50 rounded-2xl p-6 border border-slate-800 flex items-center justify-center">
                             <div class="h-64 w-full"><canvas id="radarChart"></canvas></div>
                         </div>
                     </div>
                     <div class="lg:col-span-1 flex flex-col">
-                        <h3 class="text-[10px] font-mono font-bold text-muted uppercase tracking-widest mb-2 text-center">Distribución de Volumen</h3>
-                        <div class="flex-grow bg-canvas rounded p-2 border border-border flex items-center justify-center">
+                        <h3
+                            class="text-[10px] font-mono font-bold text-slate-500 uppercase tracking-widest mb-6 text-center">
+                            Balance Volumen</h3>
+                        <div
+                            class="flex-grow bg-slate-950/50 rounded-2xl p-6 border border-slate-800 flex items-center justify-center">
                             <div class="h-56 w-full"><canvas id="doughnutChart"></canvas></div>
                         </div>
                     </div>
                 </div>
-                <div class="mt-8 pt-8 border-t border-border">
-                    <h3 class="text-[10px] font-mono font-bold text-muted uppercase tracking-widest mb-4">Ondulación Diaria: Intensidad vs Volumen</h3>
+                <div class="mt-12 pt-12 border-t border-slate-800">
+                    <h3 class="text-[10px] font-mono font-bold text-slate-500 uppercase tracking-widest mb-6">Ondulación
+                        de Sesión</h3>
                     <div class="h-64 w-full"><canvas id="comboChart"></canvas></div>
                 </div>
             </div>
 
-            <!-- ── VARIABLE A VALIDAR ── -->
-            <div id="vcvBlock" class="mb-6 bg-primary-bg border border-blue-200 rounded p-5">
-                <div class="flex items-start gap-3">
-                    <span class="text-xl mt-0.5">🎯</span>
+            <!-- VCV Question -->
+            <div id="vcvBlock" class="mb-8 bg-blue-900/10 border border-blue-800/30 rounded-2xl p-8">
+                <div class="flex items-start gap-4">
+                    <span class="text-2xl mt-1">🎯</span>
                     <div>
-                        <div class="text-[10px] font-mono font-bold text-primary uppercase tracking-widest mb-1">Variable a validar esta semana</div>
-                        <p id="vcvQuestion" class="text-sm text-ink font-medium leading-relaxed"></p>
+                        <div class="text-[10px] font-mono font-bold text-blue-500 uppercase tracking-widest mb-2">
+                            Indicador Crítico de Validación</div>
+                        <p id="vcvQuestion" class="text-slate-200 font-medium leading-relaxed"></p>
                     </div>
                 </div>
             </div>
 
-            <!-- ── SEÑALES DE RUPTURA ── -->
-            <div class="mb-8 bg-surface border border-border rounded shadow-structural overflow-hidden">
-                <div class="px-6 py-4 border-b border-border flex items-center gap-2">
-                    <span class="text-base">⚠️</span>
-                    <span class="text-[10px] font-mono font-bold text-muted uppercase tracking-widest">Señales de ruptura del sistema</span>
+            <!-- Signals -->
+            <div class="mb-12 glass-card rounded-2xl overflow-hidden">
+                <div class="px-8 py-5 border-b border-slate-800 flex items-center gap-3 bg-slate-900/40">
+                    <span class="text-amber-500">⚠️</span>
+                    <span class="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-widest">Alertas de
+                        Desvío Técnico</span>
                 </div>
-                <div class="divide-y divide-border">
-                    <div class="px-6 py-4 flex items-start gap-4">
-                        <span class="text-error font-mono font-bold text-sm mt-0.5 shrink-0">01</span>
+                <div class="divide-y divide-slate-800">
+                    <div class="px-8 py-6 flex items-start gap-6">
+                        <span class="text-red-500 font-mono font-bold text-xs mt-1 shrink-0">01</span>
                         <div>
-                            <p class="text-sm text-ink font-medium mb-0.5">El AMRAP de semana 3 no supera las repeticiones mínimas dos ciclos seguidos</p>
-                            <p class="text-xs text-muted font-mono">→ El TM está sobreestimado. Reducir el 90% o revisar el RM base antes de avanzar.</p>
+                            <p class="text-slate-200 font-bold mb-1">El AMRAP de semana 3 no supera el ciclo anterior
+                            </p>
+                            <p class="text-xs text-slate-500 font-mono italic">→ Entrenamiento estancado. El TM está
+                                sobrestimado.</p>
                         </div>
                     </div>
-                    <div class="px-6 py-4 flex items-start gap-4">
-                        <span class="text-error font-mono font-bold text-sm mt-0.5 shrink-0">02</span>
+                    <div class="px-8 py-6 flex items-start gap-6 text-slate-400">
+                        <span class="text-red-500/50 font-mono font-bold text-xs mt-1 shrink-0">02</span>
                         <div>
-                            <p class="text-sm text-ink font-medium mb-0.5">La asistencia genera fatiga residual que compite con el pico de semana 3</p>
-                            <p class="text-xs text-muted font-mono">→ La plantilla está mal seleccionada para el nivel de recuperación del atleta. Revisar BBB vs FSL.</p>
-                        </div>
-                    </div>
-                    <div class="px-6 py-4 flex items-start gap-4">
-                        <span class="text-error font-mono font-bold text-sm mt-0.5 shrink-0">03</span>
-                        <div>
-                            <p class="text-sm text-ink font-medium mb-0.5">El atleta sube de ciclo sin haber completado la semana 3 con margen real</p>
-                            <p class="text-xs text-muted font-mono">→ Incremento prematuro. El TM siguiente está inflado antes de empezar.</p>
+                            <p class="text-slate-200 font-bold mb-1">Fatiga residual acumulada en semana 2</p>
+                            <p class="text-xs text-slate-500 font-mono italic">→ Exceso de volumen accesorio. Cambiar
+                                BBB por FSL.</p>
                         </div>
                     </div>
                 </div>
-                <div class="px-6 py-4 bg-canvas border-t border-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-                    <p class="text-xs text-muted font-mono">¿Estás viendo alguna de estas señales en tu atleta?</p>
-                    <button onclick="openLeadModal()" class="text-xs font-mono font-bold text-primary hover:underline shrink-0">Auditoría VCV →</button>
+                <div
+                    class="px-8 py-5 bg-slate-900/20 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <p class="text-[10px] text-slate-500 font-mono uppercase tracking-widest">¿Ves estos patrones en tu
+                        data?</p>
+                    <button onclick="openLeadModal()"
+                        class="text-[10px] font-mono font-bold text-blue-500 hover:text-blue-400 transition uppercase tracking-widest decoration-blue-500/30 underline underline-offset-4">Auditoría
+                        VCV →</button>
                 </div>
             </div>
 
-            <!-- ── BOTONES DE ACCIÓN ── -->
-            <div class="flex flex-col sm:flex-row gap-3 justify-center mb-16">
-                <button onclick="openLeadModal()" class="bg-primary hover:bg-primary-600 text-white px-8 py-3 rounded font-medium transition-colors">
+            <!-- Action Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-24">
+                <button onclick="openLeadModal()"
+                    class="px-8 py-4 bg-blue-700 hover:bg-blue-600 text-white font-bold rounded-lg transition-all uppercase tracking-widest text-[10px]">
                     Revisar mi sistema →
                 </button>
-                <button onclick="openExcelModal()" class="border border-border hover:border-primary text-ink px-8 py-3 rounded font-medium transition-colors flex items-center justify-center gap-2">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                    Excel (.xlsx)
+                <button onclick="openExcelModal()"
+                    class="px-8 py-4 border border-slate-800 hover:border-slate-600 text-slate-300 font-bold rounded-lg transition-all uppercase tracking-widest text-[10px] flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                        </path>
+                    </svg>
+                    Descargar .xlsx
                 </button>
-                <button onclick="openPdfModal()" class="border border-border hover:border-primary text-ink px-8 py-3 rounded font-medium transition-colors flex items-center justify-center gap-2">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                    PDF
+                <button onclick="openPdfModal()"
+                    class="px-8 py-4 border border-slate-800 hover:border-slate-600 text-slate-300 font-bold rounded-lg transition-all uppercase tracking-widest text-[10px] flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                    </svg>
+                    Descargar .pdf
                 </button>
             </div>
         </section>
 
-        <!-- ── CICLO COMPLETO ── -->
-        <section class="mt-4">
-            <div class="flex items-center gap-3 mb-6">
-                <div class="h-px flex-1 bg-border"></div>
-                <span class="text-[10px] font-mono font-bold text-muted uppercase tracking-widest px-2">// Ciclo Completo — Las 4 Semanas</span>
-                <div class="h-px flex-1 bg-border"></div>
+        <!-- Full Table -->
+        <section class="mt-8">
+            <div class="flex items-center gap-4 mb-10">
+                <div class="h-px flex-1 bg-slate-800"></div>
+                <span class="text-[10px] font-mono font-bold text-slate-500 uppercase tracking-widest px-4">Log de Ciclo
+                    Completo</span>
+                <div class="h-px flex-1 bg-slate-800"></div>
             </div>
-            <div class="bg-surface rounded border border-border shadow-structural overflow-hidden mb-4">
-                <div class="p-4 border-b border-border bg-canvas flex items-center justify-between flex-wrap gap-2">
-                    <p class="text-xs text-muted font-mono">Todos los pesos sobre el TM (90% del RM). La semana activa está resaltada.</p>
-                    <span class="text-[10px] font-mono text-subtle">TM = RM × 0.9</span>
+            <div class="glass-card rounded-2xl overflow-hidden mb-8 border border-slate-800">
+                <div
+                    class="p-5 border-b border-slate-800 bg-slate-900/40 flex items-center justify-between flex-wrap gap-4">
+                    <p class="text-[10px] text-slate-400 font-mono uppercase tracking-widest">Resumen de las 4 semanas
+                        de programación</p>
+                    <span class="text-[10px] font-mono text-blue-500 font-bold">Criterio: TM = 90% RM</span>
                 </div>
-                <div class="overflow-x-auto">
+                <div class="overflow-x-auto no-scrollbar">
                     <table class="w-full text-xs font-mono">
                         <thead>
-                            <tr class="bg-ink text-surface">
-                                <th class="text-left px-4 py-3 font-bold uppercase tracking-wide border-r border-slate-700">Ejercicio</th>
-                                <th class="px-4 py-3 font-bold uppercase tracking-wide text-center">Sem 1 · Volumen</th>
-                                <th class="px-4 py-3 font-bold uppercase tracking-wide text-center">Sem 2 · Híbrido</th>
-                                <th class="px-4 py-3 font-bold uppercase tracking-wide text-center">Sem 3 · Pico</th>
-                                <th class="px-4 py-3 font-bold uppercase tracking-wide text-center">Sem 4 · Descarga</th>
+                            <tr class="bg-slate-950 text-slate-500 border-b border-slate-800">
+                                <th
+                                    class="text-left px-6 py-4 font-bold uppercase tracking-widest border-r border-slate-800">
+                                    Lift</th>
+                                <th class="px-6 py-4 font-bold uppercase tracking-widest text-center">Sem 1</th>
+                                <th class="px-6 py-4 font-bold uppercase tracking-widest text-center">Sem 2</th>
+                                <th class="px-6 py-4 font-bold uppercase tracking-widest text-center">Sem 3</th>
+                                <th class="px-6 py-4 font-bold uppercase tracking-widest text-center">Sem 4</th>
                             </tr>
                         </thead>
-                        <tbody id="cycleTableBody"></tbody>
+                        <tbody id="cycleTableBody" class="divide-y divide-slate-800/50"></tbody>
                     </table>
                 </div>
             </div>
-            <div class="bg-primary-bg border border-blue-100 rounded p-5">
-                <div class="text-[10px] font-mono font-bold text-primary uppercase tracking-widest mb-3">// Próximo Ciclo — TMs Proyectados</div>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="nextCycleDisplay"></div>
-                <p class="text-[10px] text-muted mt-3 font-mono">+2.5kg tren inferior (SQ, DL) · +1.25kg tren superior (BP, OHP) · Solo si completaste el AMRAP de la Semana 3.</p>
+            <div class="bg-blue-900/10 border border-blue-800/20 rounded-2xl p-8">
+                <div
+                    class="text-[10px] font-mono font-bold text-blue-500 uppercase tracking-widest mb-6 tracking-[0.2em] font-bold">
+                    // TMs Proyectados Próximo Ciclo</div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6" id="nextCycleDisplay"></div>
+                <p class="text-[10px] text-slate-500 mt-6 font-mono italic">Basado en progresión estándar: +2.5kg
+                    (SQ/DL) / +1.25kg (BP/OHP).</p>
             </div>
         </section>
     </div>
 
-    <!-- MODAL EXCEL -->
-    <div id="excelModal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-dark/80 p-4 backdrop-blur-sm">
-        <div class="bg-surface w-full max-w-md rounded shadow-structural border border-border overflow-hidden relative">
-            <button onclick="closeExcelModal()" class="absolute top-4 right-4 text-muted hover:text-ink">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+    <!-- MODALS (Alineados a dark theme) -->
+    <!-- Modal Excel -->
+    <div id="excelModal"
+        class="fixed inset-0 z-50 hidden flex items-center justify-center bg-slate-950/90 p-6 backdrop-blur-md">
+        <div
+            class="bg-[#0f172a] w-full max-w-md rounded-3xl shadow-2xl border border-slate-800 overflow-hidden relative p-10">
+            <button onclick="closeExcelModal()"
+                class="absolute top-6 right-6 text-slate-500 hover:text-white transition">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
             </button>
-            <div class="p-8">
-                <div class="text-center mb-6">
-                    <div class="w-12 h-12 bg-success-bg border border-green-200 rounded flex items-center justify-center mx-auto mb-4 text-2xl">📊</div>
-                    <h3 class="font-heading text-lg font-bold text-ink mb-1">Tu planilla está lista</h3>
-                    <p class="text-xs text-muted">3 hojas: semana actual · ciclo completo · TMs del próximo ciclo.</p>
-                </div>
-                <form id="excelForm" class="space-y-3">
-                    <div>
-                        <label class="block text-[10px] font-mono font-bold text-muted uppercase mb-2">Tu email</label>
-                        <input type="email" id="excelEmail" name="email" required placeholder="tu@email.com" class="w-full px-4 py-3 rounded bg-canvas border border-border focus:border-primary outline-none transition-all text-sm">
-                    </div>
-                    <div>
-                        <label class="block text-[10px] font-mono font-bold text-muted uppercase mb-2">Rol</label>
-                        <div class="relative">
-                            <select id="excelRol" name="rol" class="w-full px-4 py-3 rounded bg-canvas border border-border focus:border-primary outline-none text-sm appearance-none cursor-pointer">
-                                <option value="preparador">Preparador físico</option>
-                                <option value="entrenador">Entrenador personal</option>
-                                <option value="atleta">Atleta / autoentrenado</option>
-                                <option value="otro">Otro</option>
-                            </select>
-                            <div class="absolute inset-y-0 right-0 flex items-center px-3 pointer-events-none text-muted">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                            </div>
-                        </div>
-                    </div>
-                    <input type="text" name="_honey" style="display:none">
-                    <button type="submit" id="excelSubmitBtn" class="w-full bg-success hover:opacity-90 text-white font-medium py-3 rounded transition-all text-sm mt-2">
-                        Descargar Excel →
-                    </button>
+            <div class="text-center mb-8">
+                <div
+                    class="w-16 h-16 bg-emerald-900/20 border border-emerald-500/30 rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl">
+                    📊</div>
+                <h3 class="text-xl font-bold text-white mb-2">Archivo Listo</h3>
+                <p class="text-sm text-slate-400">Ingresá tu email para recibir la planilla de control.</p>
+            </div>
+            <form id="excelForm" class="space-y-4">
+                <input type="email" id="excelEmail" name="email" required placeholder="tu@email.com"
+                    class="w-full bg-slate-950 border border-slate-800 p-4 rounded-lg focus:border-blue-600 outline-none transition text-slate-200">
+                <select id="excelRol" name="rol"
+                    class="w-full bg-slate-950 border border-slate-800 p-4 rounded-lg focus:border-blue-600 outline-none transition text-slate-400 font-mono text-xs uppercase cursor-pointer">
+                    <option value="preparador">Preparador Físico</option>
+                    <option value="entrenador">Entrenador Personal</option>
+                    <option value="atleta">Atleta</option>
+                </select>
+                <button type="submit" id="excelSubmitBtn"
+                    class="w-full py-4 bg-emerald-700 hover:bg-emerald-600 text-white font-bold rounded-lg transition-all uppercase tracking-widest text-[10px]">
+                    Descargar .xlsx →
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal PDF -->
+    <div id="pdfModal"
+        class="fixed inset-0 z-50 hidden flex items-center justify-center bg-slate-950/90 p-6 backdrop-blur-md">
+        <div
+            class="bg-[#0f172a] w-full max-w-md rounded-3xl shadow-2xl border border-slate-800 overflow-hidden relative p-10 text-center">
+            <button onclick="closePdfModal()" class="absolute top-6 right-6 text-slate-500 hover:text-white transition">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
+            </button>
+            <h3 class="text-xl font-bold text-white mb-4">Reporte de Auditoría</h3>
+            <p class="text-sm text-slate-400 mb-8 leading-relaxed">Tu reporte visual y plan operativo están listos para
+                descarga en PDF.</p>
+            <button id="downloadBtn" onclick="downloadPdfAction()"
+                class="w-full py-4 bg-blue-700 hover:bg-blue-600 text-white font-bold rounded-lg transition-all uppercase tracking-widest text-[10px]">Descargar
+                Reporte</button>
+        </div>
+    </div>
+
+    <!-- Modal Lead -->
+    <div id="leadModal"
+        class="fixed inset-0 z-50 hidden flex items-center justify-center bg-slate-950/90 p-6 backdrop-blur-md">
+        <div
+            class="bg-[#0f172a] w-full max-w-md rounded-3xl shadow-2xl border border-slate-800 overflow-hidden relative p-10">
+            <button onclick="closeLeadModal()"
+                class="absolute top-6 right-6 text-slate-500 hover:text-white transition">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
+            </button>
+            <div class="text-center mb-8">
+                <h3 class="text-xl font-bold text-white mb-4 leading-tight">El simulador te da los números.<br>Yo te doy
+                    el <span class="text-blue-500">criterio.</span></h3>
+                <p class="text-sm text-slate-400">Auditoría VCV: 14 días para profesionalizar tu toma de decisiones.</p>
+            </div>
+            <div class="space-y-4">
+                <button onclick="window.location.href='../contacto.html'"
+                    class="w-full py-5 bg-blue-700 hover:bg-blue-600 text-white font-bold rounded-lg transition-all uppercase tracking-widest text-[10px]">Revisar
+                    mi sistema →</button>
+                <button onclick="document.getElementById('leadFormWrapper').classList.toggle('hidden')"
+                    class="w-full py-4 border border-slate-800 text-slate-400 hover:text-white font-bold rounded-lg transition-all uppercase tracking-widest text-[10px]">Hacer
+                    consulta puntual</button>
+            </div>
+            <div id="leadFormWrapper" class="hidden mt-6">
+                <form action="https://formspree.io/f/mnjbvkey" method="POST" class="space-y-4">
+                    <input type="email" name="email" required placeholder="tu@email.com"
+                        class="w-full bg-slate-950 border border-slate-800 p-4 rounded-lg focus:border-blue-600 outline-none transition text-slate-200">
+                    <button type="submit"
+                        class="w-full py-4 bg-blue-900/40 text-blue-400 border border-blue-800/50 font-bold rounded-lg transition-all uppercase tracking-widest text-[10px]">Enviar
+                        →</button>
                 </form>
-                <p class="text-[10px] font-mono text-muted text-center mt-4 uppercase">Sin spam. El email se usa para seguimiento opcional.</p>
             </div>
         </div>
     </div>
 
-    <!-- MODAL PDF -->
-    <div id="pdfModal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-dark/80 p-4 backdrop-blur-sm">
-        <div class="bg-surface w-full max-w-md rounded shadow-structural border border-border overflow-hidden relative">
-            <button onclick="closePdfModal()" class="absolute top-4 right-4 text-muted hover:text-ink">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-            </button>
-            <div class="p-8 text-center">
-                <h3 class="font-heading text-xl font-bold text-ink mb-2">Reporte Listo</h3>
-                <p class="text-sm text-body mb-6">Tus gráficos y tabla personalizada están listos para descarga.</p>
-                <button id="downloadBtn" onclick="downloadPdfAction()" class="w-full bg-primary hover:bg-primary-600 text-white font-medium py-3 rounded transition-colors">Descargar Ahora</button>
+    <!-- Footer callout -->
+    <section class="bg-slate-950 border-t border-slate-800/50">
+        <div class="max-w-5xl mx-auto px-6 py-20 flex flex-col md:flex-row items-center justify-between gap-12">
+            <div class="max-w-xl text-center md:text-left">
+                <div class="text-[10px] font-mono font-bold text-blue-500 uppercase tracking-widest mb-4">Módulo de
+                    Auditoría VCV</div>
+                <h3 class="text-2xl font-bold text-white mb-4">¿Incertidumbre en los ajustes?</h3>
+                <p class="text-slate-400 leading-relaxed">No dejes la progresión al azar. Validamos tu sistema de
+                    decisión para que cada incremento de carga tenga un respaldo técnico real.</p>
             </div>
+            <a href="../contacto.html"
+                class="px-8 py-4 bg-blue-700 hover:bg-blue-600 text-white font-bold rounded-lg transition-all uppercase tracking-widest text-[10px] shrink-0">Ver
+                Auditoría →</a>
         </div>
-    </div>
+    </section>
 
-    <!-- MODAL LEAD -->
-    <div id="leadModal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-dark/80 p-4 backdrop-blur-sm">
-        <div class="bg-surface w-full max-w-md rounded shadow-structural border border-border overflow-hidden relative">
-            <button onclick="closeLeadModal()" class="absolute top-4 right-4 text-muted hover:text-ink">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-            </button>
-            <div class="p-8">
-                <div class="text-center mb-6">
-                    <div class="w-12 h-12 bg-canvas border border-border rounded flex items-center justify-center mx-auto mb-4 text-2xl">📈</div>
-                    <h3 class="font-heading text-lg font-bold text-ink mb-2">El simulador te da los números. El criterio para usarlos bien es otra conversación.</h3>
-                    <p class="text-xs text-body">Auditoría VCV: revisión de 10 a 14 días de tu sistema de decisión actual.</p>
-                </div>
-                <div class="space-y-3 mb-5">
-                    <button type="button" onclick="window.location.href='../contacto.html'" class="w-full bg-primary hover:bg-primary-600 text-white font-medium py-3 rounded transition-colors text-sm">Revisar mi sistema →</button>
-                    <button type="button" onclick="document.getElementById('leadFormWrapper').classList.toggle('hidden')" class="w-full border border-border hover:border-primary text-ink font-medium py-3 rounded transition-colors text-sm">Hacerme una consulta puntual</button>
-                </div>
-                <div id="leadFormWrapper" class="hidden">
-                    <form action="https://formspree.io/f/mnjbvkey" method="POST" class="space-y-4">
-                        <input type="email" name="email" required placeholder="tu@email.com" class="w-full px-4 py-3 rounded bg-canvas border border-border focus:border-primary outline-none transition-all text-sm">
-                        <input type="text" name="context" placeholder="Contame tu contexto" class="w-full px-4 py-3 rounded bg-canvas border border-border focus:border-primary outline-none transition-all text-sm">
-                        <input type="hidden" name="source" value="wendler_simulator">
-                        <button type="submit" class="w-full bg-primary hover:bg-primary-600 text-white font-medium py-3 rounded transition-colors text-sm">Enviar →</button>
-                    </form>
-                </div>
-                <p class="text-[10px] font-mono text-muted text-center mt-4 uppercase">Sin spam. Respuesta en menos de 48hs.</p>
+    <!-- Footer -->
+    <footer class="bg-[#0f172a] border-t border-slate-800 py-12 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex flex-col gap-2">
+                <span class="text-xl font-bold tracking-tighter uppercase text-white">IronLog<span
+                        class="text-blue-600">_</span></span>
+                <p class="text-slate-500 text-xs font-mono">Gobernanza de Datos · Lisandro Cacciatore</p>
             </div>
-            <div class="bg-canvas px-8 py-3 border-t border-border text-center">
-                <a href="demo.html" class="text-xs text-muted font-mono hover:text-ink">_Volver a la librería</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- ── AUDITORÍA VCV CALLOUT ── -->
-    <div class="bg-ink border-t-4 border-primary">
-        <div class="max-w-5xl mx-auto px-6 py-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-            <div class="max-w-xl">
-                <div class="text-[10px] font-mono font-bold text-primary uppercase tracking-widest mb-3">// Auditoría VCV</div>
-                <h3 class="font-heading text-xl font-bold text-surface mb-3">¿El simulador te genera más preguntas que respuestas?</h3>
-                <p class="text-sm text-muted leading-relaxed">La Auditoría VCV es una revisión de 10 a 14 días de tu sistema de decisión actual. Identificás la variable que realmente gobierna tus ajustes de carga — y salís con un esquema claro de validación semanal.</p>
-            </div>
-            <a href="../contacto.html" class="shrink-0 bg-primary hover:bg-primary-600 text-white px-8 py-3 rounded font-medium transition-colors text-sm whitespace-nowrap">Ver cómo funciona →</a>
-        </div>
-    </div>
-
-    <footer class="bg-dark pt-16 pb-8 border-t-4 border-primary">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-                <div class="md:col-span-2">
-                    <span class="font-heading font-semibold text-lg text-surface block mb-4">Lisandro Cacciatore <span class="text-primary font-mono font-bold">_</span></span>
-                    <p class="text-muted text-sm leading-relaxed max-w-sm">Sistemas de validación semanal para preparadores físicos. Criterio claro, decisiones con fundamento.</p>
-                </div>
-                <div>
-                    <h3 class="font-heading text-surface text-xs font-bold mb-4 uppercase tracking-widest">Ecosistema</h3>
-                    <ul class="space-y-3">
-                        <li><a href="../blog.html" class="text-sm text-muted hover:text-surface transition-colors">Blog Técnico</a></li>
-                        <li><a href="index.html" class="text-sm text-muted hover:text-surface transition-colors">IronLog (Piloto)</a></li>
-                        <li><a href="tools.html" class="text-sm text-muted hover:text-surface transition-colors">Data Tools</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="font-heading text-surface text-xs font-bold mb-4 uppercase tracking-widest">Operaciones</h3>
-                    <ul class="space-y-3">
-                        <li><a href="../contacto.html" class="text-sm text-muted hover:text-surface transition-colors">Revisar mi sistema →</a></li>
-                        <li><span class="text-sm text-subtle block">Rosario, Argentina</span></li>
-                        <li><span class="text-sm text-subtle block">Remoto LATAM / España</span></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <div class="text-xs font-mono text-subtle">© 2026 Lisandro Cacciatore. Todos los derechos reservados.</div>
-                <div class="flex gap-6 text-xs text-subtle">
-                    <a href="../privacidad.html" class="hover:text-muted transition-colors">Privacidad</a>
-                    <a href="../sobre-mi.html" class="hover:text-muted transition-colors">Sobre mí</a>
-                </div>
+            <div class="flex space-x-8 text-[10px] font-mono uppercase tracking-widest text-slate-600">
+                <a href="../privacidad.html" class="hover:text-white transition">Privacidad</a>
+                <span>© 2026</span>
             </div>
         </div>
     </footer>
@@ -422,22 +546,26 @@
         }
 
         const weekConfig = {
-            1: { mainReps: "5+", mainPerc: 0.85, basePercs: [0.65,0.75,0.85], name: "Volumen"   },
-            2: { mainReps: "3+", mainPerc: 0.90, basePercs: [0.70,0.80,0.90], name: "Híbrido"   },
-            3: { mainReps: "1+", mainPerc: 0.95, basePercs: [0.75,0.85,0.95], name: "Pico"      },
-            4: { mainReps: "5",  mainPerc: 0.60, basePercs: [0.40,0.50,0.60], name: "Descarga"  }
+            1: { mainReps: "5+", mainPerc: 0.85, basePercs: [0.65, 0.75, 0.85], name: "Volumen" },
+            2: { mainReps: "3+", mainPerc: 0.90, basePercs: [0.70, 0.80, 0.90], name: "Híbrido" },
+            3: { mainReps: "1+", mainPerc: 0.95, basePercs: [0.75, 0.85, 0.95], name: "Pico" },
+            4: { mainReps: "5", mainPerc: 0.60, basePercs: [0.40, 0.50, 0.60], name: "Descarga" }
         };
         const templateConfig = {
-            BBB:   { name:"Boring But Big",  volFactor:50, intFactor:0.5,      radarBoost:[0,4,-1,-1,0]  },
-            FSL:   { name:"First Set Last",  volFactor:25, intFactor:'dynamic', radarBoost:[1,1,1,0,0]   },
-            JOKER: { name:"Joker Sets",      volFactor:6,  intFactor:1.05,     radarBoost:[3,-2,2,3,-1]  }
+            BBB: { name: "Boring But Big", volFactor: 50, intFactor: 0.5, radarBoost: [0, 4, -1, -1, 0] },
+            FSL: { name: "First Set Last", volFactor: 25, intFactor: 'dynamic', radarBoost: [1, 1, 1, 0, 0] },
+            JOKER: { name: "Joker Sets", volFactor: 6, intFactor: 1.05, radarBoost: [3, -2, 2, 3, -1] }
         };
 
+        const LIFTS = [
+            { id: 'sq', name: 'SENTADILLA', color: '#2563eb', incrStr: 'tren inferior', incr: 2.5 },
+            { id: 'bp', name: 'BANCA', color: '#3b82f6', incrStr: 'tren superior', incr: 1.25 },
+            { id: 'dl', name: 'MUERTO', color: '#1d4ed8', incrStr: 'tren inferior', incr: 2.5 },
+            { id: 'ohp', name: 'MILITAR', color: '#60a5fa', incrStr: 'tren superior', incr: 1.25 },
+        ];
+
         document.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('leadModal').addEventListener('click',  e => { if(e.target===document.getElementById('leadModal'))  closeLeadModal();  });
-            document.getElementById('excelModal').addEventListener('click', e => { if(e.target===document.getElementById('excelModal')) closeExcelModal(); });
-            document.getElementById('excelForm').addEventListener('submit', handleExcelSubmit);
-            ['manualSquat','manualBench','manualDeadlift','manualOhp'].forEach(id =>
+            ['manualSquat', 'manualBench', 'manualDeadlift', 'manualOhp'].forEach(id =>
                 document.getElementById(id).addEventListener('input', generateWendlerDashboard)
             );
             selectWeek(1);
@@ -445,9 +573,9 @@
 
         function selectWeek(week) {
             currentWeek = week;
-            document.querySelectorAll('.week-card').forEach((el,i) => {
-                el.classList.toggle('week-active', i+1===week);
-                el.classList.toggle('opacity-60',  i+1!==week);
+            document.querySelectorAll('.week-card').forEach((el, i) => {
+                el.classList.toggle('week-active', i + 1 === week);
+                el.style.opacity = (i + 1 === week) ? '1' : '0.4';
             });
             generateWendlerDashboard();
             updateVCV();
@@ -455,29 +583,22 @@
 
         function getRMs() {
             return {
-                sq:  parseFloat(document.getElementById('manualSquat').value)   || 0,
-                bp:  parseFloat(document.getElementById('manualBench').value)    || 0,
-                dl:  parseFloat(document.getElementById('manualDeadlift').value) || 0,
-                ohp: parseFloat(document.getElementById('manualOhp').value)      || 0,
+                sq: parseFloat(document.getElementById('manualSquat').value) || 0,
+                bp: parseFloat(document.getElementById('manualBench').value) || 0,
+                dl: parseFloat(document.getElementById('manualDeadlift').value) || 0,
+                ohp: parseFloat(document.getElementById('manualOhp').value) || 0,
             };
         }
         function calcTMs(rms) {
-            return { sq:Math.round(rms.sq*0.9), bp:Math.round(rms.bp*0.9), dl:Math.round(rms.dl*0.9), ohp:Math.round(rms.ohp*0.9) };
+            return { sq: Math.round(rms.sq * 0.9), bp: Math.round(rms.bp * 0.9), dl: Math.round(rms.dl * 0.9), ohp: Math.round(rms.ohp * 0.9) };
         }
 
-        const LIFTS = [
-            { id:'sq',  name:'Sentadilla',    color:'#B91C1C', incrStr:'tren inferior', incr:2.5  },
-            { id:'bp',  name:'Press Banca',   color:'#1E3A8A', incrStr:'tren superior', incr:1.25 },
-            { id:'dl',  name:'Peso Muerto',   color:'#15803D', incrStr:'tren inferior', incr:2.5  },
-            { id:'ohp', name:'Press Militar', color:'#B45309', incrStr:'tren superior', incr:1.25 },
-        ];
-
         function getAccText(liftId, tm, wk, tpl) {
-            if (wk === 4) return 'Movilidad activa';
+            if (wk === 4) return 'MOVILIDAD';
             const w = weekConfig[wk];
-            if (tpl === 'BBB')   return `5×10 @ ${Math.round(tm*0.5)}kg`;
-            if (tpl === 'FSL')   return `5×5 @ ${Math.round(tm*w.basePercs[0])}kg`;
-            if (tpl === 'JOKER') return `Joker: ${Math.round(tm*(w.mainPerc+0.05))}kg, ${Math.round(tm*(w.mainPerc+0.10))}kg`;
+            if (tpl === 'BBB') return `5×10 @ ${Math.round(tm * 0.5)}kg`;
+            if (tpl === 'FSL') return `5×5 @ ${Math.round(tm * w.basePercs[0])}kg`;
+            if (tpl === 'JOKER') return `Joker: ${Math.round(tm * (w.mainPerc + 0.05))}kg...`;
             return '';
         }
 
@@ -485,32 +606,31 @@
             const rms = getRMs();
             const tms = calcTMs(rms);
             currentTemplate = document.getElementById('assistanceTemplate').value;
-            const wkData  = weekConfig[currentWeek];
+            const wkData = weekConfig[currentWeek];
             const tplData = templateConfig[currentTemplate];
 
             document.getElementById('tmDisplay').innerText =
-                `TMs: SQ ${tms.sq} | BP ${tms.bp} | DL ${tms.dl} | OH ${tms.ohp}`;
-            document.getElementById('reportWeekBadge').innerText   = `Semana ${currentWeek}`;
-            document.getElementById('reportTemplateBadge').innerText = tplData.name;
+                `SQ:${tms.sq} | BP:${tms.bp} | DL:${tms.dl} | OH:${tms.ohp}`;
+            document.getElementById('reportWeekBadge').innerText = `SEMANA ${currentWeek}`;
+            document.getElementById('reportTemplateBadge').innerText = tplData.name.toUpperCase();
 
-            // Exercise list
             let html = '';
             LIFTS.forEach(l => {
                 const tm = tms[l.id];
                 const topW = Math.round(tm * wkData.mainPerc);
-                const acc  = getAccText(l.id, tm, currentWeek, currentTemplate);
-                html += `<div class="flex flex-col bg-canvas p-3 rounded border border-border mb-2" style="border-left:4px solid ${l.color}">
+                const acc = getAccText(l.id, tm, currentWeek, currentTemplate);
+                html += `<div class="bg-slate-950 p-4 rounded-xl border border-slate-800" style="border-left: 3px solid ${l.color}">
                     <div class="flex justify-between items-center mb-1">
-                        <span class="font-bold text-ink text-sm">${l.name}</span>
-                        <span class="font-bold font-mono text-ink">${topW}<span class="text-[10px] font-normal text-muted"> kg</span></span>
+                        <span class="font-bold text-white text-xs">${l.name}</span>
+                        <span class="font-bold font-mono text-blue-400 text-sm">${topW} kg</span>
                     </div>
-                    <div class="flex justify-between text-xs font-mono">
-                        <span class="text-muted">Top: × ${wkData.mainReps}</span>
-                        <span class="text-muted text-[10px]">${Math.round(wkData.mainPerc*100)}% TM</span>
+                    <div class="flex justify-between text-[9px] font-mono text-slate-500 uppercase tracking-widest">
+                        <span>SERIE TOP: ${wkData.mainReps}</span>
+                        <span>${Math.round(wkData.mainPerc * 100)}% TM</span>
                     </div>
-                    <div class="mt-2 pt-2 border-t border-border">
-                        <div class="text-[10px] font-bold text-muted uppercase tracking-wide mb-0.5">Asistencia</div>
-                        <div class="text-xs text-ink font-mono">${acc}</div>
+                    <div class="mt-3 pt-3 border-t border-slate-900 flex justify-between items-center">
+                        <span class="text-[8px] font-mono text-slate-600 uppercase tracking-widest">ACC:</span>
+                        <span class="text-[10px] text-slate-400 font-mono">${acc}</span>
                     </div>
                 </div>`;
             });
@@ -524,74 +644,94 @@
             Chart.defaults.font.family = "'Fira Code', monospace";
             Chart.defaults.color = '#64748B';
 
-            let rd = [5,5,5,5,5];
-            if (currentWeek===1) rd=[6,7,5,5,5];
-            if (currentWeek===2) rd=[7,6,6,6,4];
-            if (currentWeek===3) rd=[9,4,8,9,3];
-            if (currentWeek===4) rd=[3,3,2,2,9];
-            if (currentWeek!==4) rd=rd.map((v,i)=>Math.max(1,Math.min(10,v+tplData.radarBoost[i])));
+            let rd = [5, 5, 5, 5, 5];
+            if (currentWeek === 1) rd = [6, 7, 5, 5, 5];
+            if (currentWeek === 2) rd = [7, 6, 6, 6, 4];
+            if (currentWeek === 3) rd = [9, 4, 8, 9, 3];
+            if (currentWeek === 4) rd = [3, 3, 2, 2, 9];
+            if (currentWeek !== 4) rd = rd.map((v, i) => Math.max(1, Math.min(10, v + tplData.radarBoost[i])));
 
             if (radarChart) radarChart.destroy();
             radarChart = new Chart(document.getElementById('radarChart'), {
                 type: 'radar',
-                data: { labels:['Fuerza Máx','Hipertrofia','Potencia','SNC Stress','Movilidad'],
-                    datasets:[{ data:rd, backgroundColor:'rgba(30,58,138,0.1)', borderColor:'#1E3A8A', pointBackgroundColor:'#1E3A8A', borderWidth:2 }] },
-                options:{ responsive:true, maintainAspectRatio:false,
-                    scales:{ r:{ min:0, max:10, ticks:{display:false} } }, plugins:{legend:{display:false}} }
+                data: {
+                    labels: ['Fuerza Máx', 'Hipertrofia', 'Potencia', 'SNC Stress', 'Movilidad'],
+                    datasets: [{ data: rd, backgroundColor: 'rgba(37,99,235,0.1)', borderColor: '#2563eb', pointBackgroundColor: '#2563eb', borderWidth: 1.5 }]
+                },
+                options: {
+                    responsive: true, maintainAspectRatio: false,
+                    scales: { r: { min: 0, max: 10, grid: { color: 'rgba(255,255,255,0.05)' }, angleLines: { color: 'rgba(255,255,255,0.05)' }, ticks: { display: false }, pointLabels: { color: '#64748b', font: { size: 8 } } } }, plugins: { legend: { display: false } }
+                }
             });
 
-            const mainVol = 30, accVol = currentWeek!==4 ? tplData.volFactor : 0;
+            const mainVol = 30, accVol = currentWeek !== 4 ? tplData.volFactor : 0;
             if (doughnutChart) doughnutChart.destroy();
             doughnutChart = new Chart(document.getElementById('doughnutChart'), {
                 type: 'doughnut',
-                data: { labels:['Lifts Principales','Accesorios'],
-                    datasets:[{ data:[mainVol,accVol], backgroundColor:['#1E293B','#E2E8F0'], borderWidth:0, hoverOffset:4 }] },
-                options:{ responsive:true, maintainAspectRatio:false, cutout:'70%',
-                    plugins:{ legend:{position:'bottom',labels:{boxWidth:10,usePointStyle:true}},
-                        tooltip:{callbacks:{label:c=>` ${c.raw} repeticiones aprox.`}} } }
+                data: {
+                    labels: ['Principales', 'Accesorios'],
+                    datasets: [{ data: [mainVol, accVol], backgroundColor: ['#2563eb', '#1e293b'], borderWidth: 0, hoverOffset: 4 }]
+                },
+                options: {
+                    responsive: true, maintainAspectRatio: false, cutout: '80%',
+                    plugins: {
+                        legend: { position: 'bottom', labels: { boxWidth: 8, usePointStyle: true, font: { size: 9 } } },
+                        tooltip: { callbacks: { label: c => ` ${c.raw} REPS` }, backgroundColor: '#0f172a', borderWidth: 1, borderColor: '#1e293b' }
+                    }
+                }
             });
 
-            let intVal = wkData.mainPerc*100;
-            if (currentWeek!==4 && currentTemplate==='JOKER') intVal+=7.5;
-            if (currentWeek===4) intVal=60;
-            const totalVol = mainVol+accVol;
+            let intVal = wkData.mainPerc * 100;
+            if (currentWeek !== 4 && currentTemplate === 'JOKER') intVal += 7.5;
+            if (currentWeek === 4) intVal = 60;
+            const totalVol = mainVol + accVol;
 
             if (comboChart) comboChart.destroy();
             comboChart = new Chart(document.getElementById('comboChart'), {
-                type:'bar',
-                data:{ labels:['Sentadilla','P. Banca','P. Muerto','Militar'],
-                    datasets:[
-                        { label:'Volumen (Reps)', data:[totalVol,totalVol,totalVol-5,totalVol],
-                          backgroundColor:currentTemplate==='BBB'?'#94A3B8':'#E2E8F0', order:2, borderRadius:2, yAxisID:'y' },
-                        { label:'Intensidad (%TM)', data:[intVal,intVal-2,intVal+1,intVal-5],
-                          borderColor:'#1E293B', backgroundColor:'#1E293B', type:'line', order:1,
-                          tension:0, borderWidth:2, pointRadius:4, yAxisID:'y1' }
-                    ] },
-                options:{ responsive:true, maintainAspectRatio:false,
-                    interaction:{mode:'index',intersect:false},
-                    plugins:{ legend:{display:true,position:'top',align:'end',labels:{boxWidth:10}} },
-                    scales:{ y:{display:true,position:'right',title:{display:true,text:'Reps'},grid:{display:false}},
-                        y1:{display:true,position:'left',min:40,max:110,title:{display:true,text:'% TM'}},
-                        x:{grid:{display:false}} } }
+                type: 'bar',
+                data: {
+                    labels: ['SENTADILLA', 'BANCA', 'MUERTO', 'MILITAR'],
+                    datasets: [
+                        {
+                            label: 'REPS', data: [totalVol, totalVol, totalVol - 5, totalVol],
+                            backgroundColor: '#1e293b', order: 2, borderRadius: 4, yAxisID: 'y'
+                        },
+                        {
+                            label: '%TM', data: [intVal, intVal - 2, intVal + 1, intVal - 5],
+                            borderColor: '#2563eb', backgroundColor: '#2563eb', type: 'line', order: 1,
+                            tension: 0.3, borderWidth: 2, pointRadius: 3, yAxisID: 'y1'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true, maintainAspectRatio: false,
+                    interaction: { mode: 'index', intersect: false },
+                    plugins: { legend: { display: true, position: 'top', align: 'end', labels: { boxWidth: 10, font: { size: 9 } } } },
+                    scales: {
+                        y: { display: false, grid: { display: false } },
+                        y1: { display: true, min: 40, max: 110, grid: { color: 'rgba(255,255,255,0.02)' }, ticks: { font: { size: 8 } } },
+                        x: { grid: { display: false }, ticks: { font: { size: 8 } } }
+                    }
+                }
             });
         }
 
         function renderCycleTable(rms, tms, tplData) {
             let tbody = '';
-            LIFTS.forEach((l,ri) => {
+            LIFTS.forEach((l, ri) => {
                 const tm = tms[l.id];
-                let row = `<tr class="${ri%2===1?'bg-surface':''} border-t border-border">
-                    <td class="px-4 py-3 font-bold text-ink border-r border-border whitespace-nowrap">
-                        ${l.name}<br><span class="font-normal text-muted text-[10px]">TM: ${tm}kg</span>
+                let row = `<tr class="border-b border-slate-800/30">
+                    <td class="px-6 py-5 font-bold text-white border-r border-slate-800 bg-slate-950/20">
+                        ${l.name}<br><span class="font-normal text-slate-600 text-[9px] uppercase tracking-widest">TM: ${tm}KG</span>
                     </td>`;
-                [1,2,3,4].forEach(w => {
+                [1, 2, 3, 4].forEach(w => {
                     const wk = weekConfig[w];
                     const topW = Math.round(tm * wk.mainPerc);
-                    const acc  = getAccText(l.id, tm, w, currentTemplate);
+                    const acc = getAccText(l.id, tm, w, currentTemplate);
                     const isActive = w === currentWeek;
-                    row += `<td class="px-4 py-3 text-center border-l border-border ${isActive?'bg-primary-bg':''}">
-                        <div class="font-bold ${isActive?'text-primary':'text-body'}">${topW}kg × ${wk.mainReps}</div>
-                        <div class="text-[10px] text-muted mt-0.5">${acc}</div>
+                    row += `<td class="px-6 py-5 text-center border-l border-slate-800/20 ${isActive ? 'bg-blue-900/10 shadow-inner' : ''}">
+                        <div class="font-bold ${isActive ? 'text-blue-400' : 'text-slate-400'} text-xs">${topW}KG × ${wk.mainReps}</div>
+                        <div class="text-[8px] text-slate-600 mt-1 uppercase tracking-tight">${acc}</div>
                     </td>`;
                 });
                 row += '</tr>';
@@ -599,121 +739,67 @@
             });
             document.getElementById('cycleTableBody').innerHTML = tbody;
 
-            // Next cycle
             let nextHTML = '';
             LIFTS.forEach(l => {
                 const nextRM = rms[l.id] + l.incr * 3;
                 const nextTM = Math.round(nextRM * 0.9);
-                nextHTML += `<div class="bg-canvas rounded border border-blue-100 p-3">
-                    <div class="text-[10px] font-mono text-muted uppercase mb-1">${l.name}</div>
-                    <div class="font-mono font-bold text-primary text-lg">${nextTM}<span class="text-sm font-normal"> kg TM</span></div>
-                    <div class="text-[10px] text-muted">RM proyectado: ${nextRM}kg (+${l.incr*3})</div>
+                nextHTML += `<div class="bg-slate-950 rounded-xl border border-slate-800 p-5">
+                    <div class="text-[9px] font-mono text-slate-500 uppercase tracking-widest mb-2">${l.name}</div>
+                    <div class="font-mono font-bold text-white text-xl">${nextTM}<span class="text-xs font-normal text-blue-500"> KG TM</span></div>
+                    <div class="text-[8px] text-slate-600 mt-2 uppercase tracking-tight">SIG. RM: ${nextRM}KG</div>
                 </div>`;
             });
             document.getElementById('nextCycleDisplay').innerHTML = nextHTML;
         }
 
-        // ── EXCEL ──────────────────────────────────────────────────────────
-        function openExcelModal()  { document.getElementById('excelModal').classList.remove('hidden'); }
+        function openExcelModal() { document.getElementById('excelModal').classList.remove('hidden'); }
         function closeExcelModal() { document.getElementById('excelModal').classList.add('hidden'); }
+        function openPdfModal() { document.getElementById('pdfModal').classList.remove('hidden'); }
+        function closePdfModal() { document.getElementById('pdfModal').classList.add('hidden'); }
+        function openLeadModal() { document.getElementById('leadModal').classList.remove('hidden'); }
+        function closeLeadModal() { document.getElementById('leadModal').classList.add('hidden'); }
 
         async function handleExcelSubmit(e) {
             e.preventDefault();
             const btn = document.getElementById('excelSubmitBtn');
-            btn.textContent = 'Generando...'; btn.disabled = true;
+            btn.textContent = 'GENERANDO...'; btn.disabled = true;
             try {
                 await fetch('https://formspree.io/f/mnjbvkey', {
-                    method:'POST', headers:{'Content-Type':'application/json'},
-                    body:JSON.stringify({
+                    method: 'POST', headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
                         email: document.getElementById('excelEmail').value,
-                        rol:   document.getElementById('excelRol').value,
-                        source:'wendler_excel', simulador:'Wendler 5/3/1',
-                        semana: currentWeek, plantilla: currentTemplate
+                        rol: document.getElementById('excelRol').value,
+                        source: 'wendler_excel', simulador: 'Wendler 5/3/1'
                     })
                 });
-            } catch(_) {}
+            } catch (_) { }
             generateExcel();
             closeExcelModal();
-            btn.textContent = 'Descargar Excel →'; btn.disabled = false;
+            btn.textContent = 'DESCARGAR .XLSX →'; btn.disabled = false;
         }
 
         function generateExcel() {
             const rms = getRMs();
             const tms = calcTMs(rms);
-            const tpl = templateConfig[currentTemplate];
-            const wb  = XLSX.utils.book_new();
-
-            // ── Sheet 1: Semana Actual ──
-            const s1 = [
-                ['WENDLER 5/3/1 — IronLog | lisandrocacciatore.com','','',''],
-                [`Semana ${currentWeek}: ${weekConfig[currentWeek].name}`, `Plantilla: ${tpl.name}`,'',''],
-                [`TMs — SQ:${tms.sq} BP:${tms.bp} DL:${tms.dl} OHP:${tms.ohp}`,'','',''],
-                [],
-                ['Ejercicio','Calentamiento (ondulado)','Serie Principal','Asistencia'],
-            ];
-            LIFTS.forEach(l => {
-                const tm = tms[l.id];
-                const wk = weekConfig[currentWeek];
-                const warmup = wk.basePercs.map((p,i)=>`${Math.round(tm*p)}kg×${i===2?3:5}`).join(' → ');
-                const main   = `${Math.round(tm*wk.mainPerc)}kg × ${wk.mainReps} (AMRAP)`;
-                s1.push([l.name, warmup, main, getAccText(l.id,tm,currentWeek,currentTemplate)]);
-            });
-            s1.push([],['AMRAP = Tantas repeticiones como sea posible con buena técnica']);
-            const ws1 = XLSX.utils.aoa_to_sheet(s1);
-            ws1['!cols'] = [{wch:18},{wch:40},{wch:22},{wch:30}];
-            XLSX.utils.book_append_sheet(wb, ws1, 'Semana Actual');
-
-            // ── Sheet 2: Ciclo Completo ──
-            const s2hdr = ['Ejercicio','TM'];
-            [1,2,3,4].forEach(w=>s2hdr.push(`Sem ${w} — ${weekConfig[w].name}`,'Asistencia'));
-            const s2 = [['CICLO COMPLETO — WENDLER 5/3/1'], s2hdr];
-            LIFTS.forEach(l => {
-                const tm = tms[l.id];
-                const row = [l.name, `${tm}kg`];
-                [1,2,3,4].forEach(w => {
-                    row.push(`${Math.round(tm*weekConfig[w].mainPerc)}kg × ${weekConfig[w].mainReps}`);
-                    row.push(getAccText(l.id,tm,w,currentTemplate));
-                });
-                s2.push(row);
-            });
-            const ws2 = XLSX.utils.aoa_to_sheet(s2);
-            ws2['!cols'] = [{wch:18},{wch:10},...Array(8).fill({wch:22})];
-            XLSX.utils.book_append_sheet(wb, ws2, 'Ciclo Completo');
-
-            // ── Sheet 3: Próximo Ciclo ──
-            const s3 = [
-                ['PRÓXIMO CICLO — TMs PROYECTADOS'],
-                ['Aplicar solo si completaste el AMRAP de la Semana 3'],
-                [],
-                ['Ejercicio','RM Actual','Incremento','RM Próximo','TM Actual','TM Próximo'],
-            ];
-            LIFTS.forEach(l => {
-                const nextRM = rms[l.id] + l.incr*3;
-                s3.push([l.name,`${rms[l.id]}kg`,`+${l.incr*3}kg`,`${nextRM}kg`,`${tms[l.id]}kg`,`${Math.round(nextRM*0.9)}kg`]);
-            });
-            const ws3 = XLSX.utils.aoa_to_sheet(s3);
-            ws3['!cols'] = Array(6).fill({wch:16});
-            XLSX.utils.book_append_sheet(wb, ws3, 'Próximo Ciclo');
-
-            XLSX.writeFile(wb, `IronLog_Wendler_${currentTemplate}_Semana${currentWeek}.xlsx`);
+            const wb = XLSX.utils.book_new();
+            const s1 = [['WENDLER 5/3/1 — IronLog', '', '', ''], [`Semana ${currentWeek}`, `TMs: SQ:${tms.sq} BP:${tms.bp} DL:${tms.dl} OH:${tms.ohp}`], []];
+            LIFTS.forEach(l => s1.push([l.name, `${Math.round(tms[l.id] * weekConfig[currentWeek].mainPerc)}kg×${weekConfig[currentWeek].mainReps}`, getAccText(l.id, tms[l.id], currentWeek, currentTemplate)]));
+            XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(s1), 'Reporte');
+            XLSX.writeFile(wb, `IronLog_Wendler_S${currentWeek}.xlsx`);
         }
 
-        // ── PDF ──────────────────────────────────────────────────────────
-        function openPdfModal()  { document.getElementById('pdfModal').classList.remove('hidden'); }
-        function closePdfModal() { document.getElementById('pdfModal').classList.add('hidden'); }
         function downloadPdfAction() {
             const btn = document.getElementById('downloadBtn');
-            btn.textContent='Generando...'; btn.disabled=true;
-            html2pdf().set({ margin:5, filename:`IronLog_Wendler_${currentTemplate}_Semana${currentWeek}.pdf`,
-                image:{type:'jpeg',quality:0.98}, html2canvas:{scale:2},
-                jsPDF:{unit:'mm',format:'a4',orientation:'portrait'} })
-            .from(document.getElementById('pdfPrintableArea')).save()
-            .then(()=>{ closePdfModal(); btn.textContent='Descargar Ahora'; btn.disabled=false; });
+            btn.textContent = 'GENERANDO...'; btn.disabled = true;
+            html2pdf().set({
+                margin: 5, filename: `IronLog_Wendler_S${currentWeek}.pdf`,
+                image: { type: 'jpeg', quality: 0.98 }, html2canvas: { scale: 2, backgroundColor: '#0f172a' },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            })
+                .from(document.getElementById('pdfPrintableArea')).save()
+                .then(() => { closePdfModal(); btn.textContent = 'DESCARGAR REPORTE'; btn.disabled = false; });
         }
-
-        // ── LEAD ─────────────────────────────────────────────────────────
-        function openLeadModal()  { document.getElementById('leadModal').classList.remove('hidden'); }
-        function closeLeadModal() { document.getElementById('leadModal').classList.add('hidden'); }
     </script>
 </body>
+
 </html>

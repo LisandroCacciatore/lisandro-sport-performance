@@ -4,461 +4,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog | Lisandro Cacciatore | Sistemas de Decisión para el Rendimiento Deportivo</title>
-    <meta name="description"
-        content="Artículos sobre Variable Crítica Validada, estancamiento silencioso, intuición y datos, y periodización aplicada. Sin marketing. Solo criterio.">
-    <link rel="canonical" href="https://lisandrocacciatore.com/blog.html">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=IBM+Plex+Sans:wght@600;700;800&family=Inter:wght@400;500;600&display=swap"
-        rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-        rel="stylesheet">
+    <title>IronLog | Lisandro Cacciatore</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="theme.js"></script>
-    <meta property="og:title" content="Blog | Lisandro Cacciatore | Sistemas de Decisión">
-    <meta property="og:description"
-        content="Artículos sobre Variable Crítica Validada, estancamiento silencioso, intuición sin respaldo, y periodización aplicada.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://lisandrocacciatore.com/blog.html">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+        }
+
+        .font-mono {
+            font-family: 'Fira Code', monospace;
+        }
+    </style>
 </head>
 
-<body class="bg-canvas text-body font-sans antialiased">
-
-    <nav class="sticky top-0 z-50 w-full bg-canvas/90 backdrop-blur-md border-b border-border">
-        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-3 text-ink group">
-                <span class="material-symbols-outlined text-primary text-xl">
-                    terminal
-                </span>
-                <h2 class="text-lg font-bold font-heading tracking-tight group-hover:text-primary transition-colors">
-                    Lisandro Cacciatore_</h2>
-            </a>
-            <div class="flex items-center gap-8">
-                <div class="hidden md:flex items-center gap-6">
-                    <a href="index.html#metodo"
-                        class="text-muted hover:text-primary text-sm font-medium transition-colors">Método</a>
-                    <a href="servicios.html"
-                        class="text-muted hover:text-primary text-sm font-medium transition-colors">Servicios</a>
-                    <a href="blog.html"
-                        class="text-primary font-semibold text-sm transition-colors border-b-2 border-primary pb-0.5">Blog</a>
-                    <span class="w-px h-4 bg-border"></span>
-                    <a href="ironlog/index.html" class="text-primary font-mono text-sm hover:underline">IronLog</a>
-                </div>
+<body class="bg-[#0f172a] text-slate-200">
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-[#0f172a]/80 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="text-xl font-bold tracking-tighter uppercase">Lisandro Cacciatore<span
+                    class="text-blue-600">_</span></a>
+            <div class="hidden md:flex space-x-8 font-mono text-sm uppercase tracking-widest">
+                <a href="index.html" class="hover:text-blue-500 transition">Inicio</a>
+                <a href="servicios.html" class="hover:text-blue-500 transition">Servicios</a>
+                <a href="sobre-mi.html" class="hover:text-blue-500 transition">Sobre Mí</a>
+                <a href="blog.html" class="text-blue-500 transition border-b border-blue-500">IronLog</a>
                 <a href="contacto.html"
-                    class="hidden md:flex items-center justify-center rounded-md h-9 px-4 bg-dark hover:bg-primary-600 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-sm">
-                    Solicitar revisión →
-                </a>
-                <!-- Mobile Menu Button -->
-                <button class="md:hidden p-2 text-body relative z-50 focus:outline-none"
-                    onclick="document.getElementById('mobile-menu').classList.toggle('hidden'); this.querySelector('span').innerText = this.querySelector('span').innerText === 'menu' ? 'close' : 'menu';">
-                    <span class="material-symbols-outlined select-none">menu</span>
-                </button>
-            </div>
-        </div>
-
-        <!-- Mobile Menu Dropdown -->
-        <div id="mobile-menu"
-            class="hidden absolute top-16 left-0 w-full bg-canvas border-b border-border shadow-lg md:hidden">
-            <div class="flex flex-col px-6 py-4 space-y-4">
-                <a href="index.html#metodo" class="text-body font-medium hover:text-primary transition-colors"
-                    onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.querySelector('button.md\\:hidden span').innerText = 'menu';">Método</a>
-                <a href="servicios.html" class="text-body font-medium hover:text-primary transition-colors"
-                    onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.querySelector('button.md\\:hidden span').innerText = 'menu';">Servicios</a>
-                <a href="blog.html" class="text-primary font-medium transition-colors"
-                    onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.querySelector('button.md\\:hidden span').innerText = 'menu';">Blog</a>
-                <a href="ironlog/index.html" class="text-primary font-mono font-medium hover:underline"
-                    onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.querySelector('button.md\\:hidden span').innerText = 'menu';">IronLog</a>
-                <div class="pt-4 border-t border-border">
-                    <a href="contacto.html"
-                        class="flex items-center justify-center rounded-md h-10 w-full bg-dark hover:bg-primary-600 text-white text-sm font-bold uppercase tracking-wider transition-all shadow-sm"
-                        onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.querySelector('button.md\\:hidden span').innerText = 'menu';">
-                        Solicitar revisión →
-                    </a>
-                </div>
+                    class="px-4 py-2 border border-blue-600 rounded text-blue-500 hover:bg-blue-600 hover:text-white transition">Contacto</a>
             </div>
         </div>
     </nav>
 
-    <main>
-
-        <!-- Header -->
-        <section class="bg-surface py-20 border-b border-border">
-            <div class="max-w-4xl mx-auto px-6">
-                <span
-                    class="inline-block py-1 px-3 rounded text-[10px] font-mono font-bold uppercase tracking-wider bg-canvas border border-border text-muted mb-6">
-                    Blog
-                </span>
-                <h1 class="font-heading text-4xl md:text-5xl font-bold text-ink mb-5">
-                    Criterio antes que datos.
-                </h1>
-                <p class="text-lg text-body max-w-2xl leading-relaxed">
-                    Artículos sobre cómo los preparadores físicos toman decisiones, qué falla en los sistemas actuales,
-                    y qué significa validar el proceso con el dato correcto. Sin teoría decorativa. Sin venta de
-                    herramientas.
+    <header class="py-20 max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between items-end gap-8">
+            <div>
+                <h1 class="text-5xl md:text-7xl font-bold mb-6">IronLog<span class="text-blue-600">.</span></h1>
+                <p class="text-slate-400 max-w-2xl text-xl leading-relaxed">
+                    Notas sobre ingeniería de datos, alto rendimiento y la búsqueda de la <span
+                        class="text-blue-200 font-mono">Variable Crítica Validada</span>.
                 </p>
             </div>
-        </section>
+            <div class="flex gap-4 mb-2">
+                <span
+                    class="px-3 py-1 bg-slate-800 text-slate-400 text-[10px] font-mono uppercase tracking-[0.2em] rounded">7
+                    Artículos</span>
+                <span
+                    class="px-3 py-1 bg-blue-600/10 text-blue-500 text-[10px] font-mono uppercase tracking-[0.2em] rounded border border-blue-500/20">Última
+                    actualización: Feb 2026</span>
+            </div>
+        </div>
+    </header>
 
-        <!-- Recurso destacado -->
-        <section class="py-14 border-b border-border bg-canvas">
-            <div class="max-w-4xl mx-auto px-6">
-                <p class="text-[10px] font-mono font-bold uppercase tracking-wider text-muted mb-5">Recurso Operativo
-                </p>
-                <div
-                    class="bg-dark text-surface rounded p-8 flex flex-col md:flex-row gap-6 items-start md:items-center justify-between border border-slate-700 shadow-structural">
-                    <div>
-                        <span
-                            class="text-[10px] font-mono font-bold uppercase tracking-wider text-primary mb-2 block">Gratuito
-                            · Sin formulario</span>
-                        <h2 class="font-heading text-xl md:text-2xl font-bold mb-2">Autodiagnóstico de Sistema de
-                            Decisión</h2>
-                        <p class="text-slate-400 text-sm leading-relaxed max-w-xl">
-                            10 preguntas sobre el proceso de decisión. No sobre el dato. Resultado inmediato con
-                            interpretación en tres niveles. Si el resultado te incomoda, ese es exactamente el punto.
-                        </p>
+    <main class="max-w-7xl mx-auto px-6 pb-32">
+        <!-- Featured Post -->
+        <section class="mb-24">
+            <a href="blog/estancamiento-silencioso.html"
+                class="group block relative overflow-hidden rounded-3xl border border-slate-800 bg-slate-900/50 hover:bg-slate-900 transition duration-500">
+                <div class="grid md:grid-cols-2">
+                    <div class="p-8 md:p-16 flex flex-col justify-center">
+                        <span class="text-blue-500 font-mono text-xs uppercase tracking-widest mb-4">Artículo
+                            Destacado</span>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6 group-hover:text-blue-500 transition">Llevas
+                            semanas ajustando. Pero no sabés desde cuándo el problema empezó.</h2>
+                        <p class="text-slate-400 mb-8 leading-relaxed">El estancamiento silencioso no llega de golpe. Se
+                            instala despacio, disfrazado de proceso. Aprende a detectarlo antes de que sea tarde.</p>
+                        <div class="text-sm font-mono text-slate-500 mt-auto">Leer Artículo →</div>
                     </div>
-                    <a href="autodiagnostico.html"
-                        class="flex-shrink-0 bg-primary hover:bg-primary text-white font-medium px-6 py-3 rounded transition-all hover:-translate-y-0.5 whitespace-nowrap shadow-structural cta cta--primary"
-                        data-cta-level="1" data-cta-destination="autodiagnostico">
-                        Hacer autodiagnóstico →
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- SILO: Criterio de Decisión — 5 artículos principales -->
-        <section class="py-16 border-b border-border">
-            <div class="max-w-4xl mx-auto px-6">
-
-                <div class="flex items-center gap-4 mb-10">
-                    <span
-                        class="inline-block py-1 px-3 rounded text-[10px] font-mono font-bold uppercase tracking-wider bg-surface border border-border text-ink">Criterio
-                        de Decisión</span>
-                    <div class="h-px flex-1 bg-border"></div>
-                </div>
-
-                <!-- Artículo 1 — Featured -->
-                <article class="group mb-12">
-                    <a href="blog/estancamiento-silencioso.html"
-                        class="block bg-surface border border-border rounded hover:border-primary shadow-structural transition-all overflow-hidden flex flex-col md:flex-row">
-                        <div class="h-64 md:h-auto md:w-2/5 relative overflow-hidden bg-dark">
-                            <img src="img/gym-context.jpg" alt="Contexto Gym"
-                                class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 opacity-80 mix-blend-luminosity hover:mix-blend-normal">
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-dark/80 md:from-dark/40 to-transparent pointer-events-none">
-                            </div>
+                    <div
+                        class="aspect-video md:aspect-auto bg-slate-800 flex items-center justify-center p-12 overflow-hidden">
+                        <!-- Visual representation of data / noise -->
+                        <div class="w-full h-full opacity-30 group-hover:opacity-50 transition duration-700">
+                            <svg viewBox="0 0 100 100" class="w-full h-full text-blue-600">
+                                <path d="M 0 50 Q 10 20 20 50 T 40 50 T 60 50 T 80 50 T 100 50" fill="none"
+                                    stroke="currentColor" stroke-width="0.5" />
+                                <path d="M 0 55 Q 15 25 30 55 T 60 55 T 90 55" fill="none" stroke="currentColor"
+                                    stroke-width="0.2" />
+                            </svg>
                         </div>
-                        <div class="p-8 md:w-3/5 flex flex-col justify-center bg-canvas">
-                            <div class="flex items-center gap-3 mb-4">
-                                <span class="text-[10px] font-mono font-bold text-primary uppercase">Artículo 1</span>
-                                <span class="text-[10px] font-mono text-muted uppercase">Diagnóstico · 8 min</span>
-                            </div>
-                            <h2
-                                class="font-heading text-2xl md:text-3xl font-bold text-ink mb-4 group-hover:text-primary transition-colors leading-snug">
-                                Llevas semanas ajustando. Pero no sabés desde cuándo el problema empezó.
-                            </h2>
-                            <p class="text-body text-sm leading-relaxed mb-6 max-w-xl">
-                                El estancamiento silencioso no llega de golpe. Se instala despacio, disfrazado de
-                                progreso
-                                de volumen, RPE estable, y ausencia de síntomas. Cómo se ve, por qué ocurre, y qué lo
-                                produce. No receta. Diagnóstico.
-                            </p>
-                            <span
-                                class="text-xs font-mono font-bold text-primary flex items-center gap-1 group-hover:translate-x-1 transition-transform">Leer
-                                artículo <span class="material-symbols-outlined text-[14px]">arrow_forward</span></span>
-                        </div>
-                    </a>
-                </article>
-
-                <!-- Artículos 2 y 3 -->
-                <div class="grid md:grid-cols-2 gap-6 mb-6">
-                    <article class="group">
-                        <a href="blog/variable-critica-validada.html"
-                            class="flex flex-col h-full bg-surface border border-border rounded hover:border-primary shadow-structural transition-all overflow-hidden">
-                            <div class="h-48 relative overflow-hidden bg-dark border-b border-border">
-                                <img src="img/lisandro-criterio.jpg" alt="Validación"
-                                    class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 opacity-80 mix-blend-luminosity hover:mix-blend-normal">
-                            </div>
-                            <div class="p-6 flex-1 flex flex-col bg-canvas">
-                                <div class="flex items-center gap-3 mb-3">
-                                    <span class="text-[10px] font-mono font-bold text-primary uppercase">Artículo
-                                        2</span>
-                                    <span class="text-[10px] font-mono text-muted uppercase">Concepto · 10 min</span>
-                                </div>
-                                <h2
-                                    class="font-heading text-lg font-bold text-ink mb-3 group-hover:text-primary transition-colors leading-snug">
-                                    No necesitás medir más. Necesitás saber cuál de los datos que ya tenés importa.
-                                </h2>
-                                <p class="text-body text-sm leading-relaxed mb-5 mt-auto">
-                                    Qué es la Variable Crítica Validada, por qué tiene tres componentes no negociables,
-                                    y cómo se identifica en un powerlifter...
-                                </p>
-                                <span class="text-xs font-mono font-bold text-primary flex items-center gap-1">Leer
-                                    _</span>
-                            </div>
-                        </a>
-                    </article>
-
-                    <article class="group">
-                        <a href="blog/criterio-sin-respaldo.html"
-                            class="flex flex-col h-full bg-surface border border-border rounded hover:border-primary shadow-structural transition-all overflow-hidden">
-                            <div class="h-48 relative overflow-hidden bg-dark border-b border-border">
-                                <img src="img/lisandro-office.jpg" alt="Oficina"
-                                    class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 opacity-80 mix-blend-luminosity hover:mix-blend-normal">
-                            </div>
-                            <div class="p-6 flex-1 flex flex-col bg-canvas">
-                                <div class="flex items-center gap-3 mb-3">
-                                    <span class="text-[10px] font-mono font-bold text-primary uppercase">Artículo
-                                        3</span>
-                                    <span class="text-[10px] font-mono text-muted uppercase">Intuición · 9 min</span>
-                                </div>
-                                <h2
-                                    class="font-heading text-lg font-bold text-ink mb-3 group-hover:text-primary transition-colors leading-snug">
-                                    Tu criterio no está mal. Está sin respaldo.
-                                </h2>
-                                <p class="text-body text-sm leading-relaxed mb-5 mt-auto">
-                                    La intuición de un preparador experimentado es válida. El problema es que sin
-                                    validación, nadie puede saber si fue la intuición o el azar.
-                                </p>
-                                <span class="text-xs font-mono font-bold text-primary flex items-center gap-1">Leer
-                                    _</span>
-                            </div>
-                        </a>
-                    </article>
+                    </div>
                 </div>
-
-                <!-- Artículos 4 y 5 -->
-                <div class="grid md:grid-cols-2 gap-6">
-                    <article class="group">
-                        <a href="blog/periodizacion-y-deteccion.html"
-                            class="flex flex-col h-full bg-surface border border-border rounded hover:border-primary shadow-structural transition-all overflow-hidden">
-                            <div class="p-6 flex-1 flex flex-col justify-center bg-canvas">
-                                <div class="flex items-center gap-3 mb-3">
-                                    <span class="text-[10px] font-mono font-bold text-primary uppercase">Artículo
-                                        4</span>
-                                    <span class="text-[10px] font-mono text-muted uppercase">Teoría · 10 min</span>
-                                </div>
-                                <h2
-                                    class="font-heading text-lg font-bold text-ink mb-3 group-hover:text-primary transition-colors leading-snug">
-                                    Periodizar bien no alcanza si no sabés cuándo el plan se rompió.
-                                </h2>
-                                <p class="text-body text-sm leading-relaxed mb-5">
-                                    La periodización dice qué planificar. La validación semanal dice cuándo el plan ya
-                                    no
-                                    aplica. Son complementarios, no alternativos.
-                                </p>
-                                <span class="text-xs font-mono font-bold text-primary flex items-center gap-1">Leer
-                                    _</span>
-                            </div>
-                        </a>
-                    </article>
-
-                    <article class="group">
-                        <a href="blog/ironlog-en-contexto.html"
-                            class="flex flex-col h-full bg-dark border border-slate-700 rounded hover:border-primary shadow-structural transition-all overflow-hidden">
-                            <div class="p-6 flex-1 flex flex-col justify-center">
-                                <div class="flex items-center gap-3 mb-3">
-                                    <span class="text-[10px] font-mono font-bold text-primary uppercase">Artículo
-                                        5</span>
-                                    <span class="text-[10px] font-mono text-slate-500 uppercase">IronLog · 7 min</span>
-                                </div>
-                                <h2
-                                    class="font-heading text-lg font-bold text-surface mb-3 group-hover:text-primary transition-colors leading-snug">
-                                    IronLog no resuelve el problema de criterio. Te obliga a tenerlo.
-                                </h2>
-                                <p class="text-slate-400 text-sm leading-relaxed mb-5">
-                                    Por qué existe IronLog, qué lugar ocupa en el sistema, para quién es y para quién
-                                    definitivamente no.
-                                </p>
-                                <span class="text-xs font-mono font-bold text-primary flex items-center gap-1">Leer
-                                    _</span>
-                            </div>
-                        </a>
-                    </article>
-                </div>
-
-                <!-- Artículos 6 y 7 -->
-                <div class="grid md:grid-cols-2 gap-6 mt-6">
-                    <article class="group">
-                        <a href="blog/el-costo-de-la-incertidumbre.html"
-                            class="flex flex-col h-full bg-surface border border-border rounded hover:border-primary shadow-structural transition-all overflow-hidden">
-                            <div class="p-6 flex-1 flex flex-col justify-center bg-canvas">
-                                <div class="flex items-center gap-3 mb-3">
-                                    <span class="text-[10px] font-mono font-bold text-primary uppercase">Artículo
-                                        6</span>
-                                    <span class="text-[10px] font-mono text-muted uppercase">Concepto · 6 min</span>
-                                </div>
-                                <h2
-                                    class="font-heading text-lg font-bold text-ink mb-3 group-hover:text-primary transition-colors leading-snug">
-                                    El costo de la incertidumbre
-                                </h2>
-                                <p class="text-body text-sm leading-relaxed mb-5">
-                                    Un error del 1% en la densidad semanal no produce señal el lunes, se acumula en
-                                    silencio hasta neutralizar el peaking.
-                                </p>
-                                <span class="text-xs font-mono font-bold text-primary flex items-center gap-1">Leer
-                                    _</span>
-                            </div>
-                        </a>
-                    </article>
-
-                    <article class="group">
-                        <a href="blog/dato-vs-decision.html"
-                            class="flex flex-col h-full bg-surface border border-border rounded hover:border-primary shadow-structural transition-all overflow-hidden">
-                            <div class="p-6 flex-1 flex flex-col justify-center bg-canvas">
-                                <div class="flex items-center gap-3 mb-3">
-                                    <span class="text-[10px] font-mono font-bold text-primary uppercase">Artículo
-                                        7</span>
-                                    <span class="text-[10px] font-mono text-muted uppercase">Sistemas · 5 min</span>
-                                </div>
-                                <h2
-                                    class="font-heading text-lg font-bold text-ink mb-3 group-hover:text-primary transition-colors leading-snug">
-                                    Dato vs. Decisión
-                                </h2>
-                                <p class="text-body text-sm leading-relaxed mb-5">
-                                    Hay dos tipos de entrenadores: los que miden para documentar el pasado, y los que
-                                    tienen reglas IF → THEN para actuar.
-                                </p>
-                                <span class="text-xs font-mono font-bold text-primary flex items-center gap-1">Leer
-                                    _</span>
-                            </div>
-                        </a>
-                    </article>
-                </div>
-
-            </div>
+            </a>
         </section>
 
-        <!-- SILO: Herramientas -->
-        <section class="py-16 border-b border-border">
-            <div class="max-w-4xl mx-auto px-6">
-
-                <div class="flex items-center gap-4 mb-8">
-                    <span
-                        class="inline-block py-1 px-3 rounded text-[10px] font-mono font-bold uppercase tracking-wider bg-surface border border-border text-ink">Herramientas</span>
-                    <div class="h-px flex-1 bg-border"></div>
-                </div>
-
-                <div class="grid md:grid-cols-3 gap-5">
-                    <a href="ironlog/demo.html"
-                        class="group block p-5 bg-surface border border-border rounded hover:border-primary shadow-structural transition-all">
-                        <span class="text-[10px] font-mono font-bold text-primary mb-2 block uppercase">Simuladores
-                            Gratis</span>
-                        <h3
-                            class="font-heading font-bold text-ink group-hover:text-primary transition-colors text-base mb-2 leading-snug">
-                            Simuladores Wendler, Cube y Starting Strength</h3>
-                        <p class="text-body text-xs leading-relaxed">Calculá proyecciones de carga y entendé qué
-                            variable prioriza cada sistema.</p>
-                    </a>
-                    <a href="ironlog/tools.html"
-                        class="group block p-5 bg-surface border border-border rounded hover:border-primary shadow-structural transition-all">
-                        <span class="text-[10px] font-mono font-bold text-muted mb-2 block uppercase">Recursos</span>
-                        <h3
-                            class="font-heading font-bold text-ink group-hover:text-primary transition-colors text-base mb-2 leading-snug">
-                            Herramientas de sistema</h3>
-                        <p class="text-body text-xs leading-relaxed">IronLog, el Diagnóstico VCV, y el Autodiagnóstico:
-                            qué resuelve cada uno.</p>
-                    </a>
-                    <a href="autodiagnostico.html"
-                        class="group block p-5 bg-surface border border-border rounded hover:border-primary shadow-structural transition-all">
-                        <span
-                            class="text-[10px] font-mono font-bold text-primary mb-2 block uppercase">Interactivo</span>
-                        <h3
-                            class="font-heading font-bold text-ink group-hover:text-primary transition-colors text-base mb-2 leading-snug">
-                            Autodiagnóstico de Sistema</h3>
-                        <p class="text-body text-xs leading-relaxed">10 preguntas. Sin formulario. Resultado en 5
-                            minutos.</p>
-                    </a>
-                </div>
-
-            </div>
+        <!-- Grid of Posts -->
+        <section class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Item 1 -->
+            <a href="blog/dato-vs-decision.html"
+                class="p-8 border border-slate-800 rounded-2xl hover:border-blue-600 transition flex flex-col group bg-slate-900/20">
+                <span class="text-slate-500 font-mono text-[10px] uppercase mb-4 tracking-widest">Gobernanza de
+                    Datos</span>
+                <h3 class="text-xl font-bold mb-4 group-hover:text-blue-500 transition">Dato vs. Decisión</h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-8">La diferencia entre registrar el pasado y definir
+                    el futuro mediante reglas IF-THEN.</p>
+                <div class="mt-auto text-xs font-mono text-blue-600">Feb 28, 2026</div>
+            </a>
+            <!-- Item 2 -->
+            <a href="blog/el-costo-de-la-incertidumbre.html"
+                class="p-8 border border-slate-800 rounded-2xl hover:border-blue-600 transition flex flex-col group bg-slate-900/20">
+                <span class="text-slate-500 font-mono text-[10px] uppercase mb-4 tracking-widest">Criterio
+                    Técnico</span>
+                <h3 class="text-xl font-bold mb-4 group-hover:text-blue-500 transition">El costo de la incertidumbre
+                </h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-8">Cómo un error del 1% se acumula en silencio hasta
+                    destruir tu peaking.</p>
+                <div class="mt-auto text-xs font-mono text-blue-600">Feb 25, 2026</div>
+            </a>
+            <!-- Item 3 -->
+            <a href="blog/variable-critica-validada.html"
+                class="p-8 border border-slate-800 rounded-2xl hover:border-blue-600 transition flex flex-col group bg-slate-900/20">
+                <span class="text-slate-500 font-mono text-[10px] uppercase mb-4 tracking-widest">Metodología VCV</span>
+                <h3 class="text-xl font-bold mb-4 group-hover:text-blue-500 transition">¿Qué es una Variable Crítica
+                    Validada?</h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-8">El filtro definitivo para ignorar el Big Data y
+                    centrarse en la señal real.</p>
+                <div class="mt-auto text-xs font-mono text-blue-600">Feb 20, 2026</div>
+            </a>
+            <!-- Item 4 -->
+            <a href="blog/criterio-sin-respaldo.html"
+                class="p-8 border border-slate-800 rounded-2xl hover:border-blue-600 transition flex flex-col group bg-slate-900/20">
+                <span class="text-slate-500 font-mono text-[10px] uppercase mb-4 tracking-widest">Arquitectura de
+                    Decisión</span>
+                <h3 class="text-xl font-bold mb-4 group-hover:text-blue-500 transition">Criterio sin respaldo</h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-8">Por qué tu experiencia no es suficiente si no
+                    podés convertirla en un proceso verificable.</p>
+                <div class="mt-auto text-xs font-mono text-blue-600">Feb 15, 2026</div>
+            </a>
+            <!-- Item 5 -->
+            <a href="blog/periodizacion-y-deteccion.html"
+                class="p-8 border border-slate-800 rounded-2xl hover:border-blue-600 transition flex flex-col group bg-slate-900/20">
+                <span class="text-slate-500 font-mono text-[10px] uppercase mb-4 tracking-widest">Detección
+                    Semanal</span>
+                <h3 class="text-xl font-bold mb-4 group-hover:text-blue-500 transition">Periodización y Detección</h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-8">La planificación es una hipótesis; la detección
+                    semanal es lo que valida si la estás cumpliendo.</p>
+                <div class="mt-auto text-xs font-mono text-blue-600">Feb 10, 2026</div>
+            </a>
+            <!-- Item 6 -->
+            <a href="blog/ironlog-en-contexto.html"
+                class="p-8 border border-slate-800 rounded-2xl hover:border-blue-600 transition flex flex-col group bg-slate-900/20">
+                <span class="text-slate-500 font-mono text-[10px] uppercase mb-4 tracking-widest">Herramientas</span>
+                <h3 class="text-xl font-bold mb-4 group-hover:text-blue-500 transition">IronLog en contexto</h3>
+                <p class="text-slate-400 text-sm leading-relaxed mb-8">Cómo un software de registro se convierte en un
+                    instrumento de decisión estratégica.</p>
+                <div class="mt-auto text-xs font-mono text-blue-600">Feb 05, 2026</div>
+            </a>
         </section>
-
-        <!-- CTA Diagnóstico -->
-        <section class="py-20 bg-surface border-t border-border">
-            <div class="max-w-2xl mx-auto px-6 text-center">
-                <span
-                    class="text-[10px] font-mono font-bold uppercase tracking-wider text-muted block mb-4">Servicio</span>
-                <h2 class="font-heading text-2xl md:text-3xl font-bold text-ink mb-4">¿Querés que revise tu sistema con
-                    vos?</h2>
-                <p class="text-body mb-8 leading-relaxed">
-                    Una conversación de 30 minutos para identificar qué variable importa en tu contexto, qué umbral
-                    usaría, y si el sistema que tenés produce criterio o solo datos.
-                </p>
-                <a href="contacto.html"
-                    class="inline-block bg-primary hover:bg-primary text-white font-medium px-9 py-4 rounded transition-all hover:-translate-y-0.5 shadow-structural cta cta--secondary"
-                    data-cta-level="2" data-cta-destination="auditoria-vcv">
-                    Solicitar revisión →
-                </a>
-            </div>
-        </section>
-
     </main>
 
-    <footer class="bg-dark border-t-4 border-primary text-white pt-16 pb-8">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-                <!-- Brand -->
-                <div class="col-span-1 flex flex-col gap-4">
-                    <h3 class="font-heading font-bold text-xl flex items-center gap-2">
-                        <span class="material-symbols-outlined text-primary text-xl">terminal</span>
-                        Lisandro Cacciatore_
-                    </h3>
-                    <p class="text-subtle text-sm leading-relaxed max-w-sm">
-                        Consultoría en performance y sistemas de decisión para el deporte de élite.
-                    </p>
-                </div>
-                <!-- Nav -->
-                <div class="flex flex-col gap-4">
-                    <h4 class="font-mono text-xs font-bold text-primary uppercase tracking-widest">Navegación</h4>
-                    <a class="text-slate-300 hover:text-white text-sm transition-colors"
-                        href="index.html#metodo">Método</a>
-                    <a class="text-slate-300 hover:text-white text-sm transition-colors"
-                        href="servicios.html">Servicios</a>
-                    <a class="text-slate-300 hover:text-white text-sm transition-colors" href="blog.html">Blog</a>
-                    <a class="text-slate-300 hover:text-white text-sm transition-colors"
-                        href="ironlog/index.html">IronLog</a>
-                </div>
-                <!-- Social -->
-                <div class="flex flex-col gap-4">
-                    <h4 class="font-mono text-xs font-bold text-primary uppercase tracking-widest">Contacto</h4>
-                    <a class="text-slate-300 hover:text-white text-sm transition-colors flex items-center gap-2"
-                        href="https://www.linkedin.com/in/lisandrolc/" target="_blank">
-                        LinkedIn <span class="material-symbols-outlined text-[14px]">arrow_outward</span>
-                    </a>
-                    <a class="text-slate-300 hover:text-white text-sm transition-colors flex items-center gap-2"
-                        href="mailto:info@lisandrocacciatore.com">
-                        Email <span class="material-symbols-outlined text-[14px]">arrow_outward</span>
-                    </a>
-                    <a class="text-slate-300 hover:text-white text-sm transition-colors flex items-center gap-2"
-                        href="contacto.html">
-                        Solicitar Revisión <span class="material-symbols-outlined text-[14px]">arrow_outward</span>
-                    </a>
-                </div>
-                <!-- Legal -->
-                <div class="flex flex-col gap-4">
-                    <h4 class="font-mono text-xs font-bold text-primary uppercase tracking-widest">Legal & Operaciones
-                    </h4>
-                    <a class="text-slate-300 hover:text-white text-sm transition-colors"
-                        href="privacidad.html">Privacidad</a>
-                    <a class="text-slate-300 hover:text-white text-sm transition-colors" href="sobre-mi.html">Sobre
-                        mí</a>
-                    <span class="text-slate-400 text-sm mt-2 flex items-center gap-2">
-                        <span class="material-symbols-outlined text-[14px]">location_on</span> Rosario, Argentina
-                    </span>
-                </div>
+    <!-- Footer -->
+    <footer class="bg-slate-900 border-t border-slate-800 py-12 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex flex-col gap-2">
+                <span class="text-xl font-bold tracking-tighter uppercase">Lisandro Cacciatore<span
+                        class="text-blue-600">_</span></span>
+                <p class="text-slate-500 text-sm">Consultoría de Alto Rendimiento · Ingeniería de Datos Deportivos</p>
             </div>
-            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="font-mono text-xs text-subtle">
-                    © 2026 Lisandro Cacciatore. Todos los derechos reservados.
-                </p>
-                <div class="flex gap-4">
-                    <span class="w-2 h-2 rounded-full bg-slate-700"></span>
-                    <span class="w-2 h-2 rounded-full bg-slate-700"></span>
-                    <span class="w-2 h-2 rounded-full bg-slate-700"></span>
-                </div>
+            <div class="flex space-x-8 text-xs font-mono uppercase tracking-widest text-slate-400">
+                <a href="privacidad.html" class="hover:text-white transition">Privacidad</a>
+                <span class="text-slate-700">© 2026</span>
             </div>
         </div>
     </footer>

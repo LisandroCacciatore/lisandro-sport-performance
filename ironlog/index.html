@@ -1,415 +1,220 @@
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IronLog | El instrumento del sistema de validación semanal</title>
-    <meta name="description" content="IronLog no es una app de registro. Es el instrumento operativo dentro de un sistema de validación con Variable Crítica Validada. Decidís con criterio, no con impresiones.">
-    <link rel="canonical" href="https://lisandrocacciatore.com/ironlog/index.html">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=IBM+Plex+Sans:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>IronLog | Instrumento de Gobernanza de Datos Deportivos</title>
+    <meta name="description"
+        content="IronLog no es una app de registro. Es el componente operativo de un sistema de Gobernanza de Datos. Decidí con criterio técnico.">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="../theme.js"></script>
-</head>
-<body class="bg-canvas text-body font-sans antialiased">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+        }
 
-    <nav class="sticky top-0 z-50 bg-canvas/95 backdrop-blur-sm border-b border-border">
-        <div class="max-w-7xl mx-auto px-6 h-16 flex justify-between items-center">
-            <a href="../index.html" class="text-xs font-mono text-muted hover:text-ink transition-colors hidden md:block">← Lisandro Cacciatore</a>
-            <span class="text-border hidden md:block">|</span>
-            <div class="flex items-center gap-2">
-                <span class="text-xl">🏋️</span>
-                <a href="index.html" class="font-heading font-extrabold text-lg text-ink">IronLog</a>
+        .font-mono {
+            font-family: 'Fira Code', monospace;
+        }
+
+        .glass-card {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(51, 65, 85, 0.5);
+        }
+    </style>
+</head>
+
+<body class="bg-[#0f172a] text-slate-200 antialiased">
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-[#0f172a]/80 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <a href="../index.html" class="text-xs font-mono text-slate-500 hover:text-blue-500 transition">←
+                    INICIO</a>
+                <span class="text-slate-800">|</span>
+                <a href="index.html" class="text-xl font-bold tracking-tighter uppercase">IronLog<span
+                        class="text-blue-600">_</span></a>
             </div>
-            <div class="flex items-center gap-6">
-                <a href="tools.html" class="text-sm font-sans text-muted hover:text-ink transition-colors hidden md:block">Herramientas</a>
-                <a href="demo.html" class="text-sm font-sans text-muted hover:text-ink transition-colors hidden md:block">Simuladores</a>
-                <a href="#early-access" class="bg-primary hover:bg-primary-600 text-white px-4 py-2 rounded font-medium text-sm transition-colors">
-                    Lista de espera
-                </a>
+            <div class="hidden md:flex space-x-8 font-mono text-sm uppercase tracking-widest">
+                <a href="demo.html" class="hover:text-blue-500 transition">Simuladores</a>
+                <a href="#early-access"
+                    class="px-4 py-2 border border-blue-600 rounded text-blue-500 hover:bg-blue-600 hover:text-white transition">Lista
+                    de Espera</a>
             </div>
         </div>
     </nav>
 
     <main>
-
-        <!-- HERO: El problema de fondo -->
-        <section class="py-22 md:py-32 bg-surface border-b border-border">
-            <div class="max-w-3xl mx-auto px-6 text-center">
-                <span class="inline-block mb-6 px-3 py-1 bg-primary-bg text-primary rounded text-[10px] font-mono font-bold uppercase tracking-wider border border-blue-100">
-                    En piloto cerrado · Simuladores disponibles
+        <!-- Hero Section -->
+        <header class="relative pt-24 pb-32 overflow-hidden border-b border-slate-800/50">
+            <div class="max-w-4xl mx-auto px-6 relative z-10 text-center">
+                <span
+                    class="inline-block py-1 px-3 rounded text-[10px] font-mono font-bold uppercase tracking-widest bg-blue-900/20 border border-blue-500/30 text-blue-400 mb-8">
+                    Instrumento Operativo · Versión 1.2
                 </span>
-                <h1 class="font-heading text-4xl md:text-5xl font-bold text-ink mb-6 leading-tight">
-                    El registro no es el problema.<br class="hidden md:block"> El criterio es el problema.
+                <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-8 tracking-tight">
+                    El registro es <span class="text-slate-500">historia.</span><br>
+                    La gobernanza es <span class="text-blue-600">decisión.</span>
                 </h1>
-                <p class="text-lg text-body max-w-2xl mx-auto mb-10 leading-relaxed">
-                    Registrar no alcanza. Acumular datos no alcanza. IronLog es el instrumento operativo de un sistema de validación semanal. Sirve para tomar decisiones con fundamento, no para llenar hojas de cálculo.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <a href="demo.html" class="bg-primary hover:bg-primary-600 text-white px-8 py-4 rounded font-medium transition-colors shadow-structural">
-                        Explorar Simuladores (Free) →
-                    </a>
-                    <a href="#early-access" class="border border-border text-ink hover:border-muted font-medium px-8 py-4 rounded transition-colors text-center">
-                        Anotarme para el piloto
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- EL PROBLEMA DE FONDO -->
-        <section class="py-22 bg-canvas border-b border-border">
-            <div class="max-w-3xl mx-auto px-6">
-                <div class="grid md:grid-cols-2 gap-px bg-border rounded overflow-hidden shadow-structural">
-                    <div class="bg-surface p-8">
-                        <div class="text-error font-mono font-bold text-sm bg-error-bg px-2 py-1 rounded inline-block mb-6 uppercase tracking-widest border border-red-200">
-                            Sin validación estructurada
-                        </div>
-                        <ul class="space-y-4 text-body text-sm">
-                            <li class="flex items-start gap-3">
-                                <span class="text-error font-bold mt-0.5 shrink-0">✕</span>
-                                <span>El atleta lleva semanas estancado. Vos no lo sabés porque no hay un indicador que lo muestre.</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="text-error font-bold mt-0.5 shrink-0">✕</span>
-                                <span>Tomás decisiones de carga basadas en cómo se vio la sesión. No en lo que el dato dice.</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="text-error font-bold mt-0.5 shrink-0">✕</span>
-                                <span>Cuando alguien pide resultados, no tenés un registro estructurado que respalde el proceso.</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="bg-surface p-8">
-                        <div class="text-success font-mono font-bold text-sm bg-success-bg px-2 py-1 rounded inline-block mb-6 uppercase tracking-widest border border-green-200">
-                            Con IronLog en el sistema
-                        </div>
-                        <ul class="space-y-4 text-body text-sm">
-                            <li class="flex items-start gap-3">
-                                <span class="text-success font-mono font-bold mt-0.5 shrink-0">✔</span>
-                                <span>El desvío aparece en el dato antes de que el atleta lo sienta. Actuás a tiempo.</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="text-success font-mono font-bold mt-0.5 shrink-0">✔</span>
-                                <span>Cada semana tenés un indicador claro. No una colección de métricas. Un indicador.</span>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <span class="text-success font-mono font-bold mt-0.5 shrink-0">✔</span>
-                                <span>Cada decisión tiene un argumento detrás. No una impresión. Un argumento.</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- REENCUADRE: parte de un sistema -->
-        <section class="py-22 bg-surface border-b border-border">
-            <div class="max-w-3xl mx-auto px-6">
-                <span class="inline-block py-1 px-3 rounded text-[10px] font-mono font-bold uppercase tracking-wider bg-canvas border border-border text-muted mb-6">
-                    No es el producto. Es el instrumento.
-                </span>
-                <h2 class="font-heading text-3xl font-bold text-ink mb-4">
-                    El sistema es estratégico. IronLog es operativo.
-                </h2>
-                <p class="text-body leading-relaxed mb-10">
-                    La diferencia no está en la herramienta. Está en el proceso que la rodea. IronLog funciona dentro de un sistema de validación semanal. Sin ese sistema, es solo un registro más. Con él, es el instrumento que te permite tomar decisiones con argumento cada semana.
-                </p>
-
-                <div class="space-y-4">
-                    <div class="bg-canvas p-6 rounded border border-border flex gap-4 items-start">
-                        <span class="font-mono text-primary font-bold text-sm shrink-0 mt-0.5">01</span>
-                        <div>
-                            <h3 class="font-heading font-bold text-ink mb-1">Registro sin fricción</h3>
-                            <p class="text-body text-sm leading-relaxed">El registro tiene que ocurrir para que el sistema funcione. IronLog lo hace posible desde el celular, en segundos, sin Excel, sin papel, sin proceso paralelo que nadie sostiene.</p>
-                        </div>
-                    </div>
-                    <div class="bg-canvas p-6 rounded border border-border flex gap-4 items-start">
-                        <span class="font-mono text-primary font-bold text-sm shrink-0 mt-0.5">02</span>
-                        <div>
-                            <h3 class="font-heading font-bold text-ink mb-1">Un indicador, no cien métricas</h3>
-                            <p class="text-body text-sm leading-relaxed">Cada semana el sistema responde una sola pregunta: ¿la Variable Crítica Validada va en la dirección correcta? No un dashboard con veinte gráficos. Una respuesta. Clara. Con criterio.</p>
-                        </div>
-                    </div>
-                    <div class="bg-canvas p-6 rounded border border-border flex gap-4 items-start">
-                        <span class="font-mono text-primary font-bold text-sm shrink-0 mt-0.5">03</span>
-                        <div>
-                            <h3 class="font-heading font-bold text-ink mb-1">Señal antes de que sea tarde</h3>
-                            <p class="text-body text-sm leading-relaxed">Cuando el dato cambia, IronLog lo muestra antes de que el problema sea visible. El ajuste llega cuando corresponde. No cuando el atleta ya perdió semanas.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- VCV -->
-        <section class="py-22 bg-canvas border-b border-border">
-            <div class="max-w-3xl mx-auto px-6">
-                <span class="inline-block py-1 px-3 rounded text-[10px] font-mono font-bold uppercase tracking-wider bg-canvas border border-border text-muted mb-6">
-                    Variable Crítica Validada
-                </span>
-                <h2 class="font-heading text-3xl font-bold text-ink mb-4">
-                    No todo dato importa igual.<br>Importa el dato correcto.
-                </h2>
-                <p class="text-body leading-relaxed mb-8">
-                    Para cada atleta y cada objetivo hay una variable que importa más que el resto en este momento del proceso. No el volumen total. No el RPE general. No la cantidad de sesiones. Una variable concreta, que cuando cambia, indica que algo cambió. A esa variable la llamamos Variable Crítica Validada. IronLog está diseñado para seguirla, semana a semana, sin perder el foco en métricas secundarias.
-                </p>
-                <div class="bg-ink text-surface p-8 rounded border border-slate-700">
-                    <p class="text-xs font-mono text-primary uppercase tracking-wider mb-4">Ejemplo concreto</p>
-                    <p class="text-slate-300 leading-relaxed text-sm mb-4">
-                        Un preparador trabaja con una atleta de weightlifting en bloque previo a competencia. Registra muchas cosas. Pero la VCV en esta fase es la velocidad media de la barra en arrancada al 80%. No el volumen. No la sensación. Esa variable.
-                    </p>
-                    <p class="text-slate-300 leading-relaxed text-sm">
-                        Cuando esa variable cae tres sesiones seguidas sin causa externa identificable, hay un problema de fatiga acumulada que la percepción todavía no detecta. El ajuste se hace entonces. No cuando la atleta llega a la sesión sin energía. Cuando el dato lo dice.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- CIERRE: No vendas la herramienta sola -->
-        <section class="py-22 bg-surface border-b border-border">
-            <div class="max-w-3xl mx-auto px-6 text-center">
-                <h2 class="font-heading text-3xl font-bold text-ink mb-4">
-                    IronLog no te hace mejor entrenador.<br>Te obliga a decidir con criterio.
-                </h2>
-                <p class="text-body mb-10 max-w-xl mx-auto leading-relaxed">
-                    El instrumento no reemplaza el proceso. Lo hace posible. Si querés entender cómo funciona el sistema completo de validación semanal, el primer paso es el diagnóstico.
+                <p class="max-w-2xl mx-auto text-xl text-slate-400 mb-12 leading-relaxed">
+                    Dejá de usar planillas que nadie mira. IronLog es la herramienta que materializa la **Variable
+                    Crítica Validada** en el campo, obligando a tu staff a decidir con un argumento técnico por delante.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="../contacto.html" class="bg-primary hover:bg-primary-600 text-white px-8 py-4 rounded font-medium transition-colors shadow-structural cta cta--secondary" data-cta-level="2" data-cta-destination="auditoria-vcv">
-                    Solicitar revisión →
-                </a>
-                    <a href="demo.html" class="border border-border text-ink hover:border-muted font-medium px-8 py-4 rounded transition-colors">
-                        Ver Simuladores Free
+                    <a href="demo.html"
+                        class="px-8 py-4 bg-blue-700 hover:bg-blue-600 text-white font-bold rounded transition-all uppercase tracking-widest text-xs shadow-xl shadow-blue-900/20">
+                        Explorar Simuladores Free →
+                    </a>
+                    <a href="#early-access"
+                        class="px-8 py-4 border border-slate-700 hover:border-slate-500 text-slate-300 font-bold rounded transition-all uppercase tracking-widest text-xs">
+                        Anotarme en el Piloto
                     </a>
                 </div>
             </div>
-        </section>
+            <!-- Glow background -->
+            <div
+                class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-900/10 via-transparent to-transparent pointer-events-none">
+            </div>
+        </header>
 
-        <!-- EARLY ACCESS FORM -->
-        <section id="early-access" class="py-22 bg-dark">
-            <div class="max-w-xl mx-auto px-6">
-                <div class="text-center mb-10">
-                    <h2 class="font-heading text-3xl font-bold text-surface mb-3">Piloto cerrado — Acceso anticipado</h2>
-                    <p class="text-body text-slate-400">
-                        Grupo reducido de preparadores físicos para el primer piloto. Prioridad para quienes estén en lista antes del lanzamiento.
-                    </p>
+        <!-- Comparativa -->
+        <section class="py-24 max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-px bg-slate-800 rounded-3xl overflow-hidden border border-slate-800">
+                <div class="bg-[#0f172a] p-12 lg:p-16">
+                    <span class="text-[10px] font-mono font-bold text-red-500 uppercase tracking-widest mb-6 block">Sin
+                        Gobernanza</span>
+                    <h3 class="text-2xl font-bold mb-8 italic text-slate-300">"Lo vi raro hoy..."</h3>
+                    <ul class="space-y-6 text-sm text-slate-500 font-mono">
+                        <li class="flex items-start gap-3">
+                            <span class="text-red-900">/</span>
+                            <span>El atleta se estanca y no hay una alerta previa.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-red-900">/</span>
+                            <span>Las decisiones de carga dependen del humor del staff.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-red-900">/</span>
+                            <span>Faltan argumentos técnicos en la revisión semanal.</span>
+                        </li>
+                    </ul>
                 </div>
-
-                <form id="earlyAccessForm" class="space-y-5 bg-ink p-8 rounded border border-slate-800 shadow-structural" novalidate>
-
-                        <!-- Hidden fields — F-01 Contrato de Datos v1.0 -->
-                        <input type="hidden" name="form_name"    value="lead-ironlog">
-                        <input type="hidden" name="lead_type"    value="ironlog">
-                        <input type="hidden" name="source_page"  id="il_source_page">
-                        <input type="hidden" name="source_cta"   id="il_source_cta">
-                        <input type="hidden" name="utm_source"   id="il_utm_source">
-                        <input type="hidden" name="utm_medium"   id="il_utm_medium">
-                        <input type="hidden" name="utm_campaign" id="il_utm_campaign">
-                        <input type="hidden" name="utm_content"  id="il_utm_content">
-
-                        <!-- Nombre -->
-                        <div>
-                            <label class="block text-xs font-bold text-surface mb-2 uppercase tracking-wide">Tu nombre <span class="text-error">*</span></label>
-                            <input type="text" id="il_nombre" name="nombre" required placeholder="Tu nombre"
-                                class="il-field w-full px-4 py-3 rounded bg-dark border border-slate-700 text-surface focus:border-primary outline-none text-sm font-sans">
-                            <p class="il-error hidden text-xs text-error mt-1" data-for="il_nombre">Completá este campo para continuar.</p>
-                        </div>
-
-                        <!-- Email -->
-                        <div>
-                            <label class="block text-xs font-bold text-surface mb-2 uppercase tracking-wide">Email <span class="text-error">*</span></label>
-                            <input type="email" id="il_email" name="email" required placeholder="tu@email.com"
-                                class="il-field w-full px-4 py-3 rounded bg-dark border border-slate-700 text-surface focus:border-primary outline-none text-sm font-sans">
-                            <p class="il-error hidden text-xs text-error mt-1" data-for="il_email">El formato del email no es válido. Revisá que incluya el @.</p>
-                        </div>
-
-                        <!-- Rol — enum F-01 Hoja 2 -->
-                        <div>
-                            <label class="block text-xs font-bold text-surface mb-2 uppercase tracking-wide">Tu rol principal <span class="text-error">*</span></label>
-                            <select id="il_rol" name="rol" required
-                                class="il-field w-full px-4 py-3 rounded bg-dark border border-slate-700 text-surface focus:border-primary outline-none text-sm font-sans">
-                                <option value="" disabled selected></option>
-                                <option value="preparador_fisico_individual">Preparador físico individual</option>
-                                <option value="coordinador_club">Coordinador / Director técnico</option>
-                                <option value="entrenador_fuerza">Entrenador de fuerza / S&C</option>
-                                <option value="analista_deportivo">Analista de datos deportivo</option>
-                                <option value="otro">Otro</option>
-                            </select>
-                            <p class="il-error hidden text-xs text-error mt-1" data-for="il_rol">Seleccioná una opción para continuar.</p>
-                        </div>
-
-                        <!-- Problema principal — enum F-01 Hoja 2 -->
-                        <div>
-                            <label class="block text-xs font-bold text-surface mb-2 uppercase tracking-wide">¿Qué problema intentás resolver? <span class="text-error">*</span></label>
-                            <select id="il_problema" name="problema_principal" required
-                                class="il-field w-full px-4 py-3 rounded bg-dark border border-slate-700 text-surface focus:border-primary outline-none text-sm font-sans">
-                                <option value="" disabled selected></option>
-                                <option value="no-se-si-mis-decisiones-funcionan">No sé si mis decisiones están funcionando.</option>
-                                <option value="estancamiento-sin-explicacion">Tengo estancamiento sin explicación clara.</option>
-                                <option value="registro-datos-sin-convertir-en-criterio">Registro datos pero no los convierto en criterio.</option>
-                                <option value="disenando-sistema-desde-cero">Estoy diseñando un sistema desde cero.</option>
-                                <option value="otro">Otro — lo explico abajo.</option>
-                            </select>
-                            <p class="il-error hidden text-xs text-error mt-1" data-for="il_problema">Seleccioná una opción para continuar.</p>
-                        </div>
-
-                        <!-- Detalle adicional — opcional -->
-                        <div>
-                            <label class="block text-xs font-bold text-surface mb-2 uppercase tracking-wide">
-                                ¿Qué registrás hoy? <span class="text-slate-500 font-normal normal-case">(opcional)</span>
-                            </label>
-                            <textarea id="il_detalle" name="detalle_adicional" rows="3"
-                                placeholder="Ej: uso planilla de RPE + e1RM proyectado, ajusto cada 3 semanas según tendencia."
-                                class="w-full px-4 py-3 rounded bg-dark border border-slate-700 text-surface focus:border-primary outline-none text-sm font-sans resize-none"></textarea>
-                        </div>
-
-                        <!-- Consent — F-01 obligatorio -->
-                        <div>
-                            <label class="flex items-start gap-3 cursor-pointer">
-                                <input type="checkbox" id="il_consent" name="consent" required
-                                    class="mt-0.5 shrink-0 accent-primary">
-                                <span class="text-xs text-slate-400 leading-relaxed">
-                                    Acepto que Lisandro Cacciatore procese estos datos para gestionar el acceso
-                                    anticipado a IronLog, de acuerdo con la
-                                    <a href="../privacidad.html" class="underline hover:text-surface transition-colors">política de privacidad</a>.
-                                </span>
-                            </label>
-                            <p class="il-error hidden text-xs text-error mt-1" data-for="il_consent">Es necesario aceptar para enviar la solicitud.</p>
-                        </div>
-
-                        <button type="submit" class="w-full bg-primary hover:bg-primary-600 text-white py-3 rounded font-medium transition-colors mt-2 cta cta--primary" data-cta-level="1" data-cta-destination="formulario-ironlog">
-                            Solicitar acceso anticipado →
-                        </button>
-
-                        <div id="il_formError" class="hidden text-xs text-error text-center pt-2">
-                            No se pudo enviar la solicitud. Revisá tu conexión e intentá de nuevo.
-                        </div>
-                    </form>
-
-                <div id="formSuccess" class="hidden text-center py-12 bg-ink rounded border border-slate-800 mt-6">
-                    <div class="text-success font-mono text-4xl mb-4">OK</div>
-                    <h3 class="font-heading text-xl font-bold text-surface mb-2">Lista de espera confirmada</h3>
-                    <p class="text-sm text-slate-400">Te avisamos con anticipación cuando el piloto esté disponible.</p>
+                <div class="bg-slate-900/50 p-12 lg:p-16">
+                    <span class="text-[10px] font-mono font-bold text-blue-500 uppercase tracking-widest mb-6 block">Con
+                        IronLog</span>
+                    <h3 class="text-2xl font-bold mb-8 text-white">"La VCV indica un desvío del 3%."</h3>
+                    <ul class="space-y-6 text-sm text-slate-300 font-mono">
+                        <li class="flex items-start gap-3 text-blue-400">
+                            <span>/</span>
+                            <span class="text-slate-300">Señal clara antes de que el estancamiento ocurra.</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-blue-400">
+                            <span>/</span>
+                            <span class="text-slate-300">Cada ajuste tiene un respaldo IF → THEN automático.</span>
+                        </li>
+                        <li class="flex items-start gap-3 text-blue-400">
+                            <span>/</span>
+                            <span class="text-slate-300">Criterio unificado: el staff habla el mismo idioma.</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </section>
 
+        <!-- VCV Focus -->
+        <section class="py-24 border-t border-slate-800/50 bg-slate-900/20">
+            <div class="max-w-4xl mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-5xl font-bold mb-8 tracking-tight">Centrado en la <span
+                        class="text-blue-600">Variable Crítica.</span></h2>
+                <p class="text-slate-400 text-lg leading-relaxed mb-16">
+                    IronLog no es un dashboard infinito. Está diseñado para seguir **UNA** cosa: la variable que
+                    realmente predice el éxito en esta etapa del proceso.
+                </p>
+
+                <div class="grid md:grid-cols-3 gap-8 text-left">
+                    <div class="p-8 border border-slate-800 rounded-2xl bg-[#0f172a]">
+                        <div class="text-blue-500 mb-6 font-mono text-xs tracking-widest uppercase">01 / CAPTURA</div>
+                        <h4 class="text-white font-bold mb-4">Registro en 10 seg.</h4>
+                        <p class="text-slate-500 text-sm leading-relaxed">Eliminamos la fricción. Si el registro tarda
+                            más que un cambio de disco, no sirve.</p>
+                    </div>
+                    <div class="p-8 border border-slate-800 rounded-2xl bg-[#0f172a]">
+                        <div class="text-blue-500 mb-6 font-mono text-xs tracking-widest uppercase">02 / FILTRO</div>
+                        <h4 class="text-white font-bold mb-4">Señal sobre Ruido</h4>
+                        <p class="text-slate-500 text-sm leading-relaxed">Filtramos el 90% de los datos irrelevantes
+                            para mostrar el único indicador de éxito.</p>
+                    </div>
+                    <div class="p-8 border border-slate-800 rounded-2xl bg-[#0f172a]">
+                        <div class="text-blue-500 mb-6 font-mono text-xs tracking-widest uppercase">03 / ACCIÓN</div>
+                        <h4 class="text-white font-bold mb-4">Alerta Temprana</h4>
+                        <p class="text-slate-500 text-sm leading-relaxed">Si la VCV se desvía de la tendencia, el
+                            sistema dispara una regla de ajuste.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Form access -->
+        <section id="early-access" class="py-32">
+            <div class="max-w-xl mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold mb-4">Lista de Espera <span class="text-blue-600">Piloto</span></h2>
+                    <p class="text-slate-400 font-mono text-xs uppercase tracking-widest">Estamos seleccionando 5
+                        organizaciones para el despliegue del Q2.</p>
+                </div>
+
+                <form class="space-y-6 p-10 bg-slate-900/50 border border-slate-800 rounded-3xl">
+                    <div>
+                        <label
+                            class="block font-mono text-[10px] text-blue-500 uppercase mb-3 tracking-[0.2em] font-bold">Identidad
+                            Profesional</label>
+                        <input type="text" placeholder="Tu nombre"
+                            class="w-full bg-slate-950 border border-slate-800 p-4 rounded-lg focus:border-blue-600 outline-none transition text-slate-200">
+                    </div>
+                    <div>
+                        <label
+                            class="block font-mono text-[10px] text-blue-500 uppercase mb-3 tracking-[0.2em] font-bold">Organización
+                            / Club</label>
+                        <input type="text" placeholder="Nombre de la institución"
+                            class="w-full bg-slate-950 border border-slate-800 p-4 rounded-lg focus:border-blue-600 outline-none transition text-slate-200">
+                    </div>
+                    <div>
+                        <label
+                            class="block font-mono text-[10px] text-blue-500 uppercase mb-3 tracking-[0.2em] font-bold">¿Qué
+                            registrás hoy?</label>
+                        <textarea rows="3" placeholder="Ej: Excel, RPE, GPS, VBT..."
+                            class="w-full bg-slate-950 border border-slate-800 p-4 rounded-lg focus:border-blue-600 outline-none transition text-slate-200 resize-none"></textarea>
+                    </div>
+                    <button
+                        class="w-full py-5 bg-blue-700 hover:bg-blue-600 text-white font-bold rounded-lg transition-all uppercase tracking-widest text-[10px]">
+                        Solicitar Acceso Anticipado →
+                    </button>
+                </form>
+            </div>
+        </section>
     </main>
 
-    <footer class="bg-dark pt-16 pb-8 border-t-4 border-primary">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-                <div class="md:col-span-2">
-                    <span class="font-heading font-semibold text-lg text-surface block mb-4">Lisandro Cacciatore <span class="text-primary font-mono font-bold">_</span></span>
-                    <p class="text-muted text-sm leading-relaxed max-w-sm">
-                        Sistemas de validación semanal para preparadores físicos. Criterio claro, decisiones con fundamento.
-                    </p>
-                </div>
-                <div>
-                    <h3 class="font-heading text-surface text-xs font-bold mb-4 uppercase tracking-widest">Contenido</h3>
-                    <ul class="space-y-3">
-                        <li><a href="../blog.html" class="text-sm font-sans text-muted hover:text-surface transition-colors">Blog</a></li>
-                        <li><a href="index.html" class="text-sm font-sans text-muted hover:text-surface transition-colors">IronLog</a></li>
-                        <li><a href="tools.html" class="text-sm font-sans text-muted hover:text-surface transition-colors">Data Tools</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="font-heading text-surface text-xs font-bold mb-4 uppercase tracking-widest">Contacto</h3>
-                    <ul class="space-y-3">
-                        <li><a href="../contacto.html" class="text-sm font-sans text-muted hover:text-surface transition-colors">Solicitar revisión →</a></li>
-                        <li><span class="text-sm font-sans text-subtle block">Rosario, Argentina</span></li>
-                        <li><span class="text-sm font-sans text-subtle block">Remoto · España y LATAM</span></li>
-                    </ul>
-                </div>
+    <!-- Footer -->
+    <footer class="bg-slate-900 border-t border-slate-800 py-12 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex flex-col gap-2">
+                <span class="text-xl font-bold tracking-tighter uppercase">IronLog<span
+                        class="text-blue-600">_</span></span>
+                <p class="text-slate-500 text-sm">Gobernanza de Datos · Lisandro Cacciatore</p>
             </div>
-            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <div class="text-xs font-mono text-subtle">
-                    © 2026 Lisandro Cacciatore. Todos los derechos reservados.
-                </div>
-                <div class="flex gap-6 text-xs font-sans text-subtle">
-                    <a href="../privacidad.html" class="hover:text-muted transition-colors">Privacidad</a>
-                    <a href="../sobre-mi.html" class="hover:text-muted transition-colors">Sobre mí</a>
-                </div>
+            <div class="flex space-x-8 text-xs font-mono uppercase tracking-widest text-slate-700">
+                <a href="../privacidad.html" class="hover:text-white transition">Privacidad</a>
+                <span>© 2026</span>
             </div>
         </div>
     </footer>
-
-    <script>
-        // ─── CONFIGURACIÓN ────────────────────────────────────────────────────────
-        const N8N_IRONLOG_URL = 'REEMPLAZAR_CON_URL_WEBHOOK_N8N_IRONLOG';
-
-        // ─── HIDDEN FIELDS — F-01 Contrato de Datos v1.0 ─────────────────────────
-        (function populateHiddenFields() {
-            const params = new URLSearchParams(window.location.search);
-            document.getElementById('il_source_page').value    = window.location.pathname;
-            document.getElementById('il_source_cta').value     = params.get('cta') || 'unknown';
-            document.getElementById('il_utm_source').value     = params.get('utm_source') || '';
-            document.getElementById('il_utm_medium').value     = params.get('utm_medium') || '';
-            document.getElementById('il_utm_campaign').value   = params.get('utm_campaign') || '';
-            document.getElementById('il_utm_content').value    = params.get('utm_content') || '';
-        })();
-
-        // ─── SUBMIT → n8n WEBHOOK ─────────────────────────────────────────────────
-        document.getElementById('earlyAccessForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const submitBtn = this.querySelector('button[type="submit"]');
-
-            // Validar campos requeridos (incluyendo consent)
-            let valid = true;
-            this.querySelectorAll('[required]').forEach(field => {
-                const empty = field.type === 'checkbox' ? !field.checked : !field.value.trim();
-                if (empty) {
-                    valid = false;
-                    field.classList.add('border-red-500');
-                    const err = document.querySelector(`.il-error[data-for="${field.id}"]`);
-                    if (err) err.classList.remove('hidden');
-                } else {
-                    field.classList.remove('border-red-500');
-                    const err = document.querySelector(`.il-error[data-for="${field.id}"]`);
-                    if (err) err.classList.add('hidden');
-                }
-            });
-            if (!valid) return;
-
-            submitBtn.textContent = 'Enviando...';
-            submitBtn.disabled = true;
-
-            // Payload alineado con F-01 Contrato de Datos v1.0
-            const payload = {
-                form_name:          'lead-ironlog',
-                lead_type:          'ironlog',
-                source_page:        document.getElementById('il_source_page').value,
-                source_cta:         document.getElementById('il_source_cta').value,
-                utm_source:         document.getElementById('il_utm_source').value,
-                utm_medium:         document.getElementById('il_utm_medium').value,
-                utm_campaign:       document.getElementById('il_utm_campaign').value,
-                utm_content:        document.getElementById('il_utm_content').value,
-                nombre:             document.getElementById('il_nombre').value.trim(),
-                email:              document.getElementById('il_email').value.trim().toLowerCase(),
-                rol:                document.getElementById('il_rol').value,
-                problema_principal: document.getElementById('il_problema').value,
-                detalle_adicional:  document.getElementById('il_detalle').value.trim() || null,
-                consent:            document.getElementById('il_consent').checked
-            };
-
-            try {
-                const response = await fetch(N8N_IRONLOG_URL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-
-                if (response.ok) {
-                    this.style.display = 'none';
-                    document.getElementById('formSuccess').classList.remove('hidden');
-                } else { throw new Error('Error en el envío'); }
-            } catch (err) {
-                submitBtn.textContent = 'Solicitar acceso anticipado →';
-                submitBtn.disabled = false;
-                document.getElementById('il_formError').classList.remove('hidden');
-            }
-        });
-    </script>
 </body>
+
 </html>

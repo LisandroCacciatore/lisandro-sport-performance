@@ -1,419 +1,467 @@
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Starting Strength - IronLog Interactive | Lisandro Cacciatore</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=IBM+Plex+Sans:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="../theme.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script src="https://cdn.sheetjs.com/xlsx-0.20.0/package/dist/xlsx.full.min.js"></script>
     <style>
-        .week-card { transition: all 0.3s ease; cursor: pointer; }
-        .week-card:hover { transform: translateY(-4px); }
-        .week-active { box-shadow: 0 0 0 3px #1E3A8A; transform: scale(1.02); outline: none; }
-        .sim-tab-active { background: #1E3A8A !important; color: #fff !important; border-color: #1E3A8A !important; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+        }
+
+        .font-mono {
+            font-family: 'Fira Code', monospace;
+        }
+
+        .week-card {
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid rgba(51, 65, 85, 0.5);
+            background: rgba(30, 41, 59, 0.4);
+        }
+
+        .week-card:hover {
+            transform: translateY(-4px);
+            border-color: #3b82f6;
+        }
+
+        .week-active {
+            background: rgba(30, 58, 138, 0.4) !important;
+            border-color: #2563eb !important;
+            box-shadow: 0 0 20px rgba(37, 99, 235, 0.2);
+            outline: none;
+        }
+
+        .sim-tab-active {
+            background: #1d4ed8 !important;
+            color: white !important;
+            border-color: #1d4ed8 !important;
+        }
+
+        .glass-card {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(51, 65, 85, 0.5);
+        }
+
+        select {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
     </style>
 </head>
-<body class="bg-canvas text-body font-sans antialiased">
 
-    <nav class="sticky top-0 z-50 bg-canvas/95 backdrop-blur-sm border-b border-border">
-        <div class="max-w-7xl mx-auto px-6 h-16 flex justify-between items-center">
-            <a href="../index.html" class="text-xs font-mono text-muted hover:text-ink transition-colors hidden md:block">← Lisandro Cacciatore</a>
-            <span class="text-border hidden md:block">|</span>
-            <div class="flex items-center gap-2">
-                <span class="text-xl">🧮</span>
-                <a href="demo.html" class="font-heading font-extrabold text-lg text-ink">IronLog <span class="font-sans font-normal text-muted text-sm">/ Simuladores</span></a>
+<body class="bg-[#0f172a] text-slate-200 antialiased">
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-[#0f172a]/80 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-4">
+                <a href="../index.html" class="text-xs font-mono text-slate-500 hover:text-blue-500 transition">←
+                    INICIO</a>
+                <span class="text-slate-800">|</span>
+                <a href="index.html" class="text-xl font-bold tracking-tighter uppercase">IronLog<span
+                        class="text-blue-600">_</span></a>
             </div>
-            <div class="flex items-center gap-6">
-                <a href="tools.html" class="text-sm font-sans text-muted hover:text-ink transition-colors hidden md:block">Herramientas</a>
-                <a href="index.html#early-access" class="bg-primary hover:bg-primary-600 text-white px-4 py-2 rounded font-medium text-sm transition-colors">Lista de espera</a>
+            <div class="hidden md:flex space-x-8 font-mono text-sm uppercase tracking-widest">
+                <a href="demo.html" class="text-blue-500 transition">Simuladores</a>
+                <a href="index.html#early-access"
+                    class="px-4 py-2 border border-blue-600 rounded text-blue-500 hover:bg-blue-600 hover:text-white transition">Lista
+                    de Espera</a>
             </div>
         </div>
     </nav>
 
-    <!-- ── NAVEGACIÓN CRUZADA ── -->
-    <div class="bg-surface border-b border-border">
-        <div class="max-w-5xl mx-auto px-6 py-3 flex items-center gap-2 flex-wrap">
-            <span class="text-[10px] font-mono font-bold text-muted uppercase tracking-widest mr-2">Simuladores:</span>
-            <a href="wendler.html" class="text-[11px] font-mono font-bold px-3 py-1.5 rounded border border-border text-muted hover:text-ink hover:border-primary transition-all">📈 Wendler 5/3/1</a>
-            <a href="cube.html"    class="text-[11px] font-mono font-bold px-3 py-1.5 rounded border border-border text-muted hover:text-ink hover:border-primary transition-all">🧊 The Cube</a>
-            <a href="ss.html"      class="sim-tab-active text-[11px] font-mono font-bold px-3 py-1.5 rounded border">🚂 Starting Strength</a>
-            <span class="text-border mx-1 hidden sm:block">|</span>
-            <a href="../contacto.html" class="text-[11px] font-mono text-muted hover:text-primary transition-colors hidden sm:block">¿No sabés cuál usar? →</a>
+    <!-- Cross Nav -->
+    <div class="bg-slate-900/50 border-b border-slate-800">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex items-center gap-3 overflow-x-auto no-scrollbar">
+            <span
+                class="text-[10px] font-mono font-bold text-slate-500 uppercase tracking-widest mr-2 shrink-0">Instrumentos:</span>
+            <a href="wendler.html"
+                class="text-[10px] font-mono font-bold px-4 py-2 rounded border border-slate-700 text-slate-400 hover:text-white hover:border-slate-500 transition whitespace-nowrap">📈
+                Wendler 5/3/1</a>
+            <a href="cube.html"
+                class="text-[10px] font-mono font-bold px-4 py-2 rounded border border-slate-700 text-slate-400 hover:text-white hover:border-slate-500 transition whitespace-nowrap">🧊
+                The Cube</a>
+            <a href="ss.html"
+                class="sim-tab-active text-[10px] font-mono font-bold px-4 py-2 rounded border border-blue-700 whitespace-nowrap">🚂
+                Starting Strength</a>
         </div>
     </div>
 
     <div class="max-w-5xl mx-auto px-6 py-12 pb-24">
-
-        <header class="mb-12">
-            <div class="flex items-center gap-3 mb-4">
+        <!-- Header Section -->
+        <header class="mb-16">
+            <div class="flex items-center gap-4 mb-6">
                 <span class="text-4xl">🚂</span>
-                <h1 class="font-heading text-3xl md:text-5xl font-bold text-ink tracking-tight">Starting Strength</h1>
+                <h1 class="text-4xl md:text-5xl font-bold tracking-tight">Starting Strength</h1>
             </div>
-            <div class="bg-surface p-6 md:p-8 rounded border border-border shadow-structural">
-                <h2 class="font-heading text-lg font-bold text-ink mb-3">Variable Crítica: Frecuencia y progresión sesión a sesión</h2>
-                <div class="text-body text-sm space-y-4 leading-relaxed">
-                    <p>Starting Strength asume una cosa: el novicio puede mejorar en cada sesión. La Variable Crítica no es el volumen, ni la intensidad relativa. Es <strong>si el peso de la barra subió respecto a la sesión anterior</strong>. Cuando esa variable deja de moverse, el sistema perdió su argumento central.</p>
-                    <p class="text-muted">Este simulador no reemplaza el criterio. Muestra los números que deberías estar mirando. Si no tenés claro cuándo la progresión lineal dejó de funcionar, la herramienta no alcanza.</p>
+            <div class="glass-card p-8 rounded-2xl border border-slate-800">
+                <h2 class="text-lg font-bold text-blue-400 mb-4 uppercase tracking-wide">Variable Crítica: Frecuencia y
+                    progresión sesión a sesión</h2>
+                <div class="text-slate-400 text-sm space-y-4 leading-relaxed">
+                    <p>Starting Strength asume una cosa: el novicio puede mejorar en cada sesión. La Variable Crítica no
+                        es el volumen, ni la intensidad relativa. Es <strong class="text-slate-200">si el peso de la
+                            barra subió respecto a la sesión anterior</strong>. Cuando esa variable deja de moverse, el
+                        sistema perdió su argumento central.</p>
                 </div>
             </div>
         </header>
 
-        <!-- PASO 1: Esquema -->
-        <section class="mb-10">
-            <div class="flex items-center gap-2 mb-6">
-                <span class="bg-ink text-surface text-xs font-mono font-bold px-2 py-1 rounded">PASO 1</span>
-                <h3 class="font-heading font-bold text-ink">Selecciona el Esquema Semanal</h3>
+        <!-- Schemes Paso 1 -->
+        <section class="mb-16">
+            <div class="flex items-center gap-3 mb-8">
+                <span class="bg-blue-600 text-white text-[10px] font-mono font-bold px-2 py-1 rounded">01</span>
+                <h3 class="font-bold uppercase tracking-widest text-xs">Selecciona el Esquema Semanal</h3>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="weekSelector">
-                <div role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')selectScheme('ABA')" onclick="selectScheme('ABA')" id="card-week-ABA" class="week-card bg-surface p-6 rounded border border-border shadow-structural relative overflow-hidden group cursor-pointer">
-                    <div class="absolute top-0 right-0 w-24 h-24 bg-primary-bg rounded-bl-full -mr-8 -mt-8 z-0"></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="weekSelector">
+                <div role="button" tabindex="0" onclick="selectScheme('ABA')" id="card-week-ABA"
+                    class="week-card p-8 rounded-2xl relative overflow-hidden group">
+                    <div
+                        class="absolute top-0 right-0 w-32 h-32 bg-blue-600/10 rounded-bl-full -mr-12 -mt-12 z-0 group-hover:bg-blue-600/20 transition-all">
+                    </div>
                     <div class="relative z-10">
-                        <div class="font-heading font-bold text-ink mb-2 border-b border-border pb-2">Semana 1 (A-B-A)</div>
-                        <div class="text-[10px] font-mono font-bold text-primary bg-primary-bg px-2 py-1 rounded inline-block mb-3 border border-blue-100 uppercase tracking-wide">Enfoque Sentadilla / Press</div>
-                        <ul class="text-xs text-muted space-y-1 font-mono">
-                            <li>Lunes: <span class="text-ink font-bold">Sesión A</span></li>
-                            <li>Miércoles: <span class="text-ink font-bold">Sesión B</span></li>
-                            <li>Viernes: <span class="text-ink font-bold">Sesión A</span></li>
+                        <div class="font-bold text-slate-200 mb-4 border-b border-slate-800 pb-4">Semana 1 (A-B-A)</div>
+                        <div class="text-[10px] font-mono font-bold text-blue-500 uppercase tracking-widest mb-6">
+                            Enfoque Sentadilla / Press</div>
+                        <ul class="text-[10px] text-slate-500 space-y-3 font-mono uppercase tracking-wider">
+                            <li class="flex justify-between"><span>Lunes:</span> <span
+                                    class="text-slate-200 font-bold">Sesión A</span></li>
+                            <li class="flex justify-between"><span>Miércoles:</span> <span
+                                    class="text-slate-200 font-bold">Sesión B</span></li>
+                            <li class="flex justify-between"><span>Viernes:</span> <span
+                                    class="text-slate-200 font-bold">Sesión A</span></li>
                         </ul>
                     </div>
                 </div>
-                <div role="button" tabindex="0" onkeydown="if(event.key==='Enter'||event.key===' ')selectScheme('BAB')" onclick="selectScheme('BAB')" id="card-week-BAB" class="week-card bg-surface p-6 rounded border border-border shadow-structural relative overflow-hidden group cursor-pointer">
-                    <div class="absolute top-0 right-0 w-24 h-24 bg-warning-bg rounded-bl-full -mr-8 -mt-8 z-0"></div>
+                <div role="button" tabindex="0" onclick="selectScheme('BAB')" id="card-week-BAB"
+                    class="week-card p-8 rounded-2xl relative overflow-hidden group">
+                    <div
+                        class="absolute top-0 right-0 w-32 h-32 bg-amber-600/10 rounded-bl-full -mr-12 -mt-12 z-0 group-hover:bg-amber-600/20 transition-all">
+                    </div>
                     <div class="relative z-10">
-                        <div class="font-heading font-bold text-ink mb-2 border-b border-border pb-2">Semana 2 (B-A-B)</div>
-                        <div class="text-[10px] font-mono font-bold text-warning bg-warning-bg px-2 py-1 rounded inline-block mb-3 border border-amber-200 uppercase tracking-wide">Enfoque Banca / P. Muerto</div>
-                        <ul class="text-xs text-muted space-y-1 font-mono">
-                            <li>Lunes: <span class="text-ink font-bold">Sesión B</span></li>
-                            <li>Miércoles: <span class="text-ink font-bold">Sesión A</span></li>
-                            <li>Viernes: <span class="text-ink font-bold">Sesión B</span></li>
+                        <div class="font-bold text-slate-200 mb-4 border-b border-slate-800 pb-4">Semana 2 (B-A-B)</div>
+                        <div class="text-[10px] font-mono font-bold text-amber-500 uppercase tracking-widest mb-6">
+                            Enfoque Banca / P. Muerto</div>
+                        <ul class="text-[10px] text-slate-500 space-y-3 font-mono uppercase tracking-wider">
+                            <li class="flex justify-between"><span>Lunes:</span> <span
+                                    class="text-slate-200 font-bold">Sesión B</span></li>
+                            <li class="flex justify-between"><span>Miércoles:</span> <span
+                                    class="text-slate-200 font-bold">Sesión A</span></li>
+                            <li class="flex justify-between"><span>Viernes:</span> <span
+                                    class="text-slate-200 font-bold">Sesión B</span></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- PASO 2: Config -->
-        <section id="configSection" class="mb-12">
-            <div class="bg-surface rounded shadow-structural border border-border overflow-hidden p-6 md:p-8">
-                <div class="flex items-center gap-2 mb-6 border-b border-border pb-4">
-                    <span class="bg-ink text-surface text-xs font-mono font-bold px-2 py-1 rounded">PASO 2</span>
-                    <h3 class="font-heading font-bold text-ink">Configura tus 5RM Actuales</h3>
+        <!-- Config Paso 2 -->
+        <section id="configSection" class="mb-16">
+            <div class="glass-card rounded-2xl p-8">
+                <div class="flex items-center gap-3 mb-8 border-b border-slate-800 pb-6">
+                    <span class="bg-blue-600 text-white text-[10px] font-mono font-bold px-2 py-1 rounded">02</span>
+                    <h3 class="font-bold uppercase tracking-widest text-xs">Configuración de 5RM Actuales</h3>
                 </div>
                 <div class="grid grid-cols-2 md:grid-cols-5 gap-6">
                     <div>
-                        <label class="block text-[10px] font-mono font-bold text-muted uppercase mb-2">Squat (5RM)</label>
-                        <input type="number" id="manualSquat" value="100" class="w-full p-3 border border-border bg-canvas rounded font-mono font-bold focus:border-primary outline-none text-ink">
+                        <label
+                            class="block text-[10px] font-mono font-bold text-slate-500 uppercase mb-3 tracking-widest">Squat</label>
+                        <input type="number" id="manualSquat" value="100"
+                            class="w-full bg-slate-950 border border-slate-800 p-4 rounded-lg focus:border-blue-600 outline-none transition text-slate-200 font-mono font-bold">
                     </div>
                     <div>
-                        <label class="block text-[10px] font-mono font-bold text-muted uppercase mb-2">Bench (5RM)</label>
-                        <input type="number" id="manualBench" value="80" class="w-full p-3 border border-border bg-canvas rounded font-mono font-bold focus:border-primary outline-none text-ink">
+                        <label
+                            class="block text-[10px] font-mono font-bold text-slate-500 uppercase mb-3 tracking-widest">Bench</label>
+                        <input type="number" id="manualBench" value="80"
+                            class="w-full bg-slate-950 border border-slate-800 p-4 rounded-lg focus:border-blue-600 outline-none transition text-slate-200 font-mono font-bold">
                     </div>
                     <div>
-                        <label class="block text-[10px] font-mono font-bold text-muted uppercase mb-2">Deadlift (5RM)</label>
-                        <input type="number" id="manualDeadlift" value="120" class="w-full p-3 border border-border bg-canvas rounded font-mono font-bold focus:border-primary outline-none text-ink">
+                        <label
+                            class="block text-[10px] font-mono font-bold text-slate-500 uppercase mb-3 tracking-widest">Deadlift</label>
+                        <input type="number" id="manualDeadlift" value="120"
+                            class="w-full bg-slate-950 border border-slate-800 p-4 rounded-lg focus:border-blue-600 outline-none transition text-slate-200 font-mono font-bold">
                     </div>
                     <div>
-                        <label class="block text-[10px] font-mono font-bold text-muted uppercase mb-2">Press (5RM)</label>
-                        <input type="number" id="manualPress" value="50" class="w-full p-3 border border-border bg-canvas rounded font-mono font-bold focus:border-primary outline-none text-ink">
+                        <label
+                            class="block text-[10px] font-mono font-bold text-slate-500 uppercase mb-3 tracking-widest">Press</label>
+                        <input type="number" id="manualPress" value="50"
+                            class="w-full bg-slate-950 border border-slate-800 p-4 rounded-lg focus:border-blue-600 outline-none transition text-slate-200 font-mono font-bold">
                     </div>
                     <div>
-                        <label class="block text-[10px] font-mono font-bold text-muted uppercase mb-2">P. Clean (3RM)</label>
-                        <input type="number" id="manualClean" value="60" class="w-full p-3 border border-border bg-canvas rounded font-mono font-bold focus:border-primary outline-none text-ink">
+                        <label
+                            class="block text-[10px] font-mono font-bold text-slate-500 uppercase mb-3 tracking-widest">Clean</label>
+                        <input type="number" id="manualClean" value="60"
+                            class="w-full bg-slate-950 border border-slate-800 p-4 rounded-lg focus:border-blue-600 outline-none transition text-slate-200 font-mono font-bold">
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- DASHBOARD -->
+        <!-- Dashboard -->
         <section id="dashboard" class="transition-all duration-500">
-            <div id="pdfPrintableArea" class="bg-surface p-8 rounded border border-border shadow-structural mb-8">
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 border-b border-border pb-6 gap-4">
+            <div id="pdfPrintableArea"
+                class="glass-card p-8 md:p-12 rounded-3xl border border-slate-800 mb-8 bg-[#0f172a]">
+                <div
+                    class="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 border-b border-slate-800 pb-8 gap-6">
                     <div>
-                        <h2 class="font-heading text-2xl font-bold text-ink">Hoja de Ruta: Starting Strength</h2>
-                        <div class="flex items-center gap-3 mt-1">
-                            <span class="px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase bg-canvas border border-border text-ink" id="reportWeekBadge">Semana ABA</span>
-                            <p class="text-xs text-muted font-mono">Mark Rippetoe · 2005</p>
+                        <h2 class="text-3xl font-bold tracking-tight mb-2 text-white">Hoja de Ruta: Starting Strength
+                        </h2>
+                        <div class="flex items-center gap-4 flex-wrap">
+                            <span
+                                class="px-3 py-1 rounded text-[10px] font-mono font-bold uppercase bg-slate-900 border border-slate-700 text-slate-400"
+                                id="reportWeekBadge">Semana ABA</span>
+                            <span class="text-[10px] font-mono text-slate-500">Autor: Mark Rippetoe</span>
                         </div>
                     </div>
-                    <div class="text-right">
-                        <div class="text-[10px] font-mono font-bold text-muted uppercase tracking-widest mb-1">Incremento por sesión</div>
-                        <div class="text-sm font-mono text-ink font-bold">+2.5kg Tren Inf · +1.25kg Tren Sup</div>
+                    <div class="md:text-right">
+                        <div class="text-[10px] font-mono font-bold text-slate-500 uppercase tracking-widest mb-2">
+                            Incremento Proyectado</div>
+                        <div
+                            class="text-xs font-mono text-blue-400 font-bold bg-blue-900/20 px-4 py-2 rounded-lg border border-blue-800/30">
+                            +2.5kg Inf | +1.25kg Sup</div>
                     </div>
                 </div>
-                <div class="grid lg:grid-cols-3 gap-8 mb-8">
+
+                <div class="grid lg:grid-cols-3 gap-12 mb-12">
                     <div class="lg:col-span-1">
-                        <h3 class="text-[10px] font-mono font-bold text-muted uppercase tracking-widest mb-4">Sesiones de la Semana</h3>
+                        <h3 class="text-[10px] font-mono font-bold text-slate-500 uppercase tracking-widest mb-6 px-1">
+                            Microciclo Actual</h3>
                         <div id="exercisesList" class="space-y-4"></div>
                     </div>
                     <div class="lg:col-span-1 flex flex-col">
-                        <h3 class="text-[10px] font-mono font-bold text-muted uppercase tracking-widest mb-2 text-center">Perfil de Estrés</h3>
-                        <div class="flex-grow bg-canvas rounded p-2 border border-border flex items-center justify-center">
+                        <h3
+                            class="text-[10px] font-mono font-bold text-slate-500 uppercase tracking-widest mb-6 text-center">
+                            Perfil de Estrés</h3>
+                        <div
+                            class="flex-grow bg-slate-950/50 rounded-2xl p-6 border border-slate-800 flex items-center justify-center">
                             <div class="h-56 w-full"><canvas id="radarChart"></canvas></div>
                         </div>
-                        <p class="text-[10px] font-mono text-muted text-center mt-2 uppercase">Alta fuerza · Alto estrés neurológico</p>
                     </div>
                     <div class="lg:col-span-1 flex flex-col">
-                        <h3 class="text-[10px] font-mono font-bold text-muted uppercase tracking-widest mb-2 text-center">Proyección Lineal (1 Mes)</h3>
-                        <div class="flex-grow bg-canvas rounded p-2 border border-border flex items-center justify-center">
+                        <h3
+                            class="text-[10px] font-mono font-bold text-slate-500 uppercase tracking-widest mb-6 text-center">
+                            Proyección Lineal (1 Mes)</h3>
+                        <div
+                            class="flex-grow bg-slate-950/50 rounded-2xl p-6 border border-slate-800 flex items-center justify-center">
                             <div class="h-56 w-full"><canvas id="linearChart"></canvas></div>
                         </div>
                     </div>
                 </div>
-                <div class="mt-8 pt-8 border-t border-border">
-                    <h3 class="text-[10px] font-mono font-bold text-muted uppercase tracking-widest mb-4">Estructura de Sesión (Carga vs Fatiga Acumulada)</h3>
+                <div class="mt-12 pt-12 border-t border-slate-800">
+                    <h3 class="text-[10px] font-mono font-bold text-slate-500 uppercase tracking-widest mb-6">Estructura
+                        de Sesión (Carga vs Fatiga)</h3>
                     <div class="h-64 w-full"><canvas id="comboChart"></canvas></div>
                 </div>
             </div>
 
-            <!-- ── VARIABLE A VALIDAR ── -->
-            <div id="vcvBlock" class="mb-6 bg-primary-bg border border-blue-200 rounded p-5">
-                <div class="flex items-start gap-3">
-                    <span class="text-xl mt-0.5">🎯</span>
+            <!-- VCV Question -->
+            <div id="vcvBlock" class="mb-8 bg-blue-900/10 border border-blue-800/30 rounded-2xl p-8">
+                <div class="flex items-start gap-4">
+                    <span class="text-2xl mt-1">🎯</span>
                     <div>
-                        <div class="text-[10px] font-mono font-bold text-primary uppercase tracking-widest mb-1">Variable a validar esta semana</div>
-                        <p id="vcvQuestion" class="text-sm text-ink font-medium leading-relaxed"></p>
+                        <div class="text-[10px] font-mono font-bold text-blue-500 uppercase tracking-widest mb-2">
+                            Validación de Estado Operativo</div>
+                        <p id="vcvQuestion" class="text-slate-200 font-medium leading-relaxed"></p>
                     </div>
                 </div>
             </div>
 
-            <!-- ── SEÑALES DE RUPTURA ── -->
-            <div class="mb-8 bg-surface border border-border rounded shadow-structural overflow-hidden">
-                <div class="px-6 py-4 border-b border-border flex items-center gap-2">
-                    <span class="text-base">⚠️</span>
-                    <span class="text-[10px] font-mono font-bold text-muted uppercase tracking-widest">Señales de ruptura del sistema</span>
-                </div>
-                <div class="divide-y divide-border">
-                    <div class="px-6 py-4 flex items-start gap-4">
-                        <span class="text-error font-mono font-bold text-sm mt-0.5 shrink-0">01</span>
-                        <div>
-                            <p class="text-sm text-ink font-medium mb-0.5">La barra no sube dos sesiones seguidas con el mismo movimiento</p>
-                            <p class="text-xs text-muted font-mono">→ El novicio ya no es novicio. La progresión lineal sesión a sesión agotó su margen. El sistema requiere cambio de enfoque.</p>
-                        </div>
-                    </div>
-                    <div class="px-6 py-4 flex items-start gap-4">
-                        <span class="text-error font-mono font-bold text-sm mt-0.5 shrink-0">02</span>
-                        <div>
-                            <p class="text-sm text-ink font-medium mb-0.5">El atleta falla técnicamente antes de llegar al límite metabólico</p>
-                            <p class="text-xs text-muted font-mono">→ La variable crítica no es la carga: es la técnica. Subir peso sin resolver esto es acumular deuda que se paga cara.</p>
-                        </div>
-                    </div>
-                    <div class="px-6 py-4 flex items-start gap-4">
-                        <span class="text-error font-mono font-bold text-sm mt-0.5 shrink-0">03</span>
-                        <div>
-                            <p class="text-sm text-ink font-medium mb-0.5">Se saltan sesiones recurrentemente y la progresión se intenta mantener igual</p>
-                            <p class="text-xs text-muted font-mono">→ La frecuencia es lo que hace funcionar este sistema. Sin tres sesiones semanales, el argumento de Starting Strength colapsa.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="px-6 py-4 bg-canvas border-t border-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-                    <p class="text-xs text-muted font-mono">¿Estás viendo alguna de estas señales en tu atleta?</p>
-                    <button onclick="openLeadModal()" class="text-xs font-mono font-bold text-primary hover:underline shrink-0">Auditoría VCV →</button>
-                </div>
-            </div>
-
-            <!-- ── BOTONES DE ACCIÓN ── -->
-            <div class="flex flex-col sm:flex-row gap-3 justify-center mb-16">
-                <button onclick="openLeadModal()" class="bg-primary hover:bg-primary-600 text-white px-8 py-3 rounded font-medium transition-colors">
+            <!-- Action Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-24">
+                <button onclick="openLeadModal()"
+                    class="px-8 py-4 bg-blue-700 hover:bg-blue-600 text-white font-bold rounded-lg transition-all uppercase tracking-widest text-[10px]">
                     Revisar mi sistema →
                 </button>
-                <button onclick="openExcelModal()" class="border border-border hover:border-primary text-ink px-8 py-3 rounded font-medium transition-colors flex items-center justify-center gap-2">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                    Excel (.xlsx)
+                <button onclick="openExcelModal()"
+                    class="px-8 py-4 border border-slate-800 hover:border-slate-600 text-slate-300 font-bold rounded-lg transition-all uppercase tracking-widest text-[10px] flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                        </path>
+                    </svg>
+                    Ficha .xlsx
                 </button>
-                <button onclick="openPdfModal()" class="border border-border hover:border-primary text-ink px-8 py-3 rounded font-medium transition-colors flex items-center justify-center gap-2">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                    PDF
+                <button onclick="openPdfModal()"
+                    class="px-8 py-4 border border-slate-800 hover:border-slate-600 text-slate-300 font-bold rounded-lg transition-all uppercase tracking-widest text-[10px] flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                    </svg>
+                    Reporte .pdf
                 </button>
             </div>
         </section>
 
-        <!-- ── CICLO COMPLETO ── -->
-        <section class="mt-4">
-            <div class="flex items-center gap-3 mb-6">
-                <div class="h-px flex-1 bg-border"></div>
-                <span class="text-[10px] font-mono font-bold text-muted uppercase tracking-widest px-2">// Progresión Proyectada — 4 Semanas</span>
-                <div class="h-px flex-1 bg-border"></div>
+        <!-- Full Cycle -->
+        <section class="mt-8">
+            <div class="flex items-center gap-4 mb-10">
+                <div class="h-px flex-1 bg-slate-800"></div>
+                <span class="text-[10px] font-mono font-bold text-slate-500 uppercase tracking-widest px-4">Progresión
+                    Proyectada — 4 Semanas</h2>
+                    <div class="h-px flex-1 bg-slate-800"></div>
             </div>
-
-            <div class="bg-surface rounded border border-border shadow-structural overflow-hidden mb-4">
-                <div class="p-4 border-b border-border bg-canvas flex items-center justify-between flex-wrap gap-2">
-                    <p class="text-xs text-muted font-mono">Proyección lineal con incrementos estándar. La semana actual está resaltada.</p>
-                    <span class="text-[10px] font-mono text-subtle">SQ/DL: +2.5kg/ses · BP/Press: +1.25kg/ses</span>
+            <div class="glass-card rounded-2xl overflow-hidden mb-8 border border-slate-800">
+                <div
+                    class="p-5 border-b border-slate-800 bg-slate-900/40 flex items-center justify-between flex-wrap gap-4">
+                    <p class="text-[10px] text-slate-400 font-mono uppercase tracking-widest">Estimación de Cargas
+                        Lineales</p>
+                    <span class="text-[10px] font-mono text-blue-500 font-bold uppercase tracking-tight">Novice Phase 1
+                        & 2</span>
                 </div>
-                <div class="overflow-x-auto">
+                <div class="overflow-x-auto no-scrollbar">
                     <table class="w-full text-xs font-mono">
                         <thead>
-                            <tr class="bg-ink text-surface">
-                                <th class="text-left px-4 py-3 font-bold uppercase tracking-wide border-r border-slate-700">Ejercicio</th>
-                                <th class="px-4 py-3 font-bold uppercase tracking-wide text-center">Semana 1</th>
-                                <th class="px-4 py-3 font-bold uppercase tracking-wide text-center">Semana 2</th>
-                                <th class="px-4 py-3 font-bold uppercase tracking-wide text-center">Semana 3</th>
-                                <th class="px-4 py-3 font-bold uppercase tracking-wide text-center">Semana 4</th>
+                            <tr class="bg-slate-950 text-slate-500 border-b border-slate-800">
+                                <th
+                                    class="text-left px-6 py-4 font-bold uppercase tracking-widest border-r border-slate-800">
+                                    Lift</th>
+                                <th class="px-6 py-4 font-bold uppercase tracking-widest text-center">Sem 1</th>
+                                <th class="px-6 py-4 font-bold uppercase tracking-widest text-center">Sem 2</th>
+                                <th class="px-6 py-4 font-bold uppercase tracking-widest text-center">Sem 3</th>
+                                <th class="px-6 py-4 font-bold uppercase tracking-widest text-center">Sem 4</th>
                             </tr>
                         </thead>
-                        <tbody id="cycleTableBody"></tbody>
+                        <tbody id="cycleTableBody" class="divide-y divide-slate-800/50"></tbody>
                     </table>
                 </div>
             </div>
-
-            <!-- Contexto del sistema -->
-            <div class="bg-canvas border border-border rounded p-5">
-                <div class="text-[10px] font-mono font-bold text-muted uppercase tracking-widest mb-3">// Cuándo el sistema deja de funcionar</div>
-                <div class="grid md:grid-cols-3 gap-4 text-xs">
-                    <div class="p-3 bg-error-bg border border-red-100 rounded">
-                        <div class="font-bold text-error font-mono mb-1">SEÑAL DE ESTANCAMIENTO</div>
-                        <div class="text-muted">No lográs completar las 3×5 en la sentadilla dos sesiones consecutivas con el peso prescripto.</div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="p-6 bg-red-950/10 border border-red-900/20 rounded-2xl">
+                    <div class="text-[10px] font-mono font-bold text-red-500 uppercase tracking-widest mb-3">
+                        Estancamiento</div>
+                    <p class="text-[10px] text-slate-500 font-mono leading-relaxed">Falla técnica o incapacidad de
+                        completar 3×5. Reset inmediato del 10%.</p>
+                </div>
+                <div class="p-6 bg-amber-950/10 border border-amber-900/20 rounded-2xl">
+                    <div class="text-[10px] font-mono font-bold text-amber-500 uppercase tracking-widest mb-3">Acción
                     </div>
-                    <div class="p-3 bg-warning-bg border border-amber-100 rounded">
-                        <div class="font-bold text-warning font-mono mb-1">ACCIÓN RECOMENDADA</div>
-                        <div class="text-muted">Reset al 90% del peso actual y reiniciá la progresión. Solo se hace una vez antes de migrar a un programa intermedio.</div>
+                    <p class="text-[10px] text-slate-500 font-mono leading-relaxed">Solo se hace un reset. Si persiste,
+                        migrar a Phase 3 o Intermediate.</p>
+                </div>
+                <div class="p-6 bg-blue-950/10 border border-blue-900/20 rounded-2xl">
+                    <div class="text-[10px] font-mono font-bold text-blue-500 uppercase tracking-widest mb-3">Egresos
                     </div>
-                    <div class="p-3 bg-success-bg border border-green-100 rounded">
-                        <div class="font-bold text-success font-mono mb-1">INDICADOR DE EGRESO</div>
-                        <div class="text-muted">Cuando el reset ya no produce nuevas PBs, la Variable Crítica cambió. El sistema cumplió su propósito.</div>
-                    </div>
+                    <p class="text-[10px] text-slate-500 font-mono leading-relaxed">Cuando la progresión lineal deja de
+                        producir PBs, el sistema cumplió su fin.</p>
                 </div>
             </div>
         </section>
     </div>
 
-    <!-- MODAL EXCEL -->
-    <div id="excelModal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-dark/80 p-4 backdrop-blur-sm">
-        <div class="bg-surface w-full max-w-md rounded shadow-structural border border-border overflow-hidden relative">
-            <button onclick="closeExcelModal()" class="absolute top-4 right-4 text-muted hover:text-ink">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+    <!-- MODALS -->
+    <!-- Modal Excel -->
+    <div id="excelModal"
+        class="fixed inset-0 z-50 hidden flex items-center justify-center bg-slate-950/90 p-6 backdrop-blur-md">
+        <div
+            class="bg-[#0f172a] w-full max-w-md rounded-3xl shadow-2xl border border-slate-800 overflow-hidden relative p-10">
+            <button onclick="closeExcelModal()"
+                class="absolute top-6 right-6 text-slate-500 hover:text-white transition">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
             </button>
-            <div class="p-8">
-                <div class="text-center mb-6">
-                    <div class="w-12 h-12 bg-success-bg border border-green-200 rounded flex items-center justify-center mx-auto mb-4 text-2xl">📊</div>
-                    <h3 class="font-heading text-lg font-bold text-ink mb-1">Tu planilla de SS está lista</h3>
-                    <p class="text-xs text-muted">3 hojas: sesiones de la semana · progresión 4 semanas · log editable para registrar resultados.</p>
-                </div>
-                <form id="excelForm" class="space-y-3">
-                    <div>
-                        <label class="block text-[10px] font-mono font-bold text-muted uppercase mb-2">Tu email</label>
-                        <input type="email" id="excelEmail" name="email" required placeholder="tu@email.com" class="w-full px-4 py-3 rounded bg-canvas border border-border focus:border-primary outline-none transition-all text-sm">
-                    </div>
-                    <div>
-                        <label class="block text-[10px] font-mono font-bold text-muted uppercase mb-2">Rol</label>
-                        <div class="relative">
-                            <select id="excelRol" name="rol" class="w-full px-4 py-3 rounded bg-canvas border border-border focus:border-primary outline-none text-sm appearance-none cursor-pointer">
-                                <option value="preparador">Preparador físico</option>
-                                <option value="entrenador">Entrenador personal</option>
-                                <option value="atleta">Atleta / autoentrenado</option>
-                                <option value="otro">Otro</option>
-                            </select>
-                            <div class="absolute inset-y-0 right-0 flex items-center px-3 pointer-events-none text-muted">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                            </div>
-                        </div>
-                    </div>
-                    <input type="text" name="_honey" style="display:none">
-                    <button type="submit" id="excelSubmitBtn" class="w-full bg-success hover:opacity-90 text-white font-medium py-3 rounded transition-all text-sm mt-2">Descargar Excel →</button>
+            <div class="text-center mb-8">
+                <h3 class="text-xl font-bold text-white mb-2">Ficha de Progresión</h3>
+                <p class="text-sm text-slate-400">Recibí tu log editable (.xlsx) para registrar tus avances sesión a
+                    sesión.</p>
+            </div>
+            <form id="excelForm" class="space-y-4">
+                <input type="email" id="excelEmail" name="email" required placeholder="tu@email.com"
+                    class="w-full bg-slate-950 border border-slate-800 p-4 rounded-lg focus:border-blue-600 outline-none transition text-slate-200">
+                <button type="submit" id="excelSubmitBtn"
+                    class="w-full py-4 bg-emerald-700 hover:bg-emerald-600 text-white font-bold rounded-lg transition-all uppercase tracking-widest text-[10px]">
+                    Descargar Ficha →
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal PDF -->
+    <div id="pdfModal"
+        class="fixed inset-0 z-50 hidden flex items-center justify-center bg-slate-950/90 p-6 backdrop-blur-md">
+        <div
+            class="bg-[#0f172a] w-full max-w-md rounded-3xl shadow-2xl border border-slate-800 overflow-hidden relative p-10 text-center">
+            <button onclick="closePdfModal()" class="absolute top-6 right-6 text-slate-500 hover:text-white transition">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
+            </button>
+            <h3 class="text-xl font-bold text-white mb-4">Plan Listo</h3>
+            <p class="text-sm text-slate-400 mb-8 leading-relaxed">Tu hoja de ruta para la progresión lineal está lista
+                en PDF.</p>
+            <button id="downloadBtn" onclick="downloadPdfAction()"
+                class="w-full py-4 bg-blue-700 hover:bg-blue-600 text-white font-bold rounded-lg transition-all uppercase tracking-widest text-[10px]">Descargar
+                Reporte</button>
+        </div>
+    </div>
+
+    <!-- Modal Lead -->
+    <div id="leadModal"
+        class="fixed inset-0 z-50 hidden flex items-center justify-center bg-slate-950/90 p-6 backdrop-blur-md">
+        <div
+            class="bg-[#0f172a] w-full max-w-md rounded-3xl shadow-2xl border border-slate-800 overflow-hidden relative p-10">
+            <button onclick="closeLeadModal()"
+                class="absolute top-6 right-6 text-slate-500 hover:text-white transition">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
+            </button>
+            <div class="text-center mb-8">
+                <h3 class="text-xl font-bold text-white mb-4 leading-tight">El simulador te da los números.<br>Yo te doy
+                    el <span class="text-blue-500">criterio.</span></h3>
+                <p class="text-sm text-slate-400">Auditoría VCV: 14 días para profesionalizar tu toma de decisiones.</p>
+            </div>
+            <div class="space-y-4">
+                <button onclick="window.location.href='../contacto.html'"
+                    class="w-full py-5 bg-blue-700 hover:bg-blue-600 text-white font-bold rounded-lg transition-all uppercase tracking-widest text-[10px]">Revisar
+                    mi sistema →</button>
+                <button onclick="document.getElementById('leadFormWrapper').classList.toggle('hidden')"
+                    class="w-full py-4 border border-slate-800 text-slate-400 hover:text-white font-bold rounded-lg transition-all uppercase tracking-widest text-[10px]">Hacer
+                    consulta puntual</button>
+            </div>
+            <div id="leadFormWrapper" class="hidden mt-6">
+                <form action="https://formspree.io/f/mnjbvkey" method="POST" class="space-y-4">
+                    <input type="email" name="email" required placeholder="tu@email.com"
+                        class="w-full bg-slate-950 border border-slate-800 p-4 rounded-lg focus:border-blue-600 outline-none transition text-slate-200">
+                    <button type="submit"
+                        class="w-full py-4 bg-blue-900/40 text-blue-400 border border-blue-800/50 font-bold rounded-lg transition-all uppercase tracking-widest text-[10px]">Enviar
+                        →</button>
                 </form>
-                <p class="text-[10px] font-mono text-muted text-center mt-4 uppercase">Sin spam. El email se usa para seguimiento opcional.</p>
             </div>
         </div>
     </div>
 
-    <!-- MODAL PDF -->
-    <div id="pdfModal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-dark/80 p-4 backdrop-blur-sm">
-        <div class="bg-surface w-full max-w-md rounded shadow-structural border border-border overflow-hidden relative">
-            <button onclick="closePdfModal()" class="absolute top-4 right-4 text-muted hover:text-ink">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-            </button>
-            <div class="p-8 text-center">
-                <h3 class="font-heading text-xl font-bold text-ink mb-2">Plan Listo</h3>
-                <p class="text-sm text-body mb-6">Tu hoja de ruta para la progresión lineal está lista.</p>
-                <button id="downloadBtn" onclick="downloadPdfAction()" class="w-full bg-primary hover:bg-primary-600 text-white font-medium py-3 rounded transition-colors">Descargar Ahora</button>
+    <!-- Footer -->
+    <footer class="bg-[#0f172a] border-t border-slate-800 py-12 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex flex-col gap-2">
+                <span class="text-xl font-bold tracking-tighter uppercase text-white">IronLog<span
+                        class="text-blue-600">_</span></span>
+                <p class="text-slate-500 text-xs font-mono">Gobernanza de Datos · Lisandro Cacciatore</p>
             </div>
-        </div>
-    </div>
-
-    <!-- MODAL LEAD -->
-    <div id="leadModal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-dark/80 p-4 backdrop-blur-sm">
-        <div class="bg-surface w-full max-w-md rounded shadow-structural border border-border overflow-hidden relative">
-            <button onclick="closeLeadModal()" class="absolute top-4 right-4 text-muted hover:text-ink">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-            </button>
-            <div class="p-8">
-                <div class="text-center mb-6">
-                    <div class="w-12 h-12 bg-canvas border border-border rounded flex items-center justify-center mx-auto mb-4 text-2xl">🚂</div>
-                    <h3 class="font-heading text-lg font-bold text-ink mb-2">El simulador te da los números. El criterio para usarlos bien es otra conversación.</h3>
-                    <p class="text-xs text-body">Auditoría VCV: revisión de 10 a 14 días de tu sistema de decisión actual.</p>
-                </div>
-                <div class="space-y-3 mb-5">
-                    <button type="button" onclick="window.location.href='../contacto.html'" class="w-full bg-primary hover:bg-primary-600 text-white font-medium py-3 rounded transition-colors text-sm">Revisar mi sistema →</button>
-                    <button type="button" onclick="document.getElementById('leadFormWrapper').classList.toggle('hidden')" class="w-full border border-border hover:border-primary text-ink font-medium py-3 rounded transition-colors text-sm">Hacerme una consulta puntual</button>
-                </div>
-                <div id="leadFormWrapper" class="hidden">
-                    <form action="https://formspree.io/f/mnjbvkey" method="POST" class="space-y-4">
-                        <input type="email" name="email" required placeholder="tu@email.com" class="w-full px-4 py-3 rounded bg-canvas border border-border focus:border-primary outline-none transition-all text-sm">
-                        <input type="text" name="context" placeholder="Contame tu contexto" class="w-full px-4 py-3 rounded bg-canvas border border-border focus:border-primary outline-none transition-all text-sm">
-                        <input type="hidden" name="source" value="ss_simulator">
-                        <button type="submit" class="w-full bg-primary hover:bg-primary-600 text-white font-medium py-3 rounded transition-colors text-sm">Enviar →</button>
-                    </form>
-                </div>
-                <p class="text-[10px] font-mono text-muted text-center mt-4 uppercase">Sin spam. Respuesta en menos de 48hs.</p>
-            </div>
-            <div class="bg-canvas px-8 py-3 border-t border-border text-center">
-                <a href="demo.html" class="text-xs text-muted font-mono hover:text-ink">_Volver a la librería</a>
-            </div>
-        </div>
-    </div>
-
-    <!-- ── AUDITORÍA VCV CALLOUT ── -->
-    <div class="bg-ink border-t-4 border-primary">
-        <div class="max-w-5xl mx-auto px-6 py-12 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-            <div class="max-w-xl">
-                <div class="text-[10px] font-mono font-bold text-primary uppercase tracking-widest mb-3">// Auditoría VCV</div>
-                <h3 class="font-heading text-xl font-bold text-surface mb-3">¿El simulador te genera más preguntas que respuestas?</h3>
-                <p class="text-sm text-muted leading-relaxed">La Auditoría VCV es una revisión de 10 a 14 días de tu sistema de decisión actual. Identificás la variable que realmente gobierna tus ajustes de carga — y salís con un esquema claro de validación semanal.</p>
-            </div>
-            <a href="../contacto.html" class="shrink-0 bg-primary hover:bg-primary-600 text-white px-8 py-3 rounded font-medium transition-colors text-sm whitespace-nowrap">Ver cómo funciona →</a>
-        </div>
-    </div>
-
-    <footer class="bg-dark pt-16 pb-8 border-t-4 border-primary">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-                <div class="md:col-span-2">
-                    <span class="font-heading font-semibold text-lg text-surface block mb-4">Lisandro Cacciatore <span class="text-primary font-mono font-bold">_</span></span>
-                    <p class="text-muted text-sm leading-relaxed max-w-sm">Sistemas de validación semanal para preparadores físicos. Criterio claro, decisiones con fundamento.</p>
-                </div>
-                <div>
-                    <h3 class="font-heading text-surface text-xs font-bold mb-4 uppercase tracking-widest">Ecosistema</h3>
-                    <ul class="space-y-3">
-                        <li><a href="../blog.html" class="text-sm text-muted hover:text-surface transition-colors">Blog Técnico</a></li>
-                        <li><a href="index.html" class="text-sm text-muted hover:text-surface transition-colors">IronLog (Piloto)</a></li>
-                        <li><a href="tools.html" class="text-sm text-muted hover:text-surface transition-colors">Data Tools</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h3 class="font-heading text-surface text-xs font-bold mb-4 uppercase tracking-widest">Operaciones</h3>
-                    <ul class="space-y-3">
-                        <li><a href="../contacto.html" class="text-sm text-muted hover:text-surface transition-colors">Revisar mi sistema →</a></li>
-                        <li><span class="text-sm text-subtle block">Rosario, Argentina</span></li>
-                        <li><span class="text-sm text-subtle block">Remoto LATAM / España</span></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <div class="text-xs font-mono text-subtle">© 2026 Lisandro Cacciatore. Todos los derechos reservados.</div>
-                <div class="flex gap-6 text-xs text-subtle">
-                    <a href="../privacidad.html" class="hover:text-muted transition-colors">Privacidad</a>
-                    <a href="../sobre-mi.html" class="hover:text-muted transition-colors">Sobre mí</a>
-                </div>
+            <div class="flex space-x-8 text-[10px] font-mono uppercase tracking-widest text-slate-600">
+                <a href="../privacidad.html" class="hover:text-white transition">Privacidad</a>
+                <span>© 2026</span>
             </div>
         </div>
     </footer>
 
     <script>
-        // ── ESTADO GLOBAL ──────────────────────────────────────────────
         let currentScheme = 'ABA';
         let radarChart = null, linearChart = null, comboChart = null;
 
@@ -427,43 +475,24 @@
             if (el) el.textContent = vcvQuestions[currentScheme] || '';
         }
 
-        // ── DATOS DE SESIONES ──────────────────────────────────────────
-        // Sesión A: Squat, Press, Deadlift
-        // Sesión B: Squat, Bench, Power Clean
         function buildSessions(sq, bp, dl, press, pc) {
             const sessA = [
-                { name:'Sentadilla',   w:sq,    sets:'3×5', incr:2.5  },
-                { name:'Press Militar',w:press,  sets:'3×5', incr:1.25 },
-                { name:'Peso Muerto',  w:dl,    sets:'1×5', incr:2.5  },
+                { name: 'SENTADILLA', w: sq, sets: '3×5', incr: 2.5 },
+                { name: 'PRESS MIL.', w: press, sets: '3×5', incr: 1.25 },
+                { name: 'PESO MUERTO', w: dl, sets: '1×5', incr: 2.5 },
             ];
             const sessB = [
-                { name:'Sentadilla',   w:sq,    sets:'3×5', incr:2.5  },
-                { name:'Press Banca',  w:bp,    sets:'3×5', incr:1.25 },
-                { name:'Power Clean',  w:pc,    sets:'5×3', incr:2.5  },
+                { name: 'SENTADILLA', w: sq, sets: '3×5', incr: 2.5 },
+                { name: 'PRESS BANCA', w: bp, sets: '3×5', incr: 1.25 },
+                { name: 'POWER CLEAN', w: pc, sets: '5×3', incr: 2.5 },
             ];
-            if (currentScheme === 'ABA') {
-                return [
-                    { day:'Lunes (A)',     lifts: sessA },
-                    { day:'Miércoles (B)', lifts: sessB },
-                    { day:'Viernes (A)',   lifts: sessA },
-                ];
-            } else {
-                return [
-                    { day:'Lunes (B)',     lifts: sessB },
-                    { day:'Miércoles (A)', lifts: sessA },
-                    { day:'Viernes (B)',   lifts: sessB },
-                ];
-            }
+            return currentScheme === 'ABA' ?
+                [{ day: 'LUN (A)', lifts: sessA }, { day: 'MIE (B)', lifts: sessB }, { day: 'VIE (A)', lifts: sessA }] :
+                [{ day: 'LUN (B)', lifts: sessB }, { day: 'MIE (A)', lifts: sessA }, { day: 'VIE (B)', lifts: sessB }];
         }
 
-        // ── INICIALIZACIÓN ─────────────────────────────────────────────
         document.addEventListener('DOMContentLoaded', () => {
-            // Todos los modales se inicializan aquí — no hay referencias fuera del DOMContentLoaded
-            document.getElementById('leadModal').addEventListener('click',  e => { if(e.target===document.getElementById('leadModal'))  closeLeadModal();  });
-            document.getElementById('excelModal').addEventListener('click', e => { if(e.target===document.getElementById('excelModal')) closeExcelModal(); });
-            document.getElementById('excelForm').addEventListener('submit', handleExcelSubmit);
-
-            ['manualSquat','manualBench','manualDeadlift','manualPress','manualClean'].forEach(id =>
+            ['manualSquat', 'manualBench', 'manualDeadlift', 'manualPress', 'manualClean'].forEach(id =>
                 document.getElementById(id).addEventListener('input', generateSSDashboard)
             );
             selectScheme('ABA');
@@ -473,141 +502,116 @@
             currentScheme = scheme;
             document.querySelectorAll('.week-card').forEach(el => {
                 el.classList.remove('week-active');
-                el.classList.add('opacity-60');
+                el.style.opacity = el.id === `card-week-${scheme}` ? '1' : '0.4';
             });
             document.getElementById(`card-week-${scheme}`).classList.add('week-active');
-            document.getElementById(`card-week-${scheme}`).classList.remove('opacity-60');
             generateSSDashboard();
             updateVCV();
         }
 
         function getInputs() {
             return {
-                sq:    parseFloat(document.getElementById('manualSquat').value)    || 0,
-                bp:    parseFloat(document.getElementById('manualBench').value)     || 0,
-                dl:    parseFloat(document.getElementById('manualDeadlift').value)  || 0,
-                press: parseFloat(document.getElementById('manualPress').value)     || 0,
-                pc:    parseFloat(document.getElementById('manualClean').value)     || 0,
+                sq: parseFloat(document.getElementById('manualSquat').value) || 0,
+                bp: parseFloat(document.getElementById('manualBench').value) || 0,
+                dl: parseFloat(document.getElementById('manualDeadlift').value) || 0,
+                press: parseFloat(document.getElementById('manualPress').value) || 0,
+                pc: parseFloat(document.getElementById('manualClean').value) || 0,
             };
         }
 
         function generateSSDashboard() {
             const { sq, bp, dl, press, pc } = getInputs();
-
-            document.getElementById('reportWeekBadge').innerText = `Esquema ${currentScheme}`;
-
-            // Construir las sesiones de la semana (variable definida dentro de esta función)
+            document.getElementById('reportWeekBadge').innerText = `ESQUEMA ${currentScheme}`;
             const sessions = buildSessions(sq, bp, dl, press, pc);
 
-            // Renderizar lista de sesiones
             let listHTML = '';
             sessions.forEach(sess => {
-                listHTML += `<div class="bg-canvas p-3 rounded border border-border mb-3">
-                    <div class="text-[10px] font-mono font-bold text-muted uppercase tracking-widest mb-2 border-b border-border pb-1">${sess.day}</div>
-                    <div class="space-y-1">`;
+                listHTML += `<div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
+                    <div class="text-[9px] font-mono font-bold text-slate-500 uppercase tracking-widest mb-3 border-b border-slate-800 pb-2">${sess.day}</div>
+                    <div class="space-y-2">`;
                 sess.lifts.forEach(lift => {
-                    listHTML += `<div class="flex justify-between text-sm">
-                        <span class="font-bold text-ink">${lift.name}</span>
-                        <span class="font-mono font-bold text-ink">${lift.w}<span class="text-muted text-[10px]">kg</span>
-                        <span class="text-muted font-normal text-[10px] ml-1">${lift.sets}</span></span>
+                    listHTML += `<div class="flex justify-between items-center text-[10px]">
+                        <span class="font-bold text-slate-300 uppercase">${lift.name}</span>
+                        <div class="flex items-center gap-2">
+                             <span class="font-mono text-blue-400 font-bold">${lift.w}KG</span>
+                             <span class="text-slate-600 font-mono text-[8px]">${lift.sets}</span>
+                        </div>
                     </div>`;
                 });
                 listHTML += `</div></div>`;
             });
             document.getElementById('exercisesList').innerHTML = listHTML;
-            document.getElementById('dashboard').classList.remove('hidden');
-
-            // Renderizar charts — sessions se pasa explícitamente
             renderCharts(sq, bp, dl, press, sessions);
             renderCycleTable(sq, bp, dl, press, pc);
         }
 
-        // ── CHARTS ─────────────────────────────────────────────────────
-        // FIX: sessions se recibe como parámetro, no se referencia del scope exterior
         function renderCharts(sq, bp, dl, press, sessions) {
             Chart.defaults.font.family = "'Fira Code', monospace";
             Chart.defaults.color = '#64748B';
 
-            // 1. Radar — fijo para SS
             if (radarChart) radarChart.destroy();
             radarChart = new Chart(document.getElementById('radarChart'), {
                 type: 'radar',
                 data: {
-                    labels: ['Fuerza','Hipertrofia','Potencia','Técnica','SNC Stress'],
-                    datasets: [{ data:[9,4,7,8,8], backgroundColor:'rgba(30,58,138,0.1)',
-                        borderColor:'#1E3A8A', pointBackgroundColor:'#1E3A8A' }]
+                    labels: ['Fuerza', 'Hipertr.', 'Potencia', 'Técnica', 'SNC'],
+                    datasets: [{ data: [9, 4, 7, 8, 8], backgroundColor: 'rgba(37,99,235,0.1)', borderColor: '#2563eb', pointBackgroundColor: '#2563eb', borderWidth: 1.5 }]
                 },
-                options:{ responsive:true, maintainAspectRatio:false,
-                    scales:{r:{ticks:{display:false},min:0,max:10}}, plugins:{legend:{display:false}} }
+                options: {
+                    responsive: true, maintainAspectRatio: false,
+                    scales: { r: { min: 0, max: 10, grid: { color: 'rgba(255,255,255,0.05)' }, angleLines: { color: 'rgba(255,255,255,0.05)' }, ticks: { display: false }, pointLabels: { color: '#64748b', font: { size: 8 } } } }, plugins: { legend: { display: false } }
+                }
             });
 
-            // 2. Proyección lineal — 4 semanas
-            // +2.5kg × 3 ses/sem para squat, +5kg/sem para deadlift (1 ses/sem)
-            const sqProg  = [sq,  sq+7.5,  sq+15,  sq+22.5];
-            const dlProg  = [dl,  dl+5,    dl+10,  dl+15  ];
-            const bpProg  = [bp,  bp+3.75, bp+7.5, bp+11.25];
-
+            const sqProg = [sq, sq + 7.5, sq + 15, sq + 22.5];
+            const dlProg = [dl, dl + 5.0, dl + 10, dl + 15];
             if (linearChart) linearChart.destroy();
             linearChart = new Chart(document.getElementById('linearChart'), {
                 type: 'line',
                 data: {
-                    labels: ['Inicio','Sem 2','Sem 3','Sem 4'],
+                    labels: ['S1', 'S2', 'S3', 'S4'],
                     datasets: [
-                        { label:'Squat',    data:sqProg, borderColor:'#B91C1C', tension:0.1, pointRadius:3 },
-                        { label:'Deadlift', data:dlProg, borderColor:'#15803D', tension:0.1, pointRadius:3 },
-                        { label:'Banca',    data:bpProg, borderColor:'#1E3A8A', tension:0.1, pointRadius:3 },
+                        { label: 'SQ', data: sqProg, borderColor: '#2563eb', borderWidth: 2, tension: 0.2, pointRadius: 2 },
+                        { label: 'DL', data: dlProg, borderColor: '#15803d', borderWidth: 2, tension: 0.2, pointRadius: 2 },
                     ]
                 },
-                options:{ responsive:true, maintainAspectRatio:false,
-                    plugins:{ legend:{position:'bottom',labels:{boxWidth:10}} },
-                    scales:{ y:{ display:false } } }
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { display: false }, x: { grid: { display: false }, ticks: { font: { size: 8 } } } } }
             });
-
-            // 3. Sesiones de la semana — usa el parámetro sessions (no variable externa)
-            const sessionLabels = sessions.map(s => s.day.split(' ')[0]);
-            const sessionVolume = sessions.map(s => s.lifts.length * 5); // sets aprox
 
             if (comboChart) comboChart.destroy();
             comboChart = new Chart(document.getElementById('comboChart'), {
                 type: 'bar',
                 data: {
-                    labels: sessionLabels,
+                    labels: ['LUN', 'MIE', 'VIE'],
                     datasets: [
-                        { label:'Sets Totales', data:sessionVolume, backgroundColor:'#E2E8F0', order:2, borderRadius:2 },
-                        { label:'Intensidad (% 5RM)', data:[100,100,102], type:'line',
-                          borderColor:'#1E293B', borderWidth:2, tension:0, order:1, pointRadius:4 }
+                        { label: 'SETS', data: [15, 15, 15], backgroundColor: '#1e293b', borderRadius: 4, order: 2 },
+                        { label: 'PROG', data: [100, 101, 102], type: 'line', borderColor: '#2563eb', borderWidth: 2, tension: 0.4, order: 1 }
                     ]
                 },
-                options:{ responsive:true, maintainAspectRatio:false,
-                    scales:{ y:{display:false} }, plugins:{legend:{position:'bottom'}} }
+                options: { responsive: true, maintainAspectRatio: false, scales: { y: { display: false }, x: { grid: { display: false }, ticks: { font: { size: 8 } } } }, plugins: { legend: { display: false } } }
             });
         }
 
-        // ── CICLO: tabla de progresión 4 semanas ──────────────────────
         function renderCycleTable(sq, bp, dl, press, pc) {
             const currentWeekNum = currentScheme === 'ABA' ? 1 : 2;
             const liftDefs = [
-                // name, startVal, incrPerSession, sesPerWeek
-                { name:'Sentadilla',    val:sq,    incrSes:2.5,  sesPerWk:3 },
-                { name:'Press Banca',   val:bp,    incrSes:1.25, sesPerWk:currentScheme==='ABA'?1:2 },
-                { name:'Peso Muerto',   val:dl,    incrSes:2.5,  sesPerWk:currentScheme==='ABA'?2:1 },
-                { name:'Press Militar', val:press, incrSes:1.25, sesPerWk:currentScheme==='ABA'?2:1 },
-                { name:'Power Clean',   val:pc,    incrSes:2.5,  sesPerWk:currentScheme==='ABA'?1:2 },
+                { name: 'SENTADILLA', val: sq, incrSes: 2.5, sesPerWk: 3 },
+                { name: 'PRESS BANCA', val: bp, incrSes: 1.25, sesPerWk: currentScheme === 'ABA' ? 1 : 2 },
+                { name: 'PESO MUERTO', val: dl, incrSes: 2.5, sesPerWk: currentScheme === 'ABA' ? 1 : 2 },
+                { name: 'PRESS MIL.', val: press, incrSes: 1.25, sesPerWk: currentScheme === 'ABA' ? 2 : 1 },
+                { name: 'POWER CLEAN', val: pc, incrSes: 2.5, sesPerWk: currentScheme === 'ABA' ? 1 : 2 },
             ];
-
             let tbody = '';
-            liftDefs.forEach((l,ri) => {
-                let row = `<tr class="${ri%2===1?'bg-surface':''} border-t border-border">
-                    <td class="px-4 py-3 font-bold text-ink border-r border-border whitespace-nowrap">
-                        ${l.name}<br><span class="font-normal text-muted text-[10px]">Inicio: ${l.val}kg</span>
+            liftDefs.forEach((l, ri) => {
+                let row = `<tr class="border-b border-slate-800/30">
+                    <td class="px-6 py-5 font-bold text-white border-r border-slate-800 bg-slate-950/20 uppercase tracking-widest text-[8px]">
+                        ${l.name}<br><span class="text-slate-600 tracking-[0.2em]">${l.val}KG</span>
                     </td>`;
-                [1,2,3,4].forEach(w => {
-                    // Peso al inicio de esa semana
-                    const weekVal  = l.val + l.incrSes * l.sesPerWk * (w - 1);
+                [1, 2, 3, 4].forEach(w => {
+                    const weekVal = l.val + l.incrSes * l.sesPerWk * (w - 1);
                     const isActive = w === currentWeekNum;
-                    row += `<td class="px-4 py-3 text-center border-l border-border ${isActive?'bg-primary-bg':''}">
-                        <div class="font-bold ${isActive?'text-primary':'text-body'}">${weekVal}kg</div>
-                        <div class="text-[10px] text-muted">3×5</div>
+                    row += `<td class="px-6 py-5 text-center border-l border-slate-800/20 ${isActive ? 'bg-blue-900/10' : ''}">
+                        <div class="font-bold ${isActive ? 'text-blue-400' : 'text-slate-400'} text-[10px]">${weekVal}KG</div>
+                        <div class="text-[7px] text-slate-600 mt-1 uppercase tracking-tighter">3×5</div>
                     </td>`;
                 });
                 row += '</tr>';
@@ -616,103 +620,43 @@
             document.getElementById('cycleTableBody').innerHTML = tbody;
         }
 
-        // ── EXCEL ──────────────────────────────────────────────────────
-        function openExcelModal()  { document.getElementById('excelModal').classList.remove('hidden'); }
+        function openExcelModal() { document.getElementById('excelModal').classList.remove('hidden'); }
         function closeExcelModal() { document.getElementById('excelModal').classList.add('hidden'); }
+        function openPdfModal() { document.getElementById('pdfModal').classList.remove('hidden'); }
+        function closePdfModal() { document.getElementById('pdfModal').classList.add('hidden'); }
+        function openLeadModal() { document.getElementById('leadModal').classList.remove('hidden'); }
+        function closeLeadModal() { document.getElementById('leadModal').classList.add('hidden'); }
 
         async function handleExcelSubmit(e) {
             e.preventDefault();
             const btn = document.getElementById('excelSubmitBtn');
-            btn.textContent = 'Generando...'; btn.disabled = true;
+            btn.textContent = 'GENERANDO...'; btn.disabled = true;
             try {
                 await fetch('https://formspree.io/f/mnjbvkey', {
-                    method:'POST', headers:{'Content-Type':'application/json'},
-                    body:JSON.stringify({
-                        email: document.getElementById('excelEmail').value,
-                        rol:   document.getElementById('excelRol').value,
-                        source:'ss_excel', simulador:'Starting Strength', esquema: currentScheme
-                    })
+                    method: 'POST', headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email: document.getElementById('excelEmail').value, source: 'ss_excel' })
                 });
-            } catch(_) {}
-            generateExcel();
-            closeExcelModal();
-            btn.textContent = 'Descargar Excel →'; btn.disabled = false;
-        }
-
-        function generateExcel() {
-            const { sq, bp, dl, press, pc } = getInputs();
-            const sessions = buildSessions(sq, bp, dl, press, pc);
+            } catch (_) { }
             const wb = XLSX.utils.book_new();
-
-            // Sheet 1: Sesiones de la semana
-            const s1 = [
-                ['STARTING STRENGTH — IronLog | lisandrocacciatore.com','','',''],
-                [`Esquema: ${currentScheme} | Mark Rippetoe (2005)`,'','',''],
-                [`Incrementos: +2.5kg Squat/DL por sesión · +1.25kg Banca/Press por sesión`,'','',''],
-                [],
-                ['Día','Ejercicio','Sets × Reps','Peso (kg)','Próxima Sesión'],
-            ];
-            sessions.forEach(sess => {
-                sess.lifts.forEach((lift,i) => {
-                    s1.push([i===0?sess.day:'', lift.name, lift.sets, lift.w, lift.w+lift.incr]);
-                });
-                s1.push(['','','','','']);
-            });
-            const ws1 = XLSX.utils.aoa_to_sheet(s1);
-            ws1['!cols'] = [{wch:18},{wch:18},{wch:12},{wch:12},{wch:16}];
-            XLSX.utils.book_append_sheet(wb, ws1, 'Esta Semana');
-
-            // Sheet 2: Progresión 4 semanas
-            const liftDefs = [
-                { name:'Sentadilla',    val:sq,    incrSes:2.5,  sesPerWk:3 },
-                { name:'Press Banca',   val:bp,    incrSes:1.25, sesPerWk:currentScheme==='ABA'?1:2 },
-                { name:'Peso Muerto',   val:dl,    incrSes:2.5,  sesPerWk:currentScheme==='ABA'?2:1 },
-                { name:'Press Militar', val:press, incrSes:1.25, sesPerWk:currentScheme==='ABA'?2:1 },
-                { name:'Power Clean',   val:pc,    incrSes:2.5,  sesPerWk:currentScheme==='ABA'?1:2 },
-            ];
-            const s2 = [
-                ['PROGRESIÓN PROYECTADA — 4 SEMANAS'],
-                ['Ejercicio','Sem 1','Sem 2','Sem 3','Sem 4','Ganancia total'],
-            ];
-            liftDefs.forEach(l => {
-                const vals = [1,2,3,4].map(w => l.val + l.incrSes * l.sesPerWk * (w-1));
-                s2.push([l.name,...vals.map(v=>`${v}kg`),`+${l.incrSes*l.sesPerWk*3}kg`]);
-            });
-            const ws2 = XLSX.utils.aoa_to_sheet(s2);
-            ws2['!cols'] = [{wch:18},...Array(5).fill({wch:14})];
-            XLSX.utils.book_append_sheet(wb, ws2, 'Progresión 4 Semanas');
-
-            // Sheet 3: Log de sesiones editable
-            const s3 = [
-                ['LOG DE SESIONES — STARTING STRENGTH'],
-                ['Completar después de cada entrenamiento'],
-                [],
-                ['Fecha','Sesión','Ejercicio','Peso (kg)','Reps (sets)','¿Completaste?','Notas'],
-            ];
-            for (let i=0; i<12; i++) {
-                s3.push(['','A o B','','','','Sí / No / Ajusté','']);
-            }
-            const ws3 = XLSX.utils.aoa_to_sheet(s3);
-            ws3['!cols'] = [{wch:12},{wch:10},{wch:18},{wch:12},{wch:14},{wch:16},{wch:30}];
-            XLSX.utils.book_append_sheet(wb, ws3, 'Log Sesiones');
-
+            const s1 = [['STARTING STRENGTH'], [`Esquema ${currentScheme}`], []];
+            XLSX.utils.book_append_sheet(wb, XLSX.utils.aoa_to_sheet(s1), 'Plan');
             XLSX.writeFile(wb, `IronLog_SS_${currentScheme}.xlsx`);
+            closeExcelModal();
+            btn.textContent = 'DESCARGAR FICHA →'; btn.disabled = false;
         }
 
-        // ── PDF ──────────────────────────────────────────────────────────
-        function openPdfModal()  { document.getElementById('pdfModal').classList.remove('hidden'); }
-        function closePdfModal() { document.getElementById('pdfModal').classList.add('hidden'); }
         function downloadPdfAction() {
-            html2pdf().set({ margin:5, filename:`IronLog_SS_${currentScheme}.pdf`,
-                image:{type:'jpeg',quality:0.98}, html2canvas:{scale:2},
-                jsPDF:{unit:'mm',format:'a4',orientation:'portrait'} })
-            .from(document.getElementById('pdfPrintableArea')).save();
-            closePdfModal();
+            const btn = document.getElementById('downloadBtn');
+            btn.textContent = 'GENERANDO...'; btn.disabled = true;
+            html2pdf().set({
+                margin: 5, filename: `IronLog_SS_${currentScheme}.pdf`,
+                image: { type: 'jpeg', quality: 0.98 }, html2canvas: { scale: 2, backgroundColor: '#0f172a' },
+                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            })
+                .from(document.getElementById('pdfPrintableArea')).save()
+                .then(() => { closePdfModal(); btn.textContent = 'DESCARGAR REPORTE'; btn.disabled = false; });
         }
-
-        // ── LEAD ─────────────────────────────────────────────────────────
-        function openLeadModal()  { document.getElementById('leadModal').classList.remove('hidden'); }
-        function closeLeadModal() { document.getElementById('leadModal').classList.add('hidden'); }
     </script>
 </body>
+
 </html>

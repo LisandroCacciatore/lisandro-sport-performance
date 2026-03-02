@@ -4,313 +4,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre Mí | Lisandro Cacciatore | Por qué trabajo en validación del criterio deportivo</title>
-    <meta name="description"
-        content="Vi durante años cómo entrenadores competentes tomaban decisiones sin ningún respaldo real. Trabajo para que eso cambie. No con tecnología. Con proceso.">
-    <link rel="canonical" href="https://lisandrocacciatore.com/sobre-mi.html">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=IBM+Plex+Sans:wght@600;700&family=Inter:wght@400;500;600&display=swap"
-        rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-        rel="stylesheet">
+    <title>Sobre Mí | Lisandro Cacciatore</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="theme.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+        }
+
+        .font-mono {
+            font-family: 'Fira Code', monospace;
+        }
+    </style>
 </head>
 
-<body class="bg-canvas text-body font-sans antialiased">
-
-    <nav class="sticky top-0 z-50 w-full bg-canvas/90 backdrop-blur-md border-b border-border">
-        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-3 text-ink group">
-                <span class="material-symbols-outlined text-primary text-xl">
-                    terminal
-                </span>
-                <h2 class="text-lg font-bold font-heading tracking-tight group-hover:text-primary transition-colors">
-                    Lisandro Cacciatore_</h2>
-            </a>
-            <div class="flex items-center gap-8">
-                <div class="hidden md:flex items-center gap-6">
-                    <a href="index.html#metodo"
-                        class="text-muted hover:text-primary text-sm font-medium transition-colors">Método</a>
-                    <a href="servicios.html"
-                        class="text-muted hover:text-primary text-sm font-medium transition-colors">Servicios</a>
-                    <a href="blog.html"
-                        class="text-muted hover:text-primary text-sm font-medium transition-colors">Blog</a>
-                    <span class="w-px h-4 bg-border"></span>
-                    <a href="ironlog/index.html" class="text-primary font-mono text-sm hover:underline">IronLog</a>
-                </div>
+<body class="bg-[#0f172a] text-slate-200">
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-[#0f172a]/80 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="text-xl font-bold tracking-tighter uppercase">Lisandro Cacciatore<span
+                    class="text-blue-600">_</span></a>
+            <div class="hidden md:flex space-x-8 font-mono text-sm uppercase tracking-widest">
+                <a href="index.html" class="hover:text-blue-500 transition">Inicio</a>
+                <a href="servicios.html" class="hover:text-blue-500 transition">Servicios</a>
+                <a href="sobre-mi.html" class="text-blue-500 transition border-b border-blue-500">Sobre Mí</a>
+                <a href="blog.html" class="hover:text-blue-500 transition">IronLog</a>
                 <a href="contacto.html"
-                    class="hidden md:flex items-center justify-center rounded-md h-9 px-4 bg-dark hover:bg-primary-600 text-white text-xs font-bold uppercase tracking-wider transition-all shadow-sm">
-                    Solicitar revisión →
-                </a>
-                <!-- Mobile Menu Button -->
-                <button class="md:hidden p-2 text-body relative z-50 focus:outline-none"
-                    onclick="document.getElementById('mobile-menu').classList.toggle('hidden'); this.querySelector('span').innerText = this.querySelector('span').innerText === 'menu' ? 'close' : 'menu';">
-                    <span class="material-symbols-outlined select-none">menu</span>
-                </button>
-            </div>
-        </div>
-
-        <!-- Mobile Menu Dropdown -->
-        <div id="mobile-menu"
-            class="hidden absolute top-16 left-0 w-full bg-canvas border-b border-border shadow-lg md:hidden">
-            <div class="flex flex-col px-6 py-4 space-y-4">
-                <a href="index.html#metodo" class="text-body font-medium hover:text-primary transition-colors"
-                    onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.querySelector('button.md\\:hidden span').innerText = 'menu';">Método</a>
-                <a href="servicios.html" class="text-body font-medium hover:text-primary transition-colors"
-                    onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.querySelector('button.md\\:hidden span').innerText = 'menu';">Servicios</a>
-                <a href="blog.html" class="text-body font-medium hover:text-primary transition-colors"
-                    onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.querySelector('button.md\\:hidden span').innerText = 'menu';">Blog</a>
-                <a href="ironlog/index.html" class="text-primary font-mono font-medium hover:underline"
-                    onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.querySelector('button.md\\:hidden span').innerText = 'menu';">IronLog</a>
-                <div class="pt-4 border-t border-border">
-                    <a href="contacto.html"
-                        class="flex items-center justify-center rounded-md h-10 w-full bg-dark hover:bg-primary-600 text-white text-sm font-bold uppercase tracking-wider transition-all shadow-sm"
-                        onclick="document.getElementById('mobile-menu').classList.add('hidden'); document.querySelector('button.md\\:hidden span').innerText = 'menu';">
-                        Solicitar revisión →
-                    </a>
-                </div>
+                    class="px-4 py-2 border border-blue-600 rounded text-blue-500 hover:bg-blue-600 hover:text-white transition">Contacto</a>
             </div>
         </div>
     </nav>
 
-    <main>
-        <!-- HEADER -->
-        <section class="bg-surface py-22 border-b border-border bg-tech-grid">
-            <div class="max-w-3xl mx-auto px-6">
-                <div class="flex flex-col sm:flex-row items-start sm:items-center gap-8 mb-10">
-                    <!-- Lisandro Portrait -->
-                    <div class="shrink-0 w-20 h-20 rounded bg-ink overflow-hidden border border-slate-700">
-                        <img src="img/lisandro-portrait.jpg" alt="Lisandro Cacciatore"
-                            class="w-full h-full object-cover">
+    <main class="pt-20 pb-32">
+        <!-- Hero / Intro -->
+        <section class="max-w-7xl mx-auto px-6 mb-24">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div>
+                    <h2 class="font-mono text-blue-500 text-sm uppercase tracking-[0.2em] mb-6">El estándar que defiendo
+                    </h2>
+                    <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-8">
+                        No vendo datos.<br>Vendo <span class="text-blue-600">certeza.</span>
+                    </h1>
+                    <p class="text-xl text-slate-400 leading-relaxed mb-6">
+                        Soy Lisandro Cacciatore, y mi carrera se ha centrado en resolver una pregunta incómoda:
+                        <strong>¿Por qué seguimos confiando en la intuición cuando el costo del error es tan
+                            alto?</strong>
+                    </p>
+                    <p class="text-slate-400 leading-relaxed">
+                        A lo largo de mi trayectoria en el alto rendimiento, he visto organizaciones inundadas de
+                        tecnología pero sedientas de información real. Mi trabajo es cerrar esa brecha.
+                    </p>
+                </div>
+                <div class="relative">
+                    <div
+                        class="aspect-[4/5] bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 relative group">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800"
+                            alt="Lisandro Cacciatore"
+                            class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-transparent to-transparent">
+                        </div>
+                        <div class="absolute bottom-6 left-6 font-mono text-xs text-blue-500 uppercase tracking-widest">
+                            Performance Data Consultant</div>
                     </div>
-                    <div>
-                        <span
-                            class="inline-block py-1 px-3 rounded text-[10px] font-mono font-bold uppercase tracking-wider bg-canvas border border-border text-muted mb-3">
-                            Postura Profesional
-                        </span>
-                        <p class="text-ink font-heading font-bold text-lg">Lisandro Cacciatore</p>
-                        <p class="text-muted text-sm font-mono">Ingeniería de datos · Rendimiento deportivo · Rosario,
-                            Argentina</p>
+                    <div
+                        class="absolute -bottom-6 -right-6 w-32 h-32 bg-blue-600/10 border border-blue-600/20 rounded-full blur-2xl">
                     </div>
                 </div>
-                <h1 class="font-heading text-4xl font-bold text-ink mb-6">
-                    Por qué trabajo en esto
-                </h1>
-                <p class="text-lg text-body max-w-2xl leading-relaxed">
-                    No empecé por interés en la tecnología. Empecé porque vi repetidamente cómo preparadores físicos
-                    competentes entrenaban a ciegas sin saberlo.
-                </p>
             </div>
         </section>
 
-
-        <!-- CONTENIDO PRINCIPAL -->
-        <section class="py-22">
-            <div class="max-w-3xl mx-auto px-6 space-y-16">
-
-                <!-- Apertura: el problema observado -->
-                <div>
-                    <h2 class="font-heading text-2xl font-bold text-ink mb-6 pb-2 border-b border-border">Lo que vi en
-                        el campo</h2>
-                    <p class="text-body leading-relaxed mb-5">
-                        Los preparadores físicos que mejor trabajaban sabían diseñar sesiones, periodizar, seleccionar
-                        ejercicios. Pero cuando llegaba el momento de justificar que el proceso había funcionado, no
-                        había nada sólido. Solo la percepción. Solo el relato.
-                    </p>
-                    <p class="text-body leading-relaxed mb-5">
-                        El problema no era el conocimiento técnico. Era la ausencia de proceso de validación. Las
-                        decisiones se tomaban por sensación acumulada — que puede ser buena — pero que no deja registro,
-                        no se puede explicar y no se puede reproducir. Cuando algo funciona, no sabés exactamente qué
-                        hiciste. Cuando algo falla, tampoco.
-                    </p>
-                    <p class="text-body leading-relaxed">
-                        El estancamiento silencioso no tiene señal de alarma obvia. Solo una brecha que crece entre lo
-                        que el preparador cree que está pasando y lo que los datos dirían si alguien los mirara con
-                        criterio.
-                    </p>
-                </div>
-
-                <!-- Punto de quiebre -->
-                <div>
-                    <h2 class="font-heading text-2xl font-bold text-ink mb-6 pb-2 border-b border-border">Lo que me
-                        molestaba del discurso técnico</h2>
-                    <div class="bg-ink text-surface p-8 rounded shadow-structural border border-slate-700 mb-8">
-                        <p class="text-lg font-serif italic text-slate-300 leading-relaxed">
-                            "El problema no es la falta de datos. Es la falta de criterio para saber qué dato importa,
-                            cuándo importa y qué hacer con él."
-                        </p>
+        <!-- Valores / Metodología -->
+        <section class="bg-slate-900/50 py-24 border-y border-slate-800">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid md:grid-cols-3 gap-12">
+                    <div class="space-y-4">
+                        <div class="text-blue-600 font-mono text-xl">01/</div>
+                        <h3 class="text-xl font-bold">Evidencia sobre Ego</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">Las decisiones no deben depender de quién
+                            grita más fuerte o quién tiene más años en el cargo, sino de lo que la Variable Crítica
+                            Validada nos dice.</p>
                     </div>
-                    <p class="text-body leading-relaxed mb-5">
-                        La industria del rendimiento deportivo vende tecnología como si la tecnología fuera el problema.
-                        GPS, plataformas, dashboards, wearables. Herramientas que registran todo y explican poco. Y
-                        mientras tanto el preparador físico sigue decidiendo por sensación porque nadie le enseñó a
-                        construir un proceso de validación que funcione el lunes a la mañana con lo que tiene.
-                    </p>
-                    <p class="text-body leading-relaxed">
-                        Tener datos no es tener criterio. Tener criterio es saber cuál de esos datos importa esta
-                        semana, qué umbral dispara un ajuste y qué hacer cuando ese umbral se cruza. Eso no viene de la
-                        herramienta. Viene del proceso. Y el proceso hay que construirlo.
-                    </p>
-                </div>
-
-                <!-- Estándar que defendés -->
-                <div>
-                    <h2 class="font-heading text-2xl font-bold text-ink mb-6 pb-2 border-b border-border">El estándar
-                        que defiendo</h2>
-                    <p class="text-body leading-relaxed mb-6">
-                        Una decisión de entrenamiento bien tomada no es la que da el mejor resultado. Es la que tiene
-                        evidencia detrás antes de ejecutarse. Eso cambia el rol del preparador físico: deja de ser el
-                        que siente, y pasa a ser el que puede justificar.
-                    </p>
-                    <div class="my-10 rounded overflow-hidden border border-border shadow-structural">
-                        <img src="img/lisandro-office.jpg" alt="Lisandro Cacciatore en su consultoría"
-                            class="w-full h-auto">
+                    <div class="space-y-4">
+                        <div class="text-blue-600 font-mono text-xl">02/</div>
+                        <h3 class="text-xl font-bold">Simplicidad Técnica</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">Un sistema de soporte de decisiones (DSS)
+                            complejo que nadie usa no es un sistema, es un estorbo. Diseño soluciones que el staff
+                            realmente adopta.</p>
                     </div>
-                    <div class="grid md:grid-cols-2 gap-4 mb-8">
-                        <div class="flex items-start gap-3 p-4 bg-surface rounded border border-border">
-                            <span class="text-success font-mono font-bold mt-0.5">✔</span>
-                            <span class="text-body text-sm leading-relaxed">Cada ajuste tiene un dato detrás. No una
-                                sensación.</span>
-                        </div>
-                        <div class="flex items-start gap-3 p-4 bg-surface rounded border border-border">
-                            <span class="text-success font-mono font-bold mt-0.5">✔</span>
-                            <span class="text-body text-sm leading-relaxed">El problema se detecta antes de que el
-                                atleta lo sienta.</span>
-                        </div>
-                        <div class="flex items-start gap-3 p-4 bg-surface rounded border border-border">
-                            <span class="text-success font-mono font-bold mt-0.5">✔</span>
-                            <span class="text-body text-sm leading-relaxed">El proceso es repetible. No depende del día
-                                que tengas.</span>
-                        </div>
-                        <div class="flex items-start gap-3 p-4 bg-surface rounded border border-border">
-                            <span class="text-success font-mono font-bold mt-0.5">✔</span>
-                            <span class="text-body text-sm leading-relaxed">El criterio se puede explicar. No solo
-                                ejercer.</span>
-                        </div>
-                    </div>
-                    <div class="p-5 bg-surface rounded border border-border">
-                        <p class="text-xs font-mono text-muted uppercase tracking-wide mb-3">Variable Crítica Validada —
-                            Ejemplo</p>
-                        <p class="text-body text-sm leading-relaxed">Un preparador trabaja con un powerlifter en bloque
-                            de fuerza máxima. Registra muchas cosas. Pero la VCV en este momento es el e1RM en
-                            sentadilla. No el volumen total, no la percepción de esfuerzo, no la cantidad de sesiones.
-                            Esa variable. Cuando esa variable no sube en tres semanas consecutivas con carga adecuada,
-                            el ajuste es necesario. No cuando el atleta deja de sentirse bien. Cuando el dato lo indica.
-                        </p>
+                    <div class="space-y-4">
+                        <div class="text-blue-600 font-mono text-xl">03/</div>
+                        <h3 class="text-xl font-bold">Impacto en el Negocio</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed">El alto rendimiento es una inversión. Mi
+                            enfoque asegura que cada dólar gastado en tecnología se traduzca en disponibilidad del
+                            atleta y victorias.</p>
                     </div>
                 </div>
+            </div>
+        </section>
 
-                <!-- Experiencia breve -->
-                <div>
-                    <h2 class="font-heading text-2xl font-bold text-ink mb-6 pb-2 border-b border-border">Desde dónde
-                        hablo</h2>
-                    <p class="text-body leading-relaxed mb-5">
-                        Soy Lisandro Cacciatore. Trabajo en el cruce entre ingeniería de datos y rendimiento deportivo,
-                        con base en Rosario, Argentina. Lo que sé construir no viene del laboratorio de ciencias del
-                        deporte. Viene de haber resuelto problemas reales de validación en contextos donde el tiempo es
-                        corto, los recursos son acotados y el preparador tiene que justificar cada decisión sin poder
-                        esconderse detrás de un departamento técnico.
-                    </p>
-                    <p class="text-body leading-relaxed">
-                        Trabajo con proyección hacia España porque es donde la profesionalización del preparador físico
-                        individual está creciendo más rápido y donde el gap entre criterio y evidencia es más visible.
-                        El problema es el mismo en los dos lados del océano. El proceso para resolverlo también.
-                    </p>
+        <!-- Timeline / Trayectoria Breve -->
+        <section class="max-w-4xl mx-auto px-6 py-24">
+            <h2 class="text-3xl font-bold mb-16 text-center">Trayectoria & Enfoque</h2>
+            <div class="space-y-12 border-l border-slate-800 pl-8 ml-4">
+                <div class="relative">
+                    <div class="absolute -left-[41px] top-0 w-4 h-4 bg-blue-600 rounded-full border-4 border-[#0f172a]">
+                    </div>
+                    <h4 class="font-bold text-lg mb-2">Consultoría Estratégica</h4>
+                    <p class="text-slate-400 text-sm">Especializado en el diseño de arquitecturas de datos para clubes y
+                        federaciones que buscan profesionalizar sus departamentos de ciencias del deporte.</p>
                 </div>
-
-                <div class="bg-surface p-8 rounded border border-border">
-                    <h2 class="font-heading text-xl font-bold text-ink mb-4">Con quién trabajo</h2>
-                    <p class="text-body leading-relaxed mb-4">
-                        Con preparadores físicos que ya tienen experiencia y criterio, pero cuyo criterio depende de que
-                        ellos estén presentes, en buen día, con energía para observar. Quieren que ese criterio exista
-                        también cuando el contexto es difícil y cuando hay que justificar una decisión sin tiempo para
-                        explicar el razonamiento completo.
-                    </p>
-                    <p class="text-body leading-relaxed">
-                        No trabajo con quien busca un sistema que le diga qué hacer. Trabajo con quien ya sabe lo que
-                        hace y quiere poder demostrarlo.
-                    </p>
+                <div class="relative">
+                    <div
+                        class="absolute -left-[41px] top-0 w-4 h-4 bg-slate-700 rounded-full border-4 border-[#0f172a]">
+                    </div>
+                    <h4 class="font-bold text-lg mb-2">Desarrollo de VCV</h4>
+                    <p class="text-slate-400 text-sm">Creador de la metodología de Variable Crítica Validada, ayudando a
+                        filtrar el ruido del Big Data deportivo para centrarse en lo que realmente mueve la aguja.</p>
                 </div>
+                <div class="relative">
+                    <div
+                        class="absolute -left-[41px] top-0 w-4 h-4 bg-slate-700 rounded-full border-4 border-[#0f172a]">
+                    </div>
+                    <h4 class="font-bold text-lg mb-2">Divulgador Técnico</h4>
+                    <p class="text-slate-400 text-sm">A través del IronLog, comparto scripts, metodologías y reflexiones
+                        sobre la intersección entre la programación y el entrenamiento de élite.</p>
+                </div>
+            </div>
+        </section>
 
-                <!-- CTA -->
-                <div class="text-center pt-4 border-t border-border">
-                    <p class="text-muted text-sm mb-6">El primer paso es entender cómo tomás decisiones hoy.</p>
+        <!-- Final CTA -->
+        <section class="max-w-7xl mx-auto px-6">
+            <div class="bg-blue-700 rounded-3xl p-12 text-center text-white relative overflow-hidden">
+                <div class="relative z-10">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">¿Estás listo para elevar tu estándar?</h2>
+                    <p class="text-blue-100 mb-10 max-w-xl mx-auto">No busco clientes, busco socios estratégicos que
+                        crean en el poder de la evidencia.</p>
                     <a href="contacto.html"
-                        class="inline-block bg-primary hover:bg-primary-600 text-white font-medium px-8 py-3 rounded transition-colors cta cta--primary"
-                        data-cta-level="1" data-cta-destination="auditoria-vcv">
-                        Solicitar revisión →
-                    </a>
+                        class="inline-block px-10 py-4 bg-white text-blue-700 font-bold rounded-lg hover:bg-slate-100 transition shadow-xl">Solicitar
+                        Revisión Estratégica</a>
                 </div>
-
+                <div class="absolute top-0 left-0 w-full h-full opacity-10">
+                    <svg viewBox="0 0 100 100" class="w-full h-full">
+                        <defs>
+                            <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                                <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" stroke-width="0.5" />
+                            </pattern>
+                        </defs>
+                        <rect width="100" height="100" fill="url(#grid)" />
+                    </svg>
+                </div>
             </div>
         </section>
     </main>
 
-    <footer class="bg-dark border-t-4 border-primary text-white pt-16 pb-8">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-                <!-- Brand -->
-                <div class="col-span-1 flex flex-col gap-4">
-                    <h3 class="font-heading font-bold text-xl flex items-center gap-2">
-                        <span class="material-symbols-outlined text-primary text-xl">terminal</span>
-                        Lisandro Cacciatore_
-                    </h3>
-                    <p class="text-subtle text-sm leading-relaxed max-w-sm">
-                        Consultoría en performance y sistemas de decisión para el deporte de élite.
-                    </p>
-                </div>
-                <!-- Nav -->
-                <div class="flex flex-col gap-4">
-                    <h4 class="font-mono text-xs font-bold text-primary uppercase tracking-widest">Navegación</h4>
-                    <a class="text-slate-300 hover:text-white text-sm transition-colors"
-                        href="index.html#metodo">Método</a>
-                    <a class="text-slate-300 hover:text-white text-sm transition-colors"
-                        href="servicios.html">Servicios</a>
-                    <a class="text-slate-300 hover:text-white text-sm transition-colors" href="blog.html">Blog</a>
-                    <a class="text-slate-300 hover:text-white text-sm transition-colors"
-                        href="ironlog/index.html">IronLog</a>
-                </div>
-                <!-- Social -->
-                <div class="flex flex-col gap-4">
-                    <h4 class="font-mono text-xs font-bold text-primary uppercase tracking-widest">Contacto</h4>
-                    <a class="text-slate-300 hover:text-white text-sm transition-colors flex items-center gap-2"
-                        href="https://www.linkedin.com/in/lisandrolc/" target="_blank">
-                        LinkedIn <span class="material-symbols-outlined text-[14px]">arrow_outward</span>
-                    </a>
-                    <a class="text-slate-300 hover:text-white text-sm transition-colors flex items-center gap-2"
-                        href="mailto:info@lisandrocacciatore.com">
-                        Email <span class="material-symbols-outlined text-[14px]">arrow_outward</span>
-                    </a>
-                    <a class="text-slate-300 hover:text-white text-sm transition-colors flex items-center gap-2"
-                        href="contacto.html">
-                        Solicitar Revisión <span class="material-symbols-outlined text-[14px]">arrow_outward</span>
-                    </a>
-                </div>
-                <!-- Legal -->
-                <div class="flex flex-col gap-4">
-                    <h4 class="font-mono text-xs font-bold text-primary uppercase tracking-widest">Legal & Operaciones
-                    </h4>
-                    <a class="text-slate-300 hover:text-white text-sm transition-colors"
-                        href="privacidad.html">Privacidad</a>
-                    <a class="text-slate-300 hover:text-white text-sm transition-colors" href="sobre-mi.html">Sobre
-                        mí</a>
-                    <span class="text-slate-400 text-sm mt-2 flex items-center gap-2">
-                        <span class="material-symbols-outlined text-[14px]">location_on</span> Rosario, Argentina
-                    </span>
-                </div>
+    <!-- Footer -->
+    <footer class="bg-slate-900 border-t border-slate-800 py-12 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex flex-col gap-2">
+                <span class="text-xl font-bold tracking-tighter uppercase">Lisandro Cacciatore<span
+                        class="text-blue-600">_</span></span>
+                <p class="text-slate-500 text-sm">Consultoría de Alto Rendimiento · Ingeniería de Datos Deportivos</p>
             </div>
-            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="font-mono text-xs text-subtle">
-                    © 2026 Lisandro Cacciatore. Todos los derechos reservados.
-                </p>
-                <div class="flex gap-4">
-                    <span class="w-2 h-2 rounded-full bg-slate-700"></span>
-                    <span class="w-2 h-2 rounded-full bg-slate-700"></span>
-                    <span class="w-2 h-2 rounded-full bg-slate-700"></span>
-                </div>
+            <div class="flex space-x-8 text-xs font-mono uppercase tracking-widest text-slate-400">
+                <a href="privacidad.html" class="hover:text-white transition">Privacidad</a>
+                <span class="text-slate-700">© 2026</span>
             </div>
         </div>
     </footer>
