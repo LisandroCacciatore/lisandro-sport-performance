@@ -19,6 +19,10 @@
         .font-mono {
             font-family: 'Fira Code', monospace;
         }
+
+        #successMessage {
+            display: none;
+        }
     </style>
 </head>
 
@@ -45,20 +49,35 @@
         <p class="text-slate-400 mb-12 text-lg">Este formulario es el primer paso de la Auditoría. La precisión en tus
             respuestas nos permitirá diagnosticar la brecha operativa antes de nuestra sesión.</p>
 
-        <form action="#" class="space-y-8 bg-slate-900/50 p-8 md:p-12 rounded-2xl border border-slate-800">
+        <!-- Success message (hidden by default) -->
+        <div id="successMessage" class="mb-8 p-8 bg-slate-900/50 border border-blue-600/40 rounded-2xl text-center">
+            <div class="text-blue-500 font-mono text-xs uppercase tracking-widest mb-4">✓ Mensaje recibido</div>
+            <h2 class="text-2xl font-bold mb-3">Solicitud enviada correctamente.</h2>
+            <p class="text-slate-400 text-sm leading-relaxed max-w-sm mx-auto">Revisaré tu caso y te respondo en menos de 48 horas hábiles con los próximos pasos.</p>
+        </div>
+
+        <form id="contactForm"
+            action="https://formspree.io/f/REEMPLAZAR_CON_TU_ID"
+            method="POST"
+            class="space-y-8 bg-slate-900/50 p-8 md:p-12 rounded-2xl border border-slate-800">
+
+            <!-- Honeypot anti-spam (oculto) -->
+            <input type="text" name="_gotcha" style="display:none">
+            <input type="hidden" name="_subject" value="Nueva Solicitud de Auditoría VCV">
+
             <div class="grid md:grid-cols-2 gap-8">
                 <div>
                     <label
                         class="block font-mono text-[10px] text-blue-500 uppercase mb-3 tracking-[0.2em] font-bold">Identidad
                         Profesional</label>
-                    <input type="text" placeholder="Nombre completo"
+                    <input type="text" name="nombre" placeholder="Nombre completo" required
                         class="w-full bg-slate-950 border border-slate-800 p-4 rounded-lg focus:border-blue-600 outline-none transition text-slate-200 placeholder:text-slate-700">
                 </div>
                 <div>
                     <label
                         class="block font-mono text-[10px] text-blue-500 uppercase mb-3 tracking-[0.2em] font-bold">Rol
                         / Cargo Operativo</label>
-                    <input type="text" placeholder="Ej: Director Deportivo / Head S&C"
+                    <input type="text" name="cargo" placeholder="Ej: Director Deportivo / Head S&C" required
                         class="w-full bg-slate-950 border border-slate-800 p-4 rounded-lg focus:border-blue-600 outline-none transition text-slate-200 placeholder:text-slate-700">
                 </div>
             </div>
@@ -66,45 +85,86 @@
             <div class="grid md:grid-cols-2 gap-8">
                 <div>
                     <label
-                        class="block font-mono text-[10px] text-blue-500 uppercase mb-3 tracking-[0.2em] font-bold">Organización
-                        / Club</label>
-                    <input type="text" placeholder="Nombre de la institución"
+                        class="block font-mono text-[10px] text-blue-500 uppercase mb-3 tracking-[0.2em] font-bold">Email
+                        de Contacto</label>
+                    <input type="email" name="email" placeholder="tu@email.com" required
                         class="w-full bg-slate-950 border border-slate-800 p-4 rounded-lg focus:border-blue-600 outline-none transition text-slate-200 placeholder:text-slate-700">
                 </div>
                 <div>
                     <label
-                        class="block font-mono text-[10px] text-blue-500 uppercase mb-3 tracking-[0.2em] font-bold">Servicio
-                        Requerido</label>
-                    <select
-                        class="w-full bg-slate-950 border border-slate-800 p-4 rounded-lg focus:border-blue-600 outline-none transition text-slate-200 appearance-none">
-                        <option value="vcv">Auditoría VCV (Sprint 14 días)</option>
-                        <option value="gobernanza">Gobernanza de Datos (Continuo)</option>
-                        <option value="advisor">Technical Board Advisor (Socio Estratégico)</option>
-                        <option value="otro">Otro / Consulta General</option>
-                    </select>
+                        class="block font-mono text-[10px] text-blue-500 uppercase mb-3 tracking-[0.2em] font-bold">Organización
+                        / Club</label>
+                    <input type="text" name="organizacion" placeholder="Nombre de la institución"
+                        class="w-full bg-slate-950 border border-slate-800 p-4 rounded-lg focus:border-blue-600 outline-none transition text-slate-200 placeholder:text-slate-700">
                 </div>
+            </div>
+
+            <div>
+                <label
+                    class="block font-mono text-[10px] text-blue-500 uppercase mb-3 tracking-[0.2em] font-bold">Servicio
+                    Requerido</label>
+                <select name="servicio"
+                    class="w-full bg-slate-950 border border-slate-800 p-4 rounded-lg focus:border-blue-600 outline-none transition text-slate-200 appearance-none">
+                    <option value="vcv">Auditoría VCV (Sprint 14 días)</option>
+                    <option value="gobernanza">Gobernanza de Datos (Continuo)</option>
+                    <option value="advisor">Technical Board Advisor (Socio Estratégico)</option>
+                    <option value="otro">Otro / Consulta General</option>
+                </select>
             </div>
 
             <div>
                 <label
                     class="block font-mono text-[10px] text-blue-500 uppercase mb-3 tracking-[0.2em] font-bold">Diagnóstico
                     de Situación</label>
-                <textarea rows="4"
-                    placeholder="Describe el ruido blanco estadístico o la brecha de decisión que enfrentas actualmente..."
+                <textarea rows="4" name="mensaje"
+                    placeholder="Describí el problema operativo que querés resolver. Cuanto más específico, mejor el diagnóstico previo."
                     class="w-full bg-slate-950 border border-slate-800 p-4 rounded-lg focus:border-blue-600 outline-none transition text-slate-200 placeholder:text-slate-700"></textarea>
             </div>
 
             <div class="pt-4">
-                <button type="submit"
-                    class="w-full py-5 bg-blue-700 hover:bg-blue-600 text-white font-bold uppercase tracking-[0.2em] text-xs rounded-lg transition-all shadow-xl shadow-blue-900/20 active:scale-[0.98]">
+                <button type="submit" id="submitBtn"
+                    class="w-full py-5 bg-blue-700 hover:bg-blue-600 text-white font-bold uppercase tracking-[0.2em] text-xs rounded-lg transition-all shadow-xl shadow-blue-900/20 active:scale-[0.98] disabled:opacity-60 disabled:cursor-not-allowed">
                     Iniciar Auditoría de Datos →
                 </button>
                 <p
                     class="text-center text-slate-500 text-[10px] mt-4 font-mono uppercase tracking-widest leading-relaxed">
-                    Al enviar, aceptas que procesemos estos datos técnicos para el análisis previo de tu caso.
+                    Al enviar, aceptás que procesemos estos datos para el análisis previo de tu caso.
+                    <a href="privacidad.html" class="underline hover:text-slate-300">Ver política de privacidad.</a>
                 </p>
             </div>
         </form>
+
+        <script>
+            const form = document.getElementById('contactForm');
+            const btn = document.getElementById('submitBtn');
+            const success = document.getElementById('successMessage');
+
+            form.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                btn.textContent = 'Enviando...';
+                btn.disabled = true;
+
+                const data = new FormData(form);
+                try {
+                    const res = await fetch(form.action, {
+                        method: 'POST',
+                        body: data,
+                        headers: { 'Accept': 'application/json' }
+                    });
+                    if (res.ok) {
+                        form.style.display = 'none';
+                        success.style.display = 'block';
+                        success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    } else {
+                        btn.textContent = 'Error al enviar. Intentá de nuevo.';
+                        btn.disabled = false;
+                    }
+                } catch(err) {
+                    btn.textContent = 'Error de conexión. Intentá de nuevo.';
+                    btn.disabled = false;
+                }
+            });
+        </script>
     </section>
 
     <!-- Footer -->

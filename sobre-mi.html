@@ -61,14 +61,27 @@
                 </div>
                 <div class="relative">
                     <div
-                        class="aspect-[4/5] bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 relative group">
-                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800"
-                            alt="Lisandro Cacciatore"
-                            class="w-full h-full object-cover grayscale hover:grayscale-0 transition duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-transparent to-transparent">
+                        class="aspect-[4/5] bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 relative">
+                        <!-- Placeholder intencional: identidad sin foto -->
+                        <div class="w-full h-full flex flex-col items-center justify-center gap-6 bg-gradient-to-br from-slate-800 to-slate-900 p-12">
+                            <div class="w-20 h-20 rounded-full border-2 border-blue-600/40 flex items-center justify-center">
+                                <svg class="w-10 h-10 text-blue-600/60" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                                </svg>
+                            </div>
+                            <div class="text-center space-y-1">
+                                <p class="font-mono text-blue-500 text-xs uppercase tracking-widest">Lisandro Cacciatore</p>
+                                <p class="font-mono text-slate-500 text-[10px] uppercase tracking-widest">Performance Data Consultant</p>
+                            </div>
+                            <!-- Grid decorativo -->
+                            <div class="absolute inset-0 opacity-5 pointer-events-none">
+                                <svg viewBox="0 0 100 100" class="w-full h-full text-blue-400">
+                                    <defs><pattern id="grid-sm" width="8" height="8" patternUnits="userSpaceOnUse"><path d="M 8 0 L 0 0 0 8" fill="none" stroke="currentColor" stroke-width="0.5"/></pattern></defs>
+                                    <rect width="100" height="100" fill="url(#grid-sm)"/>
+                                </svg>
+                            </div>
                         </div>
-                        <div class="absolute bottom-6 left-6 font-mono text-xs text-blue-500 uppercase tracking-widest">
-                            Performance Data Consultant</div>
+                        <div class="absolute bottom-6 left-6 right-6 text-center font-mono text-[10px] text-blue-500/60 uppercase tracking-widest">Foto próximamente</div>
                     </div>
                     <div
                         class="absolute -bottom-6 -right-6 w-32 h-32 bg-blue-600/10 border border-blue-600/20 rounded-full blur-2xl">
