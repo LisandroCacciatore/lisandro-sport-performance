@@ -1,10 +1,28 @@
 # Tiers de Servicio — Lisandro Cacciatore / IronLog
 
+**Regla de entrada:** Antes de proponer un tier, identificar el buyer.
+El tier correcto depende de quién es el interlocutor y cuál es su brecha.
+
+---
+
+## Tabla de decisión rápida por buyer
+
+| Buyer | Brecha típica | Tier recomendado |
+|---|---|---|
+| Coordinador de Rendimiento | Tipo A: regla de decisión ausente | Auditoría VCV (Tier 1) |
+| Preparador Físico individual | Tipo A: datos sin criterio, sin tiempo de análisis | Auditoría VCV (Tier 1) |
+| Director Deportivo | Tipo B: múltiples PF, criterio no compartido | Sistema de Gobernanza (Tier 2) |
+| Dueño de Academia | Gobernanza + diferenciación comercial | Auditoría como entrada → Gobernanza |
+| Cualquier buyer sin registro de datos | Pre-cliente | Simuladores IronLog → Auditoría cuando registre |
+| PF que no aprueba la compra | Intermediario | Equipar para conversación interna → Tier 1 o 2 según decisor |
+
+---
+
 ## Tier 1 — Auditoría VCV
 
 **Precio:** USD 250 · Pago único al inicio
 **Duración:** 14 días
-**Para quién:** Preparador físico individual o staff pequeño (1–3 personas) con Brecha Tipo A
+**Para quién:** Coordinador o PF individual con Brecha Tipo A. También sirve como puerta de entrada para el Director o Dueño que quiere ver cómo trabajás antes de comprometer la Gobernanza.
 
 ### Lo que incluye
 
@@ -36,6 +54,20 @@
 - Si hay más de 4 personas en el cuerpo técnico → Gobernanza es más apropiado
 - Si el cliente ya hizo una Auditoría y el problema persiste → el problema es de Gobernanza
 - Si el cliente no tiene ningún registro de datos actual → necesita educación previa
+- Si el Director o Dueño es el interlocutor y el club tiene múltiples PF → Gobernanza directa
+
+### Cómo presentarlo según el buyer
+
+**Al Coordinador / PF:**
+> "14 días. Al final, una regla escrita que el staff puede aplicar sin consultarme."
+
+**Al Director como puerta de entrada:**
+> "Empezamos con un preparador en 14 días. Si el resultado es sólido,
+> escalamos al sistema completo del cuerpo técnico."
+
+**Al Dueño de Academia:**
+> "14 días y tenés un proceso documentado que podés mostrar a un padre
+> o a un inversor. Es el primer paso para diferenciarte."
 
 ---
 
@@ -43,7 +75,7 @@
 
 **Precio:** USD 500/mes · Compromiso mínimo 3 meses
 **Duración:** 3 meses (con opción de renovación)
-**Para quién:** Academia o cuerpo técnico con Brecha Tipo B (múltiples roles, exceso de datos sin jerarquía)
+**Para quién:** Director Deportivo, Dueño de Academia, o institución con Brecha Tipo B (múltiples roles, criterio no compartido entre el staff)
 
 ### Lo que incluye
 
@@ -73,7 +105,17 @@
 ### Cuándo NO proponer este tier
 - Si es un preparador individual → la Auditoría es suficiente
 - Si el cliente tiene dudas sobre si quiere cambiar su proceso → empezar con Auditoría
-- Si el presupuesto es el obstáculo principal → ofrecer Auditoría como prueba de concepto
+- Si el presupuesto es el obstáculo → ofrecer Auditoría como prueba de concepto
+
+### Cómo presentarlo según el buyer
+
+**Al Director Deportivo:**
+> "Al terminar los 3 meses, el club tiene un criterio institucional.
+> No depende de ninguna persona del staff: es del club."
+
+**Al Dueño de Academia:**
+> "Al terminar los 3 meses, tu academia tiene un sistema de evaluación
+> que podés mostrar, vender, y escalar sin que yo esté presente."
 
 ---
 
@@ -87,40 +129,48 @@
 - Actualización del esquema IF → THEN si el bloque de entrenamiento cambia
 - Respuesta a consultas puntuales en menos de 48hs
 
----
-
-## Tabla de decisión rápida
-
-```
-¿Es un preparador individual?
-  → SÍ: ¿Ya tiene algún dato registrado?
-    → SÍ: Auditoría VCV (USD 250)
-    → NO: Educación primero (contenido IronLog) → Auditoría cuando registre
-
-  → NO (academia o cuerpo técnico):
-    → ¿Tienen exceso de datos sin jerarquía?
-      → SÍ: Sistema de Gobernanza (USD 500/mes)
-      → NO: Auditoría VCV → Gobernanza si escalan
-```
+**Cuándo sugerirlo:**
+- Al Coordinador o PF que completó la Auditoría y quiere continuidad
+- Cuando el calendario de competencia cambia frecuentemente
+- Cuando el staff es pequeño y no tiene capacidad de actualizar el esquema por su cuenta
 
 ---
 
-## Objeciones comunes y respuestas
+## Objeciones comunes y respuestas por buyer
 
-**"Es caro para lo que es."**
-> La Auditoría no es una consultoría de acompañamiento.
-> Es un diagnóstico con entregable concreto en 14 días.
-> Si después de 14 días el staff no puede aplicar el esquema de forma autónoma, no cobro el servicio.
+### "Es caro para lo que es."
 
-**"¿Por qué 14 días y no una sesión?"**
-> Porque el problema no es saber qué variable importa.
-> Es saber cómo se comporta esa variable en el contexto real de este atleta, en este bloque.
-> Eso requiere observación, no solo diagnóstico.
+**Para Coordinador / PF:**
+> "No es una consultoría de acompañamiento. Es un diagnóstico con entregable
+> concreto en 14 días. Si al día 14 el staff no puede aplicar el esquema
+> de forma autónoma, no cobro."
 
-**"Ya tenemos un software de análisis."**
-> El software registra. Esto define qué hacer con lo que registra.
-> No son competidores: son capas distintas del proceso.
+**Para Director / Dueño:**
+> "USD 500/mes por 3 meses es USD 1.500 total.
+> Si el sistema reduce una lesión evitable o una semana de recalibración
+> por mes en 10 atletas, el ROI es inmediato.
+> Pero si el argumento es solo el precio, empezamos con la Auditoría:
+> USD 250 y tenés evidencia concreta de cómo trabajo."
 
-**"¿Podemos empezar con algo más pequeño?"**
-> La Auditoría es lo más pequeño que tiene sentido ofrecer.
-> Una sesión de diagnóstico sin implementación no cambia ninguna decisión del lunes.
+---
+
+### "¿Por qué 14 días y no una sesión?"
+
+> "Porque el problema no es saber qué variable importa.
+> Es saber cómo se comporta esa variable en el contexto real de este atleta.
+> Eso requiere observación, no solo diagnóstico."
+
+---
+
+### "Ya tenemos un software de análisis."
+
+> "El software registra. Esto define qué hacer con lo que registra.
+> No compiten: son capas distintas del mismo proceso."
+
+---
+
+### "¿Podemos empezar con algo más pequeño?"
+
+> "La Auditoría es lo más pequeño que tiene sentido.
+> Una sesión sin implementación no cambia ninguna decisión del lunes.
+> USD 250 es el mínimo que produce un cambio real en el proceso."

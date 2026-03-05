@@ -3,24 +3,28 @@
 Todos los tokens están definidos en `theme.js` en la raíz del proyecto.
 Nunca usar colores o valores hardcodeados. Siempre el token semántico.
 
+**Nota de buyer:** Los tokens son universales, pero su uso cambia según la audiencia.
+Ver la columna "Restricción de buyer" para saber cuándo aplicar cada token
+en páginas segmentadas.
+
 ---
 
 ## Tokens de fondo (background)
 
-| Token Tailwind | Descripción | Dónde se usa |
-|---|---|---|
-| `bg-canvas` | Blanco puro o muy claro. Fondo base de página. | `<body>`, fondos de inputs |
-| `bg-surface` | Ligeramente elevado sobre canvas. Cards, paneles, secciones. | Cards, secciones de contenido |
-| `bg-ink` | Oscuro (casi negro). Para elementos invertidos. | Headers de tabla, fondos de nav items activos |
-| `bg-dark` | El más oscuro. Footer. | `<footer>` |
-| `bg-primary` | Azul #1E3A8A. Botones de acción principal. | CTAs primarios |
-| `bg-primary-bg` | Azul muy claro. Fondo de badges de estado primary. | Badges, callouts de información |
-| `bg-success` | Verde. Botón de descarga Excel. | Botones de descarga / confirmación |
-| `bg-success-bg` | Verde muy claro. Fondo de badges success. | Badges de estado positivo |
-| `bg-warning` | Ámbar. | Botones de estado de atención (raro) |
-| `bg-warning-bg` | Ámbar muy claro. Fondo de badges warning. | Badges de semana híbrida / umbral |
-| `bg-error` | Rojo. | (rara vez como fondo) |
-| `bg-error-bg` | Rojo muy claro. Fondo de badges error. | Badges de pico / alerta |
+| Token Tailwind | Descripción | Dónde se usa | Restricción de buyer |
+|---|---|---|---|
+| `bg-canvas` | Blanco puro. Fondo base de página. | `<body>`, fondos de inputs | Todos |
+| `bg-surface` | Ligeramente elevado. Cards, paneles. | Cards, secciones de contenido | Todos |
+| `bg-ink` | Oscuro. Para elementos invertidos. | Headers de tabla, callout oscuro de servicio | Todos |
+| `bg-dark` | El más oscuro. Footer. | `<footer>` | Todos |
+| `bg-primary` | Azul #1E3A8A. Botones de acción. | CTAs primarios | Todos |
+| `bg-primary-bg` | Azul muy claro. Fondo de badges primary y callout VCV. | Badges, callout de VCV | Solo en páginas técnicas (Coordinador / PF) |
+| `bg-success` | Verde. Botón de confirmación. | Botones de descarga / estado positivo | Todos |
+| `bg-success-bg` | Verde muy claro. Fondo de badges success. | Badges de estado positivo | Solo en páginas técnicas |
+| `bg-warning` | Ámbar. | Botones de atención (raro) | Solo en páginas técnicas |
+| `bg-warning-bg` | Ámbar muy claro. | Badges de semana híbrida / umbral | Solo en páginas técnicas |
+| `bg-error` | Rojo. | (rara vez como fondo) | Solo en páginas técnicas |
+| `bg-error-bg` | Rojo muy claro. | Badges de pico / alerta | Solo en páginas técnicas |
 
 ---
 
@@ -29,15 +33,15 @@ Nunca usar colores o valores hardcodeados. Siempre el token semántico.
 | Token Tailwind | Descripción | Dónde se usa |
 |---|---|---|
 | `text-ink` | Texto principal. Alto contraste. | Títulos, valores de datos importantes |
-| `text-body` | Texto de párrafo. Contraste normal. | Párrafos, descripciones |
+| `text-body` | Texto de párrafo. | Párrafos, descripciones |
 | `text-muted` | Texto secundario. | Labels, texto de soporte |
-| `text-subtle` | Texto terciario. Muy bajo contraste. | Metadata, copyright, texto decorativo |
-| `text-border` | Color de borde usado como texto. | Separadores decorativos tipo `|` |
+| `text-subtle` | Texto terciario. | Metadata, copyright |
+| `text-border` | Color de borde como texto. | Separadores decorativos tipo `\|` |
 | `text-primary` | Azul. | Links, badges, texto de acción |
 | `text-success` | Verde. | Estado positivo |
 | `text-warning` | Ámbar. | Estado de atención |
 | `text-error` | Rojo. | Estado de ruptura / alerta |
-| `text-surface` | Texto claro para fondos oscuros. | Texto sobre `bg-ink` o `bg-dark` |
+| `text-surface` | Claro para fondos oscuros. | Texto sobre `bg-ink` o `bg-dark` |
 
 ---
 
@@ -68,9 +72,13 @@ Nunca usar colores o valores hardcodeados. Siempre el token semántico.
 
 | Token Tailwind | Fuente | Uso |
 |---|---|---|
-| `font-heading` | IBM Plex Sans | Títulos H1–H3, nombres de secciones |
+| `font-heading` | IBM Plex Sans | Títulos H1–H3 en todas las páginas y para todos los buyers |
 | `font-sans` | Inter | Cuerpo de texto, párrafos (default) |
 | `font-mono` | Fira Code | Datos, métricas, badges técnicos, código |
+
+**Nota de buyer sobre `font-mono`:**
+- En páginas para Coordinador / PF: usar libremente en datos, labels, badges, señales de ruptura.
+- En páginas para Director / Dueño: usar solo en labels de sección (`text-[10px] font-mono...`) y en el callout oscuro de servicio. No en el body copy.
 
 ---
 
@@ -81,7 +89,7 @@ Nunca usar colores o valores hardcodeados. Siempre el token semántico.
 | Título de página (H1) | `font-heading text-3xl md:text-5xl font-bold text-ink tracking-tight` |
 | Título de sección (H2) | `font-heading text-2xl font-bold text-ink` |
 | Título de componente (H3) | `font-heading font-bold text-ink` |
-| Label técnico (badge/etiqueta) | `text-[10px] font-mono font-bold text-muted uppercase tracking-widest` |
+| Label técnico | `text-[10px] font-mono font-bold text-muted uppercase tracking-widest` |
 | Texto de párrafo | `text-sm text-body leading-relaxed` |
 | Dato numérico principal | `font-mono font-bold text-ink text-lg` (o mayor) |
 | Dato numérico secundario | `font-mono text-sm text-muted` |
@@ -110,15 +118,18 @@ Nunca usar colores o valores hardcodeados. Siempre el token semántico.
 
 ## Espaciado y layout
 
-El sitio usa el espaciado estándar de Tailwind sin tokens custom.
+| Convención | Clase |
+|---|---|
+| Contenedor principal | `max-w-5xl mx-auto px-6` |
+| Contenedor wide | `max-w-7xl mx-auto px-6` |
+| Padding de sección | `py-12` |
+| Padding de card | `p-6 md:p-8` |
+| Gap entre elementos relacionados | `gap-4` o `gap-6` |
+| Gap entre secciones | `mb-12` |
 
-**Convenciones:**
-- Contenedor principal: `max-w-5xl mx-auto px-6`
-- Contenedor wide: `max-w-7xl mx-auto px-6`
-- Padding de sección: `py-12`
-- Padding de card: `p-6 md:p-8`
-- Gap entre elementos relacionados: `gap-4` o `gap-6`
-- Gap entre secciones: `mb-12`
+**Nota de buyer sobre espacio:**
+- Páginas para Director / Dueño: preferir `py-16` en secciones hero. El espacio comunica claridad y jerarquía para un lector que escanea.
+- Páginas para Coordinador / PF: `py-12` es suficiente. La densidad de contenido es mayor y el espacio puede reducirse sin perder legibilidad.
 
 ---
 
@@ -130,7 +141,6 @@ El sitio usa el espaciado estándar de Tailwind sin tokens custom.
 | Inputs, selects | `rounded` (4px) |
 | Botones | `rounded` (4px) |
 | Badges / pills | `rounded` (4px) |
-| Avatares o elementos circulares | No aplica en este sitio |
 
 **❌ Prohibido:** `rounded-lg`, `rounded-xl`, `rounded-2xl`, `rounded-3xl`, `rounded-full`
-(excepto en elementos de UI heredados del sitio donde ya existe — no romper consistencia)
+(excepto en elementos heredados del sitio donde ya existe — no romper consistencia)

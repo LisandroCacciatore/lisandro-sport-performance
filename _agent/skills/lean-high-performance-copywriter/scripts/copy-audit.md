@@ -12,45 +12,54 @@ mejorarla, o identificar qué está fallando en el tono o posicionamiento.
 Leer el copy completo sin intervenir. Identificar:
 
 - ¿Qué tipo de pieza es? (email, post, propuesta, landing, otro)
-- ¿Quién es el destinatario implícito?
+- ¿A qué buyer está dirigida? (Coordinador, Director, PF, Dueño de Academia)
+- ¿El gancho central corresponde al dolor de ese buyer?
 - ¿Cuál es el CTA o acción esperada?
 
-### Paso 2 — Checklist de 8 puntos
+### Paso 2 — Checklist de 10 puntos
 
 Evaluar cada punto como ✅ OK / ⚠️ Mejorable / ❌ Problema:
 
 ```
-1. ¿El lenguaje es técnico-operativo o hay superlativos vacíos?
+1. ¿Está identificado el buyer al que va dirigida la pieza?
+   ✅ Buyer claro, gancho alineado a su dolor
+   ❌ Copy genérico que podría ser para cualquiera
+
+2. ¿El lenguaje es técnico-operativo o hay superlativos vacíos?
    ✅ "criterio estructurado"
    ❌ "metodología revolucionaria"
 
-2. ¿Hay al menos una referencia a ROI, eficiencia o costo de la inacción?
-   ✅ "2 días de entrenamiento recuperados"
+3. ¿Hay al menos una referencia a ROI, eficiencia o costo de la inacción?
+   ✅ "2 días de entrenamiento recuperados" / "decisiones justificables ante la dirección"
    ❌ "mejorá tu rendimiento"
 
-3. ¿La solución central tiene forma IF → THEN o menciona una VCV concreta?
+4. ¿La solución central tiene forma IF → THEN o menciona una VCV concreta?
    ✅ "IF el AMRAP no deja margen → TM sobreestimado"
    ❌ "herramienta de seguimiento flexible"
 
-4. ¿Hay promesas sin mecanismo?
+5. ¿Hay promesas sin mecanismo?
    ✅ Cada beneficio está ligado a un proceso
    ❌ "resultados garantizados"
 
-5. ¿La audiencia sabe exactamente qué recibe y en cuántos días/pasos?
+6. ¿La audiencia sabe exactamente qué recibe y en cuántos días/pasos?
    ✅ "14 días, 3 entregables"
    ❌ "proceso personalizado según tus necesidades"
 
-6. ¿El tono es sobrio o hay lenguaje motivacional?
+7. ¿El tono es sobrio o hay lenguaje motivacional?
    ✅ "Decisiones defendibles ante inversores"
    ❌ "¡Transformá tu entrenamiento!"
 
-7. ¿Hay un único CTA claro?
+8. ¿Hay un único CTA claro?
    ✅ Una sola acción pedida
    ❌ Dos o más acciones en competencia
 
-8. ¿El copy menciona IronLog como instrumento (no como centro)?
+9. ¿El copy menciona IronLog como instrumento (no como centro)?
    ✅ "IronLog materializa la lógica, pero el centro es la claridad operativa"
    ❌ "Con IronLog vas a mejorar todos tus entrenamientos"
+
+10. Si el lector es el PF (Buyer 2), ¿tiene argumentos para vender la idea internamente?
+    ✅ Hay frases que el PF puede usar con su director o dueño
+    ❌ El copy solo habla al PF y no le da herramientas para escalar la decisión
 ```
 
 ### Paso 3 — Output de la auditoría
@@ -58,20 +67,23 @@ Evaluar cada punto como ✅ OK / ⚠️ Mejorable / ❌ Problema:
 Presentar resultados en este formato:
 
 ```
-## Auditoría de Copy — [TIPO DE PIEZA]
+## Auditoría de Copy — [TIPO DE PIEZA] — [BUYER IDENTIFICADO]
 
 ### Diagnóstico general
-[1-2 oraciones que resumen el problema principal]
+[1-2 oraciones que resumen el problema principal, incluyendo si el buyer
+está mal identificado o si el gancho no corresponde al dolor de ese perfil]
 
 ### Checklist
-1. Lenguaje técnico: [✅/⚠️/❌] — [observación específica]
-2. ROI / eficiencia: [✅/⚠️/❌] — [observación específica]
-3. IF → THEN / VCV: [✅/⚠️/❌] — [observación específica]
-4. Promesas sin mecanismo: [✅/⚠️/❌] — [observación específica]
-5. Entregable concreto: [✅/⚠️/❌] — [observación específica]
-6. Tono: [✅/⚠️/❌] — [observación específica]
-7. CTA único: [✅/⚠️/❌] — [observación específica]
-8. Rol de IronLog: [✅/⚠️/❌] — [observación específica]
+1.  Buyer identificado: [✅/⚠️/❌] — [observación específica]
+2.  Lenguaje técnico: [✅/⚠️/❌] — [observación específica]
+3.  ROI / eficiencia: [✅/⚠️/❌] — [observación específica]
+4.  IF → THEN / VCV: [✅/⚠️/❌] — [observación específica]
+5.  Promesas sin mecanismo: [✅/⚠️/❌] — [observación específica]
+6.  Entregable concreto: [✅/⚠️/❌] — [observación específica]
+7.  Tono: [✅/⚠️/❌] — [observación específica]
+8.  CTA único: [✅/⚠️/❌] — [observación específica]
+9.  Rol de IronLog: [✅/⚠️/❌] — [observación específica]
+10. Argumentos para escalar (si aplica): [✅/⚠️/❌] — [observación específica]
 
 ### Puntos críticos a corregir
 [Lista ordenada por impacto, máximo 3]
@@ -82,19 +94,22 @@ Presentar resultados en este formato:
 
 ---
 
-## Errores más comunes (referencia rápida)
+## Errores más comunes — por buyer
 
-### Error 1: El copy habla del servicio, no del problema del cliente
+### Error universal 1: El copy habla del servicio, no del problema del cliente
 
 **Original:**
 > "Ofrezco consultoría en sistemas de entrenamiento con metodología validada."
 
-**Corregido:**
+**Corregido (Coordinador / PF):**
 > "Cada semana que tu atleta entrena sin una regla de validación de carga, estás tomando una decisión con datos que no sabés si importan."
+
+**Corregido (Director Deportivo):**
+> "Cuando cada preparador usa los mismos datos con criterio distinto, el sistema institucional está roto."
 
 ---
 
-### Error 2: La propuesta lista características, no consecuencias
+### Error universal 2: La propuesta lista características, no consecuencias
 
 **Original:**
 > "La Auditoría incluye: revisión del sistema, definición de VCV, diseño de umbrales."
@@ -104,7 +119,7 @@ Presentar resultados en este formato:
 
 ---
 
-### Error 3: El CTA es demasiado grande o demasiado vago
+### Error universal 3: El CTA es demasiado grande o demasiado vago
 
 **Original:**
 > "Contactame para transformar tu sistema de entrenamiento."
@@ -114,7 +129,7 @@ Presentar resultados en este formato:
 
 ---
 
-### Error 4: Mezclar posicionamiento técnico con lenguaje de coach
+### Error universal 4: Mezclar posicionamiento técnico con lenguaje de coach
 
 **Original:**
 > "Te ayudo a alcanzar tu potencial con datos de calidad."
@@ -124,11 +139,37 @@ Presentar resultados en este formato:
 
 ---
 
+### Error específico — Buyers 3 y 4 (Director / Dueño): hablarles como si fueran técnicos
+
+**Original (copy para Director Deportivo):**
+> "Definimos la VCV del bloque y los umbrales de AMRAP para el próximo ciclo de Wendler."
+
+**Corregido:**
+> "Diseñamos el criterio compartido que todo el staff aplica igual, independientemente de quién esté en el cuerpo técnico."
+
+El Director y el Dueño no compran porque entienden la VCV. Compran porque entienden el riesgo institucional que la ausencia de criterio genera.
+
+---
+
+### Error específico — Buyer 2 (PF): no darle argumentos para escalar
+
+**Original:**
+> "Con este esquema vas a poder validar la carga en 15 minutos por semana."
+
+**Corregido:**
+> "Con este esquema validás la carga en 15 minutos y tenés una respuesta documentada para cuando el director o el dueño pregunta por qué se tomó esa decisión."
+
+El PF descubre el contenido pero a veces no aprueba el gasto. El copy tiene que darle la conversación que va a tener internamente.
+
+---
+
 ## Criterio de calidad para la versión final
 
 Una pieza de copy de este ecosistema está lista cuando:
 
-1. Un preparador físico de élite la lee y dice: "Esto habla exactamente de mi problema."
-2. Un director técnico o inversor la lee y puede entender el ROI sin pregunta adicional.
-3. No hay ninguna frase que no cambie la decisión si se elimina.
-4. La Auditoría VCV es la solución obvia al problema descrito, sin que lo parezca forzado.
+1. El buyer está identificado y el gancho corresponde a su dolor específico.
+2. Un preparador físico de élite o coordinador la lee y dice: "Esto habla exactamente de mi problema."
+3. Un director técnico o inversor la lee y puede entender el ROI sin pregunta adicional.
+4. No hay ninguna frase que no cambie la decisión si se elimina.
+5. La Auditoría VCV es la solución obvia al problema descrito, sin que lo parezca forzado.
+6. Si el lector es el PF, tiene herramientas para convencer a quien aprueba el gasto.

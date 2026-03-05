@@ -1,101 +1,108 @@
 # Ejemplos: Posts LinkedIn / X
 
+Cada post está etiquetado con el buyer primario al que apunta y la categoría de contenido.
+Un mismo post puede resonar con varios buyers, pero se escribe pensando en uno.
+
 ---
 
 ## Categorías de contenido
 
-1. **Señal de ruptura** — Posts que describen cuándo un sistema falla y por qué
-2. **VCV en acción** — Posts que muestran la lógica IF → THEN aplicada
-3. **Posicionamiento de criterio** — Posts que separan "datos" de "decisión"
-4. **Caso de sistema** — Posts que describen un problema real y su resolución
+1. **Señal de ruptura** — Cuándo un sistema falla y por qué
+2. **VCV en acción** — La lógica IF → THEN aplicada
+3. **Posicionamiento de criterio** — Separar "datos" de "decisión"
+4. **Caso de sistema** — Un problema real y su resolución
+5. **Diferenciación institucional** — Para directores y dueños de academia
 
 ---
 
-## CATEGORÍA 1: Señal de ruptura
+## BUYER 1 — Coordinador de Rendimiento / Preparador Físico
 
-**Post LinkedIn — Wendler**
+### CATEGORÍA 1: Señal de ruptura
 
----
-
-El AMRAP de semana 3 no pasó las 4 repeticiones.
-El ciclo anterior tampoco.
-
-Hay dos respuestas posibles:
-
-"El atleta no tuvo un buen día."
-— Sin umbral. Sin criterio. Sin cambio.
-
-"El TM está sobreestimado. Hay que revisarlo antes del próximo ciclo."
-— Con umbral. Con criterio. Con intervención.
-
-La diferencia entre las dos no es la experiencia del entrenador.
-Es si tiene una regla escrita para ese momento.
-
-#FuerzaDeportiva #Wendler531 #SistemasDeEntrenamiento
+**Post LinkedIn**
 
 ---
 
-**Post X — Starting Strength**
+Los tests se hacen en marzo.
+En agosto, nadie recuerda qué decisión tomaron con esos datos.
 
-La barra no subió tres sesiones seguidas.
+No porque el staff sea descuidado.
+Porque no había una regla que dijera qué hacer cuando los números cambiaban.
 
-Eso no es un problema de motivación.
-Es la señal de que la progresión lineal llegó a su límite.
+La información estaba. El criterio, no.
 
-El sistema no falló.
-Falló la regla que debería haber indicado cuándo cambiar el sistema.
+Ese es el único problema que resuelve la Auditoría VCV.
 
----
-
-## CATEGORÍA 2: VCV en acción
-
-**Post LinkedIn — Cube Method**
+#SistemasDeDecisión #RendimientoDeportivo #GobernanzaDeDatos
 
 ---
 
-El Cube no falla en la semana pesada.
-Falla en las dos semanas anteriores.
+**Post X**
 
-Si el atleta llega con fatiga residual a la semana de Sentadilla pesada, el problema no es la carga de ese día.
+Hacés los tests.
+Procesás los datos.
+El entrenador pregunta qué hacemos esta semana.
 
-Es que la semana explosiva o de repeticiones acumuló más estrés del que el sistema puede absorber.
+Y la respuesta sigue siendo intuición.
 
-La Variable Crítica del Cube no es cuánto levanta en la semana fuerte.
-Es si el SNC llega recuperado cuando tiene que llegar recuperado.
-
-Eso es lo que hay que validar semana a semana.
-
-#Cube #PeriodizaciónOndulatoria #AltoRendimiento
+No porque falten datos.
+Porque falta la regla que los convierte en decisión.
 
 ---
 
-**Post X — corto**
+### CATEGORÍA 2: VCV en acción
 
-Los datos del wearable no son la señal.
-Son el ruido que impide ver la señal.
-
-La VCV es la única métrica que cambia la decisión del lunes.
-Todo lo demás es administración de ansiedad.
+**Post LinkedIn**
 
 ---
 
-## CATEGORÍA 3: Posicionamiento de criterio
+Un coordinador de rendimiento tenía un problema.
 
-**Post LinkedIn — diferenciación**
+Los tests físicos se hacían bien.
+Los datos existían.
+Pero cada preparador los interpretaba diferente.
+
+No era un problema de metodología.
+Era un problema de gobernanza: no había nadie que definiera qué dato era el correcto y qué hacer cuando ese dato salía del rango.
+
+14 días después, había una Variable Crítica por bloque, umbrales escritos, y un esquema IF → THEN que todo el staff aplicaba igual.
+
+Las reuniones de interpretación desaparecieron.
+Las decisiones quedaron documentadas.
+
+Eso no es tecnología. Es criterio institucional.
+
+#VCV #GobernanzaDeportiva #AltoRendimiento
 
 ---
 
-Hay dos tipos de entrenadores que trabajan con datos:
+**Post X**
+
+La pregunta no es "¿qué mido?".
+
+La pregunta es "¿qué dato cambia mi decisión del lunes?".
+
+Si la respuesta no es inmediata, el sistema de validación está ausente.
+
+---
+
+### CATEGORÍA 3: Posicionamiento de criterio
+
+**Post LinkedIn**
+
+---
+
+Hay dos tipos de coordinadores de rendimiento que trabajan con datos:
 
 Los que registran para demostrar que están trabajando.
 Los que registran para saber cuándo intervenir.
 
-El primero tiene un dashboard.
+El primero tiene planillas.
 El segundo tiene un sistema de decisión.
 
-No vendo dashboards.
+No vendo planillas.
 
-#Datos #Entrenamiento #Criterio
+#Datos #Criterio #Entrenamiento
 
 ---
 
@@ -107,27 +114,18 @@ No vendo dashboards.
 
 En un gimnasio recreativo, esa frase es suficiente.
 
-En alto rendimiento, donde el sponsor, el director técnico, o el padre del atleta junior pueden pedirte que justifiques esa afirmación con datos, no lo es.
+En un club donde el director deportivo, el sponsor, o el padre del atleta junior pueden pedirte que justifiques esa afirmación con datos, no lo es.
 
 El trabajo no es tener más datos.
 Es tener la regla que convierte esos datos en una respuesta defendible.
 
-#AltoRendimiento #Tenis #Golf
+#AltoRendimiento #SistemasDeDecisión
 
 ---
 
-**Post X — sobre ROI**
+### CATEGORÍA 4: Caso de sistema
 
-La pregunta no es "¿qué mido?".
-La pregunta es "¿qué dato cambia mi decisión del lunes?".
-
-Si la respuesta no es inmediata, el sistema de validación está ausente.
-
----
-
-## CATEGORÍA 4: Caso de sistema
-
-**Post LinkedIn — caso Wendler / academia de tenis**
+**Post LinkedIn**
 
 ---
 
@@ -154,11 +152,78 @@ Eso es transferencia de criterio.
 
 ---
 
+## BUYER 2 — Director Deportivo / Manager del Club
+
+### CATEGORÍA 5: Diferenciación institucional
+
+**Post LinkedIn**
+
+---
+
+En un club formativo, el problema no suele ser la calidad de los preparadores.
+
+Es que cada uno trabaja con criterio distinto.
+
+Uno sube la carga cuando el atleta se ve bien.
+Otro espera los resultados del test.
+Un tercero ajusta por sensación.
+
+Ninguno está equivocado.
+Pero el sistema institucional está roto.
+
+Cuando hay un criterio común escrito, las decisiones son consistentes entre categorías, las lesiones se anticipan antes de que sean visibles, y cualquier externo — sponsor, comisión directiva, padre — puede recibir una respuesta con datos.
+
+Eso no es un cambio de metodología.
+Es un cambio de gobernanza.
+
+#GobernanzaDeportiva #ClubFormativo #SistemasDeDecisión
+
+---
+
+**Post X**
+
+Un club con 5 preparadores y 5 criterios distintos no tiene un problema de entrenamiento.
+
+Tiene un problema de sistema institucional.
+
+---
+
+## BUYER 3 — Dueño de Academia Deportiva
+
+### CATEGORÍA 5: Diferenciación institucional
+
+**Post LinkedIn**
+
+---
+
+Las academias que cobran más no siempre entrenan mejor.
+
+Entrenan igual de bien que otras, pero pueden demostrarlo.
+
+La diferencia está en tener un sistema de evaluación que produce reportes claros, criterio documentado, y respuestas concretas cuando un padre pregunta por qué su hijo entrena de la forma en que entrena.
+
+Eso no se construye con marketing.
+Se construye con gobernanza de datos.
+
+#Academia #AltoRendimiento #Diferenciación
+
+---
+
+**Post X**
+
+La academia que puede mostrar por qué tomó cada decisión de carga cobra más que la que solo muestra resultados.
+
+Los resultados son el pasado.
+El sistema es lo que el cliente está comprando.
+
+---
+
 ## Notas de uso
 
-- **Longitud LinkedIn:** Entre 150 y 300 palabras. Nunca más. Los posts largos de esta audiencia se leen si cada párrafo aporta algo específico.
+- **Longitud LinkedIn:** Entre 150 y 300 palabras. Nunca más.
 - **Longitud X:** Máximo 3 párrafos de 2 líneas. Uno por idea.
 - **Hashtags:** Solo en LinkedIn. Máximo 3. Nunca en X.
-- **Emojis:** No. Nunca. El tono es industrial, no de coach motivacional.
-- **Nunca terminar con pregunta:** "¿Qué opinás?" debilita el posicionamiento. Terminar con afirmación.
+- **Emojis:** No. El tono es industrial, no de coach motivacional.
+- **Nunca terminar con pregunta:** Terminar con afirmación. Las preguntas debilitan el posicionamiento.
 - **Frecuencia de mención directa del servicio:** Máximo 1 post de cada 4 menciona la Auditoría VCV directamente. El resto construye criterio sin vender.
+- **Mix de buyers:** No todos los posts son para el mismo perfil. Alternar para construir autoridad con toda la audiencia. El Coordinador y el PF consumen el contenido técnico. El Director y el Dueño necesitan posts de diferenciación institucional.

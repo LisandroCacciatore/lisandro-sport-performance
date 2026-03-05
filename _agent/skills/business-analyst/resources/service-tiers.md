@@ -1,10 +1,28 @@
 # Tiers de Servicio — Lisandro Cacciatore / IronLog
 
+**Paso previo:** Identificar el buyer antes de proponer un tier.
+El tier correcto depende del perfil del interlocutor y del tipo de brecha.
+
+---
+
+## Tabla de decisión rápida por buyer
+
+| Buyer | Brecha típica | Tier recomendado | Pitch central |
+|---|---|---|---|
+| Coordinador de Rendimiento | Tipo A | Auditoría VCV (USD 250) | "14 días, una regla escrita, autonomía del staff" |
+| Preparador Físico | Tipo A | Auditoría VCV (USD 250) | "15 minutos de validación, criterio que podés mostrar" |
+| Director Deportivo | Tipo B | Gobernanza (USD 500/mes) | "Criterio institucional, no individual" |
+| Dueño de Academia | A o B | Auditoría → Gobernanza | "Proceso visible y vendible ante padres e inversores" |
+| Cualquier buyer sin registro | Pre-cliente | Simuladores IronLog | Educación primero |
+| PF sin autoridad de compra | Intermediario | Equipar para conversación interna | Darle el argumento para convencer al decisor |
+
+---
+
 ## Tier 1 — Auditoría VCV
 
 **Precio:** USD 250 · Pago único al inicio
 **Duración:** 14 días
-**Para quién:** Preparador físico individual o staff pequeño (1–3 personas) con Brecha Tipo A
+**Para quién:** Coordinador o PF con Brecha Tipo A. También sirve como puerta de entrada para el Director o Dueño que quiere ver el proceso antes de comprometer la Gobernanza.
 
 ### Lo que incluye
 
@@ -23,7 +41,7 @@
 **Fase 3 · Transferencia (Días 11–14)**
 - El staff ejecuta el primer ciclo con el nuevo esquema
 - Acompañamiento en tiempo real para las primeras dos validaciones
-- Ajuste del esquema si la primera aplicación revela inconsistencias
+- Ajuste si la primera aplicación revela inconsistencias
 - Entregable: Staff operando con criterio propio
 
 ### Lo que NO incluye
@@ -33,9 +51,27 @@
 - Seguimiento post-auditoría (disponible como add-on)
 
 ### Cuándo NO proponer este tier
-- Si hay más de 4 personas en el cuerpo técnico → Gobernanza es más apropiado
-- Si el cliente ya hizo una Auditoría y el problema persiste → el problema es de Gobernanza
-- Si el cliente no tiene ningún registro de datos actual → necesita educación previa
+- Si hay más de 4 personas en el cuerpo técnico → Gobernanza
+- Si el cliente ya hizo una Auditoría y el problema persiste → Gobernanza
+- Si no hay ningún registro de datos → educación previa primero
+- Si el Director o Dueño es el interlocutor principal y el club tiene múltiples PF → Gobernanza directa
+
+### Cómo presentarlo según el buyer
+
+**Al Coordinador:**
+> "14 días. Al final, una regla escrita que el staff aplica sin consultarme."
+
+**Al PF:**
+> "14 días. Al final, un esquema de 15 minutos por semana y un criterio que podés
+> mostrar al entrenador sin necesitar explicarlo."
+
+**Al Director como puerta de entrada:**
+> "Empezamos con un preparador en 14 días. Si el resultado es sólido,
+> escalamos al sistema completo del cuerpo técnico."
+
+**Al Dueño de Academia:**
+> "14 días y tenés un proceso documentado que podés mostrar a un padre
+> o a un inversor. Es el primer paso para diferenciarte."
 
 ---
 
@@ -43,7 +79,7 @@
 
 **Precio:** USD 500/mes · Compromiso mínimo 3 meses
 **Duración:** 3 meses (con opción de renovación)
-**Para quién:** Academia o cuerpo técnico con Brecha Tipo B (múltiples roles, exceso de datos sin jerarquía)
+**Para quién:** Director Deportivo, Dueño de Academia, o institución con Brecha Tipo B (múltiples roles, criterio no compartido entre el staff)
 
 ### Lo que incluye
 
@@ -62,7 +98,7 @@
 **Mes 3 · Autonomía**
 - El staff opera el sistema sin intervención directa
 - Revisión quincenal para validar consistencia
-- Ajuste del sistema si el calendario de competencia cambia
+- Ajuste si el calendario de competencia cambia
 - Entregable: Staff con gobernanza instalada e independiente
 
 ### Lo que NO incluye
@@ -71,15 +107,25 @@
 - Desarrollo de software custom
 
 ### Cuándo NO proponer este tier
-- Si es un preparador individual → la Auditoría es suficiente
+- Si es un preparador individual → Auditoría es suficiente
 - Si el cliente tiene dudas sobre si quiere cambiar su proceso → empezar con Auditoría
-- Si el presupuesto es el obstáculo principal → ofrecer Auditoría como prueba de concepto
+- Si el presupuesto es el obstáculo → Auditoría como prueba de concepto
+
+### Cómo presentarlo según el buyer
+
+**Al Director Deportivo:**
+> "Al terminar los 3 meses, el club tiene un criterio institucional.
+> No depende de ninguna persona del staff: es del club."
+
+**Al Dueño de Academia:**
+> "Al terminar los 3 meses, tu academia tiene un sistema de evaluación
+> que podés mostrar, vender, y escalar sin que yo esté presente."
 
 ---
 
 ## Add-on — Seguimiento Mensual post-Auditoría
 
-**Precio:** USD 200/mes (disponible solo si se hizo la Auditoría VCV previa)
+**Precio:** USD 200/mes (solo disponible si se hizo la Auditoría VCV previa)
 **Para quién:** Clientes de Tier 1 que quieren mantener la VCV actualizada ciclo a ciclo
 
 ### Lo que incluye
@@ -87,40 +133,43 @@
 - Actualización del esquema IF → THEN si el bloque de entrenamiento cambia
 - Respuesta a consultas puntuales en menos de 48hs
 
----
-
-## Tabla de decisión rápida
-
-```
-¿Es un preparador individual?
-  → SÍ: ¿Ya tiene algún dato registrado?
-    → SÍ: Auditoría VCV (USD 250)
-    → NO: Educación primero (contenido IronLog) → Auditoría cuando registre
-
-  → NO (academia o cuerpo técnico):
-    → ¿Tienen exceso de datos sin jerarquía?
-      → SÍ: Sistema de Gobernanza (USD 500/mes)
-      → NO: Auditoría VCV → Gobernanza si escalan
-```
+**Cuándo sugerirlo:**
+- Al Coordinador o PF que completó la Auditoría y quiere continuidad
+- Cuando el calendario de competencia cambia frecuentemente
+- Cuando el staff es pequeño y no puede actualizar el esquema por su cuenta
 
 ---
 
-## Objeciones comunes y respuestas
+## Objeciones comunes y respuestas por buyer
 
-**"Es caro para lo que es."**
-> La Auditoría no es una consultoría de acompañamiento.
-> Es un diagnóstico con entregable concreto en 14 días.
-> Si después de 14 días el staff no puede aplicar el esquema de forma autónoma, no cobro el servicio.
+### "Es caro para lo que es."
 
-**"¿Por qué 14 días y no una sesión?"**
-> Porque el problema no es saber qué variable importa.
-> Es saber cómo se comporta esa variable en el contexto real de este atleta, en este bloque.
-> Eso requiere observación, no solo diagnóstico.
+**Para Coordinador / PF:**
+> "No es acompañamiento continuo. Es un diagnóstico con entregable concreto en 14 días.
+> Si al día 14 el staff no puede aplicar el esquema de forma autónoma, no cobro."
 
-**"Ya tenemos un software de análisis."**
-> El software registra. Esto define qué hacer con lo que registra.
-> No son competidores: son capas distintas del proceso.
+**Para Director / Dueño:**
+> "USD 500/mes por 3 meses es USD 1.500 total.
+> Si el sistema previene una lesión evitable o una semana de recalibración
+> por mes en 10 atletas, el ROI es inmediato.
+> Si el argumento es el precio, empezamos con la Auditoría:
+> USD 250 y tenés evidencia concreta de cómo trabajo."
 
-**"¿Podemos empezar con algo más pequeño?"**
-> La Auditoría es lo más pequeño que tiene sentido ofrecer.
-> Una sesión de diagnóstico sin implementación no cambia ninguna decisión del lunes.
+---
+
+### "¿Por qué 14 días y no una sesión?"
+> "Porque el problema no es saber qué variable importa.
+> Es saber cómo se comporta esa variable en el contexto real de este atleta.
+> Eso requiere observación, no solo diagnóstico."
+
+---
+
+### "Ya tenemos un software de análisis."
+> "El software registra. Esto define qué hacer con lo que registra.
+> No compiten: son capas distintas del proceso."
+
+---
+
+### "¿Podemos empezar con algo más pequeño?"
+> "La Auditoría es lo más pequeño que tiene sentido.
+> Una sesión sin implementación no cambia ninguna decisión del lunes."
