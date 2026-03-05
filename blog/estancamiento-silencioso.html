@@ -1,12 +1,12 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Llevas semanas ajustando. Pero no sabés desde cuándo el problema empezó. | Lisandro Cacciatore</title>
+    <title>Llevas semanas ajustando sin saber cuándo el problema empezó | Lisandro Cacciatore</title>
     <meta name="description"
-        content="El estancamiento silencioso no llega de golpe. Se instala despacio, disfrazado de proceso. Diagnóstico de cómo reconocerlo.">
+        content="El estancamiento silencioso no es evidente hasta que quiebra el macrociclo. Cómo auditar la falta de variables de validación en tu staff.">
     <link rel="canonical" href="https://lisandrocacciatore.com/blog/estancamiento-silencioso.html">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
@@ -32,297 +32,113 @@
             font-family: 'Fira Code', monospace;
         }
     </style>
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="Llevas semanas ajustando. Pero no sabés desde cuándo el problema empezó.">
-    <meta property="og:description"
-        content="El estancamiento silencioso no llega de golpe. Se instala despacio, disfrazado de proceso.">
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "Llevas semanas ajustando. Pero no sabés desde cuándo el problema empezó.",
-      "description": "El estancamiento silencioso no llega de golpe. Se instala despacio, disfrazado de proceso.",
-      "author": { "@type": "Person", "name": "Lisandro Cacciatore", "url": "https://lisandrocacciatore.com" },
-      "datePublished": "2026-02-23",
-      "dateModified": "2026-02-23"
-    }
-    </script>
 </head>
 
-<body class="bg-canvas text-body antialiased">
-
-    <nav class="sticky top-0 z-50 bg-canvas/95 backdrop-blur-sm border-b border-border">
-        <div class="max-w-4xl mx-auto px-6 h-16 flex justify-between items-center">
-            <a href="../index.html" class="font-heading font-semibold text-lg text-ink flex items-center gap-1">
-                Lisandro Cacciatore <span class="text-primary font-mono font-bold">_</span>
-            </a>
-            <a href="../blog.html" class="text-sm font-medium text-muted hover:text-primary transition-colors">←
-                Blog</a>
+<body class="bg-[#08111E] text-slate-200 antialiased min-h-screen">
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-[#08111E]/80 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="../index.html"
+                class="text-xl font-bold tracking-tighter uppercase font-heading text-slate-200">Lisandro
+                Cacciatore<span class="text-cyan-500">_</span></a>
+            <div class="hidden md:flex space-x-8 font-mono text-sm uppercase tracking-widest text-slate-200">
+                <a href="../index.html" class="hover:text-cyan-400 transition">Inicio</a>
+                <a href="../servicios.html" class="hover:text-cyan-400 transition">Servicios</a>
+                <a href="../blog.html"
+                    class="hover:text-cyan-400 transition text-cyan-400 border-b border-cyan-500">Blog</a>
+                <a href="../contacto.html"
+                    class="px-4 py-2 border border-cyan-500 rounded text-cyan-400 hover:bg-cyan-500 hover:text-white transition">Contacto</a>
+            </div>
+            <div class="md:hidden">
+                <a href="../blog.html" class="text-[10px] font-mono text-slate-500">← Volver</a>
+            </div>
         </div>
     </nav>
 
     <main class="py-16 px-6">
         <article class="max-w-3xl mx-auto">
-
-            <header class="mb-14 text-center">
-                <nav class="flex justify-center text-xs text-muted font-mono gap-2 items-center mb-6">
-                    <a href="../blog.html" class="hover:text-primary">Blog</a>
-                    <span>/</span>
-                    <span class="text-body">Criterio de Decisión</span>
-                </nav>
+            <header class="mb-14 border-b border-slate-800 pb-10">
                 <span
-                    class="inline-block py-1 px-3 rounded text-[10px] font-mono font-bold uppercase tracking-wider bg-surface border border-border text-muted mb-6">Diagnóstico
-                    · Artículo 1</span>
-                <h1 class="font-heading text-3xl md:text-5xl font-bold text-ink mb-6 leading-tight">
-                    Llevas semanas ajustando.<br>Pero no sabés desde cuándo el problema empezó.
+                    class="inline-block py-1 px-3 rounded text-[10px] font-mono font-bold uppercase tracking-wider bg-amber-900/20 border border-amber-500/30 text-amber-400 mb-6">
+                    Métricas de Negocio · Ineficiencia Táctica
+                </span>
+                <h1 class="font-heading text-4xl md:text-5xl font-bold text-slate-100 mb-6 leading-tight">
+                    El estancamiento silencioso: Llegar tarde porque no mediste bien
                 </h1>
-                <p class="text-lg text-body leading-relaxed max-w-2xl mx-auto">
-                    El estancamiento silencioso no llega de golpe. Se instala despacio, disfrazado de proceso. Esto no
-                    es una receta para resolverlo. Es un diagnóstico de cómo reconocerlo.
+                <p class="text-xl text-slate-400 leading-relaxed max-w-2xl font-light">
+                    No es una lesión abrupta. Es un proceso que simula funcionar, consumiendo semanas de logística y
+                    reservas adaptativas, sin mover la aguja del rendimiento final del atleta.
                 </p>
-                <div class="mt-6 text-xs font-mono text-muted">Lisandro Cacciatore · Febrero 2026 · 8 min de lectura
-                </div>
+                <div class="mt-8 text-xs font-mono text-slate-500 uppercase tracking-widest">Lisandro Cacciatore ·
+                    Febrero 2026</div>
             </header>
 
-            <div class="prose prose-lg prose-slate max-w-none
-                prose-headings:font-heading prose-headings:text-ink prose-headings:font-bold
-                prose-a:text-primary prose-a:no-underline hover:prose-a:underline
-                prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:pl-6 prose-blockquote:not-italic
-                prose-blockquote:text-body prose-blockquote:font-medium
-                prose-strong:text-ink">
-
-                <h2>Cómo se ve cuando todavía no lo ves</h2>
-                <p>
-                    Hay un momento en el trabajo con atletas que casi todos los preparadores conocen pero pocos saben
-                    nombrar. El atleta sigue entrenando. Las cargas no caen. El RPE está dentro de rango. Los tests no
-                    muestran nada alarmante. Y sin embargo, algo no está avanzando.
-                </p>
-                <p>
-                    No es lesión. No es abandono. No es falta de esfuerzo. Es algo más difícil de ver: un sistema que
-                    funciona en la superficie pero no produce adaptación real. Un proceso que genera trabajo sin generar
-                    resultado.
-                </p>
-                <p>
-                    Eso es el estancamiento silencioso. Y el problema no es que sea difícil de resolver. El problema es
-                    que es difícil de detectar. Porque cuando lo detectás, generalmente ya llevás semanas —a veces
-                    meses— dentro de él.
+            <div class="prose prose-lg prose-invert max-w-none prose-headings:font-heading prose-a:text-cyan-400">
+                <p class="lead text-lg text-slate-300">
+                    Como Coordinador de Rendimiento, conoces esta frustración: los atletas ejecutan la planificación, el
+                    reporte de Wellness (bienestar) parece estar en rangos verdes, y el volumen se cumple según la hoja
+                    de cálculo. Sin embargo, llega la ventana competitiva clave, y el equipo se siente estancado, falto
+                    de potencia, al borde del sobreentrenamiento. ¿Cómo llegamos hasta aquí si todas las luces estaban
+                    verdes?
                 </p>
 
-                <h2>Por qué ocurre sin que nadie lo cause</h2>
+                <h2>El testeo no es gobernanza</h2>
                 <p>
-                    El estancamiento silencioso no es un error de programación. No aparece porque el preparador haya
-                    hecho algo mal. Aparece porque los sistemas de entrenamiento no tienen, por defecto, un mecanismo de
-                    detección temprana integrado.
-                </p>
-                <p>
-                    Lo que la mayoría de los sistemas sí tienen es un mecanismo de evaluación: el test. El test de RM.
-                    El test de velocidad. El test de potencia. El test llega al final del bloque y dice si el proceso
-                    funcionó. Pero no dice cuándo dejó de funcionar. No dice si la semana 3 ya había un problema que la
-                    semana 6 simplemente confirmó.
-                </p>
-                <p>
-                    Entre el inicio del bloque y el test final hay un período ciego. Un período en el que el preparador
-                    toma decisiones con datos de entrada —volumen, intensidad, RPE— pero sin señales de salida que
-                    indiquen si el sistema está produciendo adaptación o consumiendo recursos sin retorno.
+                    La causa principal del estancamiento silencioso es la creencia de que realizar evaluaciones formales
+                    (tests de 1RM, perfiles de salto) al final de un mesociclo valida todo el proceso. El test te dirá
+                    si la hipótesis funcionó o no; no te dirá, a mitad de camino, que el estímulo ha dejado de causar
+                    adaptación. Un testeo final es una autopsia, no una herramienta gerencial.
                 </p>
 
-                <blockquote>
-                    El test no detecta el estancamiento. Lo confirma. Cuando llegás al test, el problema ya existía hace
-                    semanas.
+                <blockquote class="border-l-4 border-amber-600 pl-6 italic text-slate-300 my-8 py-2 bg-slate-900/50">
+                    "Tus indicadores de proceso (asistencia, RPE) te dicen que estás trabajando. Tus indicadores de
+                    resultado (Variables Críticas) te dicen si el trabajo funciona. Si sólo tienes los primeros, estás
+                    conduciendo el barco guiándote por el ruido del motor en lugar del radar."
                 </blockquote>
 
-                <h2>Las tres formas en que se disfraza</h2>
+                <h2>El peligro del RPE constante</h2>
                 <p>
-                    El estancamiento silencioso es difícil de ver porque no se parece a una crisis. Se parece a un
-                    proceso normal. Hay tres formas en que aparece disfrazado:
-                </p>
-                <p>
-                    <strong>El progreso de volumen.</strong> El atleta levanta más kilos totales por sesión. El volumen
-                    sube. Los números crecen en la planilla. Pero el e1RM proyectado no se mueve. El trabajo aumenta. La
-                    adaptación se estanca. El preparador mira el volumen y ve progreso. El atleta mira el rendimiento y
-                    siente algo distinto.
-                </p>
-                <p>
-                    <strong>El RPE estable.</strong> El atleta reporta RPE consistente sesión tras sesión. Eso puede
-                    significar que el sistema está bien calibrado. También puede significar que la carga dejó de ser un
-                    estímulo suficiente y el atleta se adaptó al esfuerzo sin adaptarse a la fuerza. Un RPE estable con
-                    carga estable no es señal de progreso. Es señal de equilibrio —que puede ser lo que buscás, o puede
-                    ser exactamente el problema.
-                </p>
-                <p>
-                    <strong>La ausencia de síntomas.</strong> El atleta no está lesionado. No está sobreentrenado. No
-                    reporta dolor. La ausencia de señales negativas se lee como ausencia de problemas. Pero el cuerpo
-                    puede estar perfectamente funcional y sin embargo no estar adaptándose. La salud no es sinónimo de
-                    progreso.
+                    A menudo, los departamentos se confían al ver que el esfuerzo percibido (RPE) del jugador se
+                    mantiene estable ciclo tras ciclo. En el peor de los casos, esto no evidencia adaptación; evidencia
+                    tolerancia a un estímulo obsoleto. Las cargas ya no disrumpen su homeostasis, pero lo cansan lo
+                    suficiente como para mantenerlo ocupado y mitigar cualquier desarrollo incremental.
                 </p>
 
-                <h2>Qué lo produce en términos concretos</h2>
+                <h2>El escudo: IF → THEN basado en VCV</h2>
                 <p>
-                    Hay dos mecanismos principales. El primero es la falta de una variable de seguimiento clara. El
-                    segundo es el uso de indicadores de proceso como sustitutos de indicadores de resultado.
+                    El protocolo de alto rendimiento dicta que debes monitorear una Variable Crítica Validada semana a
+                    semana. Para una fase de fuerza, puede ser la velocidad de ejecución de un ejercicio ancla (VBT). Si
+                    esa métrica cae por dos semanas consecutivas, no esperas al test metodológico de la semana cuatro.
+                    Activás una regla IF → THEN para reducir la carga accesoria y desintoxicar al sistema antes de que
+                    se exprese en la tabla de posiciones.
                 </p>
-                <p>
-                    Cuando un preparador sigue volumen, RPE y asistencia, está siguiendo variables de proceso. Dicen si
-                    el atleta está haciendo el trabajo. No dicen si el trabajo está produciendo el efecto que se busca.
-                    Son necesarias, pero no suficientes. Son el insumo del proceso, no el resultado.
-                </p>
-                <p>
-                    Un indicador de resultado es algo que se mueve cuando la adaptación ocurre y se detiene cuando no
-                    ocurre. Para un powerlifter en bloque de fuerza máxima, eso es el e1RM proyectado en la prueba de
-                    especialidad. Para un velocista en bloque de potencia, puede ser la velocidad pico en sprint corto.
-                    Para un futbolista en pretemporada aeróbica, puede ser la velocidad en umbral lactato.
-                </p>
-                <p>
-                    La variable de resultado cambia según el atleta y la fase. Lo que no cambia es la lógica: hay que
-                    identificarla, seguirla, y tener una regla concreta para actuar cuando se detiene.
-                </p>
-
-                <h2>La pregunta que más incomoda</h2>
-                <p>
-                    Si el estancamiento lleva semanas instalado antes de que lo detectés, la pregunta incómoda es
-                    cuántos bloques llevás con ese patrón. No este bloque. Los últimos doce meses.
-                </p>
-                <p>
-                    No porque el diagnóstico sea catastrófico. Sino porque sin un sistema de detección activo, no hay
-                    forma de saberlo. Y si no hay forma de saberlo, tampoco hay forma de distinguir qué parte del
-                    trabajo produce adaptación real y qué parte produce simplemente trabajo.
-                </p>
-                <p>
-                    Esa distinción importa. No para culpar al proceso anterior. Para construir el próximo con algo que
-                    el anterior no tenía: una señal.
-                </p>
-
-                <blockquote>
-                    Sin un indicador de resultado activo, el estancamiento puede durar todo el tiempo que dure el
-                    bloque. Porque el bloque es lo que lo detiene, no el sistema.
-                </blockquote>
-
-                <h2>Lo que no es una solución</h2>
-                <p>
-                    Medir más cosas no resuelve el problema. Si el sistema ya produce datos que no cambian nada, agregar
-                    más datos produce más ruido. El problema no es cantidad de datos. Es claridad sobre cuál de esos
-                    datos importa.
-                </p>
-                <p>
-                    Tampoco lo resuelve acortar los bloques. Bloques más cortos con el mismo sistema de seguimiento
-                    producen el mismo punto ciego, pero más seguido. El patrón no cambia. Solo cambia la frecuencia con
-                    que lo confirmás.
-                </p>
-                <p>
-                    Lo que lo resuelve es algo más simple y más exigente al mismo tiempo: identificar, antes de empezar
-                    el bloque, cuál es la variable que va a decir si el bloque está funcionando. No al final. Durante.
-                    Con una frecuencia que permita detectar el problema antes de que el test lo confirme.
-                </p>
-
-                <h2>Tres preguntas para saber si estás dentro de uno ahora</h2>
-                <p>
-                    Si no podés responder las tres con claridad, la probabilidad de que estés en un estancamiento
-                    silencioso es alta:
-                </p>
-                <p>
-                    Primera: ¿cuál es la variable que va a decir que este bloque funcionó? No el test final. La variable
-                    que seguís semana a semana durante el bloque.
-                </p>
-                <p>
-                    Segunda: ¿cuántas semanas consecutivas sin movimiento en esa variable serían suficientes para que
-                    cambiés algo en el plan actual?
-                </p>
-                <p>
-                    Tercera: si el bloque terminara hoy, ¿podrías decir exactamente qué produjo la adaptación y qué no?
-                    ¿O tendrías que esperar el test para saberlo?
-                </p>
-                <p>
-                    El concepto detrás de esas tres preguntas tiene un nombre: <a
-                        href="./variable-critica-validada.html">Variable Crítica Validada</a>. El artículo siguiente
-                    explica qué es y cómo identificarla en tres deportes distintos.
-                </p>
-
             </div>
 
             <div
-                class="not-prose my-14 p-10 bg-slate-900 border border-blue-900/30 rounded-2xl flex flex-col md:flex-row gap-8 items-start md:items-center justify-between relative overflow-hidden">
-                <div class="relative z-10">
-                    <p class="text-[10px] font-mono font-bold uppercase tracking-widest text-blue-500 mb-2">Intervención
-                        Directa</p>
-                    <h3 class="font-heading font-bold text-slate-100 text-2xl mb-2">¿Llevas más de dos semanas sin
-                        señales claras de progreso?</h3>
-                    <p class="text-slate-400 text-sm max-w-md">La Auditoría VCV detecta en 14 días la regla de decisión
-                        que falta en tu sistema. Sin teoría, solo criterio operativo aplicable el próximo lunes.</p>
+                class="mt-16 p-10 bg-slate-900 border border-slate-800 rounded flex flex-col sm:flex-row items-center justify-between text-left gap-8">
+                <div>
+                    <h3 class="font-heading font-bold text-slate-100 text-2xl mb-2">Diagnosticá tu Sistema</h3>
+                    <p class="text-slate-400 text-sm max-w-sm">Si no sabés cuál es la métrica de validación semanal de
+                        esta fase para tu equipo, estás expuesto al estancamiento pasivo. Hagamos una Auditoría VCV.</p>
                 </div>
-                <div class="flex flex-col gap-3 relative z-10 w-full md:w-auto">
+                <div class="shrink-0 flex flex-col gap-3 w-full sm:w-auto">
                     <a href="../contacto.html"
-                        class="bg-blue-700 hover:bg-blue-600 text-white font-bold py-4 px-8 rounded shadow-lg shadow-blue-900/20 transition-all text-center uppercase tracking-widest text-xs">
-                        Agendar Auditoría VCV →
-                    </a>
-                    <a href="../autodiagnostico.html"
-                        class="border border-slate-700 hover:border-slate-500 text-slate-300 font-bold py-4 px-8 rounded transition-all text-center uppercase tracking-widest text-xs">
-                        Hacer Autodiagnóstico
-                    </a>
-                </div>
-                <!-- Decoración -->
-                <div class="absolute top-0 right-0 w-32 h-32 bg-blue-600/5 blur-3xl rounded-full -mr-16 -mt-16"></div>
-            </div>
-
-            <div class="not-prose mt-14 border-t border-border pt-10">
-                <p class="text-[10px] font-mono font-bold uppercase tracking-wider text-muted mb-6">Seguir leyendo</p>
-                <div class="grid md:grid-cols-2 gap-4">
-                    <a href="./variable-critica-validada.html"
-                        class="group block p-5 bg-surface border border-border rounded hover:border-primary transition-colors">
-                        <span class="text-[10px] font-mono text-muted uppercase block mb-1">Artículo 2</span>
-                        <h4
-                            class="font-heading font-bold text-ink group-hover:text-primary transition-colors leading-snug">
-                            No necesitás medir más. Necesitás saber cuál de los datos que ya tenés importa.</h4>
-                    </a>
-                    <a href="./criterio-sin-respaldo.html"
-                        class="group block p-5 bg-surface border border-border rounded hover:border-primary transition-colors">
-                        <span class="text-[10px] font-mono text-muted uppercase block mb-1">Artículo 3</span>
-                        <h4
-                            class="font-heading font-bold text-ink group-hover:text-primary transition-colors leading-snug">
-                            Tu criterio no está mal. Está sin respaldo.</h4>
+                        class="bg-cyan-600 hover:bg-cyan-500 text-center text-white font-bold py-4 px-8 rounded transition-all uppercase tracking-widest text-[10px] font-mono">
+                        Auditoría 14 Días
                     </a>
                 </div>
             </div>
-
         </article>
     </main>
 
-    <footer class="bg-dark pt-12 pb-8 border-t-4 border-primary mt-16">
-        <div class="max-w-4xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-start gap-8 mb-10">
-                <div>
-                    <span class="font-heading font-semibold text-surface block mb-2">Lisandro Cacciatore</span>
-                    <p class="text-muted text-sm max-w-xs">Sistemas de decisión aplicados al rendimiento deportivo.
-                        Rosario, Argentina.</p>
-                </div>
-                <div class="flex gap-10 text-sm">
-                    <div>
-                        <p class="text-[10px] font-mono uppercase tracking-wider text-muted mb-3">Sitio</p>
-                        <ul class="space-y-2">
-                            <li><a href="../index.html"
-                                    class="text-muted hover:text-surface transition-colors">Inicio</a></li>
-                            <li><a href="../blog.html" class="text-muted hover:text-surface transition-colors">Blog</a>
-                            </li>
-                            <li><a href="../contacto.html"
-                                    class="text-muted hover:text-surface transition-colors">Contacto</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <p class="text-[10px] font-mono uppercase tracking-wider text-muted mb-3">Recursos</p>
-                        <ul class="space-y-2">
-                            <li><a href="../autodiagnostico.html"
-                                    class="text-muted hover:text-surface transition-colors">Autodiagnóstico</a></li>
-                            <li><a href="../ironlog/demo.html"
-                                    class="text-muted hover:text-surface transition-colors">Simuladores</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="border-t border-slate-800 pt-6">
-                <p class="text-xs font-mono text-subtle">© 2026 Lisandro Cacciatore · Rosario, Argentina</p>
-            </div>
+    <footer class="bg-slate-950 border-t border-slate-800 py-12 px-6">
+        <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <span class="text-lg font-bold tracking-tighter uppercase font-heading text-slate-200">Lisandro
+                Cacciatore<span class="text-cyan-500">_</span></span>
+            <div class="text-[10px] font-mono uppercase tracking-widest text-slate-600">© 2026 · Consultoría de Alto
+                Rendimiento</div>
         </div>
     </footer>
-
 </body>
 
 </html>

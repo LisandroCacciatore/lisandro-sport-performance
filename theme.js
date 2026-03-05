@@ -66,7 +66,7 @@ tailwind.config = {
 
                 // Fondos oscuros: hero, footer, secciones de impacto.
                 // El azulado del Slate 900 evita el "negro lavanda" genérico.
-                dark:  '#0F172A',     /* Slate 900 — fondos hero / pie de página */
+                dark:  '#08111E',     /* Near-black frío — fondos hero / pie de página */
 
 
                 // ─────────────────────────────────────────────────────────
@@ -78,15 +78,15 @@ tailwind.config = {
                 // ─────────────────────────────────────────────────────────
 
                 // Color primario de marca. Botones, links activos, accents.
-                primary:       '#1E3A8A',   /* Blue 900 — acción sobria, autoridad */
+                primary:       '#06B6D4',   /* Cyan 500 — acción técnica, diferenciadora */
 
                 // Hover state sobre fondo oscuro o para íconos activos.
                 // Más luminoso que primary para feedback visual claro.
-                'primary-600': '#2563EB',   /* Blue 600 — hover/focus sobre oscuro */
+                'primary-600': '#22D3EE',   /* Cyan 400 — hover/focus sobre oscuro */
 
                 // Fondo muy sutil para badges, chips de categoría.
                 // "Data Architecture" como etiqueta, no como grito.
-                'primary-bg':  '#EFF6FF',   /* Blue 50  — badges, chips, fondos hover */
+                'primary-bg':  '#164E63',   /* Cyan 900 — badges oscuros, chips en dark */
 
 
                 // ─────────────────────────────────────────────────────────

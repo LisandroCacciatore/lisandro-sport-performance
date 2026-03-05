@@ -1,19 +1,26 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre Mí | Lisandro Cacciatore</title>
+    <meta name="description"
+        content="Consultor en sistemas de decisión para entrenadores de fuerza y preparadores físicos de élite. No vendo datos. Vendo certeza.">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="theme.js"></script>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap"
         rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
             background-color: #0f172a;
             color: #f8fafc;
+        }
+
+        .font-heading {
+            font-family: 'IBM Plex Sans', sans-serif;
         }
 
         .font-mono {
@@ -26,15 +33,15 @@
     <!-- Navbar -->
     <nav class="sticky top-0 z-50 bg-[#0f172a]/80 backdrop-blur-md border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="index.html" class="text-xl font-bold tracking-tighter uppercase">Lisandro Cacciatore<span
-                    class="text-blue-600">_</span></a>
+            <a href="index.html" class="text-xl font-bold tracking-tighter uppercase font-heading">Lisandro
+                Cacciatore<span class="text-cyan-500">_</span></a>
             <div class="hidden md:flex space-x-8 font-mono text-sm uppercase tracking-widest">
-                <a href="index.html" class="hover:text-blue-500 transition">Inicio</a>
-                <a href="servicios.html" class="hover:text-blue-500 transition">Servicios</a>
-                <a href="blog.html" class="hover:text-blue-500 transition">Blog</a>
-                <a href="ironlog/index.html" class="text-blue-500 font-bold hover:text-blue-400 transition">IronLog</a>
+                <a href="index.html" class="hover:text-cyan-400 transition">Inicio</a>
+                <a href="servicios.html" class="hover:text-cyan-400 transition">Servicios</a>
+                <a href="blog.html" class="hover:text-cyan-400 transition">Blog</a>
+                <a href="ironlog/index.html" class="text-cyan-400 font-bold hover:text-cyan-400 transition">IronLog</a>
                 <a href="contacto.html"
-                    class="px-4 py-2 border border-blue-600 rounded text-blue-500 hover:bg-blue-600 hover:text-white transition">Contacto</a>
+                    class="px-4 py-2 border border-cyan-500 rounded text-cyan-400 hover:bg-cyan-500 hover:text-white transition">Contacto</a>
             </div>
         </div>
     </nav>
@@ -44,13 +51,15 @@
         <section class="max-w-7xl mx-auto px-6 mb-24">
             <div class="grid md:grid-cols-2 gap-16 items-center">
                 <div>
-                    <h2 class="font-mono text-blue-500 text-sm uppercase tracking-[0.2em] mb-6">El estándar que defiendo
+                    <h2 class="font-mono text-cyan-400 text-sm uppercase tracking-[0.2em] mb-6">El estándar que defiendo
                     </h2>
-                    <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-8">
-                        No vendo datos.<br>Vendo <span class="text-blue-600">certeza.</span>
+                    <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-8 font-heading">
+                        No vendo datos.<br>Vendo <span class="text-cyan-500">certeza.</span>
                     </h1>
                     <p class="text-xl text-slate-400 leading-relaxed mb-6">
-                        Soy Lisandro Cacciatore, y mi carrera se ha centrado en resolver una pregunta incómoda:
+                        Soy Lisandro Cacciatore, consultor en sistemas de decisión para entrenadores de fuerza y
+                        preparadores físicos de élite.
+                        Mi trabajo resuelve una pregunta incómoda:
                         <strong>¿Por qué seguimos confiando en la intuición cuando el costo del error es tan
                             alto?</strong>
                     </p>
@@ -60,31 +69,38 @@
                     </p>
                 </div>
                 <div class="relative">
-                    <div
-                        class="aspect-[4/5] bg-slate-800 rounded-2xl overflow-hidden border border-slate-700 relative">
+                    <div class="aspect-[4/5] bg-slate-800 overflow-hidden border border-slate-700 relative">
                         <!-- Placeholder intencional: identidad sin foto -->
-                        <div class="w-full h-full flex flex-col items-center justify-center gap-6 bg-gradient-to-br from-slate-800 to-slate-900 p-12">
-                            <div class="w-20 h-20 rounded-full border-2 border-blue-600/40 flex items-center justify-center">
-                                <svg class="w-10 h-10 text-blue-600/60" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+                        <div class="w-full h-full flex flex-col items-center justify-center gap-6 bg-slate-800 p-12">
+                            <div class="w-20 h-20 border-2 border-cyan-500/40 flex items-center justify-center">
+                                <svg class="w-10 h-10 text-cyan-500/60" fill="none" stroke="currentColor"
+                                    stroke-width="1.5" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
                                 </svg>
                             </div>
                             <div class="text-center space-y-1">
-                                <p class="font-mono text-blue-500 text-xs uppercase tracking-widest">Lisandro Cacciatore</p>
-                                <p class="font-mono text-slate-500 text-[10px] uppercase tracking-widest">Performance Data Consultant</p>
+                                <p class="font-mono text-cyan-400 text-xs uppercase tracking-widest">Lisandro Cacciatore
+                                </p>
+                                <p class="font-mono text-slate-500 text-[10px] uppercase tracking-widest">Performance
+                                    Data Consultant</p>
                             </div>
                             <!-- Grid decorativo -->
                             <div class="absolute inset-0 opacity-5 pointer-events-none">
-                                <svg viewBox="0 0 100 100" class="w-full h-full text-blue-400">
-                                    <defs><pattern id="grid-sm" width="8" height="8" patternUnits="userSpaceOnUse"><path d="M 8 0 L 0 0 0 8" fill="none" stroke="currentColor" stroke-width="0.5"/></pattern></defs>
-                                    <rect width="100" height="100" fill="url(#grid-sm)"/>
+                                <svg viewBox="0 0 100 100" class="w-full h-full text-cyan-400">
+                                    <defs>
+                                        <pattern id="grid-sm" width="8" height="8" patternUnits="userSpaceOnUse">
+                                            <path d="M 8 0 L 0 0 0 8" fill="none" stroke="currentColor"
+                                                stroke-width="0.5" />
+                                        </pattern>
+                                    </defs>
+                                    <rect width="100" height="100" fill="url(#grid-sm)" />
                                 </svg>
                             </div>
                         </div>
-                        <div class="absolute bottom-6 left-6 right-6 text-center font-mono text-[10px] text-blue-500/60 uppercase tracking-widest">Foto próximamente</div>
-                    </div>
-                    <div
-                        class="absolute -bottom-6 -right-6 w-32 h-32 bg-blue-600/10 border border-blue-600/20 rounded-full blur-2xl">
+                        <div
+                            class="absolute bottom-6 left-6 right-6 text-center font-mono text-[10px] text-cyan-400/60 uppercase tracking-widest">
+                            Foto próximamente</div>
                     </div>
                 </div>
             </div>
@@ -95,22 +111,22 @@
             <div class="max-w-7xl mx-auto px-6">
                 <div class="grid md:grid-cols-3 gap-12">
                     <div class="space-y-4">
-                        <div class="text-blue-600 font-mono text-xl">01/</div>
-                        <h3 class="text-xl font-bold">Evidencia sobre Ego</h3>
+                        <div class="text-cyan-500 font-mono text-xl">01/</div>
+                        <h3 class="text-xl font-bold font-heading">Evidencia sobre Ego</h3>
                         <p class="text-slate-400 text-sm leading-relaxed">Las decisiones no deben depender de quién
                             grita más fuerte o quién tiene más años en el cargo, sino de lo que la Variable Crítica
                             Validada nos dice.</p>
                     </div>
                     <div class="space-y-4">
-                        <div class="text-blue-600 font-mono text-xl">02/</div>
-                        <h3 class="text-xl font-bold">Simplicidad Técnica</h3>
+                        <div class="text-cyan-500 font-mono text-xl">02/</div>
+                        <h3 class="text-xl font-bold font-heading">Simplicidad Técnica</h3>
                         <p class="text-slate-400 text-sm leading-relaxed">Un sistema de soporte de decisiones (DSS)
                             complejo que nadie usa no es un sistema, es un estorbo. Diseño soluciones que el staff
                             realmente adopta.</p>
                     </div>
                     <div class="space-y-4">
-                        <div class="text-blue-600 font-mono text-xl">03/</div>
-                        <h3 class="text-xl font-bold">Impacto en el Negocio</h3>
+                        <div class="text-cyan-500 font-mono text-xl">03/</div>
+                        <h3 class="text-xl font-bold font-heading">Impacto en el Negocio</h3>
                         <p class="text-slate-400 text-sm leading-relaxed">El alto rendimiento es una inversión. Mi
                             enfoque asegura que cada dólar gastado en tecnología se traduzca en disponibilidad del
                             atleta y victorias.</p>
@@ -121,28 +137,26 @@
 
         <!-- Timeline / Trayectoria Breve -->
         <section class="max-w-4xl mx-auto px-6 py-24">
-            <h2 class="text-3xl font-bold mb-16 text-center">Trayectoria & Enfoque</h2>
+            <h2 class="text-3xl font-bold mb-16 text-center font-heading">Trayectoria &amp; Enfoque</h2>
             <div class="space-y-12 border-l border-slate-800 pl-8 ml-4">
                 <div class="relative">
-                    <div class="absolute -left-[41px] top-0 w-4 h-4 bg-blue-600 rounded-full border-4 border-[#0f172a]">
+                    <div class="absolute -left-[41px] top-0 w-4 h-4 bg-cyan-500 border-4 border-[#0f172a]">
                     </div>
-                    <h4 class="font-bold text-lg mb-2">Consultoría Estratégica</h4>
+                    <h4 class="font-bold text-lg mb-2 font-heading">Consultoría Estratégica</h4>
                     <p class="text-slate-400 text-sm">Especializado en el diseño de arquitecturas de datos para clubes y
                         federaciones que buscan profesionalizar sus departamentos de ciencias del deporte.</p>
                 </div>
                 <div class="relative">
-                    <div
-                        class="absolute -left-[41px] top-0 w-4 h-4 bg-slate-700 rounded-full border-4 border-[#0f172a]">
+                    <div class="absolute -left-[41px] top-0 w-4 h-4 bg-slate-700 border-4 border-[#0f172a]">
                     </div>
-                    <h4 class="font-bold text-lg mb-2">Desarrollo de VCV</h4>
+                    <h4 class="font-bold text-lg mb-2 font-heading">Desarrollo de VCV</h4>
                     <p class="text-slate-400 text-sm">Creador de la metodología de Variable Crítica Validada, ayudando a
                         filtrar el ruido del Big Data deportivo para centrarse en lo que realmente mueve la aguja.</p>
                 </div>
                 <div class="relative">
-                    <div
-                        class="absolute -left-[41px] top-0 w-4 h-4 bg-slate-700 rounded-full border-4 border-[#0f172a]">
+                    <div class="absolute -left-[41px] top-0 w-4 h-4 bg-slate-700 border-4 border-[#0f172a]">
                     </div>
-                    <h4 class="font-bold text-lg mb-2">Divulgador Técnico</h4>
+                    <h4 class="font-bold text-lg mb-2 font-heading">Divulgador Técnico</h4>
                     <p class="text-slate-400 text-sm">A través del IronLog, comparto scripts, metodologías y reflexiones
                         sobre la intersección entre la programación y el entrenamiento de élite.</p>
                 </div>
@@ -151,15 +165,18 @@
 
         <!-- Final CTA -->
         <section class="max-w-7xl mx-auto px-6">
-            <div class="bg-blue-700 rounded-3xl p-12 text-center text-white relative overflow-hidden">
+            <div class="bg-[#1e3a8a] p-12 text-center text-white relative overflow-hidden border border-blue-900/60">
                 <div class="relative z-10">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6">¿Estás listo para elevar tu estándar?</h2>
-                    <p class="text-blue-100 mb-10 max-w-xl mx-auto">No busco clientes, busco socios estratégicos que
-                        crean en el poder de la evidencia.</p>
+                    <p class="text-[10px] font-mono uppercase tracking-widest text-blue-300 mb-4">Próximo paso</p>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 font-heading">¿Con quién estás hablando cuando tomás
+                        decisiones de carga?</h2>
+                    <p class="text-blue-100 mb-10 max-w-xl mx-auto">Si la respuesta es "conmigo mismo y mis registros",
+                        hay una brecha operativa. Agendamos 30 minutos sin cargo para identificarla.</p>
                     <a href="contacto.html"
-                        class="inline-block px-10 py-4 bg-white text-blue-700 font-bold rounded-lg hover:bg-slate-100 transition shadow-xl">Solicitar
-                        Revisión Estratégica</a>
+                        class="inline-block px-10 py-4 bg-white text-blue-900 font-bold hover:bg-slate-100 transition">Agendar
+                        Sesión de Diagnóstico →</a>
                 </div>
+                <!-- Grid decorativo -->
                 <div class="absolute top-0 left-0 w-full h-full opacity-10">
                     <svg viewBox="0 0 100 100" class="w-full h-full">
                         <defs>
@@ -178,8 +195,8 @@
     <footer class="bg-slate-900 border-t border-slate-800 py-12 px-6">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
             <div class="flex flex-col gap-2">
-                <span class="text-xl font-bold tracking-tighter uppercase">Lisandro Cacciatore<span
-                        class="text-blue-600">_</span></span>
+                <span class="text-xl font-bold tracking-tighter uppercase font-heading">Lisandro Cacciatore<span
+                        class="text-cyan-500">_</span></span>
                 <p class="text-slate-500 text-sm">Consultoría de Alto Rendimiento · Ingeniería de Datos Deportivos</p>
             </div>
             <div class="flex space-x-8 text-xs font-mono uppercase tracking-widest text-slate-400">

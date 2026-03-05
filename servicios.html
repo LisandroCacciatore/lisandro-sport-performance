@@ -1,19 +1,26 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Servicios | Lisandro Cacciatore</title>
+    <meta name="description"
+        content="Auditoría VCV y Sistema de Gobernanza de Datos Deportivos. Construimos el sistema de decisión que le falta a tu staff técnico.">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="theme.js"></script>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap"
         rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
             background-color: #0f172a;
             color: #f8fafc;
+        }
+
+        .font-heading {
+            font-family: 'IBM Plex Sans', sans-serif;
         }
 
         .font-mono {
@@ -26,112 +33,173 @@
     <!-- Navbar -->
     <nav class="sticky top-0 z-50 bg-[#0f172a]/80 backdrop-blur-md border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="index.html" class="text-xl font-bold tracking-tighter uppercase">Lisandro Cacciatore<span
-                    class="text-blue-600">_</span></a>
+            <a href="index.html" class="text-xl font-bold tracking-tighter uppercase font-heading">Lisandro
+                Cacciatore<span class="text-cyan-500">_</span></a>
             <div class="hidden md:flex space-x-8 font-mono text-sm uppercase tracking-widest">
-                <a href="index.html" class="hover:text-blue-500 transition">Inicio</a>
-                <a href="servicios.html" class="text-blue-500 transition border-b border-blue-500">Servicios</a>
-                <a href="blog.html" class="hover:text-blue-500 transition">Blog</a>
-                <a href="ironlog/index.html" class="text-blue-500 font-bold hover:text-blue-400 transition">IronLog</a>
+                <a href="index.html" class="hover:text-cyan-400 transition">Inicio</a>
+                <a href="servicios.html" class="text-cyan-400 transition border-b border-cyan-500">Servicios</a>
+                <a href="blog.html" class="hover:text-cyan-400 transition">Blog</a>
+                <a href="ironlog/index.html" class="text-cyan-400 font-bold hover:text-cyan-400 transition">IronLog</a>
                 <a href="contacto.html"
-                    class="px-4 py-2 border border-blue-600 rounded text-blue-500 hover:bg-blue-600 hover:text-white transition">Contacto</a>
+                    class="px-4 py-2 border border-cyan-500 rounded text-cyan-400 hover:bg-cyan-500 hover:text-white transition">Contacto</a>
             </div>
         </div>
     </nav>
 
-    <header class="py-24 text-center">
-        <h1 class="text-4xl md:text-6xl font-bold mb-6 tracking-tight">Arquitectura de <span
-                class="text-blue-600">Decisión</span></h1>
+    <header class="py-24 text-center border-b border-slate-800/50">
+        <span
+            class="inline-block py-1 px-3 rounded text-[10px] font-mono font-bold uppercase tracking-widest bg-cyan-900/20 border border-cyan-500/30 text-cyan-400 mb-8">
+            Arquitectura de Decisión Deportiva
+        </span>
+        <h1 class="text-4xl md:text-6xl font-bold mb-6 tracking-tight font-heading">Dos tiers. Un objetivo.</h1>
         <p class="text-slate-400 max-w-2xl mx-auto px-6 text-lg leading-relaxed">No vendemos software. Construimos los
             procesos que permiten a un Staff Técnico operar con la precisión de una unidad de alto rendimiento.</p>
     </header>
 
     <section class="pb-24 max-w-7xl mx-auto px-6">
+
+        <!-- Brecha Tipo A / B intro -->
+        <div class="grid md:grid-cols-2 gap-6 mb-16 mt-16">
+            <div class="p-6 border border-slate-800 rounded-md bg-slate-900/30">
+                <p class="text-[10px] font-mono font-bold uppercase tracking-widest text-cyan-400 mb-2">Brecha Tipo A
+                </p>
+                <h3 class="font-bold text-slate-200 mb-1">Inoperancia del macrociclo</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">El sistema existe pero las decisiones de ajuste son
+                    intuitivas. No hay una regla que describa cuándo intervenir.</p>
+            </div>
+            <div class="p-6 border border-slate-800 rounded-md bg-slate-900/30">
+                <p class="text-[10px] font-mono font-bold uppercase tracking-widest text-amber-500 mb-2">Brecha Tipo B
+                </p>
+                <h3 class="font-bold text-slate-200 mb-1">Ruido blanco estadístico</h3>
+                <p class="text-slate-400 text-sm leading-relaxed">El staff tiene wearables, GPS, HRV, sRPE — pero sin
+                    jerarquía. Cada entrenador mira métricas distintas.</p>
+            </div>
+        </div>
+
         <div class="grid lg:grid-cols-3 gap-8">
             <!-- Auditoría VCV -->
-            <div
-                class="p-10 border border-blue-900/30 rounded-2xl bg-gradient-to-b from-slate-900 to-slate-900/50 flex flex-col relative overflow-hidden group">
+            <div class="p-10 border border-blue-900/40 rounded-md bg-slate-900 flex flex-col relative overflow-hidden">
                 <div class="absolute top-0 right-0 p-4">
                     <span
-                        class="text-[10px] font-mono font-bold py-1 px-3 border border-blue-500/50 text-blue-400 rounded-full uppercase tracking-tighter">Sprint
+                        class="text-[10px] font-mono font-bold py-1 px-3 border border-cyan-500/50 text-cyan-400 rounded uppercase tracking-tighter">Sprint
                         14 Días</span>
                 </div>
-                <h2 class="text-2xl font-bold mb-4">Auditoría VCV</h2>
-                <p class="text-slate-400 mb-8 text-sm leading-relaxed">Detén las <strong class="text-slate-200">fugas de rendimiento</strong> causadas por procesos de "relleno". Eliminamos el costo de la incertidumbre mediante un protocolo de acción técnica inmediato.</p>
+                <p class="text-[10px] font-mono font-bold uppercase tracking-widest text-cyan-400 mb-3">Brecha Tipo A
+                </p>
+                <h2 class="text-2xl font-bold mb-4 font-heading">Auditoría VCV</h2>
+                <p class="text-slate-400 mb-8 text-sm leading-relaxed">Detenemos las <strong
+                        class="text-slate-200">fugas de rendimiento</strong> causadas por decisiones sin regla.
+                    Identificamos la Variable Crítica Validada de tu bloque actual y entregamos el esquema IF → THEN
+                    aplicable desde el lunes siguiente.</p>
                 <ul class="space-y-4 mb-10 text-[13px] font-mono text-slate-300">
-                    <li class="flex items-start"><span class="text-blue-500 mr-2">/</span> Identificación de la VCV</li>
-                    <li class="flex items-start"><span class="text-blue-500 mr-2">/</span> Eliminación del ruido blanco
-                    </li>
-                    <li class="flex items-start"><span class="text-blue-500 mr-2">/</span> Entrega de Lógica IF → THEN
-                    </li>
+                    <li class="flex items-start"><span class="text-cyan-400 mr-2">/</span> Identificación de la VCV del
+                        bloque</li>
+                    <li class="flex items-start"><span class="text-cyan-400 mr-2">/</span> Eliminación del ruido blanco
+                        estadístico</li>
+                    <li class="flex items-start"><span class="text-cyan-400 mr-2">/</span> Entrega del esquema IF → THEN
+                        operativo</li>
+                    <li class="flex items-start"><span class="text-cyan-400 mr-2">/</span> Documento de brecha (2
+                        páginas)</li>
                 </ul>
                 <div class="mt-auto">
                     <div class="flex items-baseline gap-2 mb-8">
-                        <span class="text-3xl font-bold text-white">250 USD</span>
+                        <span class="text-3xl font-bold text-white font-mono">250 USD</span>
                         <span class="text-slate-500 text-[10px] font-mono uppercase">Inversión única</span>
                     </div>
+                    <p class="text-slate-500 text-[10px] font-mono uppercase tracking-widest mb-4">Buyers: Coordinador
+                        de Rendimiento · Preparador Físico</p>
                     <a href="contacto.html"
-                        class="block w-full py-4 bg-blue-700 hover:bg-blue-600 text-center rounded text-white transition-all uppercase font-mono tracking-widest text-[10px] font-bold shadow-lg shadow-blue-900/20">Agendar
+                        class="block w-full py-4 bg-cyan-600 hover:bg-cyan-500 text-center rounded text-white transition-all uppercase font-mono tracking-widest text-[10px] font-bold">Agendar
                         Auditoría →</a>
                 </div>
             </div>
 
             <!-- Sistema de Gobernanza -->
-            <div
-                class="p-10 border border-slate-800 rounded-2xl bg-slate-900/30 flex flex-col relative overflow-hidden">
+            <div class="p-10 border border-slate-800 rounded-md bg-slate-900/30 flex flex-col relative overflow-hidden">
                 <div class="absolute top-0 right-0 p-4">
                     <span
-                        class="text-[10px] font-mono font-bold py-1 px-3 border border-slate-700 text-slate-500 rounded-full uppercase tracking-tighter">Continuo</span>
+                        class="text-[10px] font-mono font-bold py-1 px-3 border border-amber-500/40 text-amber-500 rounded uppercase tracking-tighter">3
+                        Meses</span>
                 </div>
-                <h2 class="text-2xl font-bold mb-4 text-slate-100">Gobernanza de Datos</h2>
-                <p class="text-slate-400 mb-8 text-sm leading-relaxed">Elimina la dependencia de la intuición individual. Construimos la <strong class="text-slate-200">Gobernanza</strong> necesaria para que tu staff opere como una unidad unificada.</p>
+                <p class="text-[10px] font-mono font-bold uppercase tracking-widest text-amber-500 mb-3">Brecha Tipo B
+                </p>
+                <h2 class="text-2xl font-bold mb-4 text-slate-100 font-heading">Sistema de Gobernanza</h2>
+                <p class="text-slate-400 mb-8 text-sm leading-relaxed">Para staffs con datos abundantes pero sin
+                    criterio compartido. Instalamos la arquitectura institucional: roles definidos, umbrales escritos,
+                    protocolo de reunión técnica semanal de 15 minutos.</p>
                 <ul class="space-y-4 mb-10 text-[13px] font-mono text-slate-300">
-                    <li class="flex items-start"><span class="text-blue-500 mr-2">/</span> Soberanía Deportiva</li>
-                    <li class="flex items-start"><span class="text-blue-500 mr-2">/</span> Dashboards de Decisión Alta
-                        Gerencia</li>
-                    <li class="flex items-start"><span class="text-blue-500 mr-2">/</span> Actualización semanal de
-                        umbrales</li>
+                    <li class="flex items-start"><span class="text-cyan-400 mr-2">/</span> Criterio compartido entre
+                        todo el staff</li>
+                    <li class="flex items-start"><span class="text-cyan-400 mr-2">/</span> Protocolo de reunión semanal
+                        de 15 min</li>
+                    <li class="flex items-start"><span class="text-cyan-400 mr-2">/</span> Roles definidos: quién
+                        registra, interpreta, decide</li>
+                    <li class="flex items-start"><span class="text-cyan-400 mr-2">/</span> Proceso institucional
+                        independiente del individuo</li>
                 </ul>
                 <div class="mt-auto">
                     <div class="flex items-baseline gap-2 mb-8">
-                        <span class="text-3xl font-bold text-white">500 USD</span>
-                        <span class="text-slate-500 text-[10px] font-mono uppercase">/ mes</span>
+                        <span class="text-3xl font-bold text-white font-mono">500 USD</span>
+                        <span class="text-slate-500 text-[10px] font-mono uppercase">/ mes · 3 meses mínimo</span>
                     </div>
+                    <p class="text-slate-500 text-[10px] font-mono uppercase tracking-widest mb-4">Buyers: Director
+                        Deportivo · Dueño de Academia</p>
                     <a href="contacto.html"
                         class="block w-full py-4 border border-slate-700 hover:border-slate-500 text-center rounded text-slate-300 transition-all uppercase font-mono tracking-widest text-[10px] font-bold">Solicitar
-                        Implementación</a>
+                        Implementación →</a>
                 </div>
             </div>
 
-            <!-- Technical Board Advisor -->
-            <div
-                class="p-10 border border-slate-800 rounded-2xl bg-gradient-to-t from-blue-900/5 to-transparent flex flex-col relative overflow-hidden">
+            <!-- Auditoría + Seguimiento mensual -->
+            <div class="p-10 border border-slate-800 rounded-md bg-slate-900/20 flex flex-col relative overflow-hidden">
                 <div class="absolute top-0 right-0 p-4">
                     <span
-                        class="text-[10px] font-mono font-bold py-1 px-3 border border-blue-500/30 text-blue-500 rounded-full uppercase tracking-tighter">Socio
-                        Estratégico</span>
+                        class="text-[10px] font-mono font-bold py-1 px-3 border border-cyan-500/30 text-cyan-400 rounded uppercase tracking-tighter">Escalable</span>
                 </div>
-                <h2 class="text-2xl font-bold mb-4 text-slate-100">Technical Board Advisor</h2>
-                <p class="text-slate-400 mb-8 text-sm leading-relaxed">Acompañamiento recurrente para Directores
-                    Deportivos y Head Coaches. Guardián de la excelencia técnica y el ROI del proceso.</p>
+                <p class="text-[10px] font-mono font-bold uppercase tracking-widest text-cyan-400 mb-3">Tipo A →
+                    Recurrente</p>
+                <h2 class="text-2xl font-bold mb-4 text-slate-100 font-heading">Auditoría + Seguimiento</h2>
+                <p class="text-slate-400 mb-8 text-sm leading-relaxed">Para coordinadores que quieren construir primero
+                    el criterio (Auditoría VCV) y luego mantenerlo con acompañamiento mensual. El seguimiento sostiene
+                    la autonomía del staff sin requerir un nuevo diagnóstico.</p>
                 <ul class="space-y-4 mb-10 text-[13px] font-mono text-slate-300">
-                    <li class="flex items-start"><span class="text-blue-500 mr-2">/</span> Auditoría de Calidad Técnica
-                        Trimestral</li>
-                    <li class="flex items-start"><span class="text-blue-500 mr-2">/</span> Soporte en Decisiones de
-                        Fichaje / Baja</li>
-                    <li class="flex items-start"><span class="text-blue-500 mr-2">/</span> Mentoría de Staff de Alto
-                        Rendimiento</li>
+                    <li class="flex items-start"><span class="text-cyan-400 mr-2">/</span> Todo lo de la Auditoría VCV
+                    </li>
+                    <li class="flex items-start"><span class="text-cyan-400 mr-2">/</span> Check-in mensual de VCV y
+                        umbrales</li>
+                    <li class="flex items-start"><span class="text-cyan-400 mr-2">/</span> Ajuste de reglas IF → THEN
+                        por bloque</li>
+                    <li class="flex items-start"><span class="text-cyan-400 mr-2">/</span> Soporte para transferencia a
+                        nuevo staff</li>
                 </ul>
                 <div class="mt-auto">
-                    <div class="flex items-baseline gap-2 mb-8">
-                        <span class="text-3xl font-bold text-white">750 USD</span>
-                        <span class="text-slate-500 text-[10px] font-mono uppercase">/ mes</span>
+                    <div class="flex flex-col gap-1 mb-8">
+                        <div class="flex items-baseline gap-2">
+                            <span class="text-3xl font-bold text-white font-mono">250 USD</span>
+                            <span class="text-slate-500 text-[10px] font-mono uppercase">Auditoría inicial</span>
+                        </div>
+                        <div class="flex items-baseline gap-2">
+                            <span class="text-2xl font-bold text-slate-300 font-mono">+ 200 USD</span>
+                            <span class="text-slate-500 text-[10px] font-mono uppercase">/ mes de seguimiento</span>
+                        </div>
                     </div>
+                    <p class="text-slate-500 text-[10px] font-mono uppercase tracking-widest mb-4">Buyer: Coordinador
+                        que anticipa escalar</p>
                     <a href="contacto.html"
-                        class="block w-full py-4 bg-slate-100 hover:bg-white text-center rounded text-slate-900 transition-all uppercase font-mono tracking-widest text-[10px] font-bold">Consultar
-                        Asesoría</a>
+                        class="block w-full py-4 bg-slate-800 hover:bg-slate-700 text-center rounded text-slate-200 transition-all uppercase font-mono tracking-widest text-[10px] font-bold">Consultar
+                        Disponibilidad →</a>
                 </div>
             </div>
+        </div>
+
+        <!-- Nota sobre buyers y aprobación de compra -->
+        <div class="mt-16 p-8 border border-slate-800 rounded-md bg-slate-900/20">
+            <p class="text-[10px] font-mono font-bold uppercase tracking-widest text-slate-500 mb-4">Nota operativa</p>
+            <p class="text-slate-400 text-sm leading-relaxed max-w-3xl">Si sos el <strong
+                    class="text-slate-300">Preparador Físico</strong> del equipo y encontraste esto, probablemente no
+                seás vos quien aprueba la contratación. Podemos prepararte con los argumentos para llevarle esta
+                propuesta al Director Deportivo o al Coordinador de Rendimiento. <a href="contacto.html"
+                    class="text-cyan-400 hover:underline">Contactame y lo resolvemos.</a></p>
         </div>
     </section>
 
@@ -139,8 +207,8 @@
     <footer class="bg-slate-900 border-t border-slate-800 py-12 px-6 mt-24">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
             <div class="flex flex-col gap-2">
-                <span class="text-xl font-bold tracking-tighter uppercase">Lisandro Cacciatore<span
-                        class="text-blue-600">_</span></span>
+                <span class="text-xl font-bold tracking-tighter uppercase font-heading">Lisandro Cacciatore<span
+                        class="text-cyan-500">_</span></span>
                 <p class="text-slate-500 text-sm">Consultoría de Alto Rendimiento · Ingeniería de Datos Deportivos</p>
             </div>
             <div class="flex space-x-8 text-xs font-mono uppercase tracking-widest text-slate-400">

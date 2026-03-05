@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 
 <head>
@@ -6,161 +6,138 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IronLog: El Instrumento de Gobernanza | Lisandro Cacciatore</title>
     <meta name="description"
-        content="IronLog no es solo registro. Es el instrumento de gobernanza que obliga al preparador físico a decidir con criterio técnico.">
+        content="IronLog no es solo registro. Es el instrumento de gobernanza que obliga al preparador físico a decidir con criterio técnico basado en una VCV.">
     <link rel="canonical" href="https://lisandrocacciatore.com/blog/ironlog-en-contexto.html">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=IBM+Plex+Sans:ital,wght@0,600;0,700;0,800;1,600&family=Inter:wght@400;500;600;700&display=swap"
         rel="stylesheet">
     <script src="https://cdn.tailwindcss.com?plugins=typography"></script>
+    <script src="../theme.js"></script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0f172a;
-            color: #f8fafc;
+            -webkit-font-smoothing: antialiased;
         }
 
+        h1,
+        h2,
+        h3,
+        .font-heading {
+            font-family: 'IBM Plex Sans', sans-serif;
+        }
+
+        code,
         .font-mono {
             font-family: 'Fira Code', monospace;
-        }
-
-        .glass-card {
-            background: rgba(30, 41, 59, 0.4);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(51, 65, 85, 0.5);
-        }
-
-        .prose {
-            color: #94a3b8;
-        }
-
-        .prose h2,
-        .prose h3 {
-            color: #f8fafc;
-            letter-spacing: -0.025em;
-        }
-
-        .prose strong {
-            color: #3b82f6;
-        }
-
-        .prose blockquote {
-            color: #cbd5e1;
-            border-left-color: #2563eb;
-            font-style: italic;
         }
     </style>
 </head>
 
-<body class="bg-[#0f172a] text-slate-200 antialiased">
-
+<body class="bg-canvas text-body antialiased bg-[#0f172a] text-slate-200 min-h-screen">
     <!-- Navbar -->
     <nav class="sticky top-0 z-50 bg-[#0f172a]/80 backdrop-blur-md border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="../index.html" class="text-xl font-bold tracking-tighter uppercase">Lisandro Cacciatore<span
-                    class="text-blue-600">_</span></a>
-            <div class="hidden md:flex space-x-8 font-mono text-sm uppercase tracking-widest">
-                <a href="../index.html" class="hover:text-blue-500 transition">Inicio</a>
-                <a href="../servicios.html" class="hover:text-blue-500 transition">Servicios</a>
-                <a href="../blog.html" class="hover:text-blue-500 transition">Blog</a>
-                <a href="../ironlog/index.html"
-                    class="text-blue-500 font-bold hover:text-blue-400 transition">IronLog</a>
+            <a href="../index.html"
+                class="text-xl font-bold tracking-tighter uppercase font-heading text-slate-200">Lisandro
+                Cacciatore<span class="text-cyan-500">_</span></a>
+            <div class="hidden md:flex space-x-8 font-mono text-sm uppercase tracking-widest text-slate-200">
+                <a href="../index.html" class="hover:text-cyan-400 transition">Inicio</a>
+                <a href="../servicios.html" class="hover:text-cyan-400 transition">Servicios</a>
+                <a href="../blog.html"
+                    class="hover:text-cyan-400 transition text-cyan-400 border-b border-cyan-500">Blog</a>
+                <a href="../contacto.html"
+                    class="px-4 py-2 border border-cyan-500 rounded text-cyan-400 hover:bg-cyan-500 hover:text-white transition">Contacto</a>
+            </div>
+            <div class="md:hidden">
+                <a href="../blog.html" class="text-[10px] font-mono text-slate-500">← Volver</a>
             </div>
         </div>
     </nav>
 
-    <main class="py-24 px-6">
+    <main class="py-16 px-6">
         <article class="max-w-3xl mx-auto">
-            <header class="mb-16">
-                <div class="flex items-center gap-3 mb-8">
-                    <span
-                        class="bg-blue-600/10 text-blue-500 text-[10px] font-mono font-bold px-2 py-1 rounded border border-blue-500/20">ARTÍCULO
-                        DE FONDO</span>
-                    <span class="text-slate-600 text-[10px] font-mono uppercase tracking-widest">7 MIN LECTURA</span>
-                </div>
-                <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-8 leading-tight">
-                    IronLog no resuelve el criterio.<br><span class="text-blue-600 italic">Te obliga a tenerlo.</span>
+            <header class="mb-14 border-b border-slate-800 pb-10">
+                <span
+                    class="inline-block py-1 px-3 rounded text-[10px] font-mono font-bold uppercase tracking-wider bg-cyan-900/20 border border-cyan-500/30 text-cyan-400 mb-6">
+                    Herramientas de Decisión
+                </span>
+                <h1 class="font-heading text-4xl md:text-5xl font-bold text-slate-100 mb-6 leading-tight">
+                    IronLog no resuelve el criterio. Te obliga a tenerlo.
                 </h1>
-                <p class="text-xl text-slate-400 leading-relaxed font-light">
-                    IronLog no es una app de entrenamiento. Es el instrumento de gobernanza que permite ejecutar un
-                    sistema de validación. La diferencia técnica importa.
+                <p class="text-xl text-slate-400 leading-relaxed max-w-2xl font-light">
+                    Sistemas de seguimiento sobran. Lo que escasea es la gobernanza de datos que fuerce a un staff
+                    técnico a explicitar sus reglas operativas.
                 </p>
+                <div class="mt-8 text-xs font-mono text-slate-500 uppercase tracking-widest">Lisandro Cacciatore · Enero
+                    2026</div>
             </header>
 
-            <div class="prose prose-invert prose-blue max-w-none">
-                <h2>El error del registro masivo</h2>
+            <div class="prose prose-lg prose-invert max-w-none prose-headings:font-heading prose-a:text-cyan-400">
+                <h2>El error del registro vacío</h2>
                 <p>
-                    En el alto rendimiento, el registro no es el problema. Todos registran: cargas, RPE, sueño,
-                    variabilidad cardíaca. El problema es que <strong>el registro no produce decisiones diferentes</strong>.
-                    Registrar por registrar es un costo operativo sin retorno.
+                    Todo club o academia tiene una iniciativa de "big data" hoy en día. Sin embargo, en la mayoría de
+                    los casos, <strong>el registro no produce decisiones operativas sólidas.</strong> Si a ti, como PF o
+                    Coordinador, registrar el RPE o medir los saltos con plataforma no te altera drásticamente el mapa
+                    de la semana, tu equipo simplemente está generando ruido blanco presupuestario.
                 </p>
-                <p>
-                    Lo que falta no son más datos, sino una <strong>Variable Crítica Validada (VCV)</strong>. Una señal clara que,
-                    cuando se mueve, obliga a un cambio en el proceso. Sin esa señal, el dato es ruido blanco
-                    estadístico.
-                </p>
-
-                <blockquote>
-                    "Un sistema de decisión basado en la intuición clínica es valioso, pero un sistema basado en
-                    gobernanza de datos es profesional y escalable."
-                </blockquote>
 
                 <h2>IronLog como Instrumento de Gobernanza</h2>
                 <p>
-                    IronLog nace para resolver esa brecha operativa. No está diseñado para "ver qué pasó", sino para
-                    <strong>gobernar lo que está pasando</strong>.
+                    IronLog no fue construido para responder a la pregunta cosmética de "¿cómo estoy rindiendo?". Está
+                    diseñado para resolver la fricción técnica del preparador de élite.
                 </p>
                 <p>
-                    Para configurar un seguimiento en IronLog, el preparador debe declarar la VCV del bloque. No puede
-                    evitar esa pregunta técnica. Al forzar la definición de la variable que manda, IronLog
-                    profesionaliza el criterio incluso antes de que el atleta toque la barra.
+                    Para configurar un segmento de seguimiento en IronLog, el entrenador <strong>debe</strong> declarar
+                    primero la Variable Crítica Validada (VCV) del bloque. A diferencia de las metodologías flexibles
+                    donde se puede mirar una métrica distinta cada día, IronLog bloquea esa fuga. Te forza a decidir qué
+                    métrica lidera la hipótesis de periodización y te ancla a su seguimiento.
                 </p>
 
-                <h2>Para quién es (y para quién no)</h2>
+                <blockquote class="border-l-4 border-cyan-500 pl-6 italic text-slate-300 my-8 py-2 bg-slate-900/50">
+                    "Al forzar la definición de la variable principal, el sistema profesionaliza el criterio del
+                    preparador antes de que el atleta efectúe la primera repetición de la fase."
+                </blockquote>
+
+                <h2>El verdadero cliente de esto no es el atleta</h2>
                 <p>
-                    Este instrumento es para preparadores que ya saben lo que hacen pero necesitan un <strong>respaldo técnico estructurado</strong>. Para quienes quieren que el estancamiento se detecte por tendencia de datos antes de
-                    que el atleta lo sienta físicamente.
-                </p>
-                <p>
-                    No es para quien busca una app que le diga qué rutina poner. Es para quien pone el criterio primero
-                    y quiere un instrumento que le permita ejercerlo con precisión quirúrgica.
+                    IronLog, y la metodología VCV subyacente, funcionan como un escudo técnico para el Coordinador de
+                    Rendimiento frente a las gerencias y cuerpos directivos. Provee la evidencia rastreable que responde
+                    a la pregunta institucional de por qué se gasta en herramientas de tecnología y cuál es el Retorno
+                    de Inversión (ROI) medido en días de disponibilidad física para la competencia oficial.
                 </p>
             </div>
 
-            <!-- CTA Contextual -->
-            <div class="mt-20 glass-card p-10 rounded-3xl border border-blue-800/30">
-                <h3 class="text-2xl font-bold mb-4 text-white">¿Tu registro actual produce criterio?</h3>
-                <p class="text-slate-400 mb-8 text-sm leading-relaxed">
-                    Si tus decisiones siguen dependiendo de la sensación y no de la validación técnica, tu sistema tiene
-                    una fuga de rendimiento. La Auditoría VCV es el primer paso para cerrarla.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4">
+            <div
+                class="mt-16 p-10 bg-slate-900 border border-slate-800 rounded flex flex-col items-center justify-between text-center gap-6">
+                <div>
+                    <h3 class="font-heading font-bold text-slate-100 text-2xl mb-2">¿Tu proceso resiste una auditoría
+                        técnica?</h3>
+                    <p class="text-slate-400 text-sm max-w-md mx-auto">
+                        La intuición clínica es útil; la validación técnica es escalable. Descubrí qué brecha frena el
+                        desempeño integral de tu departamento.
+                    </p>
+                </div>
+                <div class="flex flex-col sm:flex-row gap-4 w-full justify-center">
                     <a href="../contacto.html"
-                        class="px-8 py-4 bg-blue-700 hover:bg-blue-600 text-white font-bold rounded-lg transition-all uppercase tracking-widest text-[10px] text-center">
-                        Solicitar Auditoría VCV →
+                        class="bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-3 px-6 rounded transition-all uppercase tracking-widest text-[10px] font-mono">
+                        Agendar Implementación VCV
                     </a>
                     <a href="../autodiagnostico.html"
-                        class="px-8 py-4 border border-slate-700 hover:border-slate-500 text-slate-300 font-bold rounded-lg transition-all uppercase tracking-widest text-[10px] text-center">
-                        Hacer Autodiagnóstico
+                        class="border border-slate-700 hover:border-slate-500 text-slate-300 font-bold py-3 px-6 rounded transition-all uppercase tracking-widest text-[10px] font-mono">
+                        Validar mi Criterio (Test)
                     </a>
                 </div>
             </div>
         </article>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-[#0f172a] border-t border-slate-800 py-16 px-6">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
-            <div class="flex flex-col gap-3 items-center md:items-start">
-                <span class="text-2xl font-bold tracking-tighter uppercase text-white">Lisandro Cacciatore<span
-                        class="text-blue-600">_</span></span>
-                <p class="text-slate-500 text-[10px] font-mono uppercase tracking-[0.2em]">Gobernanza de Datos · Alto
-                    Rendimiento</p>
-            </div>
-            <div class="flex space-x-12 text-[10px] font-mono uppercase tracking-[0.3em] text-slate-600">
-                <a href="../blog.html" class="hover:text-blue-500 transition">Blog</a>
-                <a href="../servicios.html" class="hover:text-blue-500 transition">Servicios</a>
-                <span class="text-slate-800">© 2026</span>
-            </div>
+    <footer class="bg-slate-950 border-t border-slate-800 py-12 px-6">
+        <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <span class="text-lg font-bold tracking-tighter uppercase font-heading text-slate-200">Lisandro
+                Cacciatore<span class="text-cyan-500">_</span></span>
+            <div class="text-[10px] font-mono uppercase tracking-widest text-slate-600">© 2026 · Consultoría de Alto
+                Rendimiento</div>
         </div>
     </footer>
 </body>

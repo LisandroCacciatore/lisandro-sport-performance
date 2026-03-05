@@ -1,19 +1,26 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Autodiagnóstico de Decisión | Lisandro Cacciatore</title>
+    <meta name="description"
+        content="¿Generás criterio o solo acumulás registros? 10 señales operativas para identificar brechas en tu sistema de decisión técnico-deportiva.">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="theme.js"></script>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap"
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap"
         rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
             background-color: #0f172a;
             color: #f8fafc;
+        }
+
+        .font-heading {
+            font-family: 'IBM Plex Sans', sans-serif;
         }
 
         .font-mono {
@@ -25,7 +32,6 @@
         }
 
         .option-btn:hover {
-            transform: translateY(-2px);
             border-color: #3b82f6;
             color: white;
         }
@@ -34,21 +40,18 @@
             background-color: #1d4ed8 !important;
             border-color: #3b82f6 !important;
             color: white !important;
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
         }
 
         .selected-aveces {
             background-color: #b45309 !important;
             border-color: #f59e0b !important;
             color: white !important;
-            box-shadow: 0 0 20px rgba(245, 158, 11, 0.2);
         }
 
         .selected-no {
             background-color: #991b1b !important;
             border-color: #ef4444 !important;
             color: white !important;
-            box-shadow: 0 0 20px rgba(239, 68, 68, 0.2);
         }
 
         .question-card {
@@ -84,15 +87,15 @@
     <!-- Navbar -->
     <nav class="sticky top-0 z-50 bg-[#0f172a]/80 backdrop-blur-md border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="index.html" class="text-xl font-bold tracking-tighter uppercase">Lisandro Cacciatore<span
-                    class="text-blue-600">_</span></a>
+            <a href="index.html" class="text-xl font-bold tracking-tighter uppercase font-heading">Lisandro
+                Cacciatore<span class="text-cyan-500">_</span></a>
             <div class="hidden md:flex space-x-8 font-mono text-sm uppercase tracking-widest">
-                <a href="index.html" class="hover:text-blue-500 transition">Inicio</a>
-                <a href="servicios.html" class="hover:text-blue-500 transition">Servicios</a>
-                <a href="blog.html" class="hover:text-blue-500 transition">Blog</a>
-                <a href="ironlog/index.html" class="text-blue-500 font-bold hover:text-blue-400 transition">IronLog</a>
+                <a href="index.html" class="hover:text-cyan-400 transition">Inicio</a>
+                <a href="servicios.html" class="hover:text-cyan-400 transition">Servicios</a>
+                <a href="blog.html" class="hover:text-cyan-400 transition">Blog</a>
+                <a href="ironlog/index.html" class="text-cyan-400 font-bold hover:text-cyan-400 transition">IronLog</a>
                 <a href="contacto.html"
-                    class="px-4 py-2 border border-blue-600 rounded text-blue-500 hover:bg-blue-600 hover:text-white transition">Contacto</a>
+                    class="px-4 py-2 border border-cyan-500 rounded text-cyan-400 hover:bg-cyan-500 hover:text-white transition">Contacto</a>
             </div>
             <!-- Mobile "Back" for context -->
             <div class="md:hidden">
@@ -106,19 +109,15 @@
         <header class="relative pt-24 pb-32 overflow-hidden border-b border-slate-800/50">
             <div class="max-w-4xl mx-auto px-6 relative z-10 text-center">
                 <span
-                    class="inline-block py-1 px-3 rounded text-[10px] font-mono font-bold uppercase tracking-widest bg-blue-900/20 border border-blue-500/30 text-blue-400 mb-8">
+                    class="inline-block py-1 px-3 rounded text-[10px] font-mono font-bold uppercase tracking-widest bg-cyan-900/20 border border-cyan-500/30 text-cyan-400 mb-8">
                     Herramienta de Auditoría
                 </span>
-                <h1 class="text-4xl md:text-6xl font-bold mb-8 tracking-tight">Autodiagnóstico de <span
-                        class="text-blue-600">Decisión Técnico-Deportiva</span></h1>
+                <h1 class="text-4xl md:text-6xl font-bold mb-8 tracking-tight font-heading">Autodiagnóstico de <span
+                        class="text-cyan-500">Decisión Técnico-Deportiva</span></h1>
                 <p class="text-slate-400 text-xl leading-relaxed max-w-2xl mx-auto">
                     ¿Generás criterio o solo acumulás registros? Respondé estas 10 señales operativas para identificar
                     brechas en tu sistema de entrenamiento.
                 </p>
-            </div>
-            <!-- Background Decoration -->
-            <div
-                class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-900/10 via-transparent to-transparent pointer-events-none">
             </div>
         </header>
 
@@ -128,25 +127,23 @@
                 <div class="flex justify-between items-center mb-4">
                     <span class="text-[10px] font-mono text-slate-500 uppercase tracking-[0.2em] font-bold">Progreso del
                         Diagnóstico</span>
-                    <span id="progressText" class="text-[10px] font-mono text-blue-500 font-bold">0 / 10</span>
+                    <span id="progressText" class="text-[10px] font-mono text-cyan-400 font-bold">0 / 10</span>
                 </div>
-                <div class="w-full bg-slate-900 rounded-full h-1 border border-slate-800">
-                    <div id="progressBar"
-                        class="bg-blue-600 h-1 rounded-full transition-all duration-700 shadow-[0_0_10px_#2563eb]"
-                        style="width: 0%"></div>
+                <div class="w-full bg-slate-900 h-1 border border-slate-800">
+                    <div id="progressBar" class="bg-cyan-500 h-1 transition-all duration-700" style="width: 0%"></div>
                 </div>
             </div>
 
             <!-- Questions Container -->
             <div id="questionsContainer" class="space-y-8">
                 <!-- Question Cards -->
-                <div class="question-card p-10 rounded-2xl border border-slate-800 hover:border-slate-700 transition"
-                    data-q="1">
+                <div class="question-card p-10 border border-slate-800 hover:border-slate-700 transition" data-q="1">
                     <div class="flex gap-6 mb-10">
                         <span
-                            class="flex-shrink-0 w-12 h-12 bg-blue-600/10 border border-blue-600/20 text-blue-500 rounded-xl font-mono font-bold flex items-center justify-center">01</span>
+                            class="flex-shrink-0 w-12 h-12 bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 font-mono font-bold flex items-center justify-center">01</span>
                         <div>
-                            <h2 class="text-xl md:text-2xl font-bold mb-3 tracking-tight">¿Podés explicar por qué esta
+                            <h2 class="text-xl md:text-2xl font-bold mb-3 tracking-tight font-heading">¿Podés explicar
+                                por qué esta
                                 semana subiste o bajaste la carga?</h2>
                             <p class="text-slate-400 text-sm leading-relaxed">Debe ser una razón basada en una tendencia
                                 técnica observable, no en "sensación del día".</p>
@@ -154,24 +151,24 @@
                     </div>
                     <div class="flex flex-col sm:flex-row gap-4">
                         <button
-                            class="option-btn flex-1 py-4 px-6 rounded-lg border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
+                            class="option-btn flex-1 py-4 px-6 border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
                             data-q="1" data-val="si">Sí</button>
                         <button
-                            class="option-btn flex-1 py-4 px-6 rounded-lg border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
+                            class="option-btn flex-1 py-4 px-6 border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
                             data-q="1" data-val="aveces">A veces</button>
                         <button
-                            class="option-btn flex-1 py-4 px-6 rounded-lg border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
+                            class="option-btn flex-1 py-4 px-6 border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
                             data-q="1" data-val="no">No</button>
                     </div>
                 </div>
 
-                <div class="question-card p-10 rounded-2xl border border-slate-800 hover:border-slate-700 transition"
-                    data-q="2">
+                <div class="question-card p-10 border border-slate-800 hover:border-slate-700 transition" data-q="2">
                     <div class="flex gap-6 mb-10">
                         <span
-                            class="flex-shrink-0 w-12 h-12 bg-blue-600/10 border border-blue-600/20 text-blue-500 rounded-xl font-mono font-bold flex items-center justify-center">02</span>
+                            class="flex-shrink-0 w-12 h-12 bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 font-mono font-bold flex items-center justify-center">02</span>
                         <div>
-                            <h2 class="text-xl md:text-2xl font-bold mb-3 tracking-tight">¿Tenés un indicador que
+                            <h2 class="text-xl md:text-2xl font-bold mb-3 tracking-tight font-heading">¿Tenés un
+                                indicador que
                                 anticipe fatiga antes que caiga el rendimiento?</h2>
                             <p class="text-slate-400 text-sm leading-relaxed">Algo concreto (HRV, RPE, VBT) que avise
                                 antes de que el estancamiento sea irreversible.</p>
@@ -179,24 +176,24 @@
                     </div>
                     <div class="flex flex-col sm:flex-row gap-4">
                         <button
-                            class="option-btn flex-1 py-4 px-6 rounded-lg border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
+                            class="option-btn flex-1 py-4 px-6 border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
                             data-q="2" data-val="si">Sí</button>
                         <button
-                            class="option-btn flex-1 py-4 px-6 rounded-lg border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
+                            class="option-btn flex-1 py-4 px-6 border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
                             data-q="2" data-val="aveces">A veces</button>
                         <button
-                            class="option-btn flex-1 py-4 px-6 rounded-lg border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
+                            class="option-btn flex-1 py-4 px-6 border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
                             data-q="2" data-val="no">No</button>
                     </div>
                 </div>
 
-                <div class="question-card p-10 rounded-2xl border border-slate-800 hover:border-slate-700 transition"
-                    data-q="3">
+                <div class="question-card p-10 border border-slate-800 hover:border-slate-700 transition" data-q="3">
                     <div class="flex gap-6 mb-10">
                         <span
-                            class="flex-shrink-0 w-12 h-12 bg-blue-600/10 border border-blue-600/20 text-blue-500 rounded-xl font-mono font-bold flex items-center justify-center">03</span>
+                            class="flex-shrink-0 w-12 h-12 bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 font-mono font-bold flex items-center justify-center">03</span>
                         <div>
-                            <h2 class="text-xl md:text-2xl font-bold mb-3 tracking-tight">¿Tus ajustes se basan en
+                            <h2 class="text-xl md:text-2xl font-bold mb-3 tracking-tight font-heading">¿Tus ajustes se
+                                basan en
                                 tendencia o en la intuición de la sesión?</h2>
                             <p class="text-slate-400 text-sm leading-relaxed">Tendencia = 2 o más puntos en la misma
                                 dirección. Intuición = "lo vi raro hoy".</p>
@@ -204,24 +201,24 @@
                     </div>
                     <div class="flex flex-col sm:flex-row gap-4">
                         <button
-                            class="option-btn flex-1 py-4 px-6 rounded-lg border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
+                            class="option-btn flex-1 py-4 px-6 border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
                             data-q="3" data-val="si">Tendencia</button>
                         <button
-                            class="option-btn flex-1 py-4 px-6 rounded-lg border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
+                            class="option-btn flex-1 py-4 px-6 border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
                             data-q="3" data-val="aveces">Mixto</button>
                         <button
-                            class="option-btn flex-1 py-4 px-6 rounded-lg border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
+                            class="option-btn flex-1 py-4 px-6 border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
                             data-q="3" data-val="no">Intuición</button>
                     </div>
                 </div>
 
-                <div class="question-card p-10 rounded-2xl border border-slate-800 hover:border-slate-700 transition"
-                    data-q="4">
+                <div class="question-card p-10 border border-slate-800 hover:border-slate-700 transition" data-q="4">
                     <div class="flex gap-6 mb-10">
                         <span
-                            class="flex-shrink-0 w-12 h-12 bg-blue-600/10 border border-blue-600/20 text-blue-500 rounded-xl font-mono font-bold flex items-center justify-center">04</span>
+                            class="flex-shrink-0 w-12 h-12 bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 font-mono font-bold flex items-center justify-center">04</span>
                         <div>
-                            <h2 class="text-xl md:text-2xl font-bold mb-3 tracking-tight">¿Medís calidad de ejecución o
+                            <h2 class="text-xl md:text-2xl font-bold mb-3 tracking-tight font-heading">¿Medís calidad de
+                                ejecución o
                                 solo anotás volumen?</h2>
                             <p class="text-slate-400 text-sm leading-relaxed">¿Sabés a qué velocidad se movieron los
                                 kilos, o solo anotás los kilos?</p>
@@ -229,24 +226,24 @@
                     </div>
                     <div class="flex flex-col sm:flex-row gap-4">
                         <button
-                            class="option-btn flex-1 py-4 px-6 rounded-lg border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
+                            class="option-btn flex-1 py-4 px-6 border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
                             data-q="4" data-val="si">Ejecución</button>
                         <button
-                            class="option-btn flex-1 py-4 px-6 rounded-lg border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
+                            class="option-btn flex-1 py-4 px-6 border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
                             data-q="4" data-val="aveces">Ambos</button>
                         <button
-                            class="option-btn flex-1 py-4 px-6 rounded-lg border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
+                            class="option-btn flex-1 py-4 px-6 border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
                             data-q="4" data-val="no">Solo Volumen</button>
                     </div>
                 </div>
 
-                <div class="question-card p-10 rounded-2xl border border-slate-800 hover:border-slate-700 transition"
-                    data-q="5">
+                <div class="question-card p-10 border border-slate-800 hover:border-slate-700 transition" data-q="5">
                     <div class="flex gap-6 mb-10">
                         <span
-                            class="flex-shrink-0 w-12 h-12 bg-blue-600/10 border border-blue-600/20 text-blue-500 rounded-xl font-mono font-bold flex items-center justify-center">05</span>
+                            class="flex-shrink-0 w-12 h-12 bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 font-mono font-bold flex items-center justify-center">05</span>
                         <div>
-                            <h2 class="text-xl md:text-2xl font-bold mb-3 tracking-tight">¿Podés demostrar progreso sin
+                            <h2 class="text-xl md:text-2xl font-bold mb-3 tracking-tight font-heading">¿Podés demostrar
+                                progreso sin
                                 esperar a un test formal?</h2>
                             <p class="text-slate-400 text-sm leading-relaxed">¿Tenés evidencia diaria de que el proceso
                                 va por el camino correcto?</p>
@@ -254,24 +251,24 @@
                     </div>
                     <div class="flex flex-col sm:flex-row gap-4">
                         <button
-                            class="option-btn flex-1 py-4 px-6 rounded-lg border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
+                            class="option-btn flex-1 py-4 px-6 border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
                             data-q="5" data-val="si">Sí</button>
                         <button
-                            class="option-btn flex-1 py-4 px-6 rounded-lg border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
+                            class="option-btn flex-1 py-4 px-6 border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
                             data-q="5" data-val="aveces">A veces</button>
                         <button
-                            class="option-btn flex-1 py-4 px-6 rounded-lg border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
+                            class="option-btn flex-1 py-4 px-6 border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
                             data-q="5" data-val="no">No</button>
                     </div>
                 </div>
 
-                <div class="question-card p-10 rounded-2xl border border-slate-800 hover:border-slate-700 transition"
-                    data-q="6">
+                <div class="question-card p-10 border border-slate-800 hover:border-slate-700 transition" data-q="6">
                     <div class="flex gap-6 mb-10">
                         <span
-                            class="flex-shrink-0 w-12 h-12 bg-blue-600/10 border border-blue-600/20 text-blue-500 rounded-xl font-mono font-bold flex items-center justify-center">06</span>
+                            class="flex-shrink-0 w-12 h-12 bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 font-mono font-bold flex items-center justify-center">06</span>
                         <div>
-                            <h2 class="text-xl md:text-2xl font-bold mb-3 tracking-tight">Si el plan falla, ¿tenés claro
+                            <h2 class="text-xl md:text-2xl font-bold mb-3 tracking-tight font-heading">Si el plan falla,
+                                ¿tenés claro
                                 exactamente por qué falló?</h2>
                             <p class="text-slate-400 text-sm leading-relaxed">¿Fue fatiga acumulada, volumen efectivo
                                 bajo o mala selección de VCV?</p>
@@ -279,24 +276,24 @@
                     </div>
                     <div class="flex flex-col sm:flex-row gap-4">
                         <button
-                            class="option-btn flex-1 py-4 px-6 rounded-lg border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
+                            class="option-btn flex-1 py-4 px-6 border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
                             data-q="6" data-val="si">Sé exacto</button>
                         <button
-                            class="option-btn flex-1 py-4 px-6 rounded-lg border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
+                            class="option-btn flex-1 py-4 px-6 border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
                             data-q="6" data-val="aveces">Tengo dudas</button>
                         <button
-                            class="option-btn flex-1 py-4 px-6 rounded-lg border border-slate-800 bg-slate-900/50 text-[10px) font-bold uppercase tracking-[0.2em] text-slate-500"
+                            class="option-btn flex-1 py-4 px-6 border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
                             data-q="6" data-val="no">No sé</button>
                     </div>
                 </div>
 
-                <div class="question-card p-10 rounded-2xl border border-slate-800 hover:border-slate-700 transition"
-                    data-q="7">
+                <div class="question-card p-10 border border-slate-800 hover:border-slate-700 transition" data-q="7">
                     <div class="flex gap-6 mb-10">
                         <span
-                            class="flex-shrink-0 w-12 h-12 bg-blue-600/10 border border-blue-600/20 text-blue-500 rounded-xl font-mono font-bold flex items-center justify-center">07</span>
+                            class="flex-shrink-0 w-12 h-12 bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 font-mono font-bold flex items-center justify-center">07</span>
                         <div>
-                            <h2 class="text-xl md:text-2xl font-bold mb-3 tracking-tight">¿Existe una regla IF → THEN
+                            <h2 class="text-xl md:text-2xl font-bold mb-3 tracking-tight font-heading">¿Existe una regla
+                                IF → THEN
                                 escrita para tus ajustes?</h2>
                             <p class="text-slate-400 text-sm leading-relaxed">Algo tipo: SI X pasa → HAGO Y. Regla
                                 técnica pre-acordada.</p>
@@ -304,24 +301,24 @@
                     </div>
                     <div class="flex flex-col sm:flex-row gap-4">
                         <button
-                            class="option-btn flex-1 py-4 px-6 rounded-lg border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
+                            class="option-btn flex-1 py-4 px-6 border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
                             data-q="7" data-val="si">Sí, escrita</button>
                         <button
-                            class="option-btn flex-1 py-4 px-6 rounded-lg border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
+                            class="option-btn flex-1 py-4 px-6 border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
                             data-q="7" data-val="aveces">En mente</button>
                         <button
-                            class="option-btn flex-1 py-4 px-6 rounded-lg border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
+                            class="option-btn flex-1 py-4 px-6 border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
                             data-q="7" data-val="no">No existe</button>
                     </div>
                 </div>
 
-                <div class="question-card p-10 rounded-2xl border border-slate-800 hover:border-slate-700 transition"
-                    data-q="8">
+                <div class="question-card p-10 border border-slate-800 hover:border-slate-700 transition" data-q="8">
                     <div class="flex gap-6 mb-10">
                         <span
-                            class="flex-shrink-0 w-12 h-12 bg-blue-600/10 border border-blue-600/20 text-blue-500 rounded-xl font-mono font-bold flex items-center justify-center">08</span>
+                            class="flex-shrink-0 w-12 h-12 bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 font-mono font-bold flex items-center justify-center">08</span>
                         <div>
-                            <h2 class="text-xl md:text-2xl font-bold mb-3 tracking-tight">¿Sabés qué porcentaje de tu
+                            <h2 class="text-xl md:text-2xl font-bold mb-3 tracking-tight font-heading">¿Sabés qué
+                                porcentaje de tu
                                 volumen programado es efectivo?</h2>
                             <p class="text-slate-400 text-sm leading-relaxed">Conocimiento del punto de retorno
                                 decreciente en tus sesiones.</p>
@@ -329,24 +326,24 @@
                     </div>
                     <div class="flex flex-col sm:flex-row gap-4">
                         <button
-                            class="option-btn flex-1 py-4 px-6 rounded-lg border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
+                            class="option-btn flex-1 py-4 px-6 border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
                             data-q="8" data-val="si">Sé exacto</button>
                         <button
-                            class="option-btn flex-1 py-4 px-6 rounded-lg border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
+                            class="option-btn flex-1 py-4 px-6 border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
                             data-q="8" data-val="aveces">En teoría</button>
                         <button
-                            class="option-btn flex-1 py-4 px-6 rounded-lg border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
+                            class="option-btn flex-1 py-4 px-6 border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
                             data-q="8" data-val="no">No sé</button>
                     </div>
                 </div>
 
-                <div class="question-card p-10 rounded-2xl border border-slate-800 hover:border-slate-700 transition"
-                    data-q="9">
+                <div class="question-card p-10 border border-slate-800 hover:border-slate-700 transition" data-q="9">
                     <div class="flex gap-6 mb-10">
                         <span
-                            class="flex-shrink-0 w-12 h-12 bg-blue-600/10 border border-blue-600/20 text-blue-500 rounded-xl font-mono font-bold flex items-center justify-center">09</span>
+                            class="flex-shrink-0 w-12 h-12 bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 font-mono font-bold flex items-center justify-center">09</span>
                         <div>
-                            <h2 class="text-xl md:text-2xl font-bold mb-3 tracking-tight">¿Podés replicar los resultados
+                            <h2 class="text-xl md:text-2xl font-bold mb-3 tracking-tight font-heading">¿Podés replicar
+                                los resultados
                                 sin depender de la suerte?</h2>
                             <p class="text-slate-400 text-sm leading-relaxed">Si la temporada empezara mañana, ¿tenés el
                                 "blueprint" técnico del éxito?</p>
@@ -354,24 +351,24 @@
                     </div>
                     <div class="flex flex-col sm:flex-row gap-4">
                         <button
-                            class="option-btn flex-1 py-4 px-6 rounded-lg border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
+                            class="option-btn flex-1 py-4 px-6 border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
                             data-q="9" data-val="si">Sí, es sistema</button>
                         <button
-                            class="option-btn flex-1 py-4 px-6 rounded-lg border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
+                            class="option-btn flex-1 py-4 px-6 border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
                             data-q="9" data-val="aveces">En parte</button>
                         <button
-                            class="option-btn flex-1 py-4 px-6 rounded-lg border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
+                            class="option-btn flex-1 py-4 px-6 border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
                             data-q="9" data-val="no">Dependo de mí</button>
                     </div>
                 </div>
 
-                <div class="question-card p-10 rounded-2xl border border-slate-800 hover:border-slate-700 transition"
-                    data-q="10">
+                <div class="question-card p-10 border border-slate-800 hover:border-slate-700 transition" data-q="10">
                     <div class="flex gap-6 mb-10">
                         <span
-                            class="flex-shrink-0 w-12 h-12 bg-blue-600/10 border border-blue-600/20 text-blue-500 rounded-xl font-mono font-bold flex items-center justify-center">10</span>
+                            class="flex-shrink-0 w-12 h-12 bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 font-mono font-bold flex items-center justify-center">10</span>
                         <div>
-                            <h2 class="text-xl md:text-2xl font-bold mb-3 tracking-tight">¿Quién decide el cambio de
+                            <h2 class="text-xl md:text-2xl font-bold mb-3 tracking-tight font-heading">¿Quién decide el
+                                cambio de
                                 fase y bajo qué umbral?</h2>
                             <p class="text-slate-400 text-sm leading-relaxed">¿Hay un umbral cuantitativo o depende de
                                 quién esté más seguro hoy?</p>
@@ -379,13 +376,13 @@
                     </div>
                     <div class="flex flex-col sm:flex-row gap-4">
                         <button
-                            class="option-btn flex-1 py-4 px-6 rounded-lg border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
+                            class="option-btn flex-1 py-4 px-6 border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
                             data-q="10" data-val="si">Umbral Claro</button>
                         <button
-                            class="option-btn flex-1 py-4 px-6 rounded-lg border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
+                            class="option-btn flex-1 py-4 px-6 border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
                             data-q="10" data-val="aveces">Mixto</button>
                         <button
-                            class="option-btn flex-1 py-4 px-6 rounded-lg border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
+                            class="option-btn flex-1 py-4 px-6 border border-slate-800 bg-slate-900/50 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500"
                             data-q="10" data-val="no">Intuición</button>
                     </div>
                 </div>
@@ -394,28 +391,32 @@
             <!-- Result Panel -->
             <div id="resultPanel" class="hidden mt-24 pb-48">
                 <div id="resultCard"
-                    class="rounded-3xl border border-slate-800 bg-slate-900/80 p-12 md:p-20 shadow-2xl relative overflow-hidden text-center">
+                    class="border border-slate-800 bg-slate-900/80 p-12 md:p-20 relative overflow-hidden text-center">
                     <div class="relative z-10">
-                        <div id="resultScore" class="text-7xl font-bold text-white mb-4 tracking-tighter"></div>
+                        <div id="brecha-label"
+                            class="text-[10px] font-mono uppercase tracking-widest text-amber-500 font-bold mb-2"></div>
+                        <div id="resultScore" class="text-7xl font-bold text-white mb-4 tracking-tighter font-mono">
+                        </div>
                         <div id="resultLabel"
-                            class="text-xs font-mono uppercase tracking-[0.4em] text-blue-500 font-bold mb-10"></div>
+                            class="text-xs font-mono uppercase tracking-[0.4em] text-cyan-400 font-bold mb-10"></div>
                         <h2 id="resultTitle"
-                            class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight tracking-tight"></h2>
+                            class="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight tracking-tight font-heading">
+                        </h2>
                         <p id="resultBody" class="text-slate-400 leading-relaxed max-w-2xl mx-auto mb-16 text-lg"></p>
 
                         <div class="flex gap-8 justify-center mb-16 px-6">
                             <div class="text-center px-6 border-r border-slate-800 last:border-0">
-                                <div id="siCount" class="text-3xl font-bold text-blue-500">–</div>
+                                <div id="siCount" class="text-3xl font-bold text-cyan-400 font-mono">–</div>
                                 <div class="text-[10px] font-mono text-slate-500 uppercase mt-2 tracking-widest">SÍ
                                 </div>
                             </div>
                             <div class="text-center px-6 border-r border-slate-800 last:border-0">
-                                <div id="avecesCount" class="text-3xl font-bold text-amber-500">–</div>
+                                <div id="avecesCount" class="text-3xl font-bold text-amber-500 font-mono">–</div>
                                 <div class="text-[10px] font-mono text-slate-500 uppercase mt-2 tracking-widest">A veces
                                 </div>
                             </div>
                             <div class="text-center px-6 last:border-0">
-                                <div id="noCount" class="text-3xl font-bold text-red-500">–</div>
+                                <div id="noCount" class="text-3xl font-bold text-red-500 font-mono">–</div>
                                 <div class="text-[10px] font-mono text-slate-500 uppercase mt-2 tracking-widest">No
                                 </div>
                             </div>
@@ -423,18 +424,14 @@
 
                         <div class="flex flex-col sm:flex-row gap-6 justify-center">
                             <a href="contacto.html"
-                                class="px-12 py-5 bg-blue-700 hover:bg-blue-600 text-white font-bold rounded-lg transition-all uppercase tracking-[0.2em] text-[10px] shadow-xl shadow-blue-900/40">
-                                Iniciar Auditoría de Sistema →
+                                class="px-12 py-5 bg-cyan-600 hover:bg-cyan-500 text-white font-bold rounded transition-all uppercase tracking-[0.2em] text-[10px]">
+                                Iniciar Auditoría VCV →
                             </a>
                             <a href="servicios.html"
-                                class="px-12 py-5 border border-slate-700 hover:border-slate-500 text-slate-300 font-bold rounded-lg transition-all uppercase tracking-[0.2em] text-[10px]">
+                                class="px-12 py-5 border border-slate-700 hover:border-slate-500 text-slate-300 font-bold rounded transition-all uppercase tracking-[0.2em] text-[10px]">
                                 Ver Metodología VCV
                             </a>
                         </div>
-                    </div>
-                    <!-- Glow effect in background -->
-                    <div
-                        class="absolute -bottom-48 -left-48 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px] pointer-events-none">
                     </div>
                 </div>
             </div>
@@ -443,8 +440,8 @@
 
     <footer class="bg-slate-950 border-t border-slate-800 py-20 px-6 text-center">
         <div class="max-w-7xl mx-auto">
-            <span class="text-2xl font-bold tracking-tighter uppercase mb-6 block">Lisandro Cacciatore<span
-                    class="text-blue-600">_</span></span>
+            <span class="text-2xl font-bold tracking-tighter uppercase mb-6 block font-heading">Lisandro Cacciatore<span
+                    class="text-cyan-500">_</span></span>
             <p class="text-slate-600 text-xs font-mono uppercase tracking-[0.3em] italic mb-8">"No podés gestionar lo
                 que no podés medir con criterio."</p>
             <div class="w-12 h-px bg-slate-800 mx-auto mb-8"></div>
@@ -479,28 +476,31 @@
             document.getElementById('noCount').textContent = no;
 
             const panel = document.getElementById('resultPanel');
-            const card = document.getElementById('resultCard');
             panel.classList.remove('hidden');
 
-            let title, body, scoreText, labelText;
+            let title, body, scoreText, labelText, brechaText;
 
             if (si >= 7) {
                 scoreText = si + '/10';
                 labelText = 'Arquitectura Estructural';
+                brechaText = 'Brecha Tipo B — Ruido blanco estadístico';
                 title = 'Tu sistema tiene base técnica. Requiere Gobernanza.';
-                body = 'Tenés las piezas adecuadas para el criterio técnico. La brecha hoy es operativa: necesitás automatizar el flujo para que el sistema le pertenezca a la organización y no a tu capacidad de atención diaria.';
+                body = 'Tenés las piezas adecuadas para el criterio técnico. La brecha hoy es operativa: cada entrenador mira métricas distintas y las reuniones técnicas no producen decisiones comunes. El Sistema de Gobernanza es tu siguiente paso.';
             } else if (si >= 4) {
                 scoreText = si + '/10';
                 labelText = 'Zona de Ruido Silencioso';
+                brechaText = 'Brecha Tipo A — Inoperancia del macrociclo';
                 title = 'Existen señales aisladas. Tenés fugas críticas.';
-                body = 'Registrás datos pero el estancamiento sigue teniendo lugares donde esconderse. En el alto rendimiento, esta incertidumbre se paga con lesiones o falta de peaking funcional. La Auditoría VCV es tu siguiente paso.';
+                body = 'Registrás datos pero el estancamiento sigue teniendo lugares donde esconderse. El sistema existe pero las decisiones de ajuste son intuitivas. No hay una regla IF → THEN que describa cuándo intervenir. La Auditoría VCV identifica esa brecha en 14 días.';
             } else {
                 scoreText = si + '/10';
                 labelText = 'Proceso Reactivo / Intuitivo';
+                brechaText = 'Brecha Tipo A crítica — Sin sistema de decisión';
                 title = 'La intuición domina tu proceso. El riesgo es alto.';
-                body = 'Tus decisiones dependen de tu estado de ánimo o del "ojo clínico" del momento. Sin reglas IF → THEN, no hay reproducibilidad. Tu pericia está atrapada en registros que no producen criterio efectivo.';
+                body = 'Tus decisiones dependen de tu estado de ánimo o del "ojo clínico" del momento. Sin reglas IF → THEN, no hay reproducibilidad. Tu pericia está atrapada en registros que no producen criterio efectivo. La Auditoría VCV transforma eso en 14 días.';
             }
 
+            document.getElementById('brecha-label').textContent = brechaText;
             document.getElementById('resultScore').textContent = scoreText;
             document.getElementById('resultLabel').textContent = labelText;
             document.getElementById('resultTitle').textContent = title;

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 
 <head>
@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dato vs. Decisión | Lisandro Cacciatore</title>
     <meta name="description"
-        content="Hay dos tipos de entrenadores que trabajan con datos. Los que registran para documentar lo que pasó, y los que tienen reglas IF → THEN.">
+        content="Hay dos tipos de staffs técnicos que trabajan con datos. Los que registran para documentar lo que pasó, y los que tienen reglas IF → THEN.">
     <link rel="canonical" href="https://lisandrocacciatore.com/blog/dato-vs-decision.html">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
@@ -32,168 +32,120 @@
             font-family: 'Fira Code', monospace;
         }
     </style>
-    <meta property="og:type" content="article">
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "Dato vs. Decisión",
-      "description": "Hay dos tipos de entrenadores que trabajan con datos. Los que registran para documentar lo que pasó, y los que tienen reglas IF → THEN.",
-      "author": { "@type": "Person", "name": "Lisandro Cacciatore", "url": "https://lisandrocacciatore.com" },
-      "datePublished": "2026-02-28",
-      "dateModified": "2026-02-28"
-    }
-    </script>
 </head>
 
 <body class="bg-canvas text-body antialiased">
-
-    <nav class="sticky top-0 z-50 bg-canvas/95 backdrop-blur-sm border-b border-border">
-        <div class="max-w-4xl mx-auto px-6 h-16 flex justify-between items-center">
-            <a href="../index.html" class="font-heading font-semibold text-lg text-ink flex items-center gap-1">
-                Lisandro Cacciatore <span class="text-primary font-mono font-bold">_</span>
-            </a>
-            <a href="../blog.html" class="text-sm font-medium text-muted hover:text-primary transition-colors">←
-                Blog</a>
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-[#0f172a]/80 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="../index.html"
+                class="text-xl font-bold tracking-tighter uppercase font-heading text-slate-200">Lisandro
+                Cacciatore<span class="text-cyan-500">_</span></a>
+            <div class="hidden md:flex space-x-8 font-mono text-sm uppercase tracking-widest text-slate-200">
+                <a href="../index.html" class="hover:text-cyan-400 transition">Inicio</a>
+                <a href="../servicios.html" class="hover:text-cyan-400 transition">Servicios</a>
+                <a href="../blog.html"
+                    class="hover:text-cyan-400 transition text-cyan-400 border-b border-cyan-500">Blog</a>
+                <a href="../contacto.html"
+                    class="px-4 py-2 border border-cyan-500 rounded text-cyan-400 hover:bg-cyan-500 hover:text-white transition">Contacto</a>
+            </div>
+            <div class="md:hidden">
+                <a href="../blog.html" class="text-[10px] font-mono text-slate-500">← Volver</a>
+            </div>
         </div>
     </nav>
 
-    <main class="py-16 px-6">
+    <main class="py-16 px-6 bg-[#0f172a] text-slate-200 min-h-screen">
         <article class="max-w-3xl mx-auto">
-
-            <header class="mb-14 text-center">
-                <nav class="flex justify-center text-xs text-muted font-mono gap-2 items-center mb-6">
-                    <a href="../blog.html" class="hover:text-primary">Blog</a>
-                    <span>/</span>
-                    <span class="text-body">Gobernanza de Datos</span>
-                </nav>
+            <header class="mb-14 border-b border-slate-800 pb-10">
                 <span
-                    class="inline-block py-1 px-3 rounded text-[10px] font-mono font-bold uppercase tracking-wider bg-surface border border-border text-muted mb-6">Gobernanza
-                    de Datos · Artículo 7</span>
-                <h1 class="font-heading text-3xl md:text-5xl font-bold text-ink mb-6 leading-tight">
-                    Dato vs. Decisión
+                    class="inline-block py-1 px-3 rounded text-[10px] font-mono font-bold uppercase tracking-wider bg-cyan-900/20 border border-cyan-500/30 text-cyan-400 mb-6">
+                    Gobernanza de Datos · Brecha Operativa
+                </span>
+                <h1 class="font-heading text-4xl md:text-5xl font-bold text-slate-100 mb-6 leading-tight">
+                    Dato vs. Decisión: El costo oculto del registro masivo
                 </h1>
-                <p class="text-lg text-body leading-relaxed max-w-2xl mx-auto">
-                    Hay dos tipos de entrenadores: los que miden para documentar el pasado, y los que tienen reglas IF →
-                    THEN para actuar.
+                <p class="text-xl text-slate-400 leading-relaxed max-w-2xl font-light">
+                    Hay staffs técnicos que miden para documentar el pasado y defenderse ante la dirigencia. Hay otros
+                    que tienen reglas IF → THEN para actuar antes de que el estancamiento ocurra.
                 </p>
-                <div class="mt-6 text-xs font-mono text-muted">Lisandro Cacciatore · Febrero 2026 · 5 min de lectura
-                </div>
+                <div class="mt-8 text-xs font-mono text-slate-500 uppercase tracking-widest">Lisandro Cacciatore ·
+                    Febrero 2026</div>
             </header>
 
-            <div class="prose prose-lg prose-slate max-w-none
-                prose-headings:font-heading prose-headings:text-ink prose-headings:font-bold
-                prose-a:text-primary prose-a:no-underline hover:prose-a:underline
-                prose-blockquote:border-l-4 prose-blockquote:border-primary prose-blockquote:pl-6 prose-blockquote:not-italic
-                prose-blockquote:text-body prose-blockquote:font-medium
-                prose-strong:text-ink">
-
-                <h2>Hay dos tipos de entrenadores que trabajan con datos.</h2>
-                <p>
-                    Los que registran para documentar lo que pasó. Los que registran para saber qué hacer el lunes
-                    siguiente.
-                </p>
-                <p>
-                    El primero tiene planillas, wearables, reportes semanales. El domingo a la noche, frente a todos
-                    esos números, la decisión de carga igual termina siendo intuitiva. Los datos sirvieron para
-                    constatar el pasado, no para definir la acción.
+            <div class="prose prose-lg prose-invert max-w-none prose-headings:font-heading prose-a:text-cyan-400">
+                <p class="lead text-lg text-slate-300">
+                    Si eres un Coordinador de Rendimiento o un Preparador Físico, probablemente lideres un área que
+                    acumula datos. GPS, Wellness, cuestionarios de esfuerzo percibido (RPE), horas de sueño. Todos
+                    registran. El problema es que <strong>el registro rara vez produce decisiones diferentes a la
+                        intuición original</strong>.
                 </p>
 
-                <h2>El segundo tiene algo distinto: una regla escrita.</h2>
+                <h2>La Brecha Operativa: Inoperancia del Macrociclo</h2>
                 <p>
-                    Si la Variable Crítica del bloque cae fuera del umbral, entonces la sesión del lunes se ajusta de
-                    una forma específica. No hay deliberación en el momento. La señal activa la decisión.
+                    Cuando llega el domingo por la noche y debes ajustar las cargas de la semana, ¿qué sucede frente a
+                    todos esos números? Si la decisión final de subir o bajar la intensidad termina siendo un debate de
+                    "sensaciones" o "ojo clínico", tienes una brecha operativa.
                 </p>
                 <p>
-                    La diferencia entre los dos no es la cantidad de datos que manejan. Es si existe un protocolo que
-                    convierte esos datos en una intervención concreta.
+                    Los datos en tu sistema están sirviendo para constatar el pasado o generar gráficos para el Director
+                    Deportivo, pero no para definir la acción. Ese es el ruido blanco estadístico que consume el
+                    presupuesto de tu departamento sin aportar Retorno de Inversión (ROI) en disponibilidad del atleta.
                 </p>
 
-                <blockquote>
-                    Un dashboard no toma decisiones. Un esquema IF → THEN, sí.<br />
-                    El dato que no tiene umbral es ruido de archivo.
+                <h2>El Criterio Técnico: La regla escrita IF → THEN</h2>
+                <p>
+                    El staff de alto nivel se distingue por algo radicalmente opuesto. No discuten el lunes por la
+                    mañana sobre la sensación general del equipo. Tienen una regla escrita y pre-acordada.
+                </p>
+                <p>
+                    <strong>Si la Variable Crítica Validada (VCV) del bloque cae X porcentaje por debajo del umbral,
+                        entonces el volumen de la sesión del martes se ajusta Y porcentaje.</strong>
+                </p>
+                <p>
+                    No hay deliberación en el momento. La señal técnica dispara la decisión logística. La arquitectura
+                    institucional asume el control, independientemente de qué preparador de turno esté mirando la
+                    planilla.
+                </p>
+
+                <blockquote class="border-l-4 border-cyan-500 pl-6 italic text-slate-300 my-8 py-2 bg-slate-900/50">
+                    Un dashboard brillante no toma decisiones. Un esquema IF → THEN de 10 líneas, sí. El dato que no
+                    tiene un umbral asociado a una acción, es mero ruido de archivo.
                 </blockquote>
 
+                <h2>Gobernanza Institucional</h2>
+                <p>
+                    Centralizar la verdad deportiva en reglas, no en individuos, garantiza que el proceso le pertenezca
+                    a la organización deportiva y no al individuo. Si el Head Coach se va, el criterio queda. Esa es la
+                    verdadera profesionalización del área.
+                </p>
             </div>
 
-            <div
-                class="not-prose my-14 p-10 bg-slate-900 border border-blue-900/30 rounded-2xl flex flex-col md:flex-row gap-8 items-start md:items-center justify-between relative overflow-hidden">
-                <div class="relative z-10">
-                    <p class="text-[10px] font-mono font-bold uppercase tracking-widest text-blue-500 mb-2">Gobernanza
-                        de Datos</p>
-                    <h3 class="font-heading font-bold text-slate-100 text-2xl mb-2">Un dashboard no decide. Una regla
-                        escrita, sí.</h3>
-                    <p class="text-slate-400 text-sm max-w-md">No recolectes datos por inercia. Establecemos los
-                        umbrales operativos que tu equipo necesita para actuar sin dudar. Resultados aplicables en 14
-                        días.</p>
-                </div>
-                <div class="flex flex-col gap-3 relative z-10 w-full md:w-auto">
-                    <a href="../contacto.html"
-                        class="bg-blue-700 hover:bg-blue-600 text-white font-bold py-4 px-8 rounded shadow-lg shadow-blue-900/20 transition-all text-center uppercase tracking-widest text-xs">
-                        Agendar Auditoría VCV →
-                    </a>
-                    <a href="../autodiagnostico.html"
-                        class="border border-slate-700 hover:border-slate-500 text-slate-300 font-bold py-4 px-8 rounded transition-all text-center uppercase tracking-widest text-xs">
-                        Hacer Autodiagnóstico
-                    </a>
-                </div>
-                <!-- Decoración -->
-                <div class="absolute top-0 right-0 w-32 h-32 bg-blue-600/5 blur-3xl rounded-full -mr-16 -mt-16"></div>
+            <div class="mt-16 p-10 bg-slate-900 border border-slate-800 rounded flex flex-col items-center text-center">
+                <p class="text-[10px] font-mono font-bold uppercase tracking-widest text-amber-500 mb-4">Brecha Tipo A:
+                    Inoperancia</p>
+                <h3 class="font-heading font-bold text-slate-100 text-2xl mb-4">Un dashboard no decide. ¿Tenés reglas
+                    operativas?</h3>
+                <p class="text-slate-400 text-sm mb-8 max-w-lg">
+                    Construimos el proceso que transforma tu intuición técnica en un sistema predecible y validable.
+                    Identificamos en 14 días la Variable Crítica de tu bloque.
+                </p>
+                <a href="../contacto.html"
+                    class="bg-cyan-600 hover:bg-cyan-500 text-white font-bold py-4 px-10 rounded transition-all uppercase tracking-widest text-[10px] font-mono">
+                    Soldar la Brecha: Auditoría VCV
+                </a>
             </div>
-
-            <div class="not-prose mt-14 border-t border-border pt-10">
-                <p class="text-[10px] font-mono font-bold uppercase tracking-wider text-muted mb-6">Seguir leyendo</p>
-                <div class="grid md:grid-cols-2 gap-4">
-                    <a href="./el-costo-de-la-incertidumbre.html"
-                        class="group block p-5 bg-surface border border-border rounded hover:border-primary transition-colors">
-                        <span class="text-[10px] font-mono text-muted uppercase block mb-1">Artículo 6</span>
-                        <h4
-                            class="font-heading font-bold text-ink group-hover:text-primary transition-colors leading-snug">
-                            El costo de la incertidumbre</h4>
-                    </a>
-                </div>
-            </div>
-
         </article>
     </main>
 
-    <footer class="bg-dark pt-12 pb-8 border-t-4 border-primary mt-16">
-        <div class="max-w-4xl mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-start gap-8 mb-10">
-                <div>
-                    <span class="font-heading font-semibold text-surface block mb-2">Lisandro Cacciatore</span>
-                    <p class="text-muted text-sm max-w-xs">Sistemas de decisión aplicados al rendimiento deportivo.
-                        Rosario, Argentina.</p>
-                </div>
-                <div class="flex gap-10 text-sm">
-                    <div>
-                        <p class="text-[10px] font-mono uppercase tracking-wider text-muted mb-3">Sitio</p>
-                        <ul class="space-y-2">
-                            <li><a href="../index.html"
-                                    class="text-muted hover:text-surface transition-colors">Inicio</a></li>
-                            <li><a href="../blog.html" class="text-muted hover:text-surface transition-colors">Blog</a>
-                            </li>
-                            <li><a href="../contacto.html"
-                                    class="text-muted hover:text-surface transition-colors">Contacto</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <p class="text-[10px] font-mono uppercase tracking-wider text-muted mb-3">Recursos</p>
-                        <ul class="space-y-2">
-                            <li><a href="../autodiagnostico.html"
-                                    class="text-muted hover:text-surface transition-colors">Autodiagnóstico</a></li>
-                            <li><a href="../ironlog/demo.html"
-                                    class="text-muted hover:text-surface transition-colors">Simuladores</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="border-t border-slate-800 pt-6">
-                <p class="text-xs font-mono text-subtle">© 2026 Lisandro Cacciatore · Rosario, Argentina</p>
-            </div>
+    <footer class="bg-slate-950 border-t border-slate-800 py-12 px-6">
+        <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            <span class="text-lg font-bold tracking-tighter uppercase font-heading text-slate-200">Lisandro
+                Cacciatore<span class="text-cyan-500">_</span></span>
+            <div class="text-[10px] font-mono uppercase tracking-widest text-slate-600">© 2026 · Consultoría de Alto
+                Rendimiento</div>
         </div>
     </footer>
-
 </body>
 
 </html>
