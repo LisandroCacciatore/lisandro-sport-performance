@@ -1,102 +1,167 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Política de Privacidad | Lisandro Cacciatore</title>
-    <meta name="description" content="Política de privacidad del sitio. Información sobre uso de datos y formularios de contacto.">
-    <link rel="canonical" href="https://lisandrocacciatore.com/privacidad.html">
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;700&family=IBM+Plex+Sans:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="theme.js"></script>
-</head>
-<body class="bg-canvas text-body font-sans antialiased">
+<html lang="es" class="dark">
 
-    <nav class="sticky top-0 z-50 bg-canvas/95 backdrop-blur-sm border-b border-border">
-        <div class="max-w-7xl mx-auto px-6 h-16 flex justify-between items-center">
-            <a href="index.html" class="font-heading font-semibold text-lg text-ink flex items-center gap-1">
-                Lisandro Cacciatore <span class="text-primary font-mono font-bold">_</span>
-            </a>
-            <div class="hidden md:flex items-center gap-8">
-                <a href="index.html#metodo" class="text-sm font-sans text-muted hover:text-ink transition-colors">Método</a>
-                <a href="index.html#servicios" class="text-sm font-sans text-muted hover:text-ink transition-colors">Servicios</a>
-                <a href="blog.html" class="text-sm font-sans text-muted hover:text-ink transition-colors">Blog</a>
-                <span class="w-px h-4 bg-border"></span> 
-                <a href="ironlog/index.html" class="text-sm font-mono text-primary hover:underline">IronLog</a>
-                <a href="contacto.html" class="bg-primary hover:bg-primary-600 text-white text-sm font-medium px-5 py-2 rounded transition-colors">
-                    Solicitar Auditoría
-                </a>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Política de Privacidad | Lisandro Cacciatore</title>
+    <meta name="description"
+        content="Política de privacidad del sitio. Información sobre uso de datos y formularios de contacto.">
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script src="theme.js"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark transition-colors duration-300 antialiased">
+    <!-- Header & Navigation -->
+    <nav
+        class="sticky top-0 z-50 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center">
+                    <a class="text-xl font-extrabold text-text-light dark:text-white tracking-wider flex items-center gap-2"
+                        href="index.html">
+                        Lisandro<span class="text-primary">_</span>
+                    </a>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors text-sm font-semibold uppercase tracking-wide py-7"
+                        href="index.html">Inicio</a>
+                    <a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors text-sm font-semibold uppercase tracking-wide py-7"
+                        href="servicios.html">Servicios</a>
+                    <a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors text-sm font-semibold uppercase tracking-wide py-7"
+                        href="metodologia.html">Metodología</a>
+                    <a class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors text-sm font-semibold uppercase tracking-wide py-7"
+                        href="blog.html">Blog</a>
+                    <a class="text-primary font-bold hover:text-primary transition-colors text-sm font-semibold uppercase tracking-wide py-7"
+                        href="ironlog/index.html">IronLog</a>
+                </nav>
+                <div class="hidden md:flex items-center">
+                    <a class="border border-primary text-primary hover:bg-primary hover:text-white transition-all px-5 py-2 rounded font-semibold text-sm uppercase tracking-wide"
+                        href="contacto.html">
+                        Evaluación Gratuita
+                    </a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button class="text-text-light dark:text-white focus:outline-none">
+                        <span class="material-icons text-3xl">menu</span>
+                    </button>
+                </div>
             </div>
         </div>
     </nav>
 
     <main>
-        <section class="bg-surface py-16 border-b border-border">
-            <div class="max-w-3xl mx-auto px-6">
-                <h1 class="font-heading text-3xl font-bold text-ink">Política de Privacidad</h1>
+        <header
+            class="bg-surface-light dark:bg-surface-dark py-20 border-b border-gray-200 dark:border-gray-800 text-center">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-text-light dark:text-white">Política
+                    de Privacidad</h1>
             </div>
-        </section>
+            <!-- Background Decoration -->
+            <div
+                class="absolute top-0 right-0 w-64 h-64 bg-primary opacity-5 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none">
+            </div>
+        </header>
 
-        <section class="py-16 min-h-[50vh]">
-            <div class="max-w-3xl mx-auto px-6 space-y-10">
-                <div>
-                    <h2 class="font-heading text-xl font-bold text-ink mb-2">1. Información recopilada</h2>
-                    <p class="text-body text-sm leading-relaxed">
-                        Este sitio puede recopilar información personal a través del formulario de contacto (nombre, email y organización).
+        <section class="py-24 min-h-[50vh]">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+                <div
+                    class="bg-surface-light dark:bg-surface-dark p-8 md:p-10 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm relative overflow-hidden group">
+                    <div
+                        class="absolute top-0 left-0 w-1 h-full bg-primary/20 group-hover:bg-primary transition-colors">
+                    </div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="font-mono text-primary font-bold text-xl opacity-50">01</span>
+                        <h2 class="text-2xl font-bold text-text-light dark:text-white">Información recopilada</h2>
+                    </div>
+                    <p class="text-text-muted-light dark:text-text-muted-dark text-lg leading-relaxed pl-10">
+                        Este sitio puede recopilar información personal a través del formulario de contacto (nombre,
+                        email y organización).
                     </p>
                 </div>
-                <div>
-                    <h2 class="font-heading text-xl font-bold text-ink mb-2">2. Uso de la información</h2>
-                    <p class="text-body text-sm leading-relaxed">
-                        Los datos se utilizan únicamente para responder consultas comerciales o profesionales. No se venden ni comparten con terceros.
+
+                <div
+                    class="bg-surface-light dark:bg-surface-dark p-8 md:p-10 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm relative overflow-hidden group">
+                    <div
+                        class="absolute top-0 left-0 w-1 h-full bg-primary/20 group-hover:bg-primary transition-colors">
+                    </div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="font-mono text-primary font-bold text-xl opacity-50">02</span>
+                        <h2 class="text-2xl font-bold text-text-light dark:text-white">Uso de la información</h2>
+                    </div>
+                    <p class="text-text-muted-light dark:text-text-muted-dark text-lg leading-relaxed pl-10">
+                        Los datos se utilizan únicamente para responder consultas comerciales o profesionales. No se
+                        venden ni comparten con terceros.
                     </p>
                 </div>
-                <div>
-                    <h2 class="font-heading text-xl font-bold text-ink mb-2">3. Servicios de terceros</h2>
-                    <p class="text-body text-sm leading-relaxed">
-                        El formulario de contacto está gestionado por Formspree. Este servicio puede almacenar temporalmente la información con el único fin de reenviar el mensaje.
+
+                <div
+                    class="bg-surface-light dark:bg-surface-dark p-8 md:p-10 rounded-xl border border-gray-200 dark:border-gray-800 shadow-sm relative overflow-hidden group">
+                    <div
+                        class="absolute top-0 left-0 w-1 h-full bg-primary/20 group-hover:bg-primary transition-colors">
+                    </div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <span class="font-mono text-primary font-bold text-xl opacity-50">03</span>
+                        <h2 class="text-2xl font-bold text-text-light dark:text-white">Servicios de terceros</h2>
+                    </div>
+                    <p class="text-text-muted-light dark:text-text-muted-dark text-lg leading-relaxed pl-10">
+                        El formulario de contacto está gestionado por Formspree. Este servicio puede almacenar
+                        temporalmente la información con el único fin de reenviar el mensaje.
                     </p>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="bg-dark pt-16 pb-8 border-t-4 border-primary">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-                <div class="md:col-span-2">
-                    <span class="font-heading font-semibold text-lg text-surface block mb-4">Lisandro Cacciatore</span>
-                    <p class="text-muted text-sm leading-relaxed max-w-sm">
-                        Diseño de sistemas de decisión aplicados al rendimiento deportivo. Arquitectura de datos para staffs técnicos que operan bajo presión.
+    <!-- Footer -->
+    <footer class="bg-white dark:bg-surface-dark border-t border-gray-200 dark:border-gray-800 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <div>
+                    <span class="text-xl font-extrabold text-primary tracking-tight mb-4 block">Lisandro<span
+                            class="text-text-light dark:text-white">_</span></span>
+                    <p class="text-sm text-text-muted-light dark:text-text-muted-dark">
+                        Consultoría de Performance e Ingeniería de Datos Deportivos.<br />Rosario, Argentina.
                     </p>
                 </div>
                 <div>
-                    <h3 class="font-heading text-surface text-xs font-bold mb-4 uppercase tracking-widest">Ecosistema</h3>
-                    <ul class="space-y-3">
-                        <li><a href="blog.html" class="text-sm font-sans text-muted hover:text-surface transition-colors">Blog Técnico</a></li>
-                        <li><a href="ironlog/index.html" class="text-sm font-sans text-muted hover:text-surface transition-colors">IronLog (Piloto)</a></li>
-                        <li><a href="ironlog/tools.html" class="text-sm font-sans text-muted hover:text-surface transition-colors">Data Tools</a></li>
+                    <h4 class="font-semibold text-text-light dark:text-white mb-4">Secciones Rápidas</h4>
+                    <ul class="space-y-2 text-sm text-text-muted-light dark:text-text-muted-dark">
+                        <li><a href="servicios.html" class="hover:text-primary transition-colors">Servicios</a></li>
+                        <li><a href="metodologia.html" class="hover:text-primary transition-colors">Metodología</a></li>
+                        <li><a href="sobre-mi.html" class="hover:text-primary transition-colors">Manifiesto</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h3 class="font-heading text-surface text-xs font-bold mb-4 uppercase tracking-widest">Operaciones</h3>
-                    <ul class="space-y-3">
-                        <li><a href="contacto.html" class="text-sm font-sans text-muted hover:text-surface transition-colors">Solicitar Auditoría</a></li>
-                        <li><span class="text-sm font-sans text-subtle block">Rosario, Argentina</span></li>
-                        <li><span class="text-sm font-sans text-subtle block">Remoto LATAM / España</span></li>
-                    </ul>
+                    <h4 class="font-semibold text-text-light dark:text-white mb-4">Partner Systems</h4>
+                    <a class="inline-flex items-center text-primary font-semibold hover:underline"
+                        href="ironlog/index.html">
+                        Acceder a IronLog
+                        <span class="material-icons text-sm ml-1">open_in_new</span>
+                    </a>
                 </div>
             </div>
-            <div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <div class="text-xs font-mono text-subtle">
-                    © 2026 Lisandro Cacciatore. Todos los derechos reservados.
-                </div>
-                <div class="flex gap-6 text-xs font-sans text-subtle">
-                    <a href="privacidad.html" class="hover:text-muted transition-colors">Privacidad</a>
-                    <a href="sobre-mi.html" class="hover:text-muted transition-colors">Sobre mí</a>
+            <div
+                class="border-t border-gray-200 dark:border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-text-muted-light dark:text-text-muted-dark">
+                <p>© 2026 Lisandro Cacciatore. All rights reserved.</p>
+                <div class="mt-4 md:mt-0 space-x-4">
+                    <a href="privacidad.html" class="hover:text-primary transition-colors">Política de Privacidad</a>
                 </div>
             </div>
         </div>
     </footer>
 </body>
+
 </html>

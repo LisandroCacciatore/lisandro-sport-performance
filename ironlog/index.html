@@ -1,126 +1,180 @@
 ﻿<!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es" class="dark">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>IronLog | Instrumento de Gobernanza de Datos Deportivos</title>
     <meta name="description"
         content="IronLog no es una app de registro. Es el componente operativo de un sistema de Gobernanza de Datos. Decidí con criterio técnico.">
-    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <script src="../theme.js"></script>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap"
-        rel="stylesheet">
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0f172a;
-            color: #f8fafc;
-        }
-
-        .font-mono {
-            font-family: 'Fira Code', monospace;
-        }
-
-        .glass-card {
-            background: rgba(30, 41, 59, 0.4);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(51, 65, 85, 0.5);
         }
     </style>
 </head>
 
-<body class="bg-[#0f172a] text-slate-200 antialiased">
+<body
+    class="bg-background-light dark:bg-background-dark text-text-light dark:text-text-dark transition-colors duration-300 antialiased">
 
     <!-- Navbar -->
-    <nav class="sticky top-0 z-50 bg-[#0f172a]/80 backdrop-blur-md border-b border-slate-800">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="flex items-center gap-4">
-                <a href="../index.html" class="text-xs font-mono text-slate-500 hover:text-cyan-400 transition">←
-                    INICIO</a>
-                <span class="text-slate-800">|</span>
-                <a href="index.html" class="text-xl font-bold tracking-tighter uppercase">IronLog<span
-                        class="text-cyan-500">_</span></a>
-            </div>
-            <div class="hidden md:flex space-x-8 font-mono text-sm uppercase tracking-widest">
-                <a href="demo.html" class="hover:text-cyan-400 transition">Simuladores</a>
-                <a href="#early-access"
-                    class="px-4 py-2 border border-cyan-500 rounded text-cyan-400 hover:bg-cyan-500 hover:text-white transition">Lista
-                    de Espera</a>
+    <nav
+        class="sticky top-0 z-50 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center gap-4">
+                    <a href="../index.html"
+                        class="text-xs font-mono text-text-muted-light dark:text-text-muted-dark hover:text-primary transition-colors flex items-center gap-1">
+                        <span class="material-icons text-sm">arrow_back</span>
+                        INICIO
+                    </a>
+                    <span class="text-gray-300 dark:text-gray-700">|</span>
+                    <a href="index.html"
+                        class="text-xl font-extrabold tracking-wider uppercase text-text-light dark:text-white flex items-center gap-2">IronLog<span
+                            class="text-primary">_</span></a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="demo.html"
+                        class="font-mono text-sm uppercase tracking-widest text-text-muted-light dark:text-text-muted-dark hover:text-primary transition-colors">Simuladores</a>
+                    <a href="#early-access"
+                        class="px-5 py-2 border border-primary text-primary hover:bg-primary hover:text-white rounded transition-all tracking-widest uppercase text-xs font-bold">
+                        Lista de Espera
+                    </a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button class="text-text-light dark:text-white focus:outline-none">
+                        <span class="material-icons text-3xl">menu</span>
+                    </button>
+                </div>
             </div>
         </div>
     </nav>
 
     <main>
         <!-- Hero Section -->
-        <header class="relative pt-24 pb-32 overflow-hidden border-b border-slate-800/50">
-            <div class="max-w-4xl mx-auto px-6 relative z-10 text-center">
+        <header class="bg-surface-dark text-white pt-32 pb-40 relative overflow-hidden border-b border-gray-800">
+            <!-- Abstract Tech Background -->
+            <div class="absolute inset-0 opacity-20 pointer-events-none">
+                <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <pattern id="data-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                            <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" stroke-width="0.5"
+                                class="text-primary"></path>
+                            <circle cx="0" cy="0" r="1.5" fill="currentColor" class="text-primary-light"></circle>
+                        </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#data-grid)"></rect>
+                </svg>
+            </div>
+
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
                 <span
-                    class="inline-block py-1 px-3 rounded text-[10px] font-mono font-bold uppercase tracking-widest bg-cyan-900/20 border border-cyan-500/30 text-cyan-400 mb-8">
+                    class="inline-flex items-center gap-2 py-1.5 px-3 rounded-full text-xs font-mono font-bold uppercase tracking-widest bg-primary/10 border border-primary/30 text-primary-light mb-8 backdrop-blur-sm">
+                    <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
                     Instrumento Operativo · Versión 1.2
                 </span>
-                <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-8 tracking-tight">
-                    El registro es <span class="text-slate-500">historia.</span><br>
-                    La gobernanza es <span class="text-cyan-500">decisión.</span>
+                <h1 class="text-5xl md:text-6xl lg:text-8xl font-extrabold leading-tight mb-8 tracking-tight">
+                    El registro es <span
+                        class="text-gray-500 line-through decoration-primary decoration-4">historia.</span><br>
+                    La gobernanza es <span class="text-primary relative z-10">decisión.
+                        <span
+                            class="absolute bottom-2 left-0 w-full h-3 bg-primary/30 -z-10 transform -rotate-1"></span>
+                    </span>
                 </h1>
-                <p class="max-w-2xl mx-auto text-xl text-slate-400 mb-12 leading-relaxed">
-                    Dejá de usar planillas que nadie mira. IronLog es la herramienta que materializa la <strong class="text-white">Variable Crítica Validada</strong> en el campo, obligando a tu staff a decidir con un argumento técnico por delante.
+                <p class="max-w-2xl mx-auto text-xl text-gray-400 mb-12 leading-relaxed font-light">
+                    Dejá de usar planillas que nadie mira. IronLog es la herramienta que materializa la <strong
+                        class="text-white font-semibold">Variable Crítica Validada</strong> en el campo, obligando a tu
+                    staff a decidir con un argumento técnico por delante.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
                     <a href="demo.html"
-                        class="px-8 py-4 bg-cyan-600 hover:bg-cyan-500 text-white font-bold rounded transition-all uppercase tracking-widest text-xs shadow-xl shadow-blue-900/20">
-                        Explorar Simuladores Free →
+                        class="w-full sm:w-auto px-10 py-5 bg-primary hover:bg-primary-dark text-white font-bold rounded-lg transition-all uppercase tracking-widest text-xs shadow-lg shadow-primary/30 hover:shadow-xl hover:-translate-y-1 inline-flex items-center justify-center gap-2">
+                        Explorar Simuladores Free
+                        <span class="material-icons text-sm">rocket_launch</span>
                     </a>
                     <a href="#early-access"
-                        class="px-8 py-4 border border-slate-700 hover:border-slate-500 text-slate-300 font-bold rounded transition-all uppercase tracking-widest text-xs">
+                        class="w-full sm:w-auto px-10 py-5 border-2 border-gray-600 hover:border-gray-400 text-gray-300 font-bold rounded-lg transition-all uppercase tracking-widest text-xs inline-flex items-center justify-center gap-2">
                         Anotarme en el Piloto
                     </a>
                 </div>
             </div>
+
             <!-- Glow background -->
             <div
-                class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-blue-900/10 via-transparent to-transparent pointer-events-none">
+                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary rounded-full blur-[150px] opacity-10 pointer-events-none -z-10">
             </div>
         </header>
 
         <!-- Comparativa -->
-        <section class="py-24 max-w-7xl mx-auto px-6">
-            <div class="grid md:grid-cols-2 gap-px bg-slate-800 rounded-3xl overflow-hidden border border-slate-800">
-                <div class="bg-[#0f172a] p-12 lg:p-16">
-                    <span class="text-[10px] font-mono font-bold text-red-500 uppercase tracking-widest mb-6 block">Sin
-                        Gobernanza</span>
-                    <h3 class="text-2xl font-bold mb-8 italic text-slate-300">"Lo vi raro hoy..."</h3>
-                    <ul class="space-y-6 text-sm text-slate-500 font-mono">
-                        <li class="flex items-start gap-3">
-                            <span class="text-red-900">/</span>
-                            <span>El atleta se estanca y no hay una alerta previa.</span>
+        <section class="py-32 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-extrabold text-text-light dark:text-white mb-4">El Cambio de Paradigma</h2>
+                <div class="w-24 h-1 bg-primary mx-auto rounded-full"></div>
+            </div>
+
+            <div
+                class="grid md:grid-cols-2 gap-4 lg:gap-8 bg-surface-light dark:bg-surface-dark rounded-3xl overflow-hidden border border-gray-200 dark:border-gray-800 shadow-2xl relative">
+                <!-- Divider -->
+                <div
+                    class="hidden md:block absolute top-0 bottom-0 left-1/2 w-px bg-gray-200 dark:bg-gray-800 -translate-x-1/2">
+                </div>
+
+                <div class="bg-gray-50 dark:bg-gray-900/50 p-10 lg:p-16 relative">
+                    <div
+                        class="inline-flex items-center gap-2 text-xs font-mono font-bold text-red-500 bg-red-500/10 border border-red-500/20 px-3 py-1 rounded-full uppercase tracking-widest mb-8">
+                        <span class="material-icons text-[14px]">cancel</span>
+                        Sin Gobernanza
+                    </div>
+                    <h3 class="text-2xl font-bold mb-10 italic text-text-muted-light dark:text-text-muted-dark">"Lo vi
+                        raro hoy..."</h3>
+                    <ul class="space-y-8 text-sm text-text-muted-light dark:text-text-muted-dark font-mono">
+                        <li class="flex items-start gap-4">
+                            <span class="material-icons text-red-500 mt-0.5 opacity-70">close</span>
+                            <span class="leading-relaxed">El atleta se estanca y no hay una alerta previa.</span>
                         </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-red-900">/</span>
-                            <span>Las decisiones de carga dependen del humor del staff.</span>
+                        <li class="flex items-start gap-4">
+                            <span class="material-icons text-red-500 mt-0.5 opacity-70">close</span>
+                            <span class="leading-relaxed">Las decisiones de carga dependen del humor del staff.</span>
                         </li>
-                        <li class="flex items-start gap-3">
-                            <span class="text-red-900">/</span>
-                            <span>Faltan argumentos técnicos en la revisión semanal.</span>
+                        <li class="flex items-start gap-4">
+                            <span class="material-icons text-red-500 mt-0.5 opacity-70">close</span>
+                            <span class="leading-relaxed">Faltan argumentos técnicos en la revisión semanal.</span>
                         </li>
                     </ul>
                 </div>
-                <div class="bg-slate-900/50 p-12 lg:p-16">
-                    <span class="text-[10px] font-mono font-bold text-cyan-400 uppercase tracking-widest mb-6 block">Con
-                        IronLog</span>
-                    <h3 class="text-2xl font-bold mb-8 text-white">"La VCV indica un desvío del 3%."</h3>
-                    <ul class="space-y-6 text-sm text-slate-300 font-mono">
-                        <li class="flex items-start gap-3 text-cyan-400">
-                            <span>/</span>
-                            <span class="text-slate-300">Señal clara antes de que el estancamiento ocurra.</span>
+
+                <div class="bg-background-light dark:bg-surface-dark p-10 lg:p-16 relative">
+                    <div class="absolute inset-0 bg-primary opacity-[0.02] pointer-events-none"></div>
+                    <div
+                        class="inline-flex items-center gap-2 text-xs font-mono font-bold text-primary bg-primary/10 border border-primary/20 px-3 py-1 rounded-full uppercase tracking-widest mb-8 relative z-10">
+                        <span class="material-icons text-[14px]">check_circle</span>
+                        Con IronLog
+                    </div>
+                    <h3 class="text-2xl font-bold mb-10 text-text-light dark:text-white relative z-10">"La VCV indica un
+                        desvío del 3%."</h3>
+                    <ul class="space-y-8 text-sm text-text-light dark:text-text-dark font-mono relative z-10">
+                        <li class="flex items-start gap-4">
+                            <span class="material-icons text-primary mt-0.5">done</span>
+                            <span class="leading-relaxed font-semibold">Señal clara antes de que el estancamiento
+                                ocurra.</span>
                         </li>
-                        <li class="flex items-start gap-3 text-cyan-400">
-                            <span>/</span>
-                            <span class="text-slate-300">Cada ajuste tiene un respaldo IF → THEN automático.</span>
+                        <li class="flex items-start gap-4">
+                            <span class="material-icons text-primary mt-0.5">done</span>
+                            <span class="leading-relaxed font-semibold">Cada ajuste tiene un respaldo IF → THEN
+                                automático.</span>
                         </li>
-                        <li class="flex items-start gap-3 text-cyan-400">
-                            <span>/</span>
-                            <span class="text-slate-300">Criterio unificado: el staff habla el mismo idioma.</span>
+                        <li class="flex items-start gap-4">
+                            <span class="material-icons text-primary mt-0.5">done</span>
+                            <span class="leading-relaxed font-semibold">Criterio unificado: el staff habla el mismo
+                                idioma.</span>
                         </li>
                     </ul>
                 </div>
@@ -128,65 +182,127 @@
         </section>
 
         <!-- VCV Focus -->
-        <section class="py-24 border-t border-slate-800/50 bg-slate-900/20">
-            <div class="max-w-4xl mx-auto px-6 text-center">
-                <h2 class="text-3xl md:text-5xl font-bold mb-8 tracking-tight">Centrado en la <span
-                        class="text-cyan-500">Variable Crítica.</span></h2>
-                <p class="text-slate-400 text-lg leading-relaxed mb-16">
-                    IronLog no es un dashboard infinito. Está diseñado para seguir <strong class="text-white">UNA</strong> cosa: la variable que realmente predice el éxito en esta etapa del proceso.
-                </p>
+        <section class="py-32 bg-gray-50 dark:bg-black/20 border-y border-gray-200 dark:border-gray-800">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div class="max-w-4xl mx-auto mb-20">
+                    <h2 class="text-4xl md:text-5xl font-extrabold mb-8 tracking-tight text-text-light dark:text-white">
+                        Centrado en la <span class="text-primary">Variable Crítica.</span></h2>
+                    <p class="text-text-muted-light dark:text-text-muted-dark text-xl leading-relaxed font-light">
+                        IronLog no es un dashboard infinito. Está diseñado para seguir <strong
+                            class="text-text-light dark:text-white font-bold px-1 mx-1 bg-gray-200 dark:bg-gray-800 rounded">UNA</strong>
+                        cosa: la variable que realmente predice el éxito en esta etapa del proceso.
+                    </p>
+                </div>
 
                 <div class="grid md:grid-cols-3 gap-8 text-left">
-                    <div class="p-8 border border-slate-800 rounded-2xl bg-[#0f172a]">
-                        <div class="text-cyan-400 mb-6 font-mono text-xs tracking-widest uppercase">01 / CAPTURA</div>
-                        <h4 class="text-white font-bold mb-4">Registro en 10 seg.</h4>
-                        <p class="text-slate-500 text-sm leading-relaxed">Eliminamos la fricción. Si el registro tarda
-                            más que un cambio de disco, no sirve.</p>
+                    <div
+                        class="p-10 border border-gray-200 dark:border-gray-800 rounded-2xl bg-surface-light dark:bg-surface-dark shadow-sm hover:shadow-lg hover:border-primary/40 transition-all group relative overflow-hidden">
+                        <div
+                            class="absolute -right-10 -bottom-10 w-32 h-32 bg-primary/10 rounded-full blur-2xl group-hover:bg-primary/20 transition-colors">
+                        </div>
+                        <div class="flex items-center gap-3 mb-6">
+                            <div
+                                class="w-10 h-10 rounded border border-gray-200 dark:border-gray-700 bg-background-light dark:bg-background-dark flex items-center justify-center font-mono text-xs font-bold text-primary shadow-sm">
+                                01</div>
+                            <div
+                                class="text-text-muted-light dark:text-text-muted-dark font-mono text-xs tracking-widest uppercase font-semibold">
+                                Captura</div>
+                        </div>
+                        <h4 class="text-xl text-text-light dark:text-white font-bold mb-4">Registro en 10 seg.</h4>
+                        <p class="text-text-muted-light dark:text-text-muted-dark text-sm leading-relaxed">Eliminamos la
+                            fricción. Si el registro tarda más que un cambio de disco, no sirve.</p>
                     </div>
-                    <div class="p-8 border border-slate-800 rounded-2xl bg-[#0f172a]">
-                        <div class="text-cyan-400 mb-6 font-mono text-xs tracking-widest uppercase">02 / FILTRO</div>
-                        <h4 class="text-white font-bold mb-4">Señal sobre Ruido</h4>
-                        <p class="text-slate-500 text-sm leading-relaxed">Filtramos el 90% de los datos irrelevantes
-                            para mostrar el único indicador de éxito.</p>
+
+                    <div
+                        class="p-10 border border-gray-200 dark:border-gray-800 rounded-2xl bg-surface-light dark:bg-surface-dark shadow-sm hover:shadow-lg hover:border-primary/40 transition-all group relative overflow-hidden transform md:-translate-y-4">
+                        <div
+                            class="absolute -right-10 -bottom-10 w-32 h-32 bg-primary/10 rounded-full blur-2xl group-hover:bg-primary/20 transition-colors">
+                        </div>
+                        <div class="flex items-center gap-3 mb-6">
+                            <div
+                                class="w-10 h-10 rounded border border-gray-200 dark:border-gray-700 bg-background-light dark:bg-background-dark flex items-center justify-center font-mono text-xs font-bold text-primary shadow-sm">
+                                02</div>
+                            <div
+                                class="text-text-muted-light dark:text-text-muted-dark font-mono text-xs tracking-widest uppercase font-semibold">
+                                Filtro</div>
+                        </div>
+                        <h4 class="text-xl text-text-light dark:text-white font-bold mb-4">Señal sobre Ruido</h4>
+                        <p class="text-text-muted-light dark:text-text-muted-dark text-sm leading-relaxed">Filtramos el
+                            90% de los datos irrelevantes para mostrar el único indicador de éxito.</p>
                     </div>
-                    <div class="p-8 border border-slate-800 rounded-2xl bg-[#0f172a]">
-                        <div class="text-cyan-400 mb-6 font-mono text-xs tracking-widest uppercase">03 / ACCIÓN</div>
-                        <h4 class="text-white font-bold mb-4">Alerta Temprana</h4>
-                        <p class="text-slate-500 text-sm leading-relaxed">Si la VCV se desvía de la tendencia, el
-                            sistema dispara una regla de ajuste.</p>
+
+                    <div
+                        class="p-10 border border-gray-200 dark:border-gray-800 rounded-2xl bg-surface-light dark:bg-surface-dark shadow-sm hover:shadow-lg hover:border-primary/40 transition-all group relative overflow-hidden">
+                        <div
+                            class="absolute -right-10 -bottom-10 w-32 h-32 bg-primary/10 rounded-full blur-2xl group-hover:bg-primary/20 transition-colors">
+                        </div>
+                        <div class="flex items-center gap-3 mb-6">
+                            <div
+                                class="w-10 h-10 rounded border border-gray-200 dark:border-gray-700 bg-background-light dark:bg-background-dark flex items-center justify-center font-mono text-xs font-bold text-primary shadow-sm">
+                                03</div>
+                            <div
+                                class="text-text-muted-light dark:text-text-muted-dark font-mono text-xs tracking-widest uppercase font-semibold">
+                                Acción</div>
+                        </div>
+                        <h4 class="text-xl text-text-light dark:text-white font-bold mb-4">Alerta Temprana</h4>
+                        <p class="text-text-muted-light dark:text-text-muted-dark text-sm leading-relaxed">Si la VCV se
+                            desvía de la tendencia, el sistema dispara una regla de ajuste IF → THEN.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- CTA acceso anticipado -->
-        <section id="early-access" class="py-32">
-            <div class="max-w-xl mx-auto px-6 text-center">
-                <span class="inline-block font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-cyan-400 mb-6 px-3 py-1 bg-cyan-900/10 border border-cyan-800/30 rounded">
+        <section id="early-access" class="py-32 relative overflow-hidden">
+            <div class="absolute inset-0 bg-primary opacity-[0.03] dark:opacity-[0.05] pointer-events-none"></div>
+
+            <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                <span
+                    class="inline-flex items-center gap-2 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-primary bg-primary/10 border border-primary/20 rounded px-4 py-1.5 mb-8">
+                    <span class="material-icons text-[14px]">event_available</span>
                     Piloto Q2 · Plazas Limitadas
                 </span>
-                <h2 class="text-3xl font-bold mb-4">Lista de Espera <span class="text-cyan-500">Piloto</span></h2>
-                <p class="text-slate-400 mb-4 leading-relaxed">Seleccionamos 5 organizaciones para el despliegue del Q2. Si querés ser parte del piloto, escribinos directamente y evaluamos el fit técnico.</p>
-                <p class="font-mono text-xs text-slate-600 uppercase tracking-widest mb-12">Sin compromiso. Con argumento técnico claro al terminar la primera sesión.</p>
+                <h2 class="text-4xl md:text-5xl font-extrabold mb-6 text-text-light dark:text-white">Lista de Espera
+                    <span class="text-primary">Piloto</span></h2>
+                <p class="text-text-muted-light dark:text-text-muted-dark mb-8 leading-relaxed text-lg">Seleccionamos 5
+                    organizaciones para el despliegue del Q2. Si querés ser parte del piloto, escribinos directamente y
+                    evaluamos el fit técnico.</p>
+                <div
+                    class="bg-surface-light dark:bg-surface-dark border border-gray-200 dark:border-gray-800 rounded-lg p-4 mb-12 shadow-sm">
+                    <p
+                        class="font-mono text-xs text-text-muted-light dark:text-text-muted-dark uppercase tracking-widest font-semibold">
+                        Sin compromiso. Con argumento técnico claro al terminar la primera sesión.</p>
+                </div>
                 <a href="../contacto.html"
-                    class="inline-block px-12 py-5 bg-cyan-600 hover:bg-cyan-500 text-white font-bold rounded-lg transition-all shadow-xl shadow-blue-900/20 uppercase tracking-widest text-xs">
-                    Solicitar Acceso Anticipado →
+                    class="inline-flex justify-center items-center gap-3 px-10 py-5 bg-primary hover:bg-primary-dark text-white font-bold rounded-lg transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 uppercase tracking-widest text-xs w-full sm:w-auto">
+                    Solicitar Acceso Anticipado
+                    <span class="material-icons text-sm">rocket_launch</span>
                 </a>
+            </div>
+
+            <!-- Circular decoration -->
+            <div
+                class="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-64 bg-primary blur-[100px] rounded-[100%] opacity-10 translate-y-1/2 pointer-events-none -z-10">
             </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-slate-900 border-t border-slate-800 py-12 px-6">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-            <div class="flex flex-col gap-2">
-                <span class="text-xl font-bold tracking-tighter uppercase">IronLog<span
-                        class="text-cyan-500">_</span></span>
-                <p class="text-slate-500 text-sm">Gobernanza de Datos · Lisandro Cacciatore</p>
-            </div>
-            <div class="flex space-x-8 text-xs font-mono uppercase tracking-widest text-slate-700">
-                <a href="../privacidad.html" class="hover:text-white transition">Privacidad</a>
-                <span>© 2026</span>
+    <footer class="bg-white dark:bg-surface-dark border-t border-gray-200 dark:border-gray-800 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8 mb-8">
+                <div class="flex flex-col items-center md:items-start gap-2 text-center md:text-left">
+                    <span
+                        class="text-2xl font-extrabold tracking-wider uppercase text-text-light dark:text-white flex items-center gap-1">IronLog<span
+                            class="text-primary">_</span></span>
+                    <p class="text-text-muted-light dark:text-text-muted-dark text-sm">Gobernanza de Datos · Lisandro
+                        Cacciatore</p>
+                </div>
+                <div
+                    class="flex items-center space-x-6 text-xs font-mono uppercase tracking-widest text-text-muted-light dark:text-text-muted-dark font-semibold">
+                    <a href="../privacidad.html" class="hover:text-primary transition-colors">Privacidad</a>
+                    <span>© 2026</span>
+                </div>
             </div>
         </div>
     </footer>

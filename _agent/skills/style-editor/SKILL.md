@@ -20,7 +20,7 @@ description: >
 
 Skill de mantenimiento y extensión del sistema de diseño de lisandrocacciatore.com.
 Todo componente nuevo o modificado debe ser indistinguible del resto del sitio
-en tono visual: industrial, técnico, sin decoración innecesaria.
+en tono visual: "High-Performance Corporativo", enfocado en altos contrastes, profundidad visual, y un diseño moderno e impactante.
 
 ---
 
@@ -97,17 +97,16 @@ Antes de crear cualquier sección o página, preguntar:
 
 ## Principios del sistema "Criterio Técnico"
 
-### 1. Sobriedad industrial
-El sitio comunica que su propietario trabaja con datos y criterio.
-Cada decisión visual debe reforzar eso: sin gradientes decorativos,
-sin ilustraciones, sin bordes redondeados grandes, sin sombras dramáticas.
+### 1. High-Performance Corporativo
+El sitio comunica que su propietario trabaja con datos y criterio en el nivel más élite.
+Cada decisión visual debe reforzar un aura premium, técnica, fluida y de alta gama: uso intencionado de gradientes,
+profundidad mediante glassmorphism y sombras, y bordes redondeados y amigables.
 
 **Reglas absolutas:**
-- ❌ Nunca usar `rounded-2xl` o mayor. Máximo `rounded` (4px) o `rounded-md` (6px).
-- ❌ Nunca usar fondos con gradiente decorativo (`bg-gradient-*`)
-- ❌ Nunca usar sombras tipo `shadow-xl` o `shadow-2xl`
-- ✅ Usar `shadow-structural` (sombra sutil, definida en theme.js)
-- ✅ Bordes siempre `border-border` (token semántico, no color hardcodeado)
+- ✅ Usar bordes curvos y amigables (`rounded-lg`, `rounded-xl`, `rounded-2xl`, o `rounded-full`).
+- ✅ Usar fondos con gradiente sutil y `backdrop-blur` para enfatizar profundidad e interactividad (`bg-gradient-to-*`, `bg-primary/5`).
+- ✅ Usar sombras múltiples de tailwind para dar sensación de flote (`shadow-lg`, `shadow-xl`, `shadow-2xl`).
+- ✅ Usar micro-interacciones interactivas, como hover states que agranden, iluminen o desplacen componentes (`hover:-translate-y-1 hover:shadow-xl transition-all`).
 
 ### 2. Jerarquía de contenido, no de decoración
 La jerarquía visual se logra con tipografía y espacio, no con colores o efectos.
@@ -146,7 +145,7 @@ Ver `resources/token-reference.md` para la lista completa.
 | `text-border` | Texto de separadores o divisores decorativos |
 | `border-border` | Borde estándar de todos los componentes |
 | `shadow-structural` | Sombra estándar de cards y paneles |
-| `font-heading` | IBM Plex Sans — títulos y headings |
+| `font-heading` | Inter — títulos y headings (font-bold o font-extrabold) |
 | `font-mono` | Fira Code — datos, métricas, código, badges técnicos |
 | `font-sans` | Inter — cuerpo de texto |
 
@@ -156,7 +155,7 @@ Ver `resources/token-reference.md` para la lista completa.
 
 | Contexto | Fuente | Clase |
 |---|---|---|
-| Títulos H1–H3 | IBM Plex Sans | `font-heading font-bold` |
+| Títulos H1–H3 | Inter | `font-sans font-extrabold` o `font-bold` |
 | Cuerpo de texto, párrafos | Inter | `font-sans` (default) |
 | Datos numéricos, métricas, pesos, porcentajes | Fira Code | `font-mono font-bold` |
 | Labels técnicos, badges, etiquetas de estado | Fira Code | `font-mono text-[10px] uppercase tracking-widest` |
@@ -185,13 +184,9 @@ para comunicar estado de validación de carga o estado de sistema.
 Antes de escribir cualquier clase, verificar que ninguna de estas aparezca:
 
 ```
-❌ rounded-2xl, rounded-3xl, rounded-full (en contenedores)
-❌ bg-gradient-*
-❌ shadow-xl, shadow-2xl
-❌ text-[color] hardcodeado fuera de los tokens (ej: text-blue-600, text-gray-500)
-❌ bg-[color] hardcodeado fuera de los tokens (ej: bg-gray-100, bg-blue-50)
-❌ font-extrabold en cuerpo de texto (solo en logos/marca)
-❌ animate-* sin propósito funcional
+❌ text-[color] hardcodeado en contra del palette configurado (siempre usar variables del theme.js o base tailwind).
+❌ bg-[color] hardcodeado que no encaje con el esquema dark/light fluidamente.
+❌ animate-* con propósitos caóticos (usar pulsos sutiles o rebotes extremadamente lentos, ej: animate-[bounce_4s_infinite]).
 ❌ Iconos decorativos emoji en cantidad (máximo 1 por sección, solo si hay precedente en el sitio)
 ```
 
