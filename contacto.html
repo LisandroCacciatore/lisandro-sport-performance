@@ -87,14 +87,25 @@
         </div>
 
         <div
-            class="bg-surface-light dark:bg-surface-dark p-8 md:p-12 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-xl relative overflow-hidden">
-            <!-- Background Decoration -->
-            <div
-                class="absolute top-0 right-0 w-64 h-64 bg-primary opacity-5 rounded-full blur-3xl -mr-32 -mt-32 pointer-events-none">
+            class="grid md:grid-cols-5 gap-8 bg-surface-light dark:bg-surface-dark p-8 md:p-12 rounded-2xl border border-gray-200 dark:border-gray-800 shadow-xl relative overflow-hidden">
+            <!-- Image Left Column -->
+            <div class="md:col-span-2 relative min-h-[300px] rounded-xl overflow-hidden hidden md:block group">
+                <img src="img/lisandro-office.png" alt="Lisandro Office"
+                    class="absolute inset-0 w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 opacity-90 mix-blend-luminosity group-hover:mix-blend-normal">
+                <div
+                    class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/20 to-transparent opacity-90">
+                </div>
+                <div class="absolute bottom-8 left-6 right-6 z-10">
+                    <p class="font-mono text-primary font-bold text-xs uppercase tracking-widest mb-2 text-shadow-sm">
+                        Diagnóstico Directo</p>
+                    <p class="text-sm text-gray-200 leading-relaxed text-shadow-sm">Construyamos la arquitectura táctica
+                        que el equipo necesita.</p>
+                </div>
             </div>
 
+            <!-- Form Right Column -->
             <form id="contactForm" action="https://formspree.io/f/REEMPLAZAR_CON_TU_ID" method="POST"
-                class="space-y-8 relative z-10">
+                class="md:col-span-3 space-y-8 relative z-10">
 
                 <!-- Honeypot anti-spam (oculto) -->
                 <input type="text" name="_gotcha" style="display:none">
