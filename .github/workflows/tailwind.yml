@@ -1,0 +1,25 @@
+name: CSS
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  verificar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Instalar dependencias
+        run: npm install --no-audit --no-fund
+      - name: Construir el CSS
+        run: npm run build:css
+      - name: Verificar que assets/tailwind.css este al dia
+        run: |
+          if ! git diff --exit-code -- assets/tailwind.css; then
+            echo "::error::assets/tailwind.css no coincide con el build. Correr 'npm run build:css' y commitear."
+            exit 1
+          fi
